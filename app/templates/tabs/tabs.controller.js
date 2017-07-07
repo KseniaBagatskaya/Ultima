@@ -16,8 +16,9 @@
         
         // if state changed relect active tab
         $rootScope.$on('$stateChangeStart',
-        function(event, toState){ 
+        (event, toState, toParams, fromState, fromParams) => {
             vm.current_controller = toState.controller;
+            vm.params_id = fromParams.id;
         })
 
     }

@@ -1,0 +1,22 @@
+<div class="b-tabs__container">
+    <div class="b-form__title-dark b-form__title">Objektdaten</div>
+    <div class="second_form clearfix">
+
+        <div class="b-form__block b-banking clearfix">
+            <span class="b-form__input">
+                <label for="darl">Wofür soll das Darlehen verwendet werden?</label>
+                <select ng-model="vm.immobilieObject.wofur" id="darl">
+                    <option value="Neubau (eigenes Bauvorhaben)">Neubau (eigenes Bauvorhaben)</option>
+                    <option value="Kauf" selected="selected">Kauf</option>
+                    <option value="Kauf (Neubau vom Bauträger)">Kauf (Neubau vom Bauträger)</option>
+                    <option value="Modernisierung (Umbau / Anbau)">Modernisierung (Umbau / Anbau)</option>
+                    <option value="Anschlussfinanzierung">Anschlussfinanzierung</option>
+                    <option value="Kapitalbeschaffung">Kapitalbeschaffung</option>
+                </select>
+            </span>
+        </div>
+
+        <basisangaben data-parent="{{vm.immobilieObject.basisangaben}}">
+
+    </div>
+</div>

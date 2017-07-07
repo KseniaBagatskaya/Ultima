@@ -2,18 +2,18 @@
 
     'use strict';
 
-    angular.module('directive.antragsteller', [])
-        .directive('antragsteller', antragsteller);
+    angular.module('directive.basisangaben', [])
+        .directive('basisangaben', basisangaben);
 
 
-    function antragsteller() {
+    function basisangaben() {
         return {
             restrict: 'E',
             scope: {
                 parent: '@',
             },
-            templateUrl: 'components/antragsteller/antragsteller.html',
-            controller: 'AntragstellerDirectiveController',
+            templateUrl: 'components/basisangaben/basisangaben.html',
+            controller: 'BasisangabenDirectiveController',
             controllerAs: 'vm',
             link: function (scope, elem, attrs) {
             }

@@ -88,7 +88,7 @@
                 // }
             })
             .state('app.tabs.immobilie', {
-                url: "/immobilie",
+                url: "/immobilie/:id",
                 templateUrl: 'templates/immobilie/immobilie.html',
                 controller: 'ImmobilieController',
                 controllerAs: 'vm',
@@ -105,7 +105,7 @@
                 // }
             })
             .state('app.tabs.kreditdaten', {
-                url: "/kreditdaten",
+                url: "/kreditdaten/:id",
                 templateUrl: 'templates/kreditdaten/kreditdaten.html',
                 controller: 'KreditdatenController',
                 controllerAs: 'vm',
@@ -122,7 +122,7 @@
                 // }
             })
             .state('app.tabs.dokumente', {
-                url: "/dokumente",
+                url: "/dokumente/:id",
                 templateUrl: 'templates/dokumente/dokumente.html',
                 controller: 'DokumenteController',
                 controllerAs: 'vm',
