@@ -10,13 +10,13 @@
         return {
             restrict: 'E',
             scope: {
-                parent: '@',
+                parent: '=',
             },
             templateUrl: 'components/antragsteller/antragsteller.html',
             controller: 'AntragstellerDirectiveController',
             controllerAs: 'vm',
             link: function (scope, elem, attrs) {
-                console.log(controllers);
+                console.log(scope);
             }
         };
     }
