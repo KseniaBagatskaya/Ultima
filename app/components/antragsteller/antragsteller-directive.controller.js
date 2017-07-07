@@ -10,8 +10,18 @@
 
     function AntragstellerDirectiveController($scope) {
         let vm = this;
-        vm.parent= $scope.parent;
-        console.log($scope);
+        vm.data = $scope.parent;
+        vm.customAddress = customAddress;
+        if (vm.data.number === '1') {
+            vm.show_address = true;
+        } else {
+            vm.show_address = false;
+        }
+
+
+        function customAddress() {
+            vm.show_address = true;
+        }
     }
 
 })();

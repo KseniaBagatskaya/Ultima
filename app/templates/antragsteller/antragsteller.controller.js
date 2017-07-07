@@ -11,8 +11,6 @@
     function AntragstellerController($scope) {
         let vm = this;
         vm.submit = submit;
-
-
         vm.antragsteller1 = {
             number: '1'
         };
@@ -23,6 +21,7 @@
 
         function submit() {
             console.log(vm.antragsteller1);
+            console.log(vm.antragsteller2);
         }
     }
 

@@ -2,116 +2,130 @@
     <div class="b-form__group">
         <div class="b-form__col b-form__inline">
                                 <span class="b-form__radio">
-                                    <input name="sex2" id="herr2" ng-checked="vm.data.antragsteller2.sex == 1"
-                                           type="radio" ng-click="vm.data.antragsteller2.sex = 1">
+                                    <input name="sex2" id="herr2" ng-checked="vm.data.sex == 1"
+                                           type="radio" ng-click="vm.data.sex = 1">
                                     <label for="herr2">Herr</label>
                                 </span>
             <span class="b-form__radio">
-                                    <input name="sex2" id="frau2" ng-checked="vm.data.antragsteller2.sex == 2"
-                                           type="radio" ng-click="vm.data.antragsteller2.sex = 2">
+                                    <input name="sex2" id="frau2" ng-checked="vm.data.sex == 2"
+                                           type="radio" ng-click="vm.data.sex = 2">
                                     <label for="frau2">Frau</label>
                                 </span>
             <span class="b-form__checkbox">
                                     <input name="prefix" id="prof" type="checkbox"
-                                           ng-model="vm.data.antragsteller2.prof">
+                                           ng-model="vm.data.prof">
                                     <label for="prof">Prof.</label>
                                 </span>
             <span class="b-form__checkbox">
-                                    <input name="prefix" id="dr" type="checkbox" ng-model="vm.data.antragsteller2.dr">
+                                    <input name="prefix" id="dr" type="checkbox" ng-model="vm.data.dr">
                                     <label for="dr">Dr.</label>
                                 </span>
         </div>
         <div class="b-form__half-col b-form__half-col--first">
                                 <span class="b-form__input">
                                     <label for="first_name">Vorname</label>
-                                    <input id="first_name" type="text" ng-model="parent.vorname">
+                                    <input id="first_name" type="text" ng-model="vm.data.vorname">
                                 </span>
             <span class="b-form__phone clearfix">
-                                    <label for="code">Telefon</label>
-                                    <input class="b-form__phone-code" id="code2" type="text"
-                                           ng-model="vm.data.antragsteller2.code">
+                                    <label for="code1">Telefon</label>
+                                    <input class="b-form__phone-code" id="code1" type="text"
+                                           ng-model="vm.data.code">
                                     <span> - </span>
-                                    <input class="b-form__phone-tel" id="phone2" type="text"
-                                           ng-model="vm.data.antragsteller2.phone">
+                                    <input class="b-form__phone-tel" id="phone" type="text"
+                                           ng-model="vm.data.phone">
                                 </span>
             <span class="b-form__input">
-                                    <label for="date2">Geburtsdatum</label>
-                                    <input id="date2" type="text" ng-model="vm.data.antragsteller2.date">
+                                    <label for="date_birthd">Geburtsdatum</label>
+                                    <input id="date_birthd" type="text" ng-model="vm.data.date_birthd">
                                 </span>
         </div>
         <div class="b-form__half-col b-form__half-col--last">
                                 <span class="b-form__input">
-                                    <label for="second_name2">Nachname</label>
-                                    <input id="second_name2" type="text" ng-model="vm.data.antragsteller2.second_name">
+                                    <label for="second_name">Nachname</label>
+                                    <input id="second_name" type="text" ng-model="vm.data.second_name">
                                 </span>
             <span class="b-form__input">
-                                    <label for="email2">E-Mail</label>
-                                    <input id="email2" type="email" ng-model="vm.data.antragsteller2.email">
+                                    <label for="email">E-Mail</label>
+                                    <input id="email" type="email" ng-model="vm.data.email">
                                 </span>
             <span class="b-form__input">
-                                    <label for="comment2">weitere Kontaktmöglichkeiten</label>
-                                    <textarea id="comment2" ng-model="vm.data.antragsteller2.comment"></textarea>
+                                    <label for="comment">weitere Kontaktmöglichkeiten</label>
+                                    <textarea id="comment" ng-model="vm.data.comment"></textarea>
                                 </span>
         </div>
     </div>
+
+    <!--ADDRESS PART START-->
+
     <div class="b-form__group b-form__group--same-height">
-                            <span ng-hide="vm.data.antragsteller2.show_address" class="b-form__input">
+
+        <!--SHOW ADDRESS BUTTON-->
+        <span ng-hide="vm.show_address" class="b-form__input">
                                 <label>&nbsp;</label>
                                 <div class="btn btn--light"
                                      ng-click="vm.customAddress()">Abweichende Anschrift erfassen</div>
                             </span>
-        <div ng-show="vm.data.antragsteller2.show_address"
+
+
+        <div ng-if="vm.show_address"
              class="b-form__group b-form__group--same-height" style="border-bottom: none;">
             <div class="b-form__half-col b-form__half-col--first">
                                 <span class="b-form__address clearfix">
                                     <span class="b-form__input b-form__address-long">
                                         <label for="street_name">Straße</label>
                                         <input id="street_name" type="text"
-                                               ng-model="vm.data.antragsteller2.street_name">
+                                               ng-model="vm.data.street">
                                     </span>
                                     <span class="b-form__input b-form__address-short">
                                         <label for="street_numb">Nr.</label>
                                         <input id="street_numb" type="text"
-                                               ng-model="vm.data.antragsteller2.street_numb">
+                                               ng-model="vm.data.house">
                                     </span>
                                 </span>
                 <span class="b-form__input">
                                     <label for="seit">Wohnhaft seit</label>
-                                    <input id="seit" type="text" ng-model="vm.data.antragsteller2.seit">
+                                    <input id="seit" type="text" ng-model="vm.data.seit">
                                 </span>
             </div>
+
             <div class="b-form__half-col b-form__half-col--last">
                                 <span class="b-form__address clearfix">
                                     <span class="b-form__input b-form__address-short">
                                         <label for="plz">PLZ</label>
-                                        <input id="plz" type="text" ng-model="vm.data.antragsteller2.plz">
+                                        <input id="plz" type="text" ng-model="vm.data.plz">
                                     </span>
                                     <span class="b-form__input b-form__address-long">
                                         <label for="ort">Ort</label>
-                                        <input id="ort" type="text" ng-model="vm.data.antragsteller2.ort">
+                                        <input id="ort" type="text" ng-model="vm.data.ort">
                                     </span>
                                 </span>
             </div>
+
         </div>
     </div>
+    <!--ADDRESS PART END-->
+
+
     <div class="b-form__group">
         <div class="b-form__half-col b-form__half-col--first">
                                 <span class="b-form__input">
                                     <label for="famili">Familienstand</label>
-                                    <select id="famili" ng-model="vm.data.antragsteller2.famili" convert-to-number>
-                                        <option value="-1" selected="selected">Bitte wählen Sie ...</option><option
-                                            value="1">Verheiratet</option><option value="2">Ledig</option><option
-                                            value="3">Getrennt lebend</option><option value="4">Geschieden</option><option
-                                            value="5">Lebenspartnerschaft</option><option
-                                            value="6">Verwitwet</option></select>
+                                    <select id="famili" ng-model="vm.data.famili">
+                                        <option value="-1" selected="selected">Bitte wählen Sie ...</option>
+                                        <option value="1">Verheiratet</option>
+                                        <option value="2">Ledig</option>
+                                        <option value="3">Getrennt lebend</option>
+                                        <option value="4">Geschieden</option>
+                                        <option value="5">Lebenspartnerschaft</option>
+                                        <option value="6">Verwitwet</option>
+                                    </select>
                                 </span>
             <span class="b-form__input">
                                     <label for="country">Staatsangehörigkeit</label>
-                                    <select id="country" class="gwt-ListBox" ng-model="vm.data.antragsteller2.country"
+                                    <select id="country" class="gwt-ListBox" ng-model="vm.data.country"
                                             convert-to-number>
                                         <option value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                        <option
-                                            value="10">Deutschland</option><option
+                                        <option value="10">Deutschland</option><option
                                             value="13">Frankreich</option><option value="22">Niederlande</option><option
                                             value="197">Schweiz</option><option
                                             value="229">Türkei</option><option
@@ -290,11 +304,13 @@
                                 </span>
         </div>
     </div>
+
+
     <div class="b-form__group">
         <div class="b-form__half-col b-form__half-col--first">
                                 <span class="b-form__input">
                                     <label for="art">Art der Beschäftigung</label>
-                                   <select id="art" class="gwt-ListBox" ng-model="vm.data.antragsteller2.art"
+                                   <select id="art" class="gwt-ListBox" ng-model="vm.data.art"
                                            convert-to-number><option
                                            value="-1" selected="selected">Bitte wählen Sie ...</option><option
                                            value="1">Angestellter</option><option value="2">Arbeiter</option><option
@@ -307,14 +323,14 @@
         <div class="b-form__half-col b-form__half-col--last">
                                 <span class="b-form__input b-form__euro">
                                     <label for="netto">Einkommen Netto</label>
-                                    <input id="netto" type="text" ng-model="vm.data.antragsteller2.netto">
+                                    <input id="netto" type="text" ng-model="vm.data.netto">
                                 </span>
         </div>
         <div class="b-form__half-col b-form__half-col--first">
                                     <span class="b-form__input">
                                         <label for="arbeitgeber">Arbeitgeber</label>
                                         <input id="arbeitgeber" type="text"
-                                               ng-model="vm.data.antragsteller2.arbeitgeber">
+                                               ng-model="vm.data.arbeitgeber">
                                     </span>
         </div>
     </div>
