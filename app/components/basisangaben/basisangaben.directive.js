@@ -10,7 +10,7 @@
         return {
             restrict: 'E',
             scope: {
-                parent: '@',
+                parent: '=',
             },
             templateUrl: 'components/basisangaben/basisangaben.html',
             controller: 'BasisangabenDirectiveController',

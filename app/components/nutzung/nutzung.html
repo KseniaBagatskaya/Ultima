@@ -1,0 +1,89 @@
+<h4 class="b-form__sub-header">Nutzung</h4>
+<div class="b-form__block">
+    <div class="b-form__group">
+        <div class="b-form__col">
+            <span class="b-form__input b-form__squere">
+                <label for="first_name">Gesamte Wohnfläche</label>
+                <input ng-model="vm.nutzung.gesamte" id="first_name" type="text">
+            </span>
+            <span class="b-form__radio-label">
+                <label for="first_name">Wie wird die Wohnfläche genutzt?</label>
+                <span class="b-form__col b-form__inline">
+                    <span class="b-form__radio">
+                        <input ng-model="vm.nutzung.wie" value="Eigengenutzt"
+                                name="vorh5" id="ja" type="radio">
+                        <label for="ja">Eigengenutzt</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input ng-model="vm.nutzung.gewerbeflache" value="Vermietet"
+                                name="vorh5" id="nein" type="radio">
+                        <label for="nein">Vermietet</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input ng-model="vm.nutzung.gewerbeflache" value="Beides" name="vorh5"
+                                id="nein" type="radio">
+                        <label for="nein">Beides</label>
+                    </span>
+                </span>
+            </span>
+            <span class="b-form__radio-label">
+                <label for="first_name">Gewerbefläche vorhanden</label>
+                <span class="b-form__col b-form__inline">
+                    <span class="b-form__radio">
+                        <input ng-model="vm.nutzung.gewerbeflache" value="1" name="vorh6"
+                                id="ja" type="radio">
+                        <label for="ja">ja</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input ng-model="vm.nutzung.gewerbeflache" value="0" name="vorh6"
+                                id="nein" type="radio">
+                        <label for="nein">nein</label>
+                    </span>
+                </span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<h4 class="b-form__sub-header">Zusätzliche Angaben</h4>
+<div class="b-form__block">
+    <div class="b-form__group b-form__group--same-height70">
+        <div class="b-form__col">
+            <span class="b-form__radio-label">
+                <label for="first_name">Erbbaurecht vorhanden?</label>
+                <span class="b-form__col b-form__inline">
+                    <span class="b-form__radio">
+                        <input ng-model="vm.zusatzliche.erbbaurecht" value="1" name="vorh7"
+                                id="ja" type="radio">
+                        <label for="ja">ja</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input ng-model="vm.zusatzliche.erbbaurecht" value="0" name="vorh7"
+                                id="nein" type="radio">
+                        <label for="nein">nein</label>
+                    </span>
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="b-form__group b-form__group--same-height70">
+        <div class="b-form__col">
+            <span class="b-form__radio-label">
+                <label for="first_name">Wurde das Objekt in der Vergangenheit modernisiert?</label>
+                <span class="b-form__col b-form__inline">
+                    <span class="b-form__radio">
+                        <input ng-model="vm.zusatzliche.wurde" value="1" name="vorh8"
+                                id="ja" type="radio">
+                        <label for="ja">ja</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input ng-model="vm.zusatzliche.wurde" value="0" name="vorh8"
+                                id="nein" type="radio">
+                        <label for="nein">nein</label>
+                    </span>
+                </span> 
+            </span>
+        </div>
+    </div>
+</div>
