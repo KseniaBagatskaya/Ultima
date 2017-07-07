@@ -9,8 +9,21 @@
 
 
     function AntragstellerController($scope) {
-        var vm = this;
+        let vm = this;
+        vm.submit = submit;
 
+
+        vm.antragsteller1 = {
+            number: '1'
+        };
+        vm.antragsteller2 = {
+            number: '2'
+        };
+
+
+        function submit() {
+            console.log(vm.antragsteller1);
+        }
     }
 
 })();

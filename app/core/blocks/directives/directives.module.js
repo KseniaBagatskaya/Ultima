@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.directives', [
-        // 'directive.header'
+        'directive.antragsteller'
     ]);
 
 })();
