@@ -10,7 +10,7 @@
         return {
             restrict: 'E',
             scope: {
-                parent: '@',
+                parent: '=',
             },
             templateUrl: 'components/antragsteller/antragsteller.html',
             controller: 'AntragstellerDirectiveController',

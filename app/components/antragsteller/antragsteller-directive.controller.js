@@ -10,9 +10,8 @@
 
     function AntragstellerDirectiveController($scope) {
         let vm = this;
-        vm.parent= JSON.parse($scope.parent);
-
-        // console.log($scope);
+        vm.parent= $scope.parent;
+        console.log($scope);
     }
 
 })();
