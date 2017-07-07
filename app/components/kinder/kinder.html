@@ -1,0 +1,43 @@
+<div class="b-form__block">
+    <div class="b-form__group b-form__child">
+                            <span class="b-form__input b-form__child-item">
+                                <label for="name">Name</label>
+                                <input id="name" ng-model="vm.data.name" type="text">
+                            </span>
+        <span class="b-form__input b-form__child-item">
+                                <label for="birthday2">Geburtsdatum</label>
+                                <input id="birthday2" ng-model="vm.data.geburtsdatum" type="text">
+                            </span>
+        <div class="b-form__child-item">
+            <h4>Kindergeld?</h4>
+            <span class="b-form__radio">
+                                    <input ng-model="vm.data.kindergeld" value="1" id="ja2" type="radio">
+                                    <label for="ja2">Ja</label>
+                                </span>
+            <span class="b-form__radio">
+                                    <input ng-model="vm.data.kindergeld" value="0" id="nein" type="radio">
+                                    <label for="nein">Nein</label>
+                                </span>
+        </div>
+        <div class="b-form__child-item">
+            <h4>Unterhaltseinnahmen?</h4>
+            <span class="b-form__radio">
+                                    <input ng-model="vm.data.unterhaltseinnahmen" value="0" id="keine" type="radio">
+                                    <label for="keine">keine</label>
+                                </span>
+            <span class="b-form__radio">
+                                    <input ng-model="vm.data.unterhaltseinnahmen" value="1" id="ja" type="radio">
+                                    <label for="ja">ja</label>
+                                </span>
+        </div>
+
+
+        <div class="b-buy__item b-buy__options">
+                                <span class="b-form__input">
+                                    <img src="content/images/icons/trash_basket.png"
+                                         class="btn btn__trash btn--light"
+                                         ng-click="vm.data._delete(vm.index)">
+                                </span>
+        </div>
+    </div>
+</div>
