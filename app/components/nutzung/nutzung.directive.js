@@ -2,18 +2,18 @@
 
     'use strict';
 
-    angular.module('directive.basisangaben', [])
-        .directive('basisangaben', basisangaben);
+    angular.module('directive.nutzung', [])
+        .directive('nutzung', nutzung);
 
 
-    function basisangaben() {
+    function nutzung() {
         return {
             restrict: 'E',
             scope: {
                 parent: '=',
             },
-            templateUrl: 'components/basisangaben/basisangaben.html',
-            controller: 'BasisangabenDirectiveController',
+            templateUrl: 'components/nutzung/nutzung.html',
+            controller: 'NutzungDirectiveController',
             controllerAs: 'vm',
             link: function (scope, elem, attrs) {
             }

@@ -10,9 +10,8 @@
 
     function BasisangabenDirectiveController($scope) {
         let vm = this;
-        console.log($scope);
-        vm.parent= JSON.parse($scope.parent);
-
+        vm.data = $scope.parent;
+        console.log(vm.data)
     }
 
 })();

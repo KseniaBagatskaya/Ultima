@@ -13,7 +13,7 @@
         vm.immobilieObject = {
             wofur: 'Neubau (eigenes Bauvorhaben)',
             basisangaben: {
-                stabe: '',
+                strabe: '',
                 nr: '',
                 plz: '',
                 ort: '',
@@ -26,6 +26,15 @@
                 fertighaus: '',
                 keller: '',
                 dachgeschoss: '',
+            },
+            nutzung: {
+                gesamte: '',
+                wie: '',
+                gewerbeflache: '',
+            },
+            zusatzliche: {
+                erbbaurecht: '',
+                wurde: '',
             }
         }
 
