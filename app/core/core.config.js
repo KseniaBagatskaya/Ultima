@@ -26,7 +26,7 @@
                 controller: 'LoginController',
                 controllerAs: 'vm',
             })
-            .state('dashboard', {
+            .state('app.dashboard', {
                 url: "/dashboard",
                 templateUrl: 'templates/dashboard/dashboard.html',
                 controller: 'DashboardController',
@@ -67,6 +67,7 @@
 
                 }
             })
+
             .state('app.tabs.antragsteller', {
                 url: "/antragsteller",
                 templateUrl: 'templates/antragsteller/antragsteller.html',
