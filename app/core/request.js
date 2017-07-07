@@ -57,12 +57,12 @@
                 config.data = data;
             }
 
-            if ($sessionStorage.auth_key) {
-                config.url = url + '?auth_key=' + $sessionStorage.auth_key;
-            }
-            else {
+            // if ($sessionStorage.auth_key) {
+            //     config.url = url + '?auth_key=' + $sessionStorage.auth_key;
+            // }
+            // else {
                 config.url = url;
-            }
+            // }
 
             // $ionicLoading.show({
             //     templateUrl: 'views/lazyload/lazyload.html'
@@ -82,9 +82,9 @@
 
         function requestFile(url, data) {
 
-            if ($sessionStorage.auth_key) {
-                url = url + '?auth_key=' + $sessionStorage.auth_key;
-            }
+            // if ($sessionStorage.auth_key) {
+            //     url = url + '?auth_key=' + $sessionStorage.auth_key;
+            // }
 
             var ft = new FileTransfer();
 
