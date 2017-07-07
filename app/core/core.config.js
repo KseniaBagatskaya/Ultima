@@ -19,6 +19,8 @@
             .state('app.tabs', {
                 abstract: true,
                 templateUrl: 'templates/tabs/tabs.html',
+                controller: 'TabsController',
+                controllerAs: 'vm',
             })
             .state('login', {
                 url: '/login',
@@ -69,7 +71,7 @@
             })
 
             .state('app.tabs.antragsteller', {
-                url: "/antragsteller",
+                url: "/antragsteller/:id",
                 templateUrl: 'templates/antragsteller/antragsteller.html',
                 controller: 'AntragstellerController',
                 controllerAs: 'vm',
@@ -85,8 +87,8 @@
                 //     }
                 // }
             })
-            .state('immobilie', {
-                url: "/immobilie",
+            .state('app.tabs.immobilie', {
+                url: "/immobilie/:id",
                 templateUrl: 'templates/immobilie/immobilie.html',
                 controller: 'ImmobilieController',
                 controllerAs: 'vm',
@@ -102,8 +104,8 @@
                 //     }
                 // }
             })
-            .state('kreditdaten', {
-                url: "/kreditdaten",
+            .state('app.tabs.kreditdaten', {
+                url: "/kreditdaten/:id",
                 templateUrl: 'templates/kreditdaten/kreditdaten.html',
                 controller: 'KreditdatenController',
                 controllerAs: 'vm',
@@ -119,8 +121,8 @@
                 //     }
                 // }
             })
-            .state('dokumente', {
-                url: "/dokumente",
+            .state('app.tabs.dokumente', {
+                url: "/dokumente/:id",
                 templateUrl: 'templates/dokumente/dokumente.html',
                 controller: 'DokumenteController',
                 controllerAs: 'vm',

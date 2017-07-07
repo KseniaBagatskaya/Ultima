@@ -17,7 +17,7 @@
                                 <tbody>
                                 <tr ng-repeat="item in vm.users track by $index"
                                     ng-show="!($index % 2);"
-                                    ui-sref="index({id: item.FamilyMemId})">
+                                    ui-sref="app.tabs.antragsteller({id: item.FamilyMemId})">
                                     <td><img src="content/images/icons/singl_home.png" alt=""></td>
                                     <td><a href="">{{item.FamilyMemSecondName}}</a></td>
                                     <!--<td>{{item.id}}</td>-->
