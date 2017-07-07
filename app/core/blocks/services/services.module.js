@@ -2,7 +2,9 @@
     'use strict';
 
     angular.module('app.services', [
-        'app.dashboard'
+        'app.dashboard',
+
+        'model.antragsteller'
     ]);
 
 })();

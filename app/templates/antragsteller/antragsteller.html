@@ -4,6 +4,8 @@
 
             <div class="b-tabs__container">
                 <div class="b-form__title-dark b-form__title">Persönliche Daten</div>
+
+
                 <div class="first_form clearfix">
                     <div class="first_form clearfix">
                         <div class="wrap-form">
@@ -38,7 +40,7 @@
                             </span>
                         </div>
                         <div class="b-form__right-list">
-                            <div class="btn btn--light" ng-click="vm.kinderStatus(true)">Keine Kinder vorhanden</div>
+                            <div class="btn btn--light" ng-click="vm.clearKinder()">Keine Kinder vorhanden</div>
                         </div>
                     </div>
                     <kinder ng-repeat="kinder in vm.kinders track by $index" data-parent="kinder"
@@ -50,13 +52,14 @@
                 <div class="third_form clearfix">
                     <div class="b-form__title-dark b-form__title">Finanzielle Situation</div>
                     <h4 class="b-form__sub-header">Vermögen, Einnahmen, Ausgaben, Verbindlichkeiten</h4>
+
+                    <!--TOP LIST OF BANKS-->
                     <div class="b-form__list-view clearfix">
                         <ul class="b-form__half-col">
                             <li class="b-form__list-view-item"
-                                ng-repeat="item in vm.menu track by $index"
+                                ng-repeat="item in vm.bank_list.left track by $index"
                                 ng-class="vm.itemIsFilled(item) ? 'terminated-items' : ''">
-                                <a ng-click="vm.addItem(item, $index)">
-                                    <!--<div style="width: 14px; height: 13px; display: inline-block; position: relative;" ng-show="vm.itemIsFilled(item)"></div>-->
+                                <a ng-click="vm.addItem(item)">
                                     <img class="btn btn__plus btn--light"
                                          ng-show="!vm.itemIsFilled(item)"
                                          src="content/images/icons/plus.png"
@@ -70,6 +73,7 @@
                                 </a>
                             </li>
                         </ul>
+
                         <ul class="b-form__half-col">
                             <li class="b-form__list-view-item"
                                 ng-repeat="item in vm.menu2"
@@ -90,8 +94,17 @@
                             </li>
                         </ul>
                     </div>
+                    <!--TOP LIST OF BANKS END-->
+
+
                     <div class="b-form__blocks-separator">
                         <ul class="b-form__block b-form__list banks-left">
+                            <li class="b-form__list-item" ng-repeat="bank in vm.bank_list.left">
+                                <div ng-repeat="item in bank.items"
+                                     ng-include="'templates/antragsteller/bank_list/'+bank.id+'.html'"></div>
+                            </li>
+
+
                             <li class="b-form__list-item"
                                 ng-repeat="item in vm.menu[0].items track by $index">
                                 <div class="b-form__group b-buy">

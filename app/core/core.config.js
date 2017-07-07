@@ -59,7 +59,7 @@
                         // });
                     },
                     partners: function (dashboard) {
-                        let partners=dashboard.getPartners();
+                        let partners = dashboard.getPartners();
                         return partners;
                         // .then(function (res) {
                         //     console.log(res, 'kontaktar');
@@ -75,17 +75,19 @@
                 templateUrl: 'templates/antragsteller/antragsteller.html',
                 controller: 'AntragstellerController',
                 controllerAs: 'vm',
-                // resolve: {
-
-                //     antragsteller_data: function (dashboard) {
-                //         return dashboard.getAllMembers()
-                //             .then(function (res) {
-                //                 console.log(res, 'res');
-                //                 return res;
-                //             });
-
-                //     }
-                // }
+                resolve: {
+                    // antragsteller_data: function (dashboard) {
+                    //     return dashboard.getAllMembers()
+                    //         .then(function (res) {
+                    //             console.log(res, 'res');
+                    //             return res;
+                    //         });
+                    //
+                    // }
+                    bank_list: function (antragsteller) {
+                        return antragsteller.menu;
+                    }
+                }
             })
             .state('app.tabs.immobilie', {
                 url: "/immobilie/:id",
