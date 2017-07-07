@@ -3,7 +3,8 @@
 
     angular.module('app.directives', [
         'directive.antragsteller',
-        'directive.basisangaben'
+        'directive.basisangaben',
+        'directive.kinder',
     ]);
 
 })();
