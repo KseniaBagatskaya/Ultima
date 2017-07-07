@@ -10,7 +10,8 @@
         return {
             restrict: 'E',
             scope: {
-                parent: '=',
+                nutzung: '=',
+                zusatzliche: '=',
             },
             templateUrl: 'components/nutzung/nutzung.html',
             controller: 'NutzungDirectiveController',

@@ -5,6 +5,7 @@
         'directive.antragsteller',
         'directive.basisangaben',
         'directive.kinder',
+        'directive.nutzung',
     ]);
 
 })();
