@@ -40,7 +40,31 @@
                                 return res;
                             });
 
+                    },
+
+                    werbung: function (dashboard) {
+                        return dashboard.getWerbung()
+                        // .then(function (res) {
+                        //     console.log(res, 'werbung');
+                        //     return res;
+                        // });
+                    },
+                    kontaktar: function (dashboard) {
+                        return dashboard.getKontaktart()
+                        // .then(function (res) {
+                        //     console.log(res, 'kontaktar');
+                        //     return res;
+                        // });
+                    },
+                    partners: function (dashboard) {
+                        let partners=dashboard.getPartners();
+                        return partners;
+                        // .then(function (res) {
+                        //     console.log(res, 'kontaktar');
+                        //     return res;
+                        // });
                     }
+
                 }
             })
             .state('app.tabs.antragsteller', {
