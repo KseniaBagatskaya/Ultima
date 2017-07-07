@@ -157,6 +157,9 @@ textarea {
 .b-tabs__home-bank::before {
     background: url("../images/icons/home.png") no-repeat; }
 
+.b-tabs__home-doc::before {
+    background: url("../images/icons/doc.png") no-repeat; }
+
 .b-tabs__custom-item {
     padding-top: 10px; }
 .b-tabs__custom-item--left {
