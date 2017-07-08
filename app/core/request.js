@@ -61,8 +61,8 @@
 
             const user = JSON.parse(sessionStorage.getItem('user'));
             
-
-            if (user.auth_key) {
+            console.log(user)
+            if (user !== null) {
                 config.url = url + '?auth_key=' + user.auth_key;
             }
             else {

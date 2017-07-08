@@ -19,7 +19,7 @@
 
 
         function register() {
-            http.post(url.user.register, JSON.stringify(vm.newUser))
+            http.post(url.user.register, vm.newUser)
                 .then(function (res) {
                     console.log(res, 'res');
                     if (res.status) {

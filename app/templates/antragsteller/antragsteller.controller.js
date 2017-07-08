@@ -51,7 +51,7 @@
                 data.antragsteller1,
                 data.antragsteller2,
             ];
-            http.post(url.dashboard.create_angrag, JSON.stringify(toSend))
+            http.post(url.dashboard.create_angrag, toSend)
                 .then(function (res) {
                     console.log(res, 'res');
                 });

@@ -19,9 +19,8 @@
         };
 
         function login() {
-            http.post(url.user.login, JSON.stringify(vm.user))
+            http.post(url.user.login, vm.user)
                 .then(function (res) {
-                    console.log(res, 'res');
                     if (res.status) {
                         sessionStorage.setItem('user', JSON.stringify(res));
                         $state.go('app.dashboard')
@@ -30,7 +29,6 @@
                             toastr.error(res.msg[key][0], 'Login failed');
                         }
                     }
-                    // return res;
                 });
         }
     }
