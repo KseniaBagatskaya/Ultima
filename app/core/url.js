@@ -3,10 +3,10 @@
         .module('factory.url', [])
         .factory('url', [
             function () {
-                let baseUrl = 'http://itls-hh.eu/';
+                let baseUrl = 'http://svm.biz.ua/api/web/v1/';
                 return {
                     user: {
-                        login: baseUrl + 'AccountManage/Authentication'
+                        login: baseUrl + 'user/login'
                     },
                     dashboard: {
                         get_all_members: baseUrl + 'Rest/GetAllMembers',

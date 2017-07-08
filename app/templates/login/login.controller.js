@@ -13,16 +13,16 @@
 
         vm.login = login;
 
-        // vm.user = {
-        //     Email: '',
-        //     Password: ''
-        // };
+        vm.user = {
+            username: '',
+            password: ''
+        };
 
         function login() {
             http.post(url.user.login, JSON.stringify(vm.user))
                 .then(function (res) {
                     console.log(res, 'res');
-                    return res;
+                    // return res;
                 });
         }
     }
