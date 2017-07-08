@@ -49,6 +49,8 @@
                 }
             };
 
+            // data.auth_key = sessionStorage.getItem('user').auth_key;
+
             if (method === 'GET') {
                 config.params = data;
                 config.timeout = 20000;
@@ -57,12 +59,15 @@
                 config.data = data;
             }
 
-            // if ($sessionStorage.auth_key) {
-            //     config.url = url + '?auth_key=' + $sessionStorage.auth_key;
-            // }
-            // else {
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            
+
+            if (user.auth_key) {
+                config.url = url + '?auth_key=' + user.auth_key;
+            }
+            else {
                 config.url = url;
-            // }
+            }
 
             // $ionicLoading.show({
             //     templateUrl: 'views/lazyload/lazyload.html'

@@ -12,12 +12,16 @@
                     <form class="new-user">
                         <div class="b-banking__item b-banking__blz no-float">
                             <span class="b-form__input">
+                                <label for="email">E-Mail-Adresse</label>
+                                <input id="email" type="email" ng-model="vm.newUser.email">
+                            </span>
+                            <span class="b-form__input">
                                 <label for="username">Benutzername</label>
-                                <input id="username" type="text" ng-model="vm.newUser.Email">
+                                <input id="username" type="text" ng-model="vm.newUser.username">
                             </span>
                             <span class="b-form__input">
                                 <label for="password">Kennwort</label>
-                                <input id="password" type="password" ng-model="vm.newUser.Password">
+                                <input id="password" type="password" ng-model="vm.newUser.password">
                             </span>
                             <button ng-click="vm.register()" type="submit">Benutzer anlegen</button>
                         </div>

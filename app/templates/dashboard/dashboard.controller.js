@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$scope', 'users_data'];
+    DashboardController.$inject = ['$scope', 'users_data', 'url', 'http'];
 
 
-    function DashboardController($scope, users_data, werbung, kontaktar, partners) {
+    function DashboardController($scope, users_data, url, http, werbung, kontaktar, partners) {
         let vm = this;
         vm.data = {};
         vm.submit = submit;
@@ -22,17 +22,13 @@
             $scope.modalShown = !$scope.modalShown;
         };
 
-
-        // var filtered = users_data.map(function (value) {
-        //     value.FamilyMemDate = new Date(value.FamilyMemDate);
-        //     return value;
-        // });
-        // console.log(filtered);
         vm.users = users_data;
 
         function submit() {
             console.log(vm.data);
+            sessionStorage.setItem('entry', JSON.stringify(vm.data));
         }
+
     }
 
 })();

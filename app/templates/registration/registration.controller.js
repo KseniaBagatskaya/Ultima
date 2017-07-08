@@ -10,9 +10,26 @@
     function RegistrationController($scope, http, url) {
 
         let vm = this;
+        vm.register = register;
         vm.newUser = {
-            Email: '',
-            Password: '',
+            username: '',
+            email: '',
+            password: '',
+        }
+
+
+        function register() {
+            http.post(url.user.register, JSON.stringify(vm.newUser))
+                .then(function (res) {
+                    console.log(res, 'res');
+                    if (res.status) {
+                        toastr.info('New user created');
+                    } else {
+                        for(var key in res.msg) {
+                            toastr.error(res.msg[key][0], 'Registration failed');
+                        }
+                    }
+                });
         }
     }
 

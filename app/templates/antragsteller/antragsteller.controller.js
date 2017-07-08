@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('AntragstellerController', AntragstellerController);
 
-    AntragstellerController.$inject = ['$scope', 'antragsteller', 'bank_list'];
+    AntragstellerController.$inject = ['$scope', 'antragsteller', 'bank_list', 'http', 'url'];
 
 
-    function AntragstellerController($scope, antragsteller, bank_list) {
+    function AntragstellerController($scope, antragsteller, bank_list, http, url) {
         let vm = this;
 
         vm.submit = submit;
@@ -44,7 +44,17 @@
                 bankverbindungs: vm.bankverbindungs,
                 wis: vm.wis
             };
-            console.log(JSON.stringify(data));
+            const preparedData = JSON.parse(sessionStorage.getItem('entry'));
+            const toSend = {};
+            toSend.entry = preparedData;
+            toSend.antragstellers = [
+                data.antragsteller1,
+                data.antragsteller2,
+            ];
+            http.post(url.dashboard.create_angrag, JSON.stringify(toSend))
+                .then(function (res) {
+                    console.log(res, 'res');
+                });
         }
 
         function addKinder() {

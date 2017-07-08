@@ -11,7 +11,7 @@
                         Benutzername (E-Mail-Adresse)
                     </div>
                     <div class="tab">
-                        <input ng-model="vm.user.username" class="email" type="text">
+                        <input ng-model="vm.user.email" class="email" type="email">
                     </div>
                     <div class="habben">Sie haben sich erfolgreich abgemeldet.</div>
                     <div class="pass">
@@ -25,7 +25,7 @@
                             <a href="#">Passwort vergessen / Passwort ändern</a>
                         </div>
                         <div class="links2">
-                            <button ui-sref="app.dashboard" ng-click="vm.login()">Zur Übersicht</button>
+                            <button ng-click="vm.login()">Zur Übersicht</button>
                         </div>
                     </div>
                 </div>
