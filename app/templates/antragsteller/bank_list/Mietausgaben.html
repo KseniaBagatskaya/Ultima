@@ -1,18 +1,18 @@
 <div class="b-form__group b-buy">
     <div class="b-buy__item b-buy__name">
-        Bank- und Sparguthaben
+        Mietausgaben
     </div>
     <div class="b-buy__item b-buy__bet">
                                     <span class="b-form__input b-form__euro">
-                                        <label for="githaben">Guthaben</label>
-                                        <input id="githaben" type="text" ng-model="$parent.bank.githaben">
+                                        <label for="first_name">Betrag</label>
+                                        <input id="first_name" type="text" ng-model="$parent.bank.betrag">
                                     </span>
     </div>
     <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="zinsertrag">Zinsertrag</label>
-                                        <input id="zinsertrag" type="text" ng-model="$parent.bank.zinsertrag">
-                                    </span>
+                                 <span class="b-buy__checkbox clearfix">
+                                    <input name="prefix" id="dr" type="checkbox" ng-model="$parent.bank.entfallen_finanzierung">
+                                    <label for="dr">Entfallen mit Finanzierung</label>
+                                </span>
     </div>
     <div class="b-buy__item b-buy__options">
                                      <span class="b-form__input">

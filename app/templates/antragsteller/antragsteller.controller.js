@@ -10,26 +10,33 @@
 
     function AntragstellerController($scope, antragsteller, bank_list) {
         let vm = this;
+
         vm.submit = submit;
         vm.addKinder = addKinder;
         vm.deleteKinder = deleteKinder;
         vm.clearKinder = clearKinder;
         vm.addItem = addItem;
+        vm.checkMaxInBanks = checkMaxInBanks;
         vm.bank_list = bank_list;
-
-        vm.antragsteller1 = {
-            number: '1'
-        };
-        vm.antragsteller2 = {
-            number: '2'
-        };
+        vm.bank_items_left = [];
+        vm.bank_items_right = [];
+        vm.antragsteller1 = {number: '1'};
+        vm.antragsteller2 = {number: '2'};
         vm.kinders = [];
 
 
         function submit() {
-            console.log(vm.antragsteller1);
-            console.log(vm.antragsteller2);
-            console.log(vm.kinders);
+            let banks = {
+                left: vm.bank_items_left,
+                right: vm.bank_items_right
+            };
+            let data = {
+                antragsteller1: vm.antragsteller1,
+                antragsteller2: vm.antragsteller2,
+                kinders: vm.kinders,
+                banks: banks
+            };
+            console.log(data);
         }
 
         function addKinder() {
@@ -46,12 +53,37 @@
             vm.kinders = [];
         }
 
-        function addItem(item) {
-            if (item.max > item.items.length) {
-                item.items.push({});
+        function addItem(item, side) {
+            if (item.max > item.current) {
+                item.current++;
+                let tmpItem = {
+                    id: item.id,
+                    _delete: deleteItem,
+                    side: side
+                };
+                if (side === 'L') {
+                    vm.bank_items_left.push(tmpItem);
+                } else {
+                    vm.bank_items_right.push(tmpItem);
+                }
             }
         }
 
+        function deleteItem(index, side) {
+            if (side === 'L') {
+                let item = antragsteller.findElementById(vm.bank_items_left[index].id, 'L', vm.bank_list);
+                item.current--;
+                vm.bank_items_left.splice(index, 1)
+            } else {
+                let item = antragsteller.findElementById(vm.bank_items_right[index].id, 'R', vm.bank_list);
+                item.current--;
+                vm.bank_items_right.splice(index, 1)
+            }
+        }
+
+        function checkMaxInBanks(item) {
+            return item.max > item.current;
+        }
 
     }
 

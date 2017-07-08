@@ -5,7 +5,7 @@
             <div class="b-tabs__container">
                 <div class="b-form__title-dark b-form__title">Persönliche Daten</div>
 
-
+                <!--antragsteller  START-->
                 <div class="first_form clearfix">
                     <div class="first_form clearfix">
                         <div class="wrap-form">
@@ -25,7 +25,7 @@
 
                     </div>
                 </div>
-
+                <!--antragsteller END-->
 
                 <!--KINDER START-->
                 <div class="second_form clearfix">
@@ -58,14 +58,14 @@
                         <ul class="b-form__half-col">
                             <li class="b-form__list-view-item"
                                 ng-repeat="item in vm.bank_list.left track by $index"
-                                ng-class="vm.itemIsFilled(item) ? 'terminated-items' : ''">
-                                <a ng-click="vm.addItem(item)">
+                                ng-class="vm.checkMaxInBanks(item) ? 'terminated-items' : ''">
+                                <a style="cursor: pointer" ng-click="vm.addItem(item,'L')">
                                     <img class="btn btn__plus btn--light"
-                                         ng-show="!vm.itemIsFilled(item)"
+                                         ng-if="vm.checkMaxInBanks(item)"
                                          src="content/images/icons/plus.png"
                                          alt="plus_btn">
                                     <img class="btn btn__plus btn--light"
-                                         ng-show="vm.itemIsFilled(item)"
+                                         ng-if="!vm.checkMaxInBanks(item)"
                                          src="content/images/icons/plus.png"
                                          style="visibility: hidden;"
                                          alt="plus_btn">
@@ -76,16 +76,15 @@
 
                         <ul class="b-form__half-col">
                             <li class="b-form__list-view-item"
-                                ng-repeat="item in vm.menu2"
-                                ng-class="vm.itemIsFilled(item) ? 'terminated-items' : ''">
-                                <a ng-click="vm.addItem(item)">
-                                    <!--<div style="width: 14px; height: 13px; display: inline-block; position: relative;" ng-show="vm.itemIsFilled(item)"></div>-->
+                                ng-repeat="item in vm.bank_list.right"
+                                ng-class="vm.checkMaxInBanks(item) ? 'terminated-items' : ''">
+                                <a style="cursor: pointer" ng-click="vm.addItem(item,'R')">
                                     <img class="btn btn__plus btn--light"
-                                         ng-show="!vm.itemIsFilled(item)"
+                                         ng-if="vm.checkMaxInBanks(item)"
                                          src="content/images/icons/plus.png"
                                          alt="plus_btn">
                                     <img class="btn btn__plus btn--light"
-                                         ng-show="vm.itemIsFilled(item)"
+                                         ng-if="!vm.checkMaxInBanks(item)"
                                          src="content/images/icons/plus.png"
                                          style="visibility: hidden;"
                                          alt="plus_btn">
@@ -96,556 +95,23 @@
                     </div>
                     <!--TOP LIST OF BANKS END-->
 
-
+                        <!--FIELDS OF BANKS START-->
                     <div class="b-form__blocks-separator">
                         <ul class="b-form__block b-form__list banks-left">
-                            <li class="b-form__list-item" ng-repeat="bank in vm.bank_list.left">
-                                <div ng-repeat="item in bank.items"
-                                     ng-include="'templates/antragsteller/bank_list/'+bank.id+'.html'"></div>
-                            </li>
-
-
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[0].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Bank- und Sparguthaben
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Guthaben</label>
-                                        <input id="first_name" type="text" ng-model="item.githaben">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Zinsertrag</label>
-                                        <input id="first_name" type="text" ng-model="item.zinsertrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[0], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[2].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Bausparvertrag
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Angesparter Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.angesparter_betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Sparbeitrag</label>
-                                        <input id="first_name" type="text" ng-model="item.sparbeitrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[2], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[4].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Sparpläne
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Aktueller Wert</label>
-                                        <input id="first_name" type="text" ng-model="item.aktueller_wert">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Beitrag</label>
-                                        <input id="first_name" type="text" ng-model="item.beitrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[4], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[6].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Einkünfte aus Nebentätigkeit
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input">
-                                        <label for="first_name">Nebentätigkeit</label>
-                                        <input id="first_name" type="text" ng-model="item.beginn_nebentaetigkeit">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[6], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[8].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Ehegattenunterhalt
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin"></div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[8], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[10].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Sonstige Einnahmen
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin"></div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[10], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[1].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Wertpapiere / Aktien
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Marktwert</label>
-                                        <input id="first_name" type="text" ng-model="item.marktwert">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Dividenden</label>
-                                        <input id="first_name" type="text" ng-model="item.dividenden">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[1], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[3].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Lebens-/ Rentenversicherung
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Rückkaufswert</label>
-                                        <input id="first_name" type="text" ng-model="item.ruckkaufswert">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Prämie</label>
-                                        <input id="first_name" type="text" ng-model="item.pramie">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[3], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[5].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Sonstiges Vermögen
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                        <span class="b-form__input b-form__euro">
-                                            <label for="first_name">Aktueller Wert</label>
-                                            <input id="first_name" type="text" ng-model="item.aktueller_wert">
-                                        </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin"></div>
-                                    <div class="b-buy__item b-buy__options">
-                                         <span class="b-form__input">
-                                            <label for="first_name">&nbsp;</label>
-                                            <img src="content/images/icons/trash_basket.png"
-                                                 class="btn btn__trash btn--light"
-                                                 ng-click="vm.removeItem(vm.menu[5], item)">
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[7].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Unbefristete Zusatzrente
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin"></div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[7], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu[9].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Variable Einkünfte
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin"></div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu[9], item)">
-                                    </span>
-                                    </div>
-                                </div>
+                            <li class="b-form__list-item" ng-repeat="(key,bank) in vm.bank_items_left"
+                                ng-include="'templates/antragsteller/bank_list/'+bank.id+'.html'">
                             </li>
                         </ul>
                         <ul class="b-form__block b-form__list banks-right">
-
-                            <!--Mietausgaben-->
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu2[0].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Mietausgaben
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                 <span class="b-buy__checkbox clearfix">
-                                    <input name="prefix" id="dr" type="checkbox" ng-model="item.entfallen_finanzierung">
-                                    <label for="dr">Entfallen mit Finanzierung</label>
-                                </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu2[0], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu2[1].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Unterhaltsverpflichtungen
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin"></div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu2[1], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu2[2].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Private Krankenversicherung
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin"></div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu2[2], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu2[3].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Sonstige Ausgaben
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin"></div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu2[3], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu2[4].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Sonstige Versicherungsausgaben
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Betrag</label>
-                                        <input id="first_name" type="text" ng-model="item.betrag">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu2[4], item)">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu2[5].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Ratenkredit / Leasing
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Rate</label>
-                                        <input id="first_name" type="text" ng-model="item.rate">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input">
-                                        <label for="first_name">Gläubiger</label>
-                                        <input id="first_name" type="text" ng-model="item.glaubiger">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu2[5], item)">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__name"></div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Aktuelle Restschuld</label>
-                                        <input id="first_name" type="text" ng-model="item.aktuelle_restschuld">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input">
-                                        <label for="first_name">Laufzeitende</label>
-                                        <input id="first_name" type="text" ng-model="item.laufzeitende">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu2[6].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Privates Darlehen
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Rate</label>
-                                        <input id="first_name" type="text" ng-model="item.rate">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input">
-                                        <label for="first_name">Gläubiger</label>
-                                        <input id="first_name" type="text" ng-model="item.glaubiger">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu2[6], item)">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__name"></div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Aktuelle Restschuld</label>
-                                        <input id="first_name" type="text" ng-model="item.aktuelle_restschuld">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input">
-                                        <label for="first_name">Laufzeitende</label>
-                                        <input id="first_name" type="text" ng-model="item.laufzeitende">
-                                    </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="b-form__list-item"
-                                ng-repeat="item in vm.menu2[7].items track by $index">
-                                <div class="b-form__group b-buy">
-                                    <div class="b-buy__item b-buy__name">
-                                        Sonstige Verbindlichkeiten
-                                    </div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Rate</label>
-                                        <input id="first_name" type="text" ng-model="item.rate">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input">
-                                        <label for="first_name">Gläubiger</label>
-                                        <input id="first_name" type="text" ng-model="item.glaubiger">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__options">
-                                     <span class="b-form__input">
-                                        <label for="first_name">&nbsp;</label>
-
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             ng-click="vm.removeItem(vm.menu2[7], item)">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__name"></div>
-                                    <div class="b-buy__item b-buy__bet">
-                                    <span class="b-form__input b-form__euro">
-                                        <label for="first_name">Aktuelle Restschuld</label>
-                                        <input id="first_name" type="text" ng-model="item.aktuelle_restschuld">
-                                    </span>
-                                    </div>
-                                    <div class="b-buy__item b-buy__begin">
-                                    <span class="b-form__input">
-                                        <label for="first_name">Laufzeitende</label>
-                                        <input id="first_name" type="text" ng-model="item.laufzeitende">
-                                    </span>
-                                    </div>
-                                </div>
+                            <li class="b-form__list-item" ng-repeat="(key,bank) in vm.bank_items_right"
+                                ng-include="'templates/antragsteller/bank_list/'+bank.id+'.html'">
                             </li>
                         </ul>
                     </div>
+                    <!--FIELDS OF BANKS END-->
+
                 </div>
+
 
 
                 <div class="second_form clearfix">

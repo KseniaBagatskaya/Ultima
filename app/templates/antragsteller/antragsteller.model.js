@@ -88,13 +88,91 @@
                 items: []
             }
         ];
-        const MENU_RIGHT = [];
+        const MENU_RIGHT = [
+            {
+                name: 'Mietausgaben',
+                max: 1,
+                current: 0,
+                id: 'Mietausgaben',
+                items: []
+            },
+            {
+                name: 'Unterhaltsverpflichtungen',
+                max: 3,
+                current: 0,
+                id: 'Unterhaltsverpflichtungen',
+                items: []
+            },
+            {
+                name: 'Private Krankenversicherung',
+                max: 1,
+                current: 0,
+                id: 'PrivateKrankenversicherung',
+                items: []
+            },
+            {
+                name: 'Sonstige Ausgaben',
+                max: 1,
+                current: 0,
+                id: 'SonstigeAusgaben',
+                items: []
+            },
+            {
+                name: 'Sonstige Versicherungsausgaben',
+                max: 1,
+                current: 0,
+                id: 'SonstigeVersicherungsausgaben',
+                items: []
+            },
+            {
+                name: 'Ratenkredit / Leasing',
+                max: 3,
+                current: 0,
+                id: 'RatenkreditLeasing',
+                items: []
+            },
+            {
+                name: 'Privates Darlehen',
+                max: 3,
+                current: 0,
+                id: 'PrivatesDarlehen',
+                items: []
+            },
+            {
+                name: 'Sonstige Verbindlichkeiten',
+                max: 1,
+                current: 0,
+                id: 'SonstigeVerbindlichkeiten',
+                items: []
+            }
+        ];
 
         let service = {
-            menu: {left: MENU_LEFT, right: MENU_RIGHT}
+            menu: {left: MENU_LEFT, right: MENU_RIGHT},
+            findElementById: _findElementById
         };
         return service;
 
+        function _findElementById(id, side,bank_list) {
+            let result;
+            if (side === 'L') {
+                bank_list.left.some(function (item) {
+                    if (item.id === id) {
+                        result = item;
+                        return true;
+                    }
+
+                })
+            } else {
+                bank_list.right.some(function (item) {
+                    if (item.id === id) {
+                        result = item;
+                        return true;
+                    }
+                })
+            }
+            return result;
+        }
     }
 
 })();
