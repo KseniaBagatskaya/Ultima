@@ -1,0 +1,40 @@
+<main class="b-main">
+    <div class="container">
+        <div class="b-tabs">
+            <ul class="b-tabs__titles clearfix">
+                <li class="b-tabs__titles-item b-tabs__big-user b-tabs__titles-item--current"><span>Benutzerverwaltung</span></li>
+            </ul>
+            <div class="b-tabs__container">
+                <div class="b-form__title-dark b-form__title">
+                    Persönliche Daten
+                </div>
+                <div>
+                    <form class="new-user">
+                        <div class="b-banking__item b-banking__blz no-float">
+                            <span class="b-form__input">
+                                <label for="username">Benutzername</label>
+                                <input id="username" type="text" ng-model="vm.newUser.Email">
+                            </span>
+                            <span class="b-form__input">
+                                <label for="password">Kennwort</label>
+                                <input id="password" type="password" ng-model="vm.newUser.Password">
+                            </span>
+                            <button ng-click="vm.register()" type="submit">Benutzer anlegen</button>
+                        </div>
+                    </form>
+                    <div class="label">Benutzer:</div>
+                    <div class="users-container">
+                        <div class="user">
+                            <span class="username">Hansparet</span>
+                            <span class="password-label">Initiales Passwort</span>
+                            <input type="text">
+                            <button class="delete-button">x</button>
+                            <span class="initial-pass">Benutzer muß Passwort beim ersten Login ändern</span>
+                            <input type="checkbox">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

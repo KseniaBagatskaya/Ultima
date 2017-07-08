@@ -8,7 +8,8 @@
         'directive.nutzung',
         'directive.bankverbindung',
         'directive.weitere-immobilien',
-        'directive.weiteres-darlehen'
+        'directive.weiteres-darlehen',
+        'directive.search'
     ]);
 
 })();
