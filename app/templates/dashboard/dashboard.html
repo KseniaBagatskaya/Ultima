@@ -1,8 +1,19 @@
 <main class="b-main">
-    <!--<h2 class="b-main__title">TESTUMGEBUNG</h2>-->
-
     <div class="container">
         <div class="b-tabs information clearfix">
+            <ul class="b-tabs__titles clearfix dashboard_list">
+                <li class="b-tabs__titles-item">
+                    <!--ng-class="'b-tabs__titles-item&#45;&#45;current'"-->
+                    <!--&gt;-->
+                    <span>Zuletzt</span>
+                </li>
+                <li class="b-tabs__titles-item">
+                    <!--ng-class="'b-tabs__titles-item&#45;&#45;current'"-->
+                    <!--&gt;-->
+                    <span>Wiedervorlage</span>
+                </li>
+            </ul>
+
             <div class="b-tabs__block-left">
                 <div class="b-form__title-dark b-form__title">Zuletzt bearbeitete Vorgänge</div>
                 <div class="b-form__block">
@@ -29,6 +40,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="b-tabs__block-right">
                 <div class="b-form__title-dark b-form__title">Neuer Vorgang</div>
                 <div class="b-form__block">
@@ -36,7 +49,7 @@
                     <div class="b-tabs__table-info">
                         <span class="b-form__input">
                             <label for="usage">Verwendungszweck</label>
-                            <select id="usage">
+                            <select id="usage" ng-model="vm.data.verwendungszweck">
                                 <!--<option value="-1" selected="selected">Bitte wählen Sie ...</option>-->
                                 <option value="1" selected="selected">Ratenkredit</option>
                                 <option value="2">Baufinanzierung</option>
@@ -60,16 +73,16 @@
                             </span>
                             <span class="b-form__input">
                                 <label for="plz">PLZ</label>
-                                <input id="plz" type="text">
+                                <input id="plz" ng-model="vm.data.plz" type="text">
                             </span>
                             <span class="b-form__input b-form__euro">
                                 <label for="finanzbedarf">Finanzbedarf</label>
-                                <input id="finanzbedarf" type="text">
+                                <input ng-model="vm.data.finanzbedarf" id="finanzbedarf" type="text">
                             </span>
                         </div>
                         <span class="b-form__input">
                             <label for="werbung">Werbung</label>
-                              <select id="werbung">
+                              <select ng-model="vm.data.werbungId" id="werbung">
                                     <option value="-1" selected="selected">Bitte wählen Sie ...</option>
                                     <option value="1">Verheiratet</option>
                                     <option value="2">Horst</option>
@@ -87,7 +100,7 @@
                         </span>
                         <span class="b-form__input">
                             <label for="property">Kontaktart</label>
-                            <select id="property">
+                            <select id="property" ng-model="vm.data.kontaktartId">
                                 <option value="-1" selected="selected">Bitte wählen Sie ...</option>
                                 <option value="1">E-Mail</option>
                                 <option value="2">telefonisch</option>
@@ -96,17 +109,17 @@
                                 <option value="5">Internet</option>
                             </select>
                         </span>
-                        <div class="b-form__child-item">
+                        <div class="b-form__child-item" ng-init="vm.data.partner='0'">
                             <h4>Partnergeschäft</h4>
                             <span class="b-form__radio">
-                                    <input value="0" id="nein" type="radio">
+                                    <input ng-model="vm.data.partner" value="0" id="nein" type="radio">
                                     <label for="nein">nein</label>
                                 </span>
                             <span class="b-form__radio">
-                                    <input value="1" id="ja" type="radio">
+                                    <input ng-model="vm.data.partner" value="1" id="ja" type="radio">
                                     <label for="ja">ja</label>
                                 </span>
-                            <select id="partners">
+                            <select id="partners" ng-model="vm.data.partnerId" ng-if="vm.data.partner=='1'">
                                 <option value="-1" selected="selected">Bitte wählen Sie ...</option>
                                 <option value="1">Michael Tauchert</option>
                                 <option value="2">Hermann Kahlke</option>
@@ -119,7 +132,9 @@
 
                             <div class="b-form__title-btn b-form__title">
                                 <div class="b-form__right-list">
-                                    <div class="btn btn--light" ui-sref="app.tabs.antragsteller">Neuer Vorgang</div>
+                                    <div class="btn btn--light" ui-sref="app.tabs.antragsteller" ng-click="vm.submit()">
+                                        Neuer Vorgang
+                                    </div>
                                 </div>
                             </div>
                         </div>

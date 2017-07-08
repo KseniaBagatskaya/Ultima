@@ -1603,3 +1603,7 @@ input {
 .short_span {
     width: 120px !important;
 }
+
+.dashboard_list li{
+    padding-left: 16px!important;
+}

@@ -44,7 +44,7 @@
                 bankverbindungs: vm.bankverbindungs,
                 wis: vm.wis
             };
-            console.log(data);
+            console.log(JSON.stringify(data));
         }
 
         function addKinder() {

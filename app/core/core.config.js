@@ -76,14 +76,19 @@
                 controller: 'AntragstellerController',
                 controllerAs: 'vm',
                 resolve: {
-                    // antragsteller_data: function (dashboard) {
-                    //     return dashboard.getAllMembers()
-                    //         .then(function (res) {
-                    //             console.log(res, 'res');
-                    //             return res;
-                    //         });
-                    //
-                    // }
+//                     user_data: function ($stateParams, $sessionStorage, a) {
+//                         let id = $stateParams.id;
+//                         if ($stateParams.id != '') {
+//                             if ($stateParams.id) {
+//                                 $sessionStorage.memberId = $stateParams.id;
+//
+//                             }
+//                             return request('GET', 'GetFamilyUnionByMember?id=' + id);
+//                         } else {
+//                             delete($sessionStorage.memberId);
+//                         }
+// //                            return false;
+//                     },
                     bank_list: function (antragsteller) {
                         return antragsteller.menu;
                     }

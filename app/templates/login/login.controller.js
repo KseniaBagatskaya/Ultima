@@ -6,20 +6,24 @@
 
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$scope', '$http'];
-    function LoginController($scope, $http) {
+    LoginController.$inject = ['$scope', 'http', 'url'];
+    function LoginController($scope, http, url) {
 
         let vm = this;
 
         vm.login = login;
 
-        vm.user = {
-            email: '',
-            password: ''
-        };
+        // vm.user = {
+        //     Email: '',
+        //     Password: ''
+        // };
 
         function login() {
-            console.log(vm.user);
+            http.post(url.user.login, JSON.stringify(vm.user))
+                .then(function (res) {
+                    console.log(res, 'res');
+                    return res;
+                });
         }
     }
 

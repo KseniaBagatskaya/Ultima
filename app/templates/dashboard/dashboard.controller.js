@@ -11,6 +11,7 @@
     function DashboardController($scope, users_data, werbung, kontaktar, partners) {
         let vm = this;
         vm.data = {};
+        vm.submit = submit;
         vm.werbung = werbung;
         vm.kontaktar = kontaktar;
         vm.partners = partners;
@@ -29,6 +30,9 @@
         // console.log(filtered);
         vm.users = users_data;
 
+        function submit() {
+            console.log(vm.data);
+        }
     }
 
 })();
