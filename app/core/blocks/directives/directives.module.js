@@ -6,6 +6,9 @@
         'directive.basisangaben',
         'directive.kinder',
         'directive.nutzung',
+        'directive.bankverbindung',
+        'directive.weitere-immobilien',
+        'directive.weiteres-darlehen'
     ]);
 
 })();

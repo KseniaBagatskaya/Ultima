@@ -95,7 +95,7 @@
                     </div>
                     <!--TOP LIST OF BANKS END-->
 
-                        <!--FIELDS OF BANKS START-->
+                    <!--FIELDS OF BANKS START-->
                     <div class="b-form__blocks-separator">
                         <ul class="b-form__block b-form__list banks-left">
                             <li class="b-form__list-item" ng-repeat="(key,bank) in vm.bank_items_left"
@@ -113,69 +113,38 @@
                 </div>
 
 
-
                 <div class="second_form clearfix">
                     <h4 class="b-form__sub-header">Weitere Immobilien: <span>Sind weitere Immobilien vorhanden?</span>
                     </h4>
                     <div class="b-form__title-btn b-form__title">
-                        <div class="btn btn--light">Keine immobilien vorhanden</div>
+                        <div class="b-form__list-view-item">
+                            <span class="kinder" ng-click="vm.addWis()">
+                                <img class="btn btn__plus btn--light"
+                                     src="content/images/icons/plus.png"
+                                     alt="plus_btn">
+                                Weitere Immobilien erfassen
+                            </span >
+                        </div>
+                        <div class="b-form__right-list">
+                            <div class="btn btn--light" ng-click="vm.clearWis()">Keine immobilien vorhanden</div>
+                        </div>
                     </div>
+                    <weitere-immobilien ng-repeat="wi in vm.wis track by $index" data-parent="wi"
+                            data-index="{{$index}}"></weitere-immobilien>
                 </div>
 
+                <!--Bankverbindung START-->
                 <div class="second_form clearfix">
                     <h4 class="b-form__sub-header bankverbindung">
                         <img class="btn btn__plus btn--light"
                              src="content/images/icons/plus.png"
-                             ng-click="vm.addBank()"
+                             ng-click="vm.addBankverbindung()"
                              alt="plus_btn"> Bankverbindung</h4>
-                    <div class="b-form__block b-banking clearfix"
-                         ng-repeat="bank in vm.data.bankverbindung track by $index">
-                        <div class="b-banking__item b-banking__kont">
-                            <span class="b-form__input">
-                                <label for="kont">Kontoinhaber</label>
-                                <select id="kont" ng-model="bank.kont">
-                                    <option ng-selected="{{bank.kont === -1}}" value="-1">Bitte wählen Sie ...</option>
-                                    <option ng-selected="{{bank.kont === 1}}" value="1">Antragsteller 1</option>
-                                    <option ng-selected="{{bank.kont === 2}}" value="2">Antragsteller 2</option>
-                                    <option ng-selected="{{bank.kont === 3}}" value="3">beide Antragsteller</option>
-                                </select>
-                            </span>
-                        </div>
-                        <div class="b-banking__item b-banking__iban">
-                            <span class="b-form__input">
-                                <label for="iban">IBAN</label>
-                                <input id="iban" type="text" ng-model="bank.iban">
-                            </span>
-                        </div>
-                        <div class="b-banking__item b-banking__bic">
-                            <span class="b-form__input">
-                                <label for="bic">BIC</label>
-                                <input id="bic" type="text" ng-model="bank.bic">
-                            </span>
-                        </div>
-                        <div class="b-banking__item b-banking__num">
-                            <span class="b-form__input">
-                                <label for="num">Konto-Nr.</label>
-                                <input id="num" type="text" ng-model="bank.num">
-                            </span>
-                        </div>
-                        <div class="b-banking__item b-banking__blz">
-                            <span class="b-form__input">
-                                <label for="blz">BLZ</label>
-                                <input id="blz" type="text" ng-model="bank.blz">
-                            </span>
-                        </div>
-                        <div class="b-banking__item b-banking__kredit">
-                            <span class="b-form__input">
-                                <label for="cred_inst">Kreditinstitut</label>
-                                <input id="cred_inst" type="text" ng-model="bank.cred_inst">
-                            </span>
-                        </div>
-                        <img src="content/images/icons/trash_basket.png"
-                             class="btn btn__trash btn--light bank-delete"
-                             ng-click="vm.deleteBank($index)">
-                    </div>
+                    <bankverbindung ng-repeat="bankverbindung in vm.bankverbindungs track by $index"
+                                    data-parent="bankverbindung"
+                                    data-index="{{$index}}"></bankverbindung>
                 </div>
+                <!--Bankverbindung END-->
 
                 <div class="b-form__title-light b-form__title">Zusatzangaben</div>
 

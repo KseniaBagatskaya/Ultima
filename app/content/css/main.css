@@ -341,7 +341,7 @@ textarea {
     color: #154882;
     display: flex;
     align-items: center;
-    width: 100px;
+    /*width: 100px;*/
 }
 
 .delete-area{
@@ -357,7 +357,7 @@ textarea {
     border: 1px solid #d9d9d7;
     border-bottom: none;
     box-sizing: border-box;
-    margin-bottom: 5px; }
+    margin-bottom: 5px; padding-bottom: 5px;}
 
 .b-form__left-list {
     width: 50%;
@@ -1590,4 +1590,16 @@ input {
 
 .arrow.show {
     transform: rotate(0deg);
+}
+
+
+.weitere span{
+    margin-right: 4%;
+}
+.short_input {
+    width: 100px !important;
+}
+
+.short_span {
+    width: 120px !important;
 }

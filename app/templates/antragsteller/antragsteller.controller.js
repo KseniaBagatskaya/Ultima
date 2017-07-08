@@ -17,13 +17,19 @@
         vm.clearKinder = clearKinder;
         vm.addItem = addItem;
         vm.checkMaxInBanks = checkMaxInBanks;
+        vm.addBankverbindung = addBankverbindung;
+        vm.addWis = addWis;
+        vm.clearWis = clearWis;
+
+
         vm.bank_list = bank_list;
         vm.bank_items_left = [];
         vm.bank_items_right = [];
         vm.antragsteller1 = {number: '1'};
         vm.antragsteller2 = {number: '2'};
         vm.kinders = [];
-
+        vm.bankverbindungs = [];
+        vm.wis = []; //weitereImmobilien
 
         function submit() {
             let banks = {
@@ -34,7 +40,9 @@
                 antragsteller1: vm.antragsteller1,
                 antragsteller2: vm.antragsteller2,
                 kinders: vm.kinders,
-                banks: banks
+                banks: banks,
+                bankverbindungs: vm.bankverbindungs,
+                wis: vm.wis
             };
             console.log(data);
         }
@@ -85,6 +93,30 @@
             return item.max > item.current;
         }
 
+        function addBankverbindung() {
+            vm.bankverbindungs.push({
+                _delete: deleteBankverbindung
+            });
+        }
+
+        function deleteBankverbindung(index) {
+            vm.bankverbindungs.splice(index, 1);
+        }
+
+        function addWis() {
+            vm.wis.push({
+                darlehens: [],
+                _delete: deleteWis
+            });
+        }
+
+        function deleteWis(index) {
+            vm.wis.splice(index, 1);
+        }
+
+        function clearWis() {
+            vm.wis = [];
+        }
     }
 
 })();

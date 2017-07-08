@@ -1,0 +1,83 @@
+<div class=" b-form__block">
+    <div class="b-form__half-col b-form__half-col--first">
+                                <span class=" b-form__address clearfix">
+                                    <span class="b-form__input b-form__address-long">
+                                        <label for="street_name">Straße</label>
+                                        <input id="street_name" type="text"
+                                               ng-model="vm.data.street">
+                                    </span>
+                                    <span class="b-form__input b-form__address-short">
+                                        <label for="street_numb">Nr.</label>
+                                        <input id="street_numb" type="text"
+                                               ng-model="vm.data.house">
+                                    </span>
+                                </span>
+
+    </div>
+    <div class="b-form__half-col b-form__half-col--last">
+                                <span class="weitere b-form__address clearfix">
+                                    <span class="b-form__input b-form__address-short">
+                                        <label for="plz">PLZ</label>
+                                        <input id="plz" type="text" ng-model="vm.data.plz">
+                                    </span>
+                                    <span class="b-form__input b-form__address-short">
+                                        <label for="ort">Ort</label>
+                                        <input id="ort" type="text" ng-model="vm.data.ort">
+                                    </span>
+                                    <span class="b-form__input b-form__address-short">
+                                        <label for="marktwert">Marktwert</label>
+                                        <input id="marktwert" type="text" ng-model="vm.data.marktwert">
+                                    </span>
+                                    <span style="margin-right: 0" class="b-form__input b-form__address-short">
+                                        <label for="gestame">Gesamte Wohnfläche</label>
+                                        <input id="gestame" type="text" ng-model="vm.data.gesamte">
+                                    </span>
+                                        <img src="content/images/icons/trash_basket.png"
+                                             class="btn btn__trash btn--light bank-delete"
+                                             ng-click="vm.data._delete(vm.index)">
+                                </span>
+
+    </div>
+    <div class="b-form__child-item" style="    float: inherit;">
+        <h4>Wie wird die lmmobilie genutzt?</h4>
+        <span class="b-form__radio">
+                                <input name="eigennutzung" id="eigennutzung" type="radio" value="Eigennutzung"
+                                       ng-model="vm.data.genutzt">
+                                <label for="eigennutzung">Eigennutzung</label>
+                            </span>
+        <span class="b-form__radio">
+                                <input name="vermietet" id="vermietet" type="radio" value="Vermietet"
+                                       ng-model="vm.data.genutzt">
+                                <label for="vermietet">Vermietet</label>
+                            </span>
+        <span class="b-form__radio">
+                                <input name="beides" id="beides" type="radio" value="Beides" ng-model="vm.data.genutzt">
+                                <label for="beides">Beides</label>
+                            </span>
+    </div>
+    <h4 class="b-form__sub-header">
+        Darlehen:<span>Sind Rechte in Abteilung III im Grundbuch vorhanden?</span></h4>
+
+    <div class="b-form__list-view b-form__list-view--horizontal clearfix">
+        <div class="b-form__list-view-item">
+            <a>
+                <img class="btn btn__plus btn--light"
+                     src="content/images/icons/plus.png"
+                     alt="plus_btn"
+                     ng-click="vm.addDarlehen()">
+                Weiteres Darlehen erfassen
+            </a>
+        </div>
+
+    </div>
+
+    <div style="background: rgb(255,255,255);padding: 5px 5px;margin: 0 1.5px 0 1px;"
+         ng-repeat="darl in vm.data.darlehens track by $index">
+        <weitere-darlehen data-parent="darl"
+                          data-index="{{$index}}"></weitere-darlehen>
+
+    </div>
+
+</div>
+
+
