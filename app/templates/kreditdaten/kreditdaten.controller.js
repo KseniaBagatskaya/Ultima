@@ -14,6 +14,7 @@
         vm.antrags = [];
         vm.addAntrag = addAntrag;
         vm.deleteAntrag = deleteAntrag;
+        vm.submit = submit;
 
 
         function addAntrag() {
@@ -26,6 +27,9 @@
             vm.antrags.splice(index, 1);
         }
 
+        function submit() {
+            console.log(vm.antrags);
+        }
 
     }
 

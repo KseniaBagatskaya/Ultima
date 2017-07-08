@@ -28,17 +28,17 @@
                         </select>
             </span>
             <span class="b-form__radio-label">
-                <label for="first_name">Einliegerwohnung vorhanden?</label>
+                <label>Einliegerwohnung vorhanden?</label>
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
                         <input ng-model="vm.data.einliegerwonhnung" value="1"
-                                name="vorh" id="ja" type="radio">
-                        <label for="ja">ja</label>
+                                name="vorh" id="einliegerwonhnungja" type="radio">
+                        <label for="einliegerwonhnungja">ja</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.data.einliegerwonhnung" value="0"
-                                name="vorh" id="nein" type="radio">
-                        <label for="nein">nein</label>
+                                name="vorh" id="einliegerwonhnungnein" type="radio">
+                        <label for="einliegerwonhnungnein">nein</label>
                     </span>
                 </span>
             </span>
@@ -69,49 +69,49 @@
     <div class="b-form__group">
         <div class="b-form__half-col b-form__half-col--first">
             <span class="b-form__input">
-                <label for="first_name">Anzahl der Vollgeschosse</label>
-                <input ng-model="vm.data.anzahl" id="first_name"
+                <label for="Anzahl">Anzahl der Vollgeschosse</label>
+                <input ng-model="vm.data.anzahl" id="Anzahl"
                         type="text">
             </span>
 
             <span class="b-form__radio-label">
-                <label for="first_name">Fertighaus</label>
+                <label>Fertighaus</label>
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
-                        <input ng-model="vm.data.fertighaus" name="vorh1" id="ja"
+                        <input ng-model="vm.data.fertighaus" name="vorh1" id="fertighausja"
                                 value="1" type="radio">
-                        <label for="ja">ja</label>
+                        <label for="fertighausja">ja</label>
                     </span>
                     <span class="b-form__radio">
-                        <input ng-model="vm.data.fertighaus" name="vorh1" id="nein"
+                        <input ng-model="vm.data.fertighaus" name="vorh1" id="fertighausnein"
                                 value="0" type="radio">
-                        <label for="nein">nein</label>
+                        <label for="fertighausnein">nein</label>
                     </span>
                 </span>
             </span>
 
             <span class="b-form__radio-label">
-                <label for="first_name">Dachgeschoss</label>
+                <label>Dachgeschoss</label>
                 <span class="b-form__col b-form__vert">
                     <span class="b-form__radio">
-                        <input ng-model="vm.data.dachgeschoss" name="vorh2" id="ja"
+                        <input ng-model="vm.data.dachgeschoss" name="vorh2" id="Dachgeschossja"
                                 value="Voll ausgebaut" type="radio">
-                        <label for="ja">Voll ausgebaut</label>
+                        <label for="Dachgeschossja">Voll ausgebaut</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.data.dachgeschoss" name="vorh2"
-                                id="nein" value="Teilweise ausgebaut" type="radio">
-                        <label for="nein">Teilweise ausgebaut</label>
+                                id="Dachgeschossnein" value="Teilweise ausgebaut" type="radio">
+                        <label for="Dachgeschossnein">Teilweise ausgebaut</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.data.dachgeschoss" name="vorh2"
-                                id="nein" value="Nicht ausgebaut" type="radio">
-                        <label for="nein">Nicht ausgebaut</label>
+                                id="Nichtnein" value="Nicht ausgebaut" type="radio">
+                        <label for="Nichtnein">Nicht ausgebaut</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.data.dachgeschoss" name="vorh2"
-                                id="nein" value="Flachdach" type="radio">
-                        <label for="nein">Flachdach</label>
+                                id="Nichtnein" value="Flachdach" type="radio">
+                        <label for="Nichtnein">ç</label>
                     </span>
                 </span>
             </span>
@@ -122,33 +122,33 @@
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
                         <input ng-model="vm.data.bauweise" value="massiv"
-                                name="vorh3" id="ja" type="radio">
-                        <label for="ja">massiv</label>
+                                name="vorh3" id="bauweiseja" type="radio">
+                        <label for="bauweiseja">massiv</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.data.bauweise" value="andere"
-                                name="vorh3" id="nein" type="radio">
-                        <label for="nein">andere</label>
+                                name="vorh3" id="bauweisenein" type="radio">
+                        <label for="bauweisenein">andere</label>
                     </span>
                 </span>
             </span>
             <span class="b-form__radio-label">
-                <label for="first_name">Keller</label>
+                <label>Keller</label>
                 <span class="b-form__col b-form__vert">
                     <span class="b-form__radio">
                         <input ng-model="vm.data.keller" value="Unterkellert"
-                                name="vorh4" id="ja" type="radio">
-                        <label for="ja">Unterkellert</label>
+                                name="vorh4" id="kellerja" type="radio">
+                        <label for="kellerja">Unterkellert</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.data.keller" value="Teilunterkellert"
-                                name="vorh4" id="nein" type="radio">
-                        <label for="nein">Teilunterkellert</label>
+                                name="vorh4" id="kellernein" type="radio">
+                        <label for="kellernein">Teilunterkellert</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.data.keller" value="Nicht unterkellert"
-                                name="vorh4" id="nein" type="radio">
-                        <label for="nein">Nicht unterkellert</label>
+                                name="vorh4" id="unterkellertnein" type="radio">
+                        <label for="unterkellertnein">Nicht unterkellert</label>
                     </span>
                 </span>
             </span>

@@ -38,9 +38,11 @@
             vm.data.anfrages.splice(index, 1);
         }
 
-        function addFinanzierungsbausteine(id) {
+        function addFinanzierungsbausteine(id, name, description) {
             vm.data.finanzierungsbausteines.push({
                 id: id,
+                name: name || '',
+                description: description || '',
                 _delete: deleteFinanzierungsbausteine
             });
         }

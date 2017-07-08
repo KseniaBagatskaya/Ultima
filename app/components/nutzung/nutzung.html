@@ -3,26 +3,26 @@
     <div class="b-form__group">
         <div class="b-form__col">
             <span class="b-form__input b-form__squere">
-                <label for="first_name">Gesamte Wohnfläche</label>
-                <input ng-model="vm.nutzung.gesamte" id="first_name" type="text">
+                <label for="gesamte">gesamte Wohnfläche</label>
+                <input ng-model="vm.nutzung.gesamte" id="gesamte" type="text">
             </span>
             <span class="b-form__radio-label">
-                <label for="first_name">Wie wird die Wohnfläche genutzt?</label>
+                <label>Wie wird die Wohnfläche genutzt?</label>
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
                         <input ng-model="vm.nutzung.wie" value="Eigengenutzt"
-                                name="vorh5" id="ja" type="radio">
-                        <label for="ja">Eigengenutzt</label>
+                                name="vorh5" id="Eigengenutzt" type="radio">
+                        <label for="Eigengenutzt">Eigengenutzt</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.nutzung.gewerbeflache" value="Vermietet"
-                                name="vorh5" id="nein" type="radio">
-                        <label for="nein">Vermietet</label>
+                                name="vorh5" id="Vermietet" type="radio">
+                        <label for="Vermietet">Vermietet</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.nutzung.gewerbeflache" value="Beides" name="vorh5"
-                                id="nein" type="radio">
-                        <label for="nein">Beides</label>
+                                id="Beides" type="radio">
+                        <label for="Beides">Beides</label>
                     </span>
                 </span>
             </span>
@@ -31,13 +31,13 @@
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
                         <input ng-model="vm.nutzung.gewerbeflache" value="1" name="vorh6"
-                                id="ja" type="radio">
-                        <label for="ja">ja</label>
+                                id="gewerbeflache" type="radio">
+                        <label for="gewerbeflache">ja</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.nutzung.gewerbeflache" value="0" name="vorh6"
-                                id="nein" type="radio">
-                        <label for="nein">nein</label>
+                                id="gewerbeflachenein" type="radio">
+                        <label for="gewerbeflachenein">nein</label>
                     </span>
                 </span>
             </span>
@@ -50,17 +50,17 @@
     <div class="b-form__group b-form__group--same-height70">
         <div class="b-form__col">
             <span class="b-form__radio-label">
-                <label for="first_name">Erbbaurecht vorhanden?</label>
+                <label>Erbbaurecht vorhanden?</label>
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
                         <input ng-model="vm.zusatzliche.erbbaurecht" value="1" name="vorh7"
-                                id="ja" type="radio">
-                        <label for="ja">ja</label>
+                                id="erbbaurecht" type="radio">
+                        <label for="erbbaurecht">ja</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.zusatzliche.erbbaurecht" value="0" name="vorh7"
-                                id="nein" type="radio">
-                        <label for="nein">nein</label>
+                                id="erbbaurechtnein" type="radio">
+                        <label for="erbbaurechtnein">nein</label>
                     </span>
                 </span>
             </span>
@@ -74,13 +74,13 @@
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
                         <input ng-model="vm.zusatzliche.wurde" value="1" name="vorh8"
-                                id="ja" type="radio">
-                        <label for="ja">ja</label>
+                                id="Wurdeja" type="radio">
+                        <label for="Wurdeja">ja</label>
                     </span>
                     <span class="b-form__radio">
                         <input ng-model="vm.zusatzliche.wurde" value="0" name="vorh8"
-                                id="nein" type="radio">
-                        <label for="nein">nein</label>
+                                id="Wurdenein" type="radio">
+                        <label for="Wurdenein">nein</label>
                     </span>
                 </span> 
             </span>
