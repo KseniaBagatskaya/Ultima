@@ -15,6 +15,8 @@
             .state('app', {
                 abstract: true,
                 templateUrl: 'templates/header/header.html',
+                controller: 'HeaderController',
+                controllerAs: 'vm',
             })
             .state('app.tabs', {
                 abstract: true,
@@ -26,6 +28,12 @@
                 url: '/login',
                 templateUrl: 'templates/login/login.html',
                 controller: 'LoginController',
+                controllerAs: 'vm',
+            })
+            .state('app.registration', {
+                url: "/registration",
+                templateUrl: 'templates/registration/registration.html',
+                controller: 'RegistrationController',
                 controllerAs: 'vm',
             })
             .state('app.dashboard', {

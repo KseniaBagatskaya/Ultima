@@ -6,14 +6,14 @@
                     <a ui-sref="app.dashboard">Übersicht</a>
                 </li>
                 <li class="b-header__nav-item">
-                    <a ui-sref="register">Benutzerverwaltung</a>
+                    <a ui-sref="app.registration">Benutzerverwaltung</a>
                 </li>
             </ul>
         </nav>
         <nav class="b-header__links-nav" role="navigation">
             <ul class="b-header__nav clearfix">
                 <li class="b-header__nav-item b-header__links-search">
-                    <a class="search" ng-click='toggleModal()'></a>
+                    <a class="search" ng-click='vm.modal.toggleModal()'></a>
                 </li>
                 <li class="b-header__nav-item">
                     <a href="#">Schließen</a>
@@ -31,4 +31,5 @@
     </div>
 
 </header>
+<search data-parent="vm.modal"></search>
 <div ui-view></div>

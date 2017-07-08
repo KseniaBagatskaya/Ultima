@@ -10,7 +10,8 @@
         'directive.weitere-immobilien',
         'directive.weiteres-darlehen',
         'directive.antrag',
-        'directive.anfrage'
+        'directive.anfrage',
+        'directive.search'
     ]);
 
 })();
