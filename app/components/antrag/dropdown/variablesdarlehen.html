@@ -1,0 +1,37 @@
+<!--Variables Darlehen-->
+<div class="b-form__block b-form__fields clearfix">
+    <span class="b-request__title">Variables Darlehen</span>
+    <span class="b-form__input b-form__euro b-form__input-middle">
+    <label for="loan_amount">Darlehensbetrag</label>
+    <input ng-model="item.darlehensbetrag" id="loan_amount" type="text">
+    </span>
+    <span class="b-form__input b-form__year b-form__input-middle">
+    <label for="fixed_rate">Zinsbindung</label>
+    <input ng-model="item.zinsbindung" id="fixed_rate" type="text">
+    </span>
+    <span class="b-form__input">
+    <label for="repayment_r">Tilgungswunsch</label>
+    <select id="repayment_r" ng-model="item.tilgungswunsch">
+    <option value="-1" selected="selected">Bitte wählen Sie ...</option>
+    <option value="1">2%</option>
+    <option value="2">3%</option>
+    <option value="4">5%</option>
+    <option value="5">6%</option>
+    </select>
+    </span>
+    <span class="b-form__input b-form__percent b-form__input-middle">
+    <label for="unscheduled">Sondertilgung</label>
+    <input ng-model="item.sondertilgung" id="unscheduled" type="text">
+    </span>
+    <span class="b-form__input b-form__input-middle">
+    <label for="time">Auszahlungszeitpunkt</label>
+    <input ng-model="item.auszahlungszeitpunkt" id="time" type="text">
+    </span>
+    <span class="b-form__input b-buy__option">
+    <label for="date">&nbsp;</label>
+    <img src="content/images/icons/trash_basket.png"
+         class="btn btn__trash btn--light"
+         ng-click="item._delete($index)">
+    </span>
+</div>
+<!--end-->

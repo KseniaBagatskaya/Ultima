@@ -9,7 +9,23 @@
 
 
     function KreditdatenController($scope) {
-        var vm = this;
+        let vm = this;
+        vm.data={};
+        vm.antrags = [];
+        vm.addAntrag = addAntrag;
+        vm.deleteAntrag = deleteAntrag;
+
+
+        function addAntrag() {
+            vm.antrags.push({
+                _delete: deleteAntrag
+            });
+        }
+
+        function deleteAntrag(index) {
+            vm.antrags.splice(index, 1);
+        }
+
 
     }
 

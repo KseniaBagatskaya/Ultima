@@ -1,0 +1,58 @@
+<div class="b-tabs__container">
+    <div class="b-form__title-dark b-form__title">
+        Anträge/Anfragen
+    </div>
+
+    <div class="second_form child-form">
+        <div class="b-form__block">
+            <div class="b-form__group b-form__child b-form__single">
+                <ul class=" b-form__list b-form__left-list">
+                    <li class="b-form__list-item">
+                        <div class="b-form__group b-buy b-buy-single">
+                            <div class="b-buy__item b-buy__name">
+                                    <span class="b-form__input">
+                                        <label for="new_orders">Auftragseingang</label>
+                                        <select id="new_orders" ng-model="vm.data.auftragseingang">
+                                            <option value="Bitte wählen Sie ..." selected="selected">Bitte wählen Sie ...</option>
+                                            <option value="Haus">Haus</option>
+                                            <option value="Post">Post</option>
+                                            <option value="Homepage">Homepage</option>
+                                            <option value="Email">Email</option>
+                                        </select>
+                                    </span>
+                            </div>
+                            <div class="b-buy__item b-buy__bet">
+                                    <span class="b-form__input b-form__euro">
+                                        <label for="wish">Wunsch</label>
+                                        <input ng-model="vm.data.wunsch" id="wish" type="text">
+                                    </span>
+                            </div>
+                            <div class="b-buy__item b-buy__begin">
+                                    <span class="b-form__input">
+                                        <label for="date">Datum</label>
+                                        <input ng-model="vm.data.datum" id="date" type="text">
+                                    </span>
+                            </div>
+                            <div class="b-buy__item b-buy__options">
+                                        <span class="b-form__input">
+
+                                        </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn--light mr-10" style="margin-bottom: 10px;" id="antrag" ng-click="vm.addAntrag()">Neuer
+                Antrag
+            </button>
+        </div>
+    </div>
+
+    <div class="first_form clearfix third_tab_item">
+        <div class="b-form__block">
+            <antrag ng-repeat="antrag in vm.antrags track by $index" data-parent="antrag"
+                    data-index="{{$index}}"></antrag>
+        </div>
+    </div>
+
+</div>

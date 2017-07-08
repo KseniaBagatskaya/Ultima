@@ -1,0 +1,68 @@
+<div class="b-form__group anfrage_item">
+    <div class="b-form__group-child">
+        <span class="b-form__radio">
+    <input ng-model="vm.data.reason" name="test" value="offen" id="offen" type="radio">
+    <label for="offen">offen</label>
+    </span>
+        <span class="b-form__radio">
+    <input ng-model="vm.data.reason" name="test" value="angefragt" id="requested"
+           type="radio">
+    <label for="requested">angefragt</label>
+    </span>
+        <span class="b-form__radio">
+    <input ng-model="vm.data.reason" name="test" value="genehmigt" id="approved"
+           type="radio">
+    <label for="approved">genehmigt</label>
+    </span>
+        <span class="b-form__radio">
+    <input ng-model="vm.data.reason" name="test" value="abgelehnt" id="declined"
+           type="radio">
+    <label for="declined">abgelehnt</label>
+    </span>
+        <span class="b-form__radio">
+    <input ng-model="vm.data.reason" name="test" value="Storno" id="cancellation"
+           type="radio">
+    <label for="cancellation">Storno</label>
+    </span>
+    </div>
+    <div class="b-form__group-child">
+        <span class="text-title">CTB Braunschweig</span>
+        <span class="b-form__input b-form__input-middle">
+    <label for="some_date"></label>
+    <input ng-model="vm.data.fieldOne" id="some_date" type="text">
+    </span>
+        <span class="b-form__input b-form__input-middle">
+    <label for="some_date"></label>
+    <input ng-model="vm.data.fieldTwo" id="some_date" type="text">
+    </span>
+        <span class="b-form__input b-form__input-middle">
+    <label for="some_date"></label>
+    <input ng-model="vm.data.fieldThree" id="some_date" type="text">
+    </span>
+        <span class="b-form__input b-form__input-large">
+    <select ng-model="vm.data.fieldFour" id="select">
+    <option value="-1" selected="selected">nicht abgelehnt</option>
+    <option value="1">Haus</option>
+    <option value="2">Post</option>
+    <option value="3">Homepage</option>
+    <option value="4">Email</option>
+    </select>
+    </span>
+        <span>Wiedervorlage:</span>
+        <span class="b-form__input b-form__input-middle">
+    <label for="date_template"></label>
+    <input ng-model="vm.data.wiedervorlage" id="date_template" type="text">
+    </span>
+    </div>
+    <div class="b-form__group-child b-form__group-child-last">
+        <span class="text-title">Betrag:</span>
+        <span class="sum">{{item.betrag}} EUR</span>
+    </div>
+    <div class="b-buy__item b-buy__options delete-area">
+    <span class="b-form__input">
+    <img src="content/images/icons/trash_basket.png"
+         class="btn btn__trash btn--light"
+         ng-click="vm.data._delete(vm.index)">
+    </span>
+    </div>
+</div>

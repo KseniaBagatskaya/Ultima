@@ -1,0 +1,80 @@
+<!--zur Zinsabsicherung-->
+<div class="b-form__block b-form__fields clearfix">
+    <div class="block-title">
+        <p class="b-request__title">Bausparvertrag</p>
+    </div>
+    <div class="b-request__sub-group">
+    <span class="b-form__input">
+    <label for="tarif">Tarif</label>
+    <div class="dropdown">
+    <button ng-click="vm.toggleTarifDropdown()" class="dropbtn">{{vm.getLabel({group1: item.group1, group2: item.group2,group3: item.group3, group4: item.group4})}} &#9660;</button>
+
+        <!--TARIF INCLUDE-->
+    <div ng-include="'components/antrag/dropdown/zur_zins/tarif.html'"></div>
+
+    </div>
+    </span>
+        <span class="b-form__radio-label">
+    <label for="usage">Verwendungsart</label>
+    <span class="b-form__col b-form__inline">
+
+    <span class="b-form__radio">
+    <input ng-model="item.verwendungsart" name="free" id="frei" type="radio">
+    <label for="frei">frei besparen</label>
+    </span>
+
+    <span class="b-form__radio">
+    <input ng-model="item.verwendungsart" name="cede" id="abtreten"
+           type="radio">
+    <label for="abtreten">abtreten</label>
+    </span>
+
+    </span>
+    </span>
+        <span class="b-form__input small-select">
+    <label for="building_savings">Bausparwunsch anpassen (optional)</label>
+    <select id="building_savings" ng-model="item.bausparwunschAnpassen">
+    <option value="-1" selected="selected">Automatischer Vorschlag</option>
+    <option value="1">Bausparsumme in €</option>
+    <option value="2">Bausparsumme in % des Darlehensbetrag</option>
+    <option value="3">Sparrate in €</option>
+    <option value="4">Sparrate in ‰ der Bausparsumme</option>
+    <option value="5">Tilgungsrate in €</option>
+    <option value="6">Zuteilungszeitpunkt</option>
+    </select>
+    </span>
+        <span class="b-form__radio-label">
+    <label for="acquisition">Abschlussgebühr</label>
+    <span class="b-form__col b-form__inline">
+    <span class="b-form__radio">
+    <input ng-model="item.abschlussgebuhr" name="immediate_payment"
+           id="sofortzahlung" type="radio">
+    <label for="sofortzahlung">Sofortzahlung</label>
+    </span>
+    <span class="b-form__radio">
+    <input ng-model="item.abschlussgebuhr" name="billing" id="verrechnung"
+           type="radio">
+    <label for="verrechnung">Verrechnung</label>
+    </span>
+    </span>
+    </span>
+        <span class="b-form__input b-form__euro b-form__input-middle">
+    <label for="loan_amount">Darlehensbetrag</label>
+    <input ng-model="item.darlehensbetrag" id="loan_amount" type="text">
+    </span>
+        <span class="b-form__input small-select">
+    <label for="building_savings">Vertragspartner</label>
+    <select id="building_savings" ng-model="item.vertragspartner">
+    <option value="-1" selected="selected">Antragsteller 1</option>
+    <option value="1">Antragsteller 2</option>
+    <option value="2">beide Antragsteller</option>
+    </select>
+    </span>
+    </div>
+    <span class="b-form__input b-buy__option">
+    <label for="date">&nbsp;</label>
+    <img src="content/images/icons/trash_basket.png" class="btn btn__trash btn--light"
+         ng-click="item._delete($index)">
+    </span>
+</div>
+<!--end-->
