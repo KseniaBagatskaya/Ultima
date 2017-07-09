@@ -5,9 +5,9 @@
     angular.module('model.antragsteller', [])
         .service('antragsteller', antragsteller);
 
-    antragsteller.$inject = [];
+    antragsteller.$inject = ['http', 'url', '$stateParams'];
 
-    function antragsteller() {
+    function antragsteller(http, url, $stateParams) {
 
         const MENU_LEFT = [
             {
@@ -149,11 +149,24 @@
 
         let service = {
             menu: {left: MENU_LEFT, right: MENU_RIGHT},
-            findElementById: _findElementById
+            findElementById: _findElementById,
+            getData: getData
         };
         return service;
 
-        function _findElementById(id, side,bank_list) {
+
+        function getData(id) {
+            let data = {
+                entryId: id
+            };
+            return http.get(url.anstragsteller.index, data)
+                .then(function (res) {
+                    console.log(res, 'res');
+                    return res;
+                });
+        }
+
+        function _findElementById(id, side, bank_list) {
             let result;
             if (side === 'L') {
                 bank_list.left.some(function (item) {

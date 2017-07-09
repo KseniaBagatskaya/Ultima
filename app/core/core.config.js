@@ -84,11 +84,13 @@
                 controller: 'AntragstellerController',
                 controllerAs: 'vm',
                 resolve: {
-                    antrag_data: function ($stateParams, $sessionStorage, url) {
+                    antrag_data: function (antragsteller,$stateParams) {
                         let id = $stateParams.id;
-                        if ($stateParams.id) {
-                            return request('GET', `${url.get_angrag}?=entryId=` + id);
-                        }
+                        return antragsteller.getData(id)
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
                     }
                 }
             })

@@ -19,7 +19,9 @@
                         get_kontaktart: baseUrl + '',
                         get_partners: baseUrl + '',
                     },
-                    anstragsteller: {}
+                    anstragsteller: {
+                        index: baseUrlNew + 'antragsteller/index'
+                    }
                 };
 
             }
