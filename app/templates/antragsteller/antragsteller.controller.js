@@ -23,8 +23,6 @@
 
         console.log(antrag_data)
         vm.bank_list = bank_list;
-        vm.bank_items_left = [];
-        vm.bank_items_right = [];
 
 
         if ($stateParams.id) {
@@ -33,7 +31,11 @@
             vm.kinders = antrag_data.kinders || [];
             vm.bankverbindungs = antrag_data.bankverbindung || [];
             vm.wis = antrag_data.wis || [];
+            vm.bank_items_left = antrag_data.finalizebank.left;
+            vm.bank_items_right = antrag_data.finalizebank.right;
         } else {
+            vm.bank_items_left = [];
+            vm.bank_items_right = [];
             vm.antragsteller1 = {
                 number: '1',
                 sex: '1',
