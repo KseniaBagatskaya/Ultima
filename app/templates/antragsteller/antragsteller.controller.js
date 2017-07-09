@@ -25,23 +25,35 @@
         vm.bank_list = bank_list;
         vm.bank_items_left = [];
         vm.bank_items_right = [];
-        vm.antragsteller1 = {number: '1'};
-        vm.antragsteller2 = {number: '2'};
+        vm.antragsteller1 = {
+            number: '1',
+            sex: '1',
+        };
+        vm.antragsteller2 = {
+            number: '2',
+            value: '1',
+        };
         vm.kinders = [];
         vm.bankverbindungs = [];
-        vm.wis = []; //weitereImmobilien
+        vm.wis = [];
+
+        if ($stateParams.id) {
+            vm.antragsteller1 = antrag_data.antragstellers[0] || {};
+            vm.antragsteller2 = antrag_data.antragstellers[1] || {};
+            vm.kinders = antrag_data.kinders || [];
+            vm.bankverbindungs = antrag_data.bankverbindung || [];
+            vm.wis = antrag_data.wis || [];
+        }
 
         function submit() {
+
             const requestConfig = {
                 url: null,
                 data: {
                     kinders: vm.kinders,
                     bankverbindungs: vm.bankverbindungs,
                     wis: vm.wis,
-                    banks: [
-                        ...vm.bank_items_left,
-                        ...vm.bank_items_right,
-                    ],
+                    banks: [],
                     antragstellers: [
                         vm.antragsteller1,
                         vm.antragsteller2,
@@ -52,9 +64,43 @@
             if ($stateParams.id) {
                 requestConfig.url = url.dashboard.update_angrag;
                 requestConfig.data.entryId = $stateParams.id;
+                vm.bank_items_left.map((value, key) => {
+                    requestConfig.data.banks.push({
+                        entryId: $stateParams.id,
+                        id: value.id,
+                        bank_identify: value.identify,
+                        side: 'L',
+                        data: value,
+                    });
+                });
+                vm.bank_items_right.map((value, key) => {
+                    requestConfig.data.banks.push({
+                        entryId: $stateParams.id,
+                        id: value.id,
+                        bank_identify: value.identify,
+                        side: 'R',
+                        data: value,
+                    });
+                });
             } else {
                 requestConfig.data.entry = preparedData;
                 requestConfig.url = url.dashboard.create_angrag;
+                vm.bank_items_left.map((value, key) => {
+                    requestConfig.data.banks.push({
+                        entryId: $stateParams.id,
+                        bank_identify: value.identify,
+                        side: 'L',
+                        data: value,
+                    });
+                });
+                vm.bank_items_right.map((value, key) => {
+                    requestConfig.data.banks.push({
+                        entryId: $stateParams.id,
+                        bank_identify: value.identify,
+                        side: 'R',
+                        data: value,
+                    });
+                });
             }
             http.post(requestConfig.url, requestConfig.data)
                 .then(function (res) {
@@ -86,7 +132,7 @@
             if (item.max > item.current) {
                 item.current++;
                 let tmpItem = {
-                    id: item.id,
+                    identify: item.identify,
                     _delete: deleteItem,
                     side: side
                 };

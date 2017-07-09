@@ -14,77 +14,77 @@
                 name: 'Bank- und Sparguthaben',
                 max: 1,
                 current: 0,
-                id: 'BankSparguthaben',
+                identify: 'BankSparguthaben',
                 items: []
             },
             {
                 name: 'Wertpapiere / Aktien',
                 max: 1,
                 current: 0,
-                id: 'WertpapiereAktien',
+                identify: 'WertpapiereAktien',
                 items: []
             },
             {
                 name: 'Bausparvertrag',
                 max: 3,
                 current: 0,
-                id: 'Bausparvertrag',
+                identify: 'Bausparvertrag',
                 items: []
             },
             {
                 name: 'Lebens-/ Rentenversicherung',
                 max: 3,
                 current: 0,
-                id: 'LebensRentenversicherung',
+                identify: 'LebensRentenversicherung',
                 items: []
             },
             {
                 name: 'Sparpläne',
                 max: 1,
                 current: 0,
-                id: 'Sparplane',
+                identify: 'Sparplane',
                 items: []
             },
             {
                 name: 'Sonstiges Vermögen',
                 max: 1,
                 current: 0,
-                id: 'SonstigesVermogen',
+                identify: 'SonstigesVermogen',
                 items: []
             },
             {
                 name: 'Einkünfte aus Nebentätigkeit',
                 max: 3,
                 current: 0,
-                id: 'EinkunfteNebentatigkeit',
+                identify: 'EinkunfteNebentatigkeit',
                 items: []
             },
             {
                 name: 'Unbefristete Zusatzrente',
                 max: 1,
                 current: 0,
-                id: 'UnbefristeteZusatzrente',
+                identify: 'UnbefristeteZusatzrente',
                 items: []
             },
             {
                 name: 'Ehegattenunterhalt',
                 max: 1,
                 current: 0,
-                id: 'Ehegattenunterhalt',
+                identify: 'Ehegattenunterhalt',
                 items: []
             },
             {
                 name: 'Variable Einkünfte',
                 max: 1,
                 current: 0,
-                id: 'VariableEinkunfte',
+                identify: 'VariableEinkunfte',
                 items: []
             },
             {
                 name: 'Sonstige Einnahmen',
                 max: 1,
                 current: 0,
-                id: 'SonstigeEinnahmen',
+                identify: 'SonstigeEinnahmen',
                 items: []
             }
         ];
@@ -93,56 +93,56 @@
                 name: 'Mietausgaben',
                 max: 1,
                 current: 0,
-                id: 'Mietausgaben',
+                identify: 'Mietausgaben',
                 items: []
             },
             {
                 name: 'Unterhaltsverpflichtungen',
                 max: 3,
                 current: 0,
-                id: 'Unterhaltsverpflichtungen',
+                identify: 'Unterhaltsverpflichtungen',
                 items: []
             },
             {
                 name: 'Private Krankenversicherung',
                 max: 1,
                 current: 0,
-                id: 'PrivateKrankenversicherung',
+                identify: 'PrivateKrankenversicherung',
                 items: []
             },
             {
                 name: 'Sonstige Ausgaben',
                 max: 1,
                 current: 0,
-                id: 'SonstigeAusgaben',
+                identify: 'SonstigeAusgaben',
                 items: []
             },
             {
                 name: 'Sonstige Versicherungsausgaben',
                 max: 1,
                 current: 0,
-                id: 'SonstigeVersicherungsausgaben',
+                identify: 'SonstigeVersicherungsausgaben',
                 items: []
             },
             {
                 name: 'Ratenkredit / Leasing',
                 max: 3,
                 current: 0,
-                id: 'RatenkreditLeasing',
+                identify: 'RatenkreditLeasing',
                 items: []
             },
             {
                 name: 'Privates Darlehen',
                 max: 3,
                 current: 0,
-                id: 'PrivatesDarlehen',
+                identify: 'PrivatesDarlehen',
                 items: []
             },
             {
                 name: 'Sonstige Verbindlichkeiten',
                 max: 1,
                 current: 0,
-                id: 'SonstigeVerbindlichkeiten',
+                identify: 'SonstigeVerbindlichkeiten',
                 items: []
             }
         ];
@@ -170,7 +170,7 @@
             let result;
             if (side === 'L') {
                 bank_list.left.some(function (item) {
-                    if (item.id === id) {
+                    if (item.identify === id) {
                         result = item;
                         return true;
                     }
@@ -178,7 +178,7 @@
                 })
             } else {
                 bank_list.right.some(function (item) {
-                    if (item.id === id) {
+                    if (item.identify === id) {
                         result = item;
                         return true;
                     }

@@ -99,12 +99,12 @@
                     <div class="b-form__blocks-separator">
                         <ul class="b-form__block b-form__list banks-left">
                             <li class="b-form__list-item" ng-repeat="(key,bank) in vm.bank_items_left"
-                                ng-include="'templates/antragsteller/bank_list/'+bank.id+'.html'">
+                                ng-include="'templates/antragsteller/bank_list/'+bank.identify+'.html'">
                             </li>
                         </ul>
                         <ul class="b-form__block b-form__list banks-right">
                             <li class="b-form__list-item" ng-repeat="(key,bank) in vm.bank_items_right"
-                                ng-include="'templates/antragsteller/bank_list/'+bank.id+'.html'">
+                                ng-include="'templates/antragsteller/bank_list/'+bank.identify+'.html'">
                             </li>
                         </ul>
                     </div>

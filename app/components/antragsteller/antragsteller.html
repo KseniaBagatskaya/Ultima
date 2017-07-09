@@ -2,13 +2,17 @@
     <div class="b-form__group">
         <div class="b-form__col b-form__inline">
                                 <span class="b-form__radio">
-                                    <input name="sex2" ng-checked="vm.data.sex == 1"
-                                           type="radio" ng-click="vm.data.sex = 1">
+                                    <input
+                                        ng-model="vm.data.sex"
+                                        value="1"
+                                        type="radio">
                                     <label>Herr</label>
                                 </span>
             <span class="b-form__radio">
-                                    <input name="sex2" ng-checked="vm.data.sex == 2"
-                                           type="radio" ng-click="vm.data.sex = 2">
+                                    <input
+                                        ng-model="vm.data.sex"
+                                        value="2"
+                                        type="radio">
                                     <label>Frau</label>
                                 </span>
             <span class="b-form__checkbox">
