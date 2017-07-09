@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('AntragstellerController', AntragstellerController);
 
-    AntragstellerController.$inject = ['$scope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data'];
+    AntragstellerController.$inject = ['$scope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data', '$state'];
 
 
-    function AntragstellerController($scope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data) {
+    function AntragstellerController($scope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state) {
         let vm = this;
 
         vm.submit = submit;
@@ -112,6 +112,7 @@
             http.post(requestConfig.url, requestConfig.data)
                 .then(function (res) {
                     if (res.status) {
+                        $state.go('app.tabs.antragsteller', {id: res.id});
                         console.log(res, 'res');
                     } else {
                         for(var key in res.msg) {

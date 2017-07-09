@@ -31,8 +31,10 @@
         }
 
 
+        console.log(vm.data)
+
         function addAnfrage() {
-            if (!vm.data.anfrages) {
+            if (typeof vm.data.anfrages === 'undefined') {
                 vm.data.anfrages = [];
             }
             vm.data.anfrages.push({
@@ -45,7 +47,7 @@
         }
 
         function addFinanzierungsbausteine(id, name, description) {
-            if (!vm.data.finanzierungsbausteines) {
+            if (typeof vm.data.finanzierungsbausteines === 'undefined') {
                 vm.data.finanzierungsbausteines = [];
             }
             vm.data.finanzierungsbausteines.push({

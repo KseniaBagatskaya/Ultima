@@ -16,7 +16,10 @@
         if ($stateParams.id && kreditdaten_data) {
             console.log(kreditdaten_data.data)
             vm.data = kreditdaten_data.data;
-            vm.antrags = kreditdaten_data.data.antrags;
+            vm.data.auftragseingang = kreditdaten_data.entry.kontaktartId;
+            vm.data.wunsch = kreditdaten_data.entry.finanzbedarf;
+            vm.data.datum = new Date();
+            vm.antrags = kreditdaten_data.data.antrags || [];
         } else {
             vm.data={
                 erstelltam: new Date(),
