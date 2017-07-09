@@ -21,6 +21,10 @@
                     },
                     anstragsteller: {
                         index: baseUrlNew + 'antragsteller/index'
+                    },
+                    immobilie: {
+                        create: baseUrlNew + 'immobilie/create',
+                        update: baseUrlNew + 'immobilie/update',
                     }
                 };
 

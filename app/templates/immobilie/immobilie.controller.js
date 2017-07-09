@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('ImmobilieController', ImmobilieController);
 
-    ImmobilieController.$inject = ['$scope'];
+    ImmobilieController.$inject = ['$scope', '$stateParams', 'url', 'http'];
 
 
-    function ImmobilieController($scope) {
+    function ImmobilieController($scope, $stateParams, url, http) {
         var vm = this;
 
         vm.addStellplatze = addStellplatze;
@@ -137,6 +137,27 @@
         }
 
         function submit() {
+
+            const requestConfig = {
+                url: null,
+                data: vm.immobilieObject
+            }
+            if ($stateParams.id) {
+                requestConfig.url = url.immobilie.create;
+                requestConfig.data.entryId = $stateParams.id;
+            } else {
+                requestConfig.url = url.immobilie.create;
+            }
+            http.post(requestConfig.url, requestConfig.data)
+                .then(function (res) {
+                    if (res.status) {
+                        console.log(res, 'res');
+                    } else {
+                        for(var key in res.msg) {
+                            toastr.error(res.msg[key][0], 'Submit failed');
+                        }
+                    }
+                });
             console.log(vm.immobilieObject);
         }
 
