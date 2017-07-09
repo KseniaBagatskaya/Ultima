@@ -10,12 +10,11 @@
 
     function ImmobilieController($scope, $stateParams, immobilie, url, http, immobilie_data) {
         var vm = this;
-
-        console.log(immobilie_data)
         vm.addStellplatze = addStellplatze;
         vm.addGrundbuchdaten = addGrundbuchdaten;
         vm.addFlurstuck = addFlurstuck;
         vm.deleteFlurstuck = deleteFlurstuck;
+        vm.deleteStellplatze = deleteStellplatze;
         vm.addRechte = addRechte;
         vm.submit = submit;
 
