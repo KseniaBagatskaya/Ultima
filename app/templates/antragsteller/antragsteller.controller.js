@@ -28,17 +28,25 @@
         vm.bank_list = bank_list;
 
 
-        if ($stateParams.id && antrag_data) {
+        if ($stateParams.id) {
             vm.antragsteller1 = antrag_data.antragstellers[0] || {};
             vm.antragsteller2 = antrag_data.antragstellers[1] || {};
-            vm.kinders = antrag_data.kinders || [];
-            vm.bankverbindungs = antrag_data.bankverbindung || [];
-            vm.wis = antrag_data.wis || [];
-            vm.bank_items_left = antrag_data.finalizebank.left;
-            vm.bank_items_right = antrag_data.finalizebank.right;
-        } else {
+            if (antrag_data.data) {
+                vm.kinders = antrag_data.data.kinders || [];
+                vm.bankverbindungs = antrag_data.data.bankverbindung || [];
+                vm.wis = antrag_data.data.wis || [];
+                vm.bank_items_left = antrag_data.data.finalizebank.left || [];
+                vm.bank_items_right = antrag_data.data.finalizebank.right || [];
+            } else {
             vm.bank_items_left = [];
             vm.bank_items_right = [];
+            vm.kinders = [];
+            vm.bankverbindungs = [];
+            vm.wis = [];
+            }
+
+
+        } else {
             vm.antragsteller1 = {
                 number: '1',
                 sex: '1',
@@ -47,6 +55,8 @@
                 number: '2',
                 value: '1',
             };
+            vm.bank_items_left = [];
+            vm.bank_items_right = [];
             vm.kinders = [];
             vm.bankverbindungs = [];
             vm.wis = [];
