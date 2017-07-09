@@ -11,7 +11,8 @@
             restrict: 'E',
             scope: {
                 parent: '=',
-                index: '@'
+                index: '@',
+                delete: '@',
             },
             templateUrl: 'components/weiteres-darlehen/weiteres-darlehen.html',
             controller: 'WeitereDarlehenController',

@@ -32,7 +32,7 @@
             vm.antragsteller2 = antrag_data.antragstellers[1] || {};
             if (antrag_data.data) {
                 vm.kinders = antrag_data.data.kinders || [];
-                vm.bankverbindungs = antrag_data.data.bankverbindung || [];
+                vm.bankverbindungs = antrag_data.data.bankverbindungs || [];
                 vm.wis = antrag_data.data.wis || [];
                 vm.bank_items_left = antrag_data.data.bank_items_left || [];
                 vm.bank_items_right = antrag_data.data.bank_items_left || [];
@@ -173,12 +173,13 @@
 
         function addWis() {
             vm.wis.push({
-                darlehens: [],
+                darlehens: {},
                 _delete: deleteWis
             });
         }
 
         function deleteWis(index) {
+            console.log(index);
             vm.wis.splice(index, 1);
         }
 
