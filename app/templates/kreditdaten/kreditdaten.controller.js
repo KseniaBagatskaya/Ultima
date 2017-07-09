@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('KreditdatenController', KreditdatenController);
 
-    KreditdatenController.$inject = ['$scope', 'kreditdaten', '$stateParams', 'url', 'http', 'kreditdaten_data'];
+    KreditdatenController.$inject = ['$scope', 'kreditdaten', '$stateParams', 'url', 'http', 'kreditdaten_data', 'toastr'];
 
 
-    function KreditdatenController($scope, kreditdaten, $stateParams, url, http, kreditdaten_data) {
+    function KreditdatenController($scope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr) {
         let vm = this;
 
         vm.deleteAntrag = deleteAntrag;

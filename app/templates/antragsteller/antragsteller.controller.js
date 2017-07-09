@@ -24,7 +24,6 @@
         vm.clearWis = clearWis;
         vm._deleteBank = deleteItem;
 
-        console.log(antrag_data)
         vm.bank_list = bank_list;
 
 
