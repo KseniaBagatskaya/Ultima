@@ -6,7 +6,8 @@
 
         'model.antragsteller',
         'model.immobilie',
-        'model.kreditdaten'
+        'model.kreditdaten',
+        'model.dokument'
     ]);
 
 })();

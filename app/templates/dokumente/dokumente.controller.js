@@ -5,11 +5,13 @@
     angular.module('app')
         .controller('DokumenteController', DokumenteController);
 
-    DokumenteController.$inject = ['$scope'];
+    DokumenteController.$inject = ['$scope', '$stateParams', 'documents_data', 'dokument'];
 
 
-    function DokumenteController($scope) {
+    function DokumenteController($scope, $stateParams, documents_data, dokument) {
         var vm = this;
+
+        console.log(documents_data);
 
     }
 

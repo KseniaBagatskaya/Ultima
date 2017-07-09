@@ -31,6 +31,9 @@
                         create: baseUrlNew + 'kredit-daten/create',
                         update: baseUrlNew + 'kredit-daten/update',
                         index: baseUrlNew + 'kredit-daten/index',
+                    },
+                    dokument: {
+                        get_all_documents: baseUrl + 'GetFilesById',
                     }
                 };
 

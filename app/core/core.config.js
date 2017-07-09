@@ -136,17 +136,17 @@
                 templateUrl: 'templates/dokumente/dokumente.html',
                 controller: 'DokumenteController',
                 controllerAs: 'vm',
-                // resolve: {
+                resolve: {
 
-                //     antragsteller_data: function (dashboard) {
-                //         return dashboard.getAllMembers()
-                //             .then(function (res) {
-                //                 console.log(res, 'res');
-                //                 return res;
-                //             });
+                    documents_data: function (dokument, $stateParams) {
+                        const id = $stateParams.id;
+                        return dokument.getAllDocs(id)
+                            .then(function (res) {
+                                return res;
+                            });
 
-                //     }
-                // }
+                    }
+                }
             })
 
 

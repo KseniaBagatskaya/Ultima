@@ -107,7 +107,7 @@
                 .then(function (res) {
                     if (res.status) {
                         toastr.info('Created successfull');
-                        $state.go('app.tabs.antragsteller', {id: res.status.id});
+                        $state.go('app.tabs.antragsteller', {id: res.id});
                     } else {
                         for(var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');

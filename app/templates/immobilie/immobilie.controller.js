@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('ImmobilieController', ImmobilieController);
 
-    ImmobilieController.$inject = ['$scope', '$stateParams', 'immobilie', 'url', 'http', 'immobilie_data'];
+    ImmobilieController.$inject = ['$scope', '$stateParams', 'immobilie', 'url', 'http', 'immobilie_data', 'toastr'];
 
 
-    function ImmobilieController($scope, $stateParams, immobilie, url, http, immobilie_data) {
+    function ImmobilieController($scope, $stateParams, immobilie, url, http, immobilie_data, toastr) {
         var vm = this;
         vm.addStellplatze = addStellplatze;
         vm.addGrundbuchdaten = addGrundbuchdaten;

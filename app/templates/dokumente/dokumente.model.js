@@ -1,0 +1,27 @@
+;(function () {
+
+    'use strict';
+
+    angular.module('model.dokument', [])
+        .service('dokument', dokument);
+
+
+    dokument.$inject = ['http', 'url'];
+
+    function dokument(http, url) {
+
+
+        let service = {
+            getAllDocs: getAllDocs,
+        };
+        return service;
+
+        function getAllDocs(id) {
+            return http.post(url.dokument.get_all_documents, {id})
+                .then(function (res) {
+                    console.log(res, 'res');
+                    return res;
+                });
+        }
+    }
+})();
