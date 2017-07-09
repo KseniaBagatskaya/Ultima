@@ -9,7 +9,10 @@
 
     function AntragController($scope) {
         let vm = this;
+
+        const user = JSON.parse(sessionStorage.getItem('user'));
         vm.data = $scope.parent;
+        vm.data.bearbeiter = user.username;
         console.log(vm.data)
         vm.data.erstelltam = new Date();
         vm.data.wiedervorlage = new Date();
