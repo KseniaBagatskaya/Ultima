@@ -10,7 +10,10 @@
 
     function DashboardController($scope, users_data, url, http, $state, werbung, kontaktar, partners) {
         let vm = this;
-        vm.data = {};
+        vm.data = {
+            genutzt: 'Eigennutzung',
+            partner: 0,
+        };
         vm.submit = submit;
         vm.werbung = werbung;
         vm.kontaktar = kontaktar;

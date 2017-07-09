@@ -58,7 +58,7 @@
                             <div class="b-form__child-item">
                                 <h4>Wie wird die lmmobilie genutzt?</h4>
                                 <span class="b-form__radio">
-                                    <input name="eigennutzung" ng-checked="true" id="eigennutzung" type="radio" value="Eigennutzung"
+                                    <input name="eigennutzung" id="eigennutzung" type="radio" value="Eigennutzung"
                                         ng-model="vm.data.genutzt">
                                     <label for="eigennutzung">Eigennutzung</label>
                                 </span>
@@ -120,7 +120,7 @@
 
                                 <div class="b-form__title-btn b-form__title">
                                     <b class="b-form__right-list">
-                                        <button ng-disabled="!newVorgang.$valid" type="submit" class="btn btn--light">
+                                        <button ng-disabled="!newVorgang.$valid && !radiobuttongroup.$valid" type="submit" class="btn btn--light">
                                             Neuer Vorgang
                                         </button>
                                     </div>
