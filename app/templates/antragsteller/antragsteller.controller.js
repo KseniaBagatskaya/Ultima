@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('AntragstellerController', AntragstellerController);
 
-    AntragstellerController.$inject = ['$scope', 'antragsteller', 'bank_list', 'http', 'url'];
+    AntragstellerController.$inject = ['$scope', 'antragsteller', 'bank_list', 'http', 'url', 'toastr'];
 
 
-    function AntragstellerController($scope, antragsteller, bank_list, http, url) {
+    function AntragstellerController($scope, antragsteller, bank_list, http, url, toastr) {
         let vm = this;
 
         vm.submit = submit;
@@ -58,7 +58,13 @@
             toSend.kinders=data.kinders;
             http.post(url.dashboard.create_angrag, toSend)
                 .then(function (res) {
-                    console.log(res, 'res');
+                    if (res.status) {
+                        console.log(res, 'res');
+                    } else {
+                        for(var key in res.msg) {
+                            toastr.error(res.msg[key][0], 'Submit failed');
+                        }
+                    }
                 });
         }
 
