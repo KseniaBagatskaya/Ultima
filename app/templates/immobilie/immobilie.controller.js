@@ -156,6 +156,7 @@
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
+                        toastr.info('Created successfull');
                     } else {
                         for(var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');

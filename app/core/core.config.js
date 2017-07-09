@@ -88,6 +88,7 @@
                         let id = $stateParams.id;
                         return antragsteller.getData(id)
                             .then(function (res) {
+                                sessionStorage.setItem('transactionId', `${res.entry.transactionId || 0}`);
                                 console.log(res, 'res');
                                 return res;
                             });
@@ -103,7 +104,6 @@
                 controller: 'ImmobilieController',
                 controllerAs: 'vm',
                 resolve: {
-
                     immobilie_data: function (immobilie,$stateParams) {
                         let id = $stateParams.id;
                         return immobilie.getData(id)

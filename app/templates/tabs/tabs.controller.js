@@ -11,7 +11,8 @@
     function TabsController($scope, $state, $rootScope) {
         var vm = this;
 
-        vm.params_id = $state.params.id;
+
+        vm.params_id = sessionStorage.getItem('transactionId');
         vm.current_controller = $state.current.controller;
         
         // if state changed relect active tab
