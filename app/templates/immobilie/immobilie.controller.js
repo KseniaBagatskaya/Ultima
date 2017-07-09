@@ -18,7 +18,7 @@
         vm.addRechte = addRechte;
         vm.submit = submit;
 
-        if ($stateParams.id && immobilie_data) {
+        if ($stateParams.id && immobilie_data.data) {
             vm.immobilieObject = immobilie_data.data;
         } else {
             vm.immobilieObject = {

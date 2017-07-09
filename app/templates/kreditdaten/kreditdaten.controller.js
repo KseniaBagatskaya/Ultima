@@ -13,7 +13,7 @@
 
         vm.deleteAntrag = deleteAntrag;
 
-        if ($stateParams.id && kreditdaten_data) {
+        if ($stateParams.id && kreditdaten_data.data) {
             console.log(kreditdaten_data.data)
             vm.data = kreditdaten_data.data;
             vm.data.auftragseingang = kreditdaten_data.entry.kontaktartId;
