@@ -91,6 +91,9 @@
                                 console.log(res, 'res');
                                 return res;
                             });
+                    },
+                    bank_list: function (antragsteller) {
+                        return antragsteller.menu;
                     }
                 }
             })

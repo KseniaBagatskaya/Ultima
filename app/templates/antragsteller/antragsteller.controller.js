@@ -21,7 +21,7 @@
         vm.addWis = addWis;
         vm.clearWis = clearWis;
 
-
+        console.log(antrag_data)
         vm.bank_list = bank_list;
         vm.bank_items_left = [];
         vm.bank_items_right = [];
