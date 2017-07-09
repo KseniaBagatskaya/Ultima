@@ -12,7 +12,7 @@
                     },
                     dashboard: {
                         create_angrag: baseUrlNew + 'antragsteller/create',
-                        get_all_members: baseUrl + 'Rest/GetAllMembers',
+                        get_all_members: baseUrlNew + 'entry/index',
                         get_werbung: baseUrl + '',
                         get_kontaktart: baseUrl + '',
                         get_partners: baseUrl + '',

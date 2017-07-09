@@ -51,6 +51,7 @@
                 data.antragsteller1,
                 data.antragsteller2,
             ];
+            toSend.kinders=data.kinders;
             http.post(url.dashboard.create_angrag, toSend)
                 .then(function (res) {
                     console.log(res, 'res');
