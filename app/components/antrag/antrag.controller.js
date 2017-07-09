@@ -10,6 +10,8 @@
     function AntragController($scope) {
         let vm = this;
         vm.data = $scope.parent;
+        vm.data.erstelltam = new Date();
+        vm.data.wiedervorlage = new Date();
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
         vm.data.anfrages = [];

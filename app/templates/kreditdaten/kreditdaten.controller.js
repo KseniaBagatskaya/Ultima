@@ -10,7 +10,9 @@
 
     function KreditdatenController($scope) {
         let vm = this;
-        vm.data={};
+        vm.data={
+            erstelltam: new Date(),
+        };
         vm.antrags = [];
         vm.addAntrag = addAntrag;
         vm.deleteAntrag = deleteAntrag;
