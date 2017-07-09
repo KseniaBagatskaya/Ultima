@@ -5,12 +5,13 @@
     angular.module('app')
         .controller('ImmobilieController', ImmobilieController);
 
-    ImmobilieController.$inject = ['$scope', '$stateParams', 'url', 'http'];
+    ImmobilieController.$inject = ['$scope', '$stateParams', 'immobilie', 'url', 'http', 'immobilie_data'];
 
 
-    function ImmobilieController($scope, $stateParams, url, http) {
+    function ImmobilieController($scope, $stateParams, immobilie, url, http, immobilie_data) {
         var vm = this;
 
+        console.log(immobilie_data)
         vm.addStellplatze = addStellplatze;
         vm.addGrundbuchdaten = addGrundbuchdaten;
         vm.addFlurstuck = addFlurstuck;
@@ -143,7 +144,7 @@
                 data: vm.immobilieObject
             }
             if ($stateParams.id) {
-                requestConfig.url = url.immobilie.create;
+                requestConfig.url = url.immobilie.update;
                 requestConfig.data.entryId = $stateParams.id;
             } else {
                 requestConfig.url = url.immobilie.create;

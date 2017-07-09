@@ -102,17 +102,17 @@
                 templateUrl: 'templates/immobilie/immobilie.html',
                 controller: 'ImmobilieController',
                 controllerAs: 'vm',
-                // resolve: {
+                resolve: {
 
-                //     antragsteller_data: function (dashboard) {
-                //         return dashboard.getAllMembers()
-                //             .then(function (res) {
-                //                 console.log(res, 'res');
-                //                 return res;
-                //             });
-
-                //     }
-                // }
+                    immobilie_data: function (immobilie,$stateParams) {
+                        let id = $stateParams.id;
+                        return antragsteller.getData(id)
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+                    },
+                }
             })
             .state('app.tabs.kreditdaten', {
                 url: "/kreditdaten/:id",

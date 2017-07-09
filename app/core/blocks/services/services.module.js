@@ -4,7 +4,8 @@
     angular.module('app.services', [
         'app.dashboard',
 
-        'model.antragsteller'
+        'model.antragsteller',
+        'model.immobilie'
     ]);
 
 })();

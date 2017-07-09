@@ -25,6 +25,7 @@
                     immobilie: {
                         create: baseUrlNew + 'immobilie/create',
                         update: baseUrlNew + 'immobilie/update',
+                        index: baseUrlNew + 'immobilie/index',
                     }
                 };
 
