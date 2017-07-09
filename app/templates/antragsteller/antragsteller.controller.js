@@ -14,12 +14,15 @@
         vm.submit = submit;
         vm.addKinder = addKinder;
         vm.deleteKinder = deleteKinder;
+        vm.deleteBankverbindung = deleteBankverbindung;
+        vm.deleteWis = deleteWis;
         vm.clearKinder = clearKinder;
         vm.addItem = addItem;
         vm.checkMaxInBanks = checkMaxInBanks;
         vm.addBankverbindung = addBankverbindung;
         vm.addWis = addWis;
         vm.clearWis = clearWis;
+        vm._deleteBank = deleteItem;
 
         console.log(antrag_data)
         vm.bank_list = bank_list;
@@ -150,11 +153,11 @@
 
         function deleteItem(index, side) {
             if (side === 'L') {
-                let item = antragsteller.findElementById(vm.bank_items_left[index].id, 'L', vm.bank_list);
+                let item = antragsteller.findElementById(vm.bank_items_left[index].identify, 'L', vm.bank_list);
                 item.current--;
                 vm.bank_items_left.splice(index, 1)
             } else {
-                let item = antragsteller.findElementById(vm.bank_items_right[index].id, 'R', vm.bank_list);
+                let item = antragsteller.findElementById(vm.bank_items_right[index].identify, 'R', vm.bank_list);
                 item.current--;
                 vm.bank_items_right.splice(index, 1)
             }
