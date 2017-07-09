@@ -27,7 +27,6 @@
     </div>
     <div class="b-form__group-child">
     <span class="b-form__input">
-        <label for="editor" class="text-title">CTB Braunschweig</label>
         <select ng-model="vm.data.bank_id" id="editor" style="width: 160px;">
             <option ng-repeat="selector in vm.banks track by $index" value="{{selector.id}}">{{selector.name}}</option>
         </select>
@@ -64,7 +63,7 @@
     <span class="b-form__input">
     <img src="content/images/icons/trash_basket.png"
          class="btn btn__trash btn--light"
-         ng-click="vm.data._delete(vm.index)">
+         ng-click="$parent.vm.deleteAnfrage(vm.index)">
     </span>
     </div>
 </div>

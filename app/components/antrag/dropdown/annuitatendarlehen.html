@@ -16,29 +16,29 @@
     <div id="myDropdownTwo" class="dropdown-contentTwo">
     <ul>
     <h4>Anfangliche Tilgung</h4>
-    <li><input ng-click="selectAnfangliche(1, $index)" name="ann" class="ddti"
+    <li><input ng-model="item.Anfangliche" value="1" class="ddti"
                type="radio"> 1%</li>
-    <li><input ng-click="selectAnfangliche(2, $index)" name="ann" class="ddti"
+    <li><input ng-model="item.Anfangliche" value="2" class="ddti"
                type="radio"> 2%</li>
-    <li><input ng-click="selectAnfangliche(3, $index)" name="ann" class="ddti"
+    <li><input ng-model="item.Anfangliche" value="3" class="ddti"
                type="radio"> 3%</li>
-    <li><input ng-click="selectAnfangliche('andere', $index)" name="ann" class="ddti"
+    <li><input ng-model="item.Anfangliche" value="andere" class="ddti"
                type="radio"> Andere: <input
-            ng-disabled="item.tilgungswunschName !== 'andere'"
-            ng-model="item.tilgungswunschValue" id="andere"
+            ng-disabled="item.Anfangliche !== 'andere'"
+            ng-model="item.anderevalue" id="andere"
             type="text"></li>
     </ul>
     <ul>
     <h4>Alternativ</h4>
-    <li><input ng-click="selectAnfangliche('volltilger', $index)" name="ann"
+    <li><input ng-model="item.Alternativ" value="volltilger"
                class="ddti" type="radio"> Volltilger</li>
-    <li><input ng-click="selectAnfangliche('rate', $index)" name="ann" class="ddti"
+    <li><input ng-model="item.Alternativ" class="ddti" value="rate"
                type="radio"> Rate: <input
-            ng-disabled="item.tilgungswunschName !== 'rate'"
-            ng-model="item.tilgungswunschValue" id="rate" type="text"></li>
-    <li><input ng-click="selectAnfangliche('berechnet', $index)" name="ann" class="ddti"
+            ng-disabled="item.Alternativ !== 'rate'"
+            ng-model="item.ratevalue" id="rate" type="text"></li>
+    <li><input ng-model="item.Alternativ" class="ddti" value="ausgesetzt"
                type="radio"> Ausgesetzt (berechnet)</li>
-    <li><input ng-click="selectAnfangliche('Angebor', $index)" name="ann" class="ddti"
+    <li><input ng-model="item.Alternativ" class="ddti" value="eigenes"
                type="radio"> Ausgesetzt (eigenes Angebor)</li>
     </ul>
 

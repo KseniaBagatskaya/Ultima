@@ -10,16 +10,17 @@
     function AntragController($scope) {
         let vm = this;
         vm.data = $scope.parent;
+        console.log(vm.data)
         vm.data.erstelltam = new Date();
         vm.data.wiedervorlage = new Date();
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
-        vm.data.anfrages = [];
+        // vm.data.anfrages = [];
         vm.addAnfrage = addAnfrage;
         vm.deleteAnfrage = deleteAnfrage;
         vm.toggleAnfrage = toggleAnfrage;
         vm.addFinanzierungsbausteine = addFinanzierungsbausteine;
-        vm.data.finanzierungsbausteines = [];
+        // vm.data.finanzierungsbausteines = [];
 
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
@@ -31,6 +32,9 @@
 
 
         function addAnfrage() {
+            if (!vm.data.anfrages) {
+                vm.data.anfrages = [];
+            }
             vm.data.anfrages.push({
                 _delete: deleteAnfrage
             });
@@ -41,6 +45,9 @@
         }
 
         function addFinanzierungsbausteine(id, name, description) {
+            if (!vm.data.finanzierungsbausteines) {
+                vm.data.finanzierungsbausteines = [];
+            }
             vm.data.finanzierungsbausteines.push({
                 id: id,
                 name: name || '',
