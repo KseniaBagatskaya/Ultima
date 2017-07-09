@@ -47,6 +47,10 @@
             const preparedData = JSON.parse(sessionStorage.getItem('entry'));
             const toSend = {};
             toSend.entry = preparedData;
+            toSend.kinders = vm.kinders;
+            toSend.banks = vm.banks;
+            toSend.bankverbindungs = vm.bankverbindungs;
+            toSend.wis = vm.wis;
             toSend.antragstellers = [
                 data.antragsteller1,
                 data.antragsteller2,

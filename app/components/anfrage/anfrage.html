@@ -26,32 +26,34 @@
     </span>
     </div>
     <div class="b-form__group-child">
-        <span class="text-title">CTB Braunschweig</span>
-        <span class="b-form__input b-form__input-middle">
-    <label for="some_date"></label>
-    <input ng-model="vm.data.fieldOne" id="some_date" type="text" placeholder="Anfrage Status">
+    <span class="b-form__input">
+        <label for="editor" class="text-title">CTB Braunschweig</label>
+        <select ng-model="vm.data.bank_id" id="editor" style="width: 160px;">
+            <option ng-repeat="selector in vm.banks track by $index" value="{{selector.id}}">{{selector.name}}</option>
+        </select>
     </span>
-        <span class="b-form__input b-form__input-middle">
-    <label for="some_date"></label>
-    <input ng-model="vm.data.fieldTwo" id="some_date" type="text" placeholder="Datum Anfrage">
+    <span class="b-form__input">
+        <label for="anfragestatus">Anfrage Status</label>
+        <input ng-model="vm.data.fieldOne" id="anfragestatus" type="text">
     </span>
-        <span class="b-form__input b-form__input-middle">
-    <label for="some_date"></label>
-    <input ng-model="vm.data.fieldThree" id="some_date" type="text" placeholder="Ablehnungsgrund">
+    <span class="b-form__input">
+        <label for="datumanfrage">Datum Anfrage</label>
+        <input ng-model="vm.data.fieldTwo" id="datumanfrage" type="text">
     </span>
-        <span class="b-form__input b-form__input-large">
-    <select ng-model="vm.data.fieldFour" id="select">
-    <option value="-1" selected="selected">nicht abgelehnt</option>
-    <option value="1">Haus</option>
-    <option value="2">Post</option>
-    <option value="3">Homepage</option>
-    <option value="4">Email</option>
-    </select>
+    <span class="b-form__input">
+        <label for="ablehnungsground">Ablehnungsgrund</label>
+        <input ng-model="vm.data.fieldThree" id="ablehnungsground" type="text">
     </span>
-        <span>Wiedervorlage:</span>
-        <span class="b-form__input b-form__input-middle">
-    <label for="date_template"></label>
-    <input ng-model="vm.data.wiedervorlage" id="date_template" type="text">
+
+    <span class="b-form__input">
+        <label for="selectablehnungsgrund">ablehnungsgrund</label>
+        <select ng-model="vm.data.fieldFour" id="selectablehnungsgrund">
+            <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
+        </select>
+    </span>
+    <span class="b-form__input">
+        <label for="Wiedervorlage:">Wiedervorlage:</label>
+        <input ng-model="vm.data.wiedervorlage" id="Wiedervorlage:" type="text">
     </span>
     </div>
     <div class="b-form__group-child b-form__group-child-last">

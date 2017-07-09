@@ -42,103 +42,93 @@
 
 
             <div class="b-tabs__block-right">
-                <div class="b-form__title-dark b-form__title">Neuer Vorgang</div>
-                <div class="b-form__block">
-                    <!--<div class="b-tabs__text">Testumgebung: Vorgänge können nicht abgeschlossen werden!</div>-->
-                    <div class="b-tabs__table-info">
-                        <span class="b-form__input">
-                            <label for="usage">Verwendungszweck</label>
-                            <select id="usage" ng-model="vm.data.verwendungszweck">
-                                <!--<option value="-1" selected="selected">Bitte wählen Sie ...</option>-->
-                                <option value="1" selected="selected">Ratenkredit</option>
-                                <option value="2">Baufinanzierung</option>
-                            </select>
-                        </span>
-                        <div class="b-form__child-item">
-                            <h4>Wie wird die lmmobilie genutzt?</h4>
-                            <span class="b-form__radio">
-                                <input name="eigennutzung" id="eigennutzung" type="radio" value="Eigennutzung"
-                                       ng-model="vm.data.genutzt">
-                                <label for="eigennutzung">Eigennutzung</label>
+                <form ng-submit="vm.submit()" name="newVorgang">
+                    <div class="b-form__title-dark b-form__title">Neuer Vorgang</div>
+                    <div class="b-form__block">
+                        <!--<div class="b-tabs__text">Testumgebung: Vorgänge können nicht abgeschlossen werden!</div>-->
+                        <div class="b-tabs__table-info">
+                            <span class="b-form__input">
+                                <label for="usage">Verwendungszweck</label>
+                                <select id="usage" name="usage" ng-model="vm.data.verwendungszweck" required>
+                                    <!--<option value="-1" selected="selected">Bitte wählen Sie ...</option>-->
+                                    <option value="1" selected="selected">Ratenkredit</option>
+                                    <option value="2">Baufinanzierung</option>
+                                </select>
                             </span>
-                            <span class="b-form__radio">
-                                <input name="vermietet" id="vermietet" type="radio" value="Vermietet"
-                                       ng-model="vm.data.genutzt">
-                                <label for="vermietet">Vermietet</label>
-                            </span>
-                            <span class="b-form__radio">
-                                <input name="beides" id="beides" type="radio" value="Beides" ng-model="vm.data.genutzt">
-                                <label for="beides">Beides</label>
+                            <div class="b-form__child-item">
+                                <h4>Wie wird die lmmobilie genutzt?</h4>
+                                <span class="b-form__radio">
+                                    <input name="eigennutzung" ng-checked="true" id="eigennutzung" type="radio" value="Eigennutzung"
+                                        ng-model="vm.data.genutzt">
+                                    <label for="eigennutzung">Eigennutzung</label>
+                                </span>
+                                <span class="b-form__radio">
+                                    <input name="vermietet" id="vermietet" type="radio" value="Vermietet"
+                                        ng-model="vm.data.genutzt">
+                                    <label for="vermietet">Vermietet</label>
+                                </span>
+                                <span class="b-form__radio">
+                                    <input name="beides" id="beides" type="radio" value="Beides" ng-model="vm.data.genutzt">
+                                    <label for="beides">Beides</label>
+                                </span>
+                                <span class="b-form__input">
+                                    <label for="plz">PLZ</label>
+                                    <input id="plz" ng-model="vm.data.plz" type="text">
+                                </span>
+                                <span class="b-form__input b-form__euro">
+                                    <label for="finanzbedarf">Finanzbedarf</label>
+                                    <input ng-model="vm.data.finanzbedarf" id="finanzbedarf" type="text">
+                                </span>
+                            </div>
+                            <span class="b-form__input">
+                                <label for="werbung">Werbung</label>
+                                <select ng-model="vm.data.werbungId" id="werbung" required>
+                                    <option ng-repeat="selector in vm.werbung track by $index" value="{{$index}}">{{selector}}</option>
+                                </select>
                             </span>
                             <span class="b-form__input">
-                                <label for="plz">PLZ</label>
-                                <input id="plz" ng-model="vm.data.plz" type="text">
-                            </span>
-                            <span class="b-form__input b-form__euro">
-                                <label for="finanzbedarf">Finanzbedarf</label>
-                                <input ng-model="vm.data.finanzbedarf" id="finanzbedarf" type="text">
-                            </span>
-                        </div>
-                        <span class="b-form__input">
-                            <label for="werbung">Werbung</label>
-                              <select ng-model="vm.data.werbungId" id="werbung">
+                                <label for="property">Kontaktart</label>
+                                <select id="property" ng-model="vm.data.kontaktartId" required>
                                     <option value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                    <option value="1">Verheiratet</option>
-                                    <option value="2">Horst</option>
-                                    <option value="3">Bild</option>
-                                  <option value="4">Mailing</option>
-                                    <option value="5">Empfehlung</option>
- <option value="6">Internet</option>
- <option value="7">Promotion</option>
- <option value="8">Morgenpost</option>
- <option value="9">Kiel</option>
-                                <option value="10">Schnellantrag</option>
+                                    <option value="1">E-Mail</option>
+                                    <option value="2">telefonisch</option>
+                                    <option value="3">per Post</option>
+                                    <option value="4">direkt</option>
+                                    <option value="5">Internet</option>
+                                </select>
+                            </span>
+                            <div class="b-form__child-item" ng-init="vm.data.partner='0'">
+                                <h4>Partnergeschäft</h4>
+                                <span class="b-form__radio">
+                                        <input ng-model="vm.data.partner" required value="0" id="nein" type="radio">
+                                        <label for="nein">nein</label>
+                                    </span>
+                                <span class="b-form__radio">
+                                        <input ng-model="vm.data.partner" required value="1" id="ja" type="radio">
+                                        <label for="ja">ja</label>
+                                    </span>
+                                <select id="partners" ng-model="vm.data.partnerId" required ng-if="vm.data.partner=='1'">
+                                    <option value="-1" selected="selected">Bitte wählen Sie ...</option>
+                                    <option value="1">Michael Tauchert</option>
+                                    <option value="2">Hermann Kahlke</option>
+                                    <option value="3">Volker Schwarz</option>
+                                    <option value="4">Arne Nöthling</option>
+                                    <option value="5">Friedegunde Wilhelm</option>
+                                </select>
+                            </div>
+                            <div class="b-form__child-item">
 
-
-                            </select>
-                        </span>
-                        <span class="b-form__input">
-                            <label for="property">Kontaktart</label>
-                            <select id="property" ng-model="vm.data.kontaktartId">
-                                <option value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                <option value="1">E-Mail</option>
-                                <option value="2">telefonisch</option>
-                                <option value="3">per Post</option>
-                                <option value="4">direkt</option>
-                                <option value="5">Internet</option>
-                            </select>
-                        </span>
-                        <div class="b-form__child-item" ng-init="vm.data.partner='0'">
-                            <h4>Partnergeschäft</h4>
-                            <span class="b-form__radio">
-                                    <input ng-model="vm.data.partner" value="0" id="nein" type="radio">
-                                    <label for="nein">nein</label>
-                                </span>
-                            <span class="b-form__radio">
-                                    <input ng-model="vm.data.partner" value="1" id="ja" type="radio">
-                                    <label for="ja">ja</label>
-                                </span>
-                            <select id="partners" ng-model="vm.data.partnerId" ng-if="vm.data.partner=='1'">
-                                <option value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                <option value="1">Michael Tauchert</option>
-                                <option value="2">Hermann Kahlke</option>
-                                <option value="3">Volker Schwarz</option>
-                                <option value="4">Arne Nöthling</option>
-                                <option value="5">Friedegunde Wilhelm</option>
-                            </select>
-                        </div>
-                        <div class="b-form__child-item">
-
-                            <div class="b-form__title-btn b-form__title">
-                                <div class="b-form__right-list">
-                                    <div class="btn btn--light" ui-sref="app.tabs.antragsteller" ng-click="vm.submit()">
-                                        Neuer Vorgang
+                                <div class="b-form__title-btn b-form__title">
+                                    <b class="b-form__right-list">
+                                        <button ng-disabled="!newVorgang.$valid" type="submit" class="btn btn--light" ui-sref="app.tabs.antragsteller">
+                                            Neuer Vorgang
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

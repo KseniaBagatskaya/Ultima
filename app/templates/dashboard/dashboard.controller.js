@@ -29,6 +29,29 @@
             sessionStorage.setItem('entry', JSON.stringify(vm.data));
         }
 
+        vm.werbung = [
+            'Pamela Wilson Agentur',
+            'Bertelsmann',
+            'VPS',
+            'Postwurfsendung',
+            'Internet',
+            'beauty-kredite',
+            'medical-kredite',
+            'finanz-turbo',
+            'Blickpunkt',
+            'Heimatspiegel',
+            'Holsteiner Allgemeine',
+            'Heider Anzeigenblatt',
+            'Immoservice',
+            'Wochenblatt',
+            'ultima.de',
+            'kredit-aktuell.de',
+            'Einkauf-Aktuell',
+            'Ultima Immobilienfinanzierung',
+            'Ebay-Kleinanzeigen',
+            'alsterhyp',
+        ];
+
     }
 
 })();
