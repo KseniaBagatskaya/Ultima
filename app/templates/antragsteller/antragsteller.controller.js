@@ -35,14 +35,14 @@
                 vm.kinders = antrag_data.data.kinders || [];
                 vm.bankverbindungs = antrag_data.data.bankverbindung || [];
                 vm.wis = antrag_data.data.wis || [];
-                vm.bank_items_left = antrag_data.data.finalizebank.left || [];
-                vm.bank_items_right = antrag_data.data.finalizebank.right || [];
+                vm.bank_items_left = antrag_data.data.bank_items_left || [];
+                vm.bank_items_right = antrag_data.data.bank_items_left || [];
             } else {
-            vm.bank_items_left = [];
-            vm.bank_items_right = [];
-            vm.kinders = [];
-            vm.bankverbindungs = [];
-            vm.wis = [];
+                vm.bank_items_left = [];
+                vm.bank_items_right = [];
+                vm.kinders = [];
+                vm.bankverbindungs = [];
+                vm.wis = [];
             }
 
 
@@ -81,24 +81,8 @@
             if ($stateParams.id) {
                 requestConfig.url = url.dashboard.update_angrag;
                 requestConfig.data.entryId = $stateParams.id;
-                vm.bank_items_left.map((value, key) => {
-                    requestConfig.data.banks.push({
-                        entryId: $stateParams.id,
-                        id: value.id,
-                        bank_identify: value.identify,
-                        side: 'L',
-                        data: value,
-                    });
-                });
-                vm.bank_items_right.map((value, key) => {
-                    requestConfig.data.banks.push({
-                        entryId: $stateParams.id,
-                        id: value.id,
-                        bank_identify: value.identify,
-                        side: 'R',
-                        data: value,
-                    });
-                });
+                requestConfig.data.bank_items_left = vm.bank_items_left;
+                requestConfig.data.bank_items_right = vm.bank_items_right;
             } else {
                 requestConfig.data.entry = preparedData;
                 requestConfig.url = url.dashboard.create_angrag;
@@ -123,7 +107,7 @@
                 .then(function (res) {
                     if (res.status) {
                         toastr.info('Created successfull');
-                        $state.go('app.tabs.antragsteller', {id: res.id});
+                        $state.go('app.tabs.antragsteller', {id: res.status.id});
                     } else {
                         for(var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');
