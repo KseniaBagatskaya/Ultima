@@ -25,17 +25,7 @@
         vm.bank_list = bank_list;
         vm.bank_items_left = [];
         vm.bank_items_right = [];
-        vm.antragsteller1 = {
-            number: '1',
-            sex: '1',
-        };
-        vm.antragsteller2 = {
-            number: '2',
-            value: '1',
-        };
-        vm.kinders = [];
-        vm.bankverbindungs = [];
-        vm.wis = [];
+
 
         if ($stateParams.id) {
             vm.antragsteller1 = antrag_data.antragstellers[0] || {};
@@ -43,6 +33,18 @@
             vm.kinders = antrag_data.kinders || [];
             vm.bankverbindungs = antrag_data.bankverbindung || [];
             vm.wis = antrag_data.wis || [];
+        } else {
+            vm.antragsteller1 = {
+                number: '1',
+                sex: '1',
+            };
+            vm.antragsteller2 = {
+                number: '2',
+                value: '1',
+            };
+            vm.kinders = [];
+            vm.bankverbindungs = [];
+            vm.wis = [];
         }
 
         function submit() {

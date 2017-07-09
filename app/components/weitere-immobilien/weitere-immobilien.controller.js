@@ -17,6 +17,9 @@
 
 
         function addDarlehen() {
+            if (!vm.data.darlehens) {
+                vm.data.darlehens = [];
+            }
             vm.data.darlehens.push({
                 _delete: deleteDarlehen
             });
