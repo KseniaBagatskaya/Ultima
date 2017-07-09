@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$scope', 'users_data', 'url', 'http'];
+    DashboardController.$inject = ['$scope', 'users_data', 'url', 'http', '$state'];
 
 
-    function DashboardController($scope, users_data, url, http, werbung, kontaktar, partners) {
+    function DashboardController($scope, users_data, url, http, $state, werbung, kontaktar, partners) {
         let vm = this;
         vm.data = {};
         vm.submit = submit;
@@ -25,8 +25,8 @@
         vm.users = users_data;
 
         function submit() {
-            console.log(vm.data);
             sessionStorage.setItem('entry', JSON.stringify(vm.data));
+            $state.go('app.tabs.antragsteller');
         }
 
         vm.werbung = [

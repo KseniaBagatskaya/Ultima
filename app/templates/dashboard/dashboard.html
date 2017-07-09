@@ -100,11 +100,11 @@
                             <div class="b-form__child-item" ng-init="vm.data.partner='0'">
                                 <h4>Partnergeschäft</h4>
                                 <span class="b-form__radio">
-                                        <input ng-model="vm.data.partner" required value="0" id="nein" type="radio">
+                                        <input ng-model="vm.data.partner" value="0" id="nein" type="radio">
                                         <label for="nein">nein</label>
                                     </span>
                                 <span class="b-form__radio">
-                                        <input ng-model="vm.data.partner" required value="1" id="ja" type="radio">
+                                        <input ng-model="vm.data.partner" value="1" id="ja" type="radio">
                                         <label for="ja">ja</label>
                                     </span>
                                 <select id="partners" ng-model="vm.data.partnerId" required ng-if="vm.data.partner=='1'">
@@ -120,7 +120,7 @@
 
                                 <div class="b-form__title-btn b-form__title">
                                     <b class="b-form__right-list">
-                                        <button ng-disabled="!newVorgang.$valid" type="submit" class="btn btn--light" ui-sref="app.tabs.antragsteller">
+                                        <button ng-disabled="!newVorgang.$valid" type="submit" class="btn btn--light">
                                             Neuer Vorgang
                                         </button>
                                     </div>
