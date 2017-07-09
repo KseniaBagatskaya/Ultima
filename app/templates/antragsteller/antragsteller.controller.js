@@ -28,7 +28,7 @@
         vm.bank_list = bank_list;
 
 
-        if ($stateParams.id) {
+        if ($stateParams.id && antrag_data) {
             vm.antragsteller1 = antrag_data.antragstellers[0] || {};
             vm.antragsteller2 = antrag_data.antragstellers[1] || {};
             vm.kinders = antrag_data.kinders || [];

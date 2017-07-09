@@ -5,7 +5,8 @@
         'app.dashboard',
 
         'model.antragsteller',
-        'model.immobilie'
+        'model.immobilie',
+        'model.kreditdaten'
     ]);
 
 })();

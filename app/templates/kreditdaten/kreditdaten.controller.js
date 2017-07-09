@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('KreditdatenController', KreditdatenController);
 
-    KreditdatenController.$inject = ['$scope'];
+    KreditdatenController.$inject = ['$scope', 'kreditdaten', '$stateParams', 'url'];
 
 
-    function KreditdatenController($scope) {
+    function KreditdatenController($scope, kreditdaten, $stateParams, url) {
         let vm = this;
         vm.data={
             erstelltam: new Date(),

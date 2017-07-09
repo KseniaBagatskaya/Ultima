@@ -106,7 +106,7 @@
 
                     immobilie_data: function (immobilie,$stateParams) {
                         let id = $stateParams.id;
-                        return antragsteller.getData(id)
+                        return immobilie.getData(id)
                             .then(function (res) {
                                 console.log(res, 'res');
                                 return res;
@@ -119,17 +119,17 @@
                 templateUrl: 'templates/kreditdaten/kreditdaten.html',
                 controller: 'KreditdatenController',
                 controllerAs: 'vm',
-                // resolve: {
+                resolve: {
 
-                //     antragsteller_data: function (dashboard) {
-                //         return dashboard.getAllMembers()
-                //             .then(function (res) {
-                //                 console.log(res, 'res');
-                //                 return res;
-                //             });
-
-                //     }
-                // }
+                    // kreditdaten_data: function (kreditdaten,$stateParams) {
+                    //     let id = $stateParams.id;
+                    //     return kreditdaten.getData(id)
+                    //         .then(function (res) {
+                    //             console.log(res, 'res');
+                    //             return res;
+                    //         });
+                    // },
+                }
             })
             .state('app.tabs.dokumente', {
                 url: "/dokumente/:id",

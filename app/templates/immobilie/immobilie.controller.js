@@ -19,44 +19,48 @@
         vm.addRechte = addRechte;
         vm.submit = submit;
 
-        vm.immobilieObject = {
-            wofur: 'Neubau (eigenes Bauvorhaben)',
-            basisangaben: {
-                strabe: '',
-                nr: '',
-                plz: '',
-                ort: '',
-                art: '',
-                grundstucksgrobe: '',
-                einliegerwonhnung: '',
-                baujahr: '',
-                anzahl: '',
-                bauweise: '',
-                fertighaus: '',
-                keller: '',
-                dachgeschoss: '',
-            },
-            nutzung: {
-                gesamte: '',
-                wie: '',
-                gewerbeflache: '',
-            },
-            zusatzliche: {
-                erbbaurecht: '',
-                wurde: '',
-            },
-            StellplatzeList: [],
-            Grundbuchdaten: {
-                isOpened: false,
-                grunduch: '',
-                blatt: '',
-                Flurstuck: [],
-            },
-            Rechte: {
-                isOpened: false,
-                betrag: '',
-                beschreibung: '',
-                anmerkungen: '',
+        if ($stateParams.id && immobilie_data) {
+            vm.immobilieObject = immobilie_data.data;
+        } else {
+            vm.immobilieObject = {
+                wofur: 'Neubau (eigenes Bauvorhaben)',
+                basisangaben: {
+                    strabe: '',
+                    nr: '',
+                    plz: '',
+                    ort: '',
+                    art: '',
+                    grundstucksgrobe: '',
+                    einliegerwonhnung: '',
+                    baujahr: '',
+                    anzahl: '',
+                    bauweise: '',
+                    fertighaus: '',
+                    keller: '',
+                    dachgeschoss: '',
+                },
+                nutzung: {
+                    gesamte: '',
+                    wie: '',
+                    gewerbeflache: '',
+                },
+                zusatzliche: {
+                    erbbaurecht: '',
+                    wurde: '',
+                },
+                StellplatzeList: [],
+                Grundbuchdaten: {
+                    isOpened: false,
+                    grunduch: '',
+                    blatt: '',
+                    Flurstuck: [],
+                },
+                Rechte: {
+                    isOpened: false,
+                    betrag: '',
+                    beschreibung: '',
+                    anmerkungen: '',
+                }
             }
         }
 
