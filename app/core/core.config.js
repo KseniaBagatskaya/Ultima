@@ -84,21 +84,11 @@
                 controller: 'AntragstellerController',
                 controllerAs: 'vm',
                 resolve: {
-//                     user_data: function ($stateParams, $sessionStorage, a) {
-//                         let id = $stateParams.id;
-//                         if ($stateParams.id != '') {
-//                             if ($stateParams.id) {
-//                                 $sessionStorage.memberId = $stateParams.id;
-//
-//                             }
-//                             return request('GET', 'GetFamilyUnionByMember?id=' + id);
-//                         } else {
-//                             delete($sessionStorage.memberId);
-//                         }
-// //                            return false;
-//                     },
-                    bank_list: function (antragsteller) {
-                        return antragsteller.menu;
+                    antrag_data: function ($stateParams, $sessionStorage, url) {
+                        let id = $stateParams.id;
+                        if ($stateParams.id) {
+                            return request('GET', `${url.get_angrag}?=entryId=` + id);
+                        }
                     }
                 }
             })

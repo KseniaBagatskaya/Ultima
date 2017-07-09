@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('AntragstellerController', AntragstellerController);
 
-    AntragstellerController.$inject = ['$scope', 'antragsteller', 'bank_list', 'http', 'url', 'toastr'];
+    AntragstellerController.$inject = ['$scope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data'];
 
 
-    function AntragstellerController($scope, antragsteller, bank_list, http, url, toastr) {
+    function AntragstellerController($scope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data) {
         let vm = this;
 
         vm.submit = submit;
@@ -32,31 +32,31 @@
         vm.wis = []; //weitereImmobilien
 
         function submit() {
-            let banks = {
-                left: vm.bank_items_left,
-                right: vm.bank_items_right
-            };
-            let data = {
-                antragsteller1: vm.antragsteller1,
-                antragsteller2: vm.antragsteller2,
-                kinders: vm.kinders,
-                banks: banks,
-                bankverbindungs: vm.bankverbindungs,
-                wis: vm.wis
-            };
+            const requestConfig = {
+                url: null,
+                data: {
+                    kinders: vm.kinders,
+                    bankverbindungs: vm.bankverbindungs,
+                    wis: vm.wis,
+                    banks: [
+                        ...vm.bank_items_left,
+                        ...vm.bank_items_right,
+                    ],
+                    antragstellers: [
+                        vm.antragsteller1,
+                        vm.antragsteller2,
+                    ],
+                }
+            }
             const preparedData = JSON.parse(sessionStorage.getItem('entry'));
-            const toSend = {};
-            toSend.entry = preparedData;
-            toSend.kinders = vm.kinders;
-            toSend.banks = vm.banks;
-            toSend.bankverbindungs = vm.bankverbindungs;
-            toSend.wis = vm.wis;
-            toSend.antragstellers = [
-                data.antragsteller1,
-                data.antragsteller2,
-            ];
-            toSend.kinders=data.kinders;
-            http.post(url.dashboard.create_angrag, toSend)
+            if ($stateParams.id) {
+                requestConfig.url = url.dashboard.update_angrag;
+                requestConfig.data.entryId = $stateParams.id;
+            } else {
+                requestConfig.data.entry = preparedData;
+                requestConfig.url = url.dashboard.create_angrag;
+            }
+            http.post(requestConfig.url, requestConfig.data)
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
