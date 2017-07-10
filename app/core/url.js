@@ -34,6 +34,7 @@
                     },
                     dokument: {
                         get_all_documents: baseUrl + 'Document/GetFilesById',
+                        file: baseUrl + 'Document/UploadFile',
                     }
                 };
 

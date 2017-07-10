@@ -103,7 +103,7 @@
             }, {
                 fileName: data.file.name,
                 fileKey: 'file',
-                mimeType: 'video/mp4',
+                mimeType: '',
                 httpMethod: 'POST',
                 chunkedMode: false,
                 params: data
