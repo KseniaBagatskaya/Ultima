@@ -33,9 +33,10 @@
             if (antrag_data.data) {
                 vm.kinders = antrag_data.data.kinders || [];
                 vm.bankverbindungs = antrag_data.data.bankverbindungs || [];
+                debugger;
                 vm.wis = antrag_data.data.wis || [];
                 vm.bank_items_left = antrag_data.data.bank_items_left || [];
-                vm.bank_items_right = antrag_data.data.bank_items_left || [];
+                vm.bank_items_right = antrag_data.data.bank_items_right || [];
             } else {
                 vm.bank_items_left = [];
                 vm.bank_items_right = [];
@@ -108,7 +109,7 @@
                         toastr.info('Created successfull');
                         $state.go('app.tabs.antragsteller', {id: res.id});
                     } else {
-                        for(var key in res.msg) {
+                        for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');
                         }
                     }
@@ -173,7 +174,7 @@
 
         function addWis() {
             vm.wis.push({
-                darlehens: {},
+                darlehens: [],
                 _delete: deleteWis
             });
         }
