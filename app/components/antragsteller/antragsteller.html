@@ -18,12 +18,12 @@
             <span class="b-form__checkbox">
                                     <input name="prefix" type="checkbox"
                                            ng-model="vm.data.prof"
-                                           ng-checked="vm.data.prof"
+                                           ng-checked="!!vm.data.prof"
                                            >
                                     <label>Prof.</label>
                                 </span>
             <span class="b-form__checkbox">
-                                    <input name="prefix" type="checkbox" ng-model="vm.data.dr" ng-checked="vm.data.dr">
+                                    <input name="prefix" type="checkbox" ng-model="vm.data.dr" ng-checked="!!vm.data.dr">
                                     <label>Dr.</label>
                                 </span>
         </div>
