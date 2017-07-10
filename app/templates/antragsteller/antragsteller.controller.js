@@ -33,7 +33,6 @@
             if (antrag_data.data) {
                 vm.kinders = antrag_data.data.kinders || [];
                 vm.bankverbindungs = antrag_data.data.bankverbindungs || [];
-                debugger;
                 vm.wis = antrag_data.data.wis || [];
                 vm.bank_items_left = antrag_data.data.bank_items_left || [];
                 vm.bank_items_right = antrag_data.data.bank_items_right || [];
