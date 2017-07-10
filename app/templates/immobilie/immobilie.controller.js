@@ -17,7 +17,7 @@
         vm.deleteStellplatze = deleteStellplatze;
         vm.addRechte = addRechte;
         vm.submit = submit;
-
+        debugger;
         if ($stateParams.id && immobilie_data.data) {
             vm.immobilieObject = immobilie_data.data;
         } else {
@@ -158,7 +158,7 @@
                         console.log(res, 'res');
                         toastr.info('Created successfull');
                     } else {
-                        for(var key in res.msg) {
+                        for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');
                         }
                     }
