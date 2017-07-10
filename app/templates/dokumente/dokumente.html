@@ -2,12 +2,14 @@
     <div class="container">
         <div class="b-tabs">
             <div class="b-tabs__container">
-                <form class="document-input">
-                    <button class="add-document-button" type="submit">Dokumente hinzufügen</button>
-                    <input data-buttonText="Your label here." type="file" multiple>
+                <form class="document-input" ng-submit="vm.addDocument()">
+                    <button ng-click="item.upload()" class="add-document-button" type="submit">Dokumente hinzufügen</button>
+                    <input data-buttonText="Your label here." nv-file-select uploader="uploader" required ng-model="vm.file" type="file" multiple>
                 </form>
                 <div class="documents-list">
-                    <div class="item">Document name</div>
+                    
+                    <div ng-hide="!vm.documents.length" class="item">Document name</div>
+                    <div ng-show="!vm.documents.length" class="item">Dokumente gefunden</div>
                 </div>
             </div>
         </div>

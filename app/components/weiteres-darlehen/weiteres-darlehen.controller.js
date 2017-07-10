@@ -13,8 +13,6 @@
         console.log($scope);
         vm.delete = $scope.delete;
         vm.index = $scope.index;
-        console.log(vm.data);
-
     }
 
 })();
