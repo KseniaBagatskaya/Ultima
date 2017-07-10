@@ -54,18 +54,16 @@
             <anfrage ng-repeat="anfrage in vm.data.anfrages track by $index" data-parent="anfrage"
                      data-index="{{$index}}"></anfrage>
             <!--ANFRAGE END-->
-        </div>
-        <div class="b-form__title-dark b-form__title iterate_header">
-            <span>Finanzierungswunsch</span>
-            <div class="b-form__loans">
-                <label for="credit_sum">Noch benötigte Darlehen: </label>
-                <span class="b-form__euro">
-                <input id="credit_sum" type="text" ng-model="vm.data.credit_sum">
-    </span>
+            <div class="b-form__title-dark b-form__title iterate_header">
+                <span>Finanzierungswunsch</span>
+                <div class="b-form__loans">
+                    <label for="credit_sum">Noch benötigte Darlehen: </label>
+                    <span class="b-form__euro">
+                    <input id="credit_sum" type="text" ng-model="vm.data.credit_sum">
+                    </span>
+                </div>
             </div>
-        </div>
 
-    </div>
 
 
     <!---------------------------/-->
@@ -370,6 +368,9 @@
 
 
 
+
+    </div>
+        </div> <!--anfrage block -->
 
     </div>
     <!-----------------------------/-->
