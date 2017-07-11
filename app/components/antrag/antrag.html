@@ -1,4 +1,4 @@
-<div class="b-form__group b-form__fields clearfix">
+<div class="b-form__group b-form__fields clearfix antrag-container">
     <div>
 
                             <span class="b-form__input">
@@ -36,7 +36,7 @@
                                 <label for="cancellation">Storno</label>
                                 <input ng-model="vm.data.storno" name="storno" id="cancellation" type="checkbox">
                             </span>
-        <span class="b-form__input b-form__input-middle">
+        <span class="b-form__input b-form__input-middle" style="width: 15%;">
                                 <label for="wiedervorlage">Wiedervorlage</label>
                                 <input ng-model="vm.data.wiedervorlage" id="wiedervorlage" type="date">
                             </span>
@@ -54,8 +54,66 @@
             <anfrage ng-repeat="anfrage in vm.data.anfrages track by $index" data-parent="anfrage"
                      data-index="{{$index}}"></anfrage>
             <!--ANFRAGE END-->
-            <div class="b-form__title-dark b-form__title iterate_header">
+            <div class="b-form__title-dark b-form__title iterate_header" style="margin: 25px 0;">
                 <span>Finanzierungswunsch</span>
+                <div class="dropdown" style="margin-left: 10px;">
+                    <button ng-click="vm.myFunction()" class="dropbtn">Finanzierungsbaustein &#9660;</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <div>
+                            <h4>Baudarlehen</h4>
+                            <a ng-click="vm.addFinanzierungsbausteine('annuitatendarlehen')">Annuitätendarlehen</a>
+                            <!--<a>Volltilger Annu</a>-->
+                            <!--<a>Endfralliges Darlehen</a>-->
+                            <div class="dropdownIn">
+                                <span ng-click="vm.myFunction()" class="dropbtnIn">KfW &#9660;</span>
+                                <div id="myDropdownIn" class="dropdown-contentIn">
+                                    <div>
+                                        <h4>Wohneigentumsprogramm</h4>
+                                        <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Wohneigentumsprogramm', 'Selbstgenutztes Eigentum (124)')" multiple>KfW
+                                            Wohneigentumsprogramm</a>
+                                    </div>
+                                    <div>
+                                        <h4>Energieeffizient Sanieren</h4>
+                                        <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Sanieren', 'Kauf order Komplettsanierung (151)')">Kauf order Komplettsanierung
+                                            (151)</a>
+                                        <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Sanieren', 'Kauf order Komplettsanierung (151)')">Einzelmaßnahmen (152)</a>
+                                        <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Sanieren', 'Heizungsanlagen Eeneuerbare Energien (167)')">Heizungsanlagen Eeneuerbare Energien
+                                            (167)</a>
+                                    </div>
+                                    <div>
+                                        <h4>Energieeffizient Bauen</h4>
+                                        <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Bauen', 'Effizienzhaus 40 Plus (153)')">Effizienzhaus 40 Plus (153)</a>
+                                        <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Bauen', 'Effizienzhaus 40 (153)')">Effizienzhaus 40 (153)</a>
+                                        <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Bauen', 'Effizienzhaus 55 (153)')">Effizienzhaus 55 (153)</a>
+                                    </div>
+                                    <div>
+                                        <h4>Wohnraum Modernisieren</h4>
+                                        <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Wohnraum Modernisieren', 'Altersgerecht Umbauen(159)')">Altersgerecht Umbauen(159)</a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Forwarddarlehen</h4>
+                            <a ng-click="vm.addFinanzierungsbausteine('forwarddarlehen')">Forwarddarlehen</a>
+                            <!--<a>Volltilger Forward</a>-->
+                        </div>
+                        <div>
+                            <h4>Sonstige Darlehen</h4>
+                            <a ng-click="vm.addFinanzierungsbausteine('privatdarlehen')">Privatdarlehen</a>
+                            <!--<a>Zwischenfinanzierung</a>-->
+                            <a ng-click="vm.addFinanzierungsbausteine('variablesdarlehen')">Variables Darlehen</a>
+                        </div>
+                        <div>
+                            <h4>Bausparangebote</h4>
+                            <a ng-click="vm.addFinanzierungsbausteine('zur_zinsabsicherung')">zur Zinsabsicherung</a>
+                            <!--<a>zur Tilgungsaussetzung (externes Darlehen)</a>-->
+                        </div>
+
+                    </div>
+                </div>
                 <div class="b-form__loans">
                     <label for="credit_sum">Noch benötigte Darlehen: </label>
                     <span class="b-form__euro">
@@ -70,69 +128,9 @@
 
     <div class="b-request b-third_form">
 
-        <div class="b-form__title-btn b-form__title dropdown_bg">
-            <div class="dropdown">
-                <button ng-click="vm.myFunction()" class="dropbtn">Finanzierungsbaustein &#9660;</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <div>
-                        <h4>Baudarlehen</h4>
-                        <a ng-click="vm.addFinanzierungsbausteine('annuitatendarlehen')">Annuitätendarlehen</a>
-                        <!--<a>Volltilger Annu</a>-->
-                        <!--<a>Endfralliges Darlehen</a>-->
-                        <div class="dropdownIn">
-                            <span ng-click="vm.myFunction()" class="dropbtnIn">KfW &#9660;</span>
-                            <div id="myDropdownIn" class="dropdown-contentIn">
-                                <div>
-                                    <h4>Wohneigentumsprogramm</h4>
-                                    <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Wohneigentumsprogramm', 'Selbstgenutztes Eigentum (124)')" multiple>KfW
-                                        Wohneigentumsprogramm</a>
-                                </div>
-                                <div>
-                                    <h4>Energieeffizient Sanieren</h4>
-                                    <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Sanieren', 'Kauf order Komplettsanierung (151)')">Kauf order Komplettsanierung
-                                        (151)</a>
-                                    <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Sanieren', 'Kauf order Komplettsanierung (151)')">Einzelmaßnahmen (152)</a>
-                                    <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Sanieren', 'Heizungsanlagen Eeneuerbare Energien (167)')">Heizungsanlagen Eeneuerbare Energien
-                                        (167)</a>
-                                </div>
-                                <div>
-                                    <h4>Energieeffizient Bauen</h4>
-                                    <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Bauen', 'Effizienzhaus 40 Plus (153)')">Effizienzhaus 40 Plus (153)</a>
-                                    <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Bauen', 'Effizienzhaus 40 (153)')">Effizienzhaus 40 (153)</a>
-                                    <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Energieeffizient Bauen', 'Effizienzhaus 55 (153)')">Effizienzhaus 55 (153)</a>
-                                </div>
-                                <div>
-                                    <h4>Wohnraum Modernisieren</h4>
-                                    <a ng-click="vm.addFinanzierungsbausteine('kfw', 'KfW Wohnraum Modernisieren', 'Altersgerecht Umbauen(159)')">Altersgerecht Umbauen(159)</a>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>Forwarddarlehen</h4>
-                        <a ng-click="vm.addFinanzierungsbausteine('forwarddarlehen')">Forwarddarlehen</a>
-                        <!--<a>Volltilger Forward</a>-->
-                    </div>
-                    <div>
-                        <h4>Sonstige Darlehen</h4>
-                        <a ng-click="vm.addFinanzierungsbausteine('privatdarlehen')">Privatdarlehen</a>
-                        <!--<a>Zwischenfinanzierung</a>-->
-                        <a ng-click="vm.addFinanzierungsbausteine('variablesdarlehen')">Variables Darlehen</a>
-                    </div>
-                    <div>
-                        <h4>Bausparangebote</h4>
-                        <a ng-click="vm.addFinanzierungsbausteine('zur_zinsabsicherung')">zur Zinsabsicherung</a>
-                        <!--<a>zur Tilgungsaussetzung (externes Darlehen)</a>-->
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
         <div ng-repeat="item in vm.data.finanzierungsbausteines track by $index"
-             ng-include="'components/antrag/dropdown/'+item.id+'.html'">
+             ng-include="'components/antrag/dropdown/'+item.id+'.html'"
+             style="margin: 20px auto;">
 
         </div>
 

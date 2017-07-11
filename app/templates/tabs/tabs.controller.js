@@ -12,7 +12,7 @@
         var vm = this;
 
         vm.transactionId = sessionStorage.getItem('transactionId');
-        vm.params_id = $stateParams.id;
+        vm.params_id = $state.params.id;
         vm.current_controller = $state.current.controller;
 
         // if state changed relect active tab

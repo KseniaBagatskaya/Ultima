@@ -355,7 +355,6 @@ textarea {
     background: #ededea;
     padding-left: 12px;
     border: 1px solid #d9d9d7;
-    border-bottom: none;
     box-sizing: border-box;
     margin-bottom: 5px; padding-bottom: 5px;}
 
@@ -1611,4 +1610,14 @@ input {
 
 select.ng-invalid-required.ng-touched {
     border: 1px solid red;
+}
+
+.next-button button {
+    margin-left: 5px;
+    background: #ccc!important;
+}
+
+.antrag-container {
+    border: 10px solid #ccc;
+    margin-left: -13px;
 }

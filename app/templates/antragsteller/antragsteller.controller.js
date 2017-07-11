@@ -12,6 +12,7 @@
         let vm = this;
 
         vm.submit = submit;
+        vm.next = next;
         vm.addKinder = addKinder;
         vm.deleteKinder = deleteKinder;
         vm.deleteBankverbindung = deleteBankverbindung;
@@ -23,6 +24,7 @@
         vm.addWis = addWis;
         vm.clearWis = clearWis;
         vm._deleteBank = deleteItem;
+        vm.isSubmited = false;
 
         vm.bank_list = bank_list;
 
@@ -59,6 +61,10 @@
             vm.kinders = [];
             vm.bankverbindungs = [];
             vm.wis = [];
+        }
+
+        function next() {
+            
         }
 
         function submit() {
@@ -105,6 +111,7 @@
             http.post(requestConfig.url, requestConfig.data)
                 .then(function (res) {
                     if (res.status) {
+                        vm.isSubmited = true;
                         toastr.info('Created successfull');
                         $state.go('app.tabs.antragsteller', {id: res.id});
                     } else {
