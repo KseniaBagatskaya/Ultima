@@ -12,16 +12,16 @@
         var vm = this;
 
         vm.transactionId = sessionStorage.getItem('transactionId');
-        vm.params_id = $stateParams.id;
+        vm.params_id = $state.params.id;
         vm.current_controller = $state.current.controller;
 
         // if state changed relect active tab
         $rootScope.$on('$stateChangeStart',
-        (event, toState, toParams, fromState, fromParams) => {
-            vm.current_controller = toState.controller;
-            vm.params_id = toParams.id;
-            // vm.params_id = fromParams.id;
-        })
+            (event, toState, toParams, fromState, fromParams) => {
+                vm.current_controller = toState.controller;
+                vm.params_id = toParams.id === '' ? fromParams.id : toParams.id;
+                // vm.params_id = fromParams.id;
+            })
 
     }
 
