@@ -10,7 +10,6 @@
 
     function KreditdatenController($scope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr) {
         let vm = this;
-
         vm.deleteAntrag = deleteAntrag;
 
         if ($stateParams.id && kreditdaten_data.data) {

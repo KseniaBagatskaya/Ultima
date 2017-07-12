@@ -7,7 +7,8 @@
         'model.antragsteller',
         'model.immobilie',
         'model.kreditdaten',
-        'model.dokument'
+        'model.dokument',
+        'model.banks',
     ]);
 
 })();

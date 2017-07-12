@@ -193,6 +193,7 @@
         function clearWis() {
             vm.wis = [];
         }
+
     }
 
 })();
