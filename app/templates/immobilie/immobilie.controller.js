@@ -17,7 +17,6 @@
         vm.deleteStellplatze = deleteStellplatze;
         vm.addRechte = addRechte;
         vm.submit = submit;
-        debugger;
         if ($stateParams.id && immobilie_data.data) {
             vm.immobilieObject = immobilie_data.data;
         } else {

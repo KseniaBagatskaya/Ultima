@@ -15,7 +15,6 @@
         vm.data.bearbeiter = user.username;
         console.log(vm.data)
         vm.data.erstelltam = new Date();
-        vm.data.wiedervorlage = new Date();
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
         // vm.data.anfrages = [];
