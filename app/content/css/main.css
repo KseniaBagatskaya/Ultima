@@ -1621,3 +1621,38 @@ select.ng-invalid-required.ng-touched {
     border: 10px solid #ccc;
     margin-left: -13px;
 }
+
+.flex-grid {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex: 1;
+}
+.row { 
+    -webkit-flex-direction: row; 
+    flex-direction: row;
+    flex: 1;
+}
+.column { 
+    -webkit-flex-direction: column; 
+    flex-direction: column;
+    flex: 1;
+}
+
+.nutzung-radio {
+    display: inline-block;
+}
+
+.nutzung-radio label {
+    float: right;
+    height: 24px;
+    line-height: 2;
+    color: #000;
+}
+
+.nutzung-radio input {
+    width: auto;
+}

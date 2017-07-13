@@ -55,6 +55,15 @@
             'alsterhyp',
         ];
 
+        vm.partnerList = [
+            'Bitte wählen Sie ...',
+            'Tauchert, Michael',
+            'Kahlke', 'Hermann',
+            'Schwarz, Volker',
+            'Nöthling, Arne',
+            'Wilhelm, Friedegunde',
+        ];
+
     }
 
 })();
