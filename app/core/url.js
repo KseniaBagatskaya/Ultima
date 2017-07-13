@@ -33,7 +33,7 @@
                         index: baseUrlNew + 'kredit-daten/index',
                     },
                     dokument: {
-                        get_all_documents: baseUrl + 'Document/GetFilesById',
+                        get_all_documents: 'http://itls-hh.eu/Document/GetAllFiles',
                         file: baseUrl + 'Document/UploadFile',
                     }
                 };

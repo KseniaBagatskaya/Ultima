@@ -5,12 +5,28 @@
     angular.module('app')
         .controller('KreditdatenController', KreditdatenController);
 
-    KreditdatenController.$inject = ['$scope', 'kreditdaten', '$stateParams', 'url', 'http', 'kreditdaten_data', 'toastr'];
+    KreditdatenController.$inject = ['$scope', '$rootScope', 'kreditdaten', '$stateParams', 'url', 'http', 'kreditdaten_data', 'toastr'];
 
 
-    function KreditdatenController($scope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr) {
+    function KreditdatenController($scope, $rootScope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr) {
         let vm = this;
+        vm.isSubmited = false;
         vm.deleteAntrag = deleteAntrag;
+
+
+        // $rootScope.$on('$stateChangeStart', 
+        // function(event, toState, toParams, fromState, fromParams){ 
+        //     if (!vm.isSubmited) {
+        //         event.preventDefault();
+        //         if (confirm('Änderungen speichern?')) {
+        //             vm.submit();
+        //             $state.go(toState);
+        //         } else {
+        //             vm.isSubmited = true;
+        //             $state.go(toState, fromParams);
+        //         }
+        //     }
+        // });
 
         if ($stateParams.id && kreditdaten_data.data) {
             console.log(kreditdaten_data.data)
@@ -64,6 +80,7 @@
                             toastr.error(res.msg[key][0], 'Submit failed');
                         }
                     }
+                    vm.isSubmited = false;
                 });
         }
 

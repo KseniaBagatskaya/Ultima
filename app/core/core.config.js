@@ -77,6 +77,12 @@
 
                 }
             })
+            .state('app.wiedervorlage', {
+                url: "/wiedervorlage",
+                templateUrl: 'templates/wiedervorlage/wiedervorlage.html',
+                controller: 'WiedervorlageController',
+                controllerAs: 'vm',
+            })
 
             .state('app.tabs.antragsteller', {
                 url: "/antragsteller/:id",

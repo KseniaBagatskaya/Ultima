@@ -2,16 +2,12 @@
     <div class="container">
         <div class="b-tabs information clearfix">
             <ul class="b-tabs__titles clearfix dashboard_list">
-                <li class="b-tabs__titles-item">
-                    <!--ng-class="'b-tabs__titles-item&#45;&#45;current'"-->
-                    <!--&gt;-->
+                <!-- <li class="b-tabs__titles-item">
                     <span>Zuletzt</span>
                 </li>
                 <li class="b-tabs__titles-item">
-                    <!--ng-class="'b-tabs__titles-item&#45;&#45;current'"-->
-                    <!--&gt;-->
                     <span>Wiedervorlage</span>
-                </li>
+                </li> -->
             </ul>
 
             <div class="b-tabs__block-left">
@@ -50,12 +46,11 @@
                             <span class="b-form__input">
                                 <label for="usage">Verwendungszweck</label>
                                 <select id="usage" name="usage" ng-model="vm.data.verwendungszweck" required>
-                                    <!--<option value="-1" selected="selected">Bitte wählen Sie ...</option>-->
-                                    <option value="1" selected="selected">Ratenkredit</option>
+                                    <option value="1">Ratenkredit</option>
                                     <option value="2">Baufinanzierung</option>
                                 </select>
                             </span>
-                            <div class="b-form__child-item" ng-hide="vm.data.verwendungszweck === '2'">
+                            <div class="b-form__child-item" ng-show="vm.data.verwendungszweck === '2'">
                                 <h4>Wie wird die lmmobilie genutzt?</h4>
                                 <span class="b-form__radio">
                                     <input name="eigennutzung" id="eigennutzung" type="radio" value="Eigennutzung"
