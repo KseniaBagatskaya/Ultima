@@ -1801,3 +1801,6 @@ input[type=date] {
 .wiedervorlage {
     margin-top: 20px;
 }
+textarea{
+    font-family: arial,sans-serif;
+}
