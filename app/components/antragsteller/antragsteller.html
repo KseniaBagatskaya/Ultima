@@ -122,18 +122,18 @@
 
     <div class="b-form__group">
         <div class="b-form__half-col b-form__half-col--first">
-                                <span class="b-form__input">
+            <span class="b-form__input">
                                     <label for="famili">Familienstand</label>
-                                    <select id="famili" ng-model="vm.data.famili"
-                                            tabindex="{{(vm.data.number*100)+12}}">
-
-                                        <option ng-value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                        <option ng-value="1">Verheiratet</option>
-                                        <option ng-value="2">Ledig</option>
-                                        <option ng-value="3">Getrennt lebend</option>
-                                        <option ng-value="4">Geschieden</option>
-                                        <option ng-value="5">Lebenspartnerschaft</option>
-                                        <option ng-value="6">Verwitwet</option>
+                                    <select id="famili" class="gwt-ListBox" ng-model="vm.data.famili"
+                                            convert-to-number tabindex="{{(vm.data.number*100)+13}}">
+                                    <option ng-value="-1">Bitte wählen Sie ...</option>
+                                    <option ng-value="1">Verheiratet</option><option
+                                            ng-value="2">Ledig</option><option
+                                            ng-value="3">Getrennt lebend</option><option
+                                            ng-value="4">Geschieden</option><option
+                                            ng-value="5">Lebenspartnerschaft</option>
+                                        <option
+                                            ng-value="6">Verwitwet</option>
                                     </select>
                                 </span>
             <span class="b-form__input">
@@ -341,7 +341,7 @@
                                     <label for="art">Art der Beschäftigung</label>
                                     <select id="art" class="gwt-ListBox" ng-model="vm.data.art"
                                             convert-to-number tabindex="{{(vm.data.number*100)+14}}"><option
-                                            ng-value="-1" selected="selected">Bitte wählen Sie ...</option><option
+                                            ng-value="-1">Bitte wählen Sie ...</option><option
                                             ng-value="1">Angestellter</option><option ng-value="2">Arbeiter</option><option
                                             ng-value="3">Arbeitsloser</option><option ng-value="4">Beamter</option><option
                                             ng-value="5">Freiberufler</option><option
@@ -368,4 +368,3 @@
         </div>
     </div>
 </div>
-
