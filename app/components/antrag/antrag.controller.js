@@ -5,18 +5,18 @@
     angular.module('app')
         .controller('AntragController', AntragController)
 
-    AntragController.$inject = ['$scope'];
+    AntragController.$inject = ['$scope', 'banks'];
 
-    function AntragController($scope) {
+    function AntragController($scope, banks) {
         let vm = this;
 
         const user = JSON.parse(sessionStorage.getItem('user'));
         vm.data = $scope.parent;
         vm.data.bearbeiter = user.username;
-        console.log(vm.data)
         vm.data.erstelltam = new Date();
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
+        vm.banks = banks.getAllBanks();
         // vm.data.anfrages = [];
         vm.addAnfrage = addAnfrage;
         vm.deleteAnfrage = deleteAnfrage;
