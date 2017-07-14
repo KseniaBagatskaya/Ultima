@@ -67,12 +67,13 @@
                         // });
                     },
                     partners: function (dashboard) {
-                        let partners = dashboard.getPartners();
-                        return partners;
-                        // .then(function (res) {
-                        //     console.log(res, 'kontaktar');
-                        //     return res;
-                        // });
+                        // let partners = dashboard.getPartners();
+                        // return partners;
+                        return dashboard.getPartners()
+                            .then(function (res) {
+                                console.log(res, 'partners');
+                                return res;
+                            });
                     }
 
                 }
@@ -90,7 +91,7 @@
                 controller: 'AntragstellerController',
                 controllerAs: 'vm',
                 resolve: {
-                    antrag_data: function (antragsteller,$stateParams) {
+                    antrag_data: function (antragsteller, $stateParams) {
                         let id = $stateParams.id;
                         return antragsteller.getData(id)
                             .then(function (res) {
@@ -110,7 +111,7 @@
                 controller: 'ImmobilieController',
                 controllerAs: 'vm',
                 resolve: {
-                    immobilie_data: function (immobilie,$stateParams) {
+                    immobilie_data: function (immobilie, $stateParams) {
                         let id = $stateParams.id;
                         return immobilie.getData(id)
                             .then(function (res) {
@@ -127,7 +128,7 @@
                 controllerAs: 'vm',
                 resolve: {
 
-                    kreditdaten_data: function (kreditdaten,$stateParams) {
+                    kreditdaten_data: function (kreditdaten, $stateParams) {
                         let id = $stateParams.id;
                         return kreditdaten.getData(id)
                             .then(function (res) {

@@ -17,7 +17,7 @@
                         get_all_members: baseUrlNew + 'entry/index',
                         get_werbung: baseUrl + '',
                         get_kontaktart: baseUrl + '',
-                        get_partners: baseUrl + '',
+                        get_partners: baseUrl + 'Dashboard/GetAllAdressens',
                     },
                     anstragsteller: {
                         index: baseUrlNew + 'antragsteller/index'

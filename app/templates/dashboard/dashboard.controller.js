@@ -5,18 +5,19 @@
     angular.module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$scope', 'users_data', 'url', 'http', '$state'];
+    DashboardController.$inject = ['$scope', 'users_data', 'url', 'http', '$state','partners'];
 
 
-    function DashboardController($scope, users_data, url, http, $state, werbung, kontaktar, partners) {
+    function DashboardController($scope, users_data, url, http, $state,  partners) {
         let vm = this;
         vm.data = {
             genutzt: 'Eigennutzung',
             partner: 0,
         };
+        debugger;
         vm.submit = submit;
-        vm.werbung = werbung;
-        vm.kontaktar = kontaktar;
+        // vm.werbung = werbung;
+        // vm.kontaktar = kontaktar;
         vm.partners = partners;
 
 
@@ -55,14 +56,14 @@
             'alsterhyp',
         ];
 
-        vm.partnerList = [
-            'Bitte wählen Sie ...',
-            'Tauchert, Michael',
-            'Kahlke', 'Hermann',
-            'Schwarz, Volker',
-            'Nöthling, Arne',
-            'Wilhelm, Friedegunde',
-        ];
+        // vm.partnerList = [
+        //     'Bitte wählen Sie ...',
+        //     'Tauchert, Michael',
+        //     'Kahlke', 'Hermann',
+        //     'Schwarz, Volker',
+        //     'Nöthling, Arne',
+        //     'Wilhelm, Friedegunde',
+        // ];
 
     }
 

@@ -55,22 +55,26 @@
                                     <option value="2">Baufinanzierung</option>
                                 </select>
                             </span>
-                            <div class="b-form__child-item" ng-show="vm.data.verwendungszweck === '2'">
-                                <h4>Wie wird die lmmobilie genutzt?</h4>
-                                <span class="b-form__radio">
+                            <div class="b-form__child-item">
+                                <div ng-show="vm.data.verwendungszweck === '2'">
+                                    <h4>Wie wird die lmmobilie genutzt?</h4>
+                                    <span class="b-form__radio">
                                     <input name="eigennutzung" id="eigennutzung" type="radio" value="Eigennutzung"
-                                        ng-model="vm.data.genutzt">
+                                           ng-model="vm.data.genutzt">
                                     <label for="eigennutzung">Eigennutzung</label>
                                 </span>
-                                <span class="b-form__radio">
+                                    <span class="b-form__radio">
                                     <input name="vermietet" id="vermietet" type="radio" value="Vermietet"
-                                        ng-model="vm.data.genutzt">
+                                           ng-model="vm.data.genutzt">
                                     <label for="vermietet">Vermietet</label>
                                 </span>
-                                <span class="b-form__radio">
+                                    <span class="b-form__radio">
                                     <input name="beides" id="beides" type="radio" value="Beides" ng-model="vm.data.genutzt">
                                     <label for="beides">Beides</label>
                                 </span>
+                                </div>
+
+
                                 <span class="b-form__input">
                                     <label for="plz">PLZ</label>
                                     <input id="plz" ng-model="vm.data.plz" type="text">
@@ -108,7 +112,7 @@
                                         <label for="ja">ja</label>
                                     </span>
                                 <select id="partners" ng-model="vm.data.partnerId" required ng-if="vm.data.partner=='1'">
-                                    <option value="{{$index}}" ng-repeat="partner in vm.partnerList | orderBy: '' track by $index">{{partner}}</option>
+                                    <option ng-value="partner.AdressenId" ng-repeat="partner in vm.partners">{{partner.Nachname+', '+partner.Vorname}}</option>
                                 </select>
                             </div>
                             <div class="b-form__child-item">
