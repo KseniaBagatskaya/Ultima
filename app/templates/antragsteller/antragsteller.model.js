@@ -150,7 +150,8 @@
         let service = {
             menu: {left: MENU_LEFT, right: MENU_RIGHT},
             findElementById: _findElementById,
-            getData: getData
+            getData: getData,
+            convertDateFromString: convertDateFromString
         };
         return service;
 
@@ -185,6 +186,10 @@
                 })
             }
             return result;
+        }
+
+        function convertDateFromString(date) {
+            return new Date(date);
         }
     }
 
