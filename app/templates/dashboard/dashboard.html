@@ -49,7 +49,7 @@
                         <!--<div class="b-tabs__text">Testumgebung: Vorgänge können nicht abgeschlossen werden!</div>-->
                         <div class="b-tabs__table-info">
                             <span class="b-form__input">
-                                <label for="usage">Verwendungszweck</label>
+                                <label for="usage">Verwendungszweck *</label>
                                 <select id="usage" name="usage" ng-model="vm.data.verwendungszweck" required>
                                     <option value="1">Ratenkredit</option>
                                     <option value="2">Baufinanzierung</option>
@@ -81,13 +81,13 @@
                                 </span>
                             </div>
                             <span class="b-form__input">
-                                <label for="werbung">Werbung</label>
+                                <label for="werbung">Werbung *</label>
                                 <select ng-model="vm.data.werbungId" id="werbung" required>
                                     <option ng-repeat="selector in vm.werbung track by $index" value="{{$index}}">{{selector}}</option>
                                 </select>
                             </span>
                             <span class="b-form__input">
-                                <label for="property">Kontaktart</label>
+                                <label for="property">Kontaktart *</label>
                                 <select id="property" ng-model="vm.data.kontaktartId" required>
                                     <option value="-1" selected="selected">Bitte wählen Sie ...</option>
                                     <option value="1">E-Mail</option>
