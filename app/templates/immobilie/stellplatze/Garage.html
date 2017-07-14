@@ -6,12 +6,12 @@
         <label for="first_name">Vermietet?</label>
         <span class="b-form__col b-form__inline">
             <span class="b-form__radio">
-                <input ng-model="item.vermietet" value="1" id="garageja" type="radio">
-                <label for="garageja">ja</label>
+                <input ng-model="item.garage[$index]" value="1" id="garageja{{$index}}" type="radio">
+                <label for="garageja{{$index}}">ja</label>
             </span>
             <span class="b-form__radio">
-                <input ng-model="item.vermietet" value="0" id="garagenein" type="radio">
-                <label for="garagenein">nein</label>
+                <input ng-model="item.garage[$index]" value="0" id="garagenein{{$index}}" type="radio">
+                <label for="garagenein{{$index}}">nein</label>
             </span>
         </span>
     </span>

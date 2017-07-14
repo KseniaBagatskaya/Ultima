@@ -19,13 +19,13 @@
     <span class="b-form__col b-form__inline">
 
     <span class="b-form__radio">
-    <input ng-model="item.verwendungsart" name="free" id="frei" type="radio">
+    <input ng-model="item.verwendungsart" name="free" id="frei" type="radio" value="1">
     <label for="frei">frei besparen</label>
     </span>
 
     <span class="b-form__radio">
     <input ng-model="item.verwendungsart" name="cede" id="abtreten"
-           type="radio">
+           type="radio" value="2">
     <label for="abtreten">abtreten</label>
     </span>
 
@@ -48,12 +48,12 @@
     <span class="b-form__col b-form__inline">
     <span class="b-form__radio">
     <input ng-model="item.abschlussgebuhr" name="immediate_payment"
-           id="sofortzahlung" type="radio">
+           id="sofortzahlung" type="radio" value="1">
     <label for="sofortzahlung">Sofortzahlung</label>
     </span>
     <span class="b-form__radio">
     <input ng-model="item.abschlussgebuhr" name="billing" id="verrechnung"
-           type="radio">
+           type="radio" value="2">
     <label for="verrechnung">Verrechnung</label>
     </span>
     </span>
