@@ -81,16 +81,19 @@
                                             <label for="street_name">Straße</label>
                                             <input id="street_name" type="text"
                                             ng-model="vm.data.street" tabindex="{{(vm.data.number*100)+7}}">
+
                                         </span>
                                         <span class="b-form__input b-form__address-short">
                                             <label for="street_numb">Nr.</label>
                                             <input id="street_numb" type="text"
                                             ng-model="vm.data.house" tabindex="{{(vm.data.number*100)+8}}">
+
                                         </span>
                                     </span>
                                     <span class="b-form__input">
                                         <label for="seit">Wohnhaft seit</label>
                                         <input id="seit" type="text" ng-model="vm.data.seit" tabindex="{{(vm.data.number*100)+11}}">
+
                                     </span>
                                 </div>
 
@@ -117,6 +120,7 @@
                                 <span class="b-form__input">
                                     <label for="famili">Familienstand</label>
                                     <select id="famili" ng-model="vm.data.famili" tabindex="{{(vm.data.number*100)+12}}">
+
                                         <option ng-value="-1" selected="selected">Bitte wählen Sie ...</option>
                                         <option ng-value="1">Verheiratet</option>
                                         <option ng-value="2">Ledig</option>
@@ -330,6 +334,7 @@
                                 <span class="b-form__input b-form__euro">
                                     <label for="netto">Einkommen Netto</label>
                                     <input id="netto" type="text" ng-model="vm.data.netto" tabindex="{{(vm.data.number*100)+15}}">
+
                                 </span>
                             </div>
                             <div class="b-form__half-col b-form__half-col--first">
