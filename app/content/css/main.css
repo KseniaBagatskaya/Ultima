@@ -1600,7 +1600,8 @@ input {
 }
 
 .short_span {
-    width: 120px !important;
+    width: 100px !important;
+    margin-right: 20px
 }
 
 .dashboard_list li{
