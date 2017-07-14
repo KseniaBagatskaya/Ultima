@@ -28,7 +28,7 @@
     <div class="b-form__group-child">
     <span class="b-form__input">
         <select ng-model="vm.data.bank_id" id="editor" style="width: 160px;">
-            <option ng-repeat="selector in vm.banks track by $index" value="{{selector.id}}">{{selector.name}}</option>
+            <option ng-repeat="selector in vm.banks | orderBy: '' track by $index" value="{{$index}}">{{selector}}</option>
         </select>
     </span>
     <span class="b-form__input">

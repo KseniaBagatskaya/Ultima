@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('AntragstellerController', AntragstellerController);
 
-    AntragstellerController.$inject = ['$scope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data', '$state'];
+    AntragstellerController.$inject = ['$scope', '$rootScope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data', '$state'];
 
 
-    function AntragstellerController($scope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state) {
+    function AntragstellerController($scope, $rootScope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state) {
         let vm = this;
 
         vm.submit = submit;
@@ -28,6 +28,21 @@
 
         vm.bank_list = bank_list;
 
+        // $rootScope.$on('$stateChangeStart', 
+        // function(event, toState, toParams, fromState, fromParams){ 
+        //     if (!vm.isSubmited) {
+        //         event.preventDefault();
+        //         if (confirm('Änderungen speichern?')) {
+        //             vm.submit();
+        //             $state.go(toState);
+        //         } else {
+        //             vm.isSubmited = true;
+        //             $state.go(toState, fromParams);
+        //         }
+        //     } else {
+        //         $state.go(toState, fromParams);
+        //     }
+        // });
 
         if ($stateParams.id) {
             vm.antragsteller1 = antrag_data.antragstellers[0] || {};
@@ -193,6 +208,7 @@
         function clearWis() {
             vm.wis = [];
         }
+
     }
 
 })();

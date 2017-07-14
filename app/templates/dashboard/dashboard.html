@@ -14,6 +14,7 @@
                 <!--</li>-->
             <!--</ul>-->
 
+
             <div class="b-tabs__block-left">
                 <div class="b-form__title-dark b-form__title">Zuletzt bearbeitete Vorgänge</div>
                 <div class="b-form__block">
@@ -50,12 +51,11 @@
                             <span class="b-form__input">
                                 <label for="usage">Verwendungszweck</label>
                                 <select id="usage" name="usage" ng-model="vm.data.verwendungszweck" required>
-                                    <!--<option value="-1" selected="selected">Bitte wählen Sie ...</option>-->
-                                    <option value="1" selected="selected">Ratenkredit</option>
+                                    <option value="1">Ratenkredit</option>
                                     <option value="2">Baufinanzierung</option>
                                 </select>
                             </span>
-                            <div class="b-form__child-item">
+                            <div class="b-form__child-item" ng-show="vm.data.verwendungszweck === '2'">
                                 <h4>Wie wird die lmmobilie genutzt?</h4>
                                 <span class="b-form__radio">
                                     <input name="eigennutzung" id="eigennutzung" type="radio" value="Eigennutzung"
@@ -108,12 +108,7 @@
                                         <label for="ja">ja</label>
                                     </span>
                                 <select id="partners" ng-model="vm.data.partnerId" required ng-if="vm.data.partner=='1'">
-                                    <option value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                    <option value="1">Michael Tauchert</option>
-                                    <option value="2">Hermann Kahlke</option>
-                                    <option value="3">Volker Schwarz</option>
-                                    <option value="4">Arne Nöthling</option>
-                                    <option value="5">Friedegunde Wilhelm</option>
+                                    <option value="{{$index}}" ng-repeat="partner in vm.partnerList | orderBy: '' track by $index">{{partner}}</option>
                                 </select>
                             </div>
                             <div class="b-form__child-item">

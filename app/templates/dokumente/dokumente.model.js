@@ -17,7 +17,7 @@
         return service;
 
         function getAllDocs(id) {
-            return http.get(url.dokument.get_all_documents, {id})
+            return http.get(url.dokument.get_all_documents)
                 .then(function (res) {
                     console.log(res, 'res');
                     return res;

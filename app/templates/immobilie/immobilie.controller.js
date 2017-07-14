@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('ImmobilieController', ImmobilieController);
 
-    ImmobilieController.$inject = ['$scope', '$stateParams', 'immobilie', 'url', 'http', 'immobilie_data', 'toastr'];
+    ImmobilieController.$inject = ['$scope', '$state', '$rootScope', '$stateParams', 'immobilie', 'url', 'http', 'immobilie_data', 'toastr'];
 
 
-    function ImmobilieController($scope, $stateParams, immobilie, url, http, immobilie_data, toastr) {
+    function ImmobilieController($scope, $state, $rootScope, $stateParams, immobilie, url, http, immobilie_data, toastr) {
         var vm = this;
         vm.addStellplatze = addStellplatze;
         vm.addGrundbuchdaten = addGrundbuchdaten;
@@ -17,6 +17,23 @@
         vm.deleteStellplatze = deleteStellplatze;
         vm.addRechte = addRechte;
         vm.submit = submit;
+        vm.isSubmited = false;
+
+
+        // $rootScope.$on('$stateChangeStart', 
+        // function(event, toState, toParams, fromState, fromParams){ 
+        //     if (!vm.isSubmited) {
+        //         event.preventDefault();
+        //         if (confirm('Änderungen speichern?')) {
+        //             vm.submit();
+        //             $state.go(toState);
+        //         } else {
+        //             vm.isSubmited = true;
+        //             $state.go(toState, fromParams);
+        //         }
+        //     }
+        // });
+
         if ($stateParams.id && immobilie_data.data) {
             vm.immobilieObject = immobilie_data.data;
         } else {
@@ -161,8 +178,8 @@
                             toastr.error(res.msg[key][0], 'Submit failed');
                         }
                     }
+                    vm.isSubmited = true;
                 });
-            console.log(vm.immobilieObject);
         }
 
     }
