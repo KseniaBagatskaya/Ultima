@@ -2193,3 +2193,7 @@ input[type=date] {
 textarea {
     font-family: arial, sans-serif;
 }
+.b-form__group-child.flexible-row {
+    display: flex;
+    align-items: flex-end;
+}
