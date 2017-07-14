@@ -16,6 +16,7 @@
         vm.toggleAnfrage = toggleAnfrage;
         vm.anfrageIsOpened = false;
         vm.banks = banks.getAllBanks();
+        vm.currentDate = new Date();
 
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
@@ -23,6 +24,16 @@
             } else {
                 vm.anfrageIsOpened = true;
             }
+        }
+
+        $scope.$watch('vm.data.reason', function () {
+            if (vm.data.reason) {
+                vm.data.fieldOne = vm.currentDate;
+            }
+        });
+
+        function setCurrentDate() {
+
         }
 
 

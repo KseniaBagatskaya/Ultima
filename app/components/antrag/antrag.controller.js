@@ -13,7 +13,7 @@
         const user = JSON.parse(sessionStorage.getItem('user'));
         vm.data = $scope.parent;
         vm.data.bearbeiter = user.username;
-        console.log(vm.data)
+        console.log(vm.data);
         vm.data.erstelltam = new Date();
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
