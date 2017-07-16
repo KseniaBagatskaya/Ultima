@@ -53,13 +53,27 @@
     <label for="time">Bereitstellungszinsfreie Zeit</label>
     <input ng-model="item.bereit" id="time" type="text">
     </span>
+    <div>
+        <span class="b-form__input b-form__input">
+            <span class="text-title">Gesamtprovision EUR:</span>
+                <span class="b-form__input">
+                <input ng-model="item.gesamtprovision_eur" id="total_commission" type="text">
+            </span>
+        </span>
+        <span class="b-form__input b-form__input">
+            <span class="text-title">Provision Berater EUR:</span>
+                    <span class="b-form__input">
+                    <input ng-model="item.provisionBerater_eur" id="commission_consultants" type="text">
+            </span>
+        </span>
+    </div>
+
     <span class="b-form__input b-buy__option">
     <img src="content/images/icons/trash_basket.png"
          class="btn btn__trash btn--light"
          ng-click="item._delete($index)">
     </span><br>
-    <div class="new-area"
-         ng-repeat="items in item.dopArr">
+    <div class="new-area" ng-repeat="items in item.dopArr">
         <span id="nafir" class="b-request__title">tilgungsersatzprodukt <br>(Bausparvrtrag)</span>
         <span id="nasec" class="b-form__input">
     <label for="loan_amount">Tarif</label>
