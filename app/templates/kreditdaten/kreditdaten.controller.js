@@ -12,32 +12,20 @@
         let vm = this;
         vm.isSubmited = false;
         vm.deleteAntrag = deleteAntrag;
-
-
-        // $rootScope.$on('$stateChangeStart', 
-        // function(event, toState, toParams, fromState, fromParams){ 
-        //     if (!vm.isSubmited) {
-        //         event.preventDefault();
-        //         if (confirm('Änderungen speichern?')) {
-        //             vm.submit();
-        //             $state.go(toState);
-        //         } else {
-        //             vm.isSubmited = true;
-        //             $state.go(toState, fromParams);
-        //         }
-        //     }
-        // });
+        vm.entry = JSON.parse(sessionStorage.getItem('entry'));
 
         if ($stateParams.id && kreditdaten_data.data) {
             console.log(kreditdaten_data.data)
             vm.data = kreditdaten_data.data;
             vm.data.auftragseingang = kreditdaten_data.entry.kontaktartId;
             vm.data.wunsch = kreditdaten_data.entry.finanzbedarf;
-            vm.data.datum = new Date();
             vm.antrags = kreditdaten_data.data.antrags || [];
         } else {
             vm.data={
                 erstelltam: new Date(),
+                datum: new Date(),
+                wunsch: vm.entry.finanzbedarf,
+                auftragseingang: vm.entry.kontaktartId,
             };
             vm.antrags = [];
         }

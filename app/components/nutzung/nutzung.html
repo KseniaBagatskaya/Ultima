@@ -10,7 +10,7 @@
                 <label>Wie wird die Wohnfläche genutzt?</label>
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
-                        <input ng-model="vm.nutzung.wie" value="Eigengenutzt"
+                        <input ng-model="vm.nutzung.gewerbeflache" value="Eigengenutzt"
                                 name="vorh5" id="Eigengenutzt" type="radio">
                         <label for="Eigengenutzt">Eigengenutzt</label>
                     </span>
@@ -26,20 +26,37 @@
                     </span>
                 </span>
             </span>
+                <span class="b-form__input b-form__euro" ng-show="vm.nutzung.gewerbeflache === 'Vermietet'">
+                    <label for="mieteinnahmen">Mieteinnahmen</label>
+                    <input ng-model="vm.nutzung.gewerbeflachemieteinnahmen" id="mieteinnahmen" type="text">
+                </span>
+                <span class="b-form__input b-form__euro" ng-show="vm.nutzung.gewerbeflache === 'Beides'">
+                    <label for="mieteinnahmen">Mieteinnahmen</label>
+                    <input ng-model="vm.nutzung.gewerbeflachemieteinnahmen" id="mieteinnahmen" type="text">
+                </span>
+                <span class="b-form__input b-form__squere" ng-show="vm.nutzung.gewerbeflache === 'Beides'">
+                    <label for="vermietetegewerbeflache">Vermietete Wohnfläche</label>
+                    <input ng-model="vm.nutzung.gewerbeflachevermietetegewerbeflache" id="vermietetegewerbeflache" type="text">
+                </span>
             <span class="b-form__radio-label">
                 <label for="first_name">Gewerbefläche vorhanden</label>
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
-                        <input ng-model="vm.nutzung.gewerbeflache" value="1" name="vorh7"
-                                id="gewerbeflache" type="radio">
-                        <label for="gewerbeflache">ja</label>
+                        <input ng-model="vm.nutzung.gewerbeflacheja" value="1" name="vorh7"
+                                id="gewerbeflacheja" type="radio">
+                        <label for="gewerbeflacheja">ja</label>
                     </span>
                     <span class="b-form__radio">
-                        <input ng-model="vm.nutzung.gewerbeflache" value="0" name="vorh7"
+                        <input ng-model="vm.nutzung.gewerbeflachenein" value="0" name="vorh7"
                                 id="gewerbeflachenein" type="radio">
                         <label for="gewerbeflachenein">nein</label>
                     </span>
                 </span>
+            </span>
+
+            <span class="b-form__input b-form__squere" ng-show="vm.nutzung.gewerbeflacheja === '1'">
+                <label for="Gewerbefläche">Gesamte Gewerbefläche</label>
+                <input ng-model="vm.nutzung.gesamtegewerbeflache" id="Gewerbefläche" type="text">
             </span>
 
         </div>
