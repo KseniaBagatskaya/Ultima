@@ -47,7 +47,7 @@
                         <label for="gewerbeflacheja">ja</label>
                     </span>
                     <span class="b-form__radio">
-                        <input ng-model="vm.nutzung.gewerbeflachenein" value="0" name="vorh7"
+                        <input ng-model="vm.nutzung.gewerbeflacheja" value="0" name="vorh7"
                                 id="gewerbeflachenein" type="radio">
                         <label for="gewerbeflachenein">nein</label>
                     </span>
@@ -57,6 +57,40 @@
             <span class="b-form__input b-form__squere" ng-show="vm.nutzung.gewerbeflacheja === '1'">
                 <label for="Gewerbefläche">Gesamte Gewerbefläche</label>
                 <input ng-model="vm.nutzung.gesamtegewerbeflache" id="Gewerbefläche" type="text">
+            </span>
+
+            <span class="b-form__radio-label" ng-show="vm.nutzung.gewerbeflacheja === '1'">
+                <label>Wie wird die Gewerbefläche genutzt?</label>
+                <span class="b-form__col b-form__inline">
+                    <span class="b-form__radio">
+                        <input ng-model="vm.nutzung.gewerbeflachegenutzt" value="Eigengenutzt"
+                                name="vorh51" id="Eigengenutzt1" type="radio">
+                        <label for="Eigengenutzt1">Eigengenutzt</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input ng-model="vm.nutzung.gewerbeflachegenutzt" value="Vermietet"
+                                name="vorh51" id="Vermietet1" type="radio">
+                        <label for="Vermietet1">Vermietet</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input ng-model="vm.nutzung.gewerbeflachegenutzt" value="Beides" name="vorh51"
+                                id="Beides1" type="radio">
+                        <label for="Beides1">Beides</label>
+                    </span>
+                </span>
+            </span>
+
+            <span class="b-form__input b-form__euro" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Vermietet'">
+                <label for="mieteinnahmen51">Mieteinnahmen</label>
+                <input ng-model="vm.nutzung.vermietete51" id="mieteinnahmen51" type="text">
+            </span>
+            <span class="b-form__input b-form__euro" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Beides'">
+                <label for="mieteinnahmen51">Mieteinnahmen</label>
+                <input ng-model="vm.nutzung.vermietete51" id="mieteinnahmen51" type="text">
+            </span>
+            <span class="b-form__input b-form__squere" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Beides'">
+                <label for="vermietetegewerbeflache51">Vermietete Gewerbefläche</label>
+                <input ng-model="vm.nutzung.vermietete51" id="vermietetegewerbeflache51" type="text">
             </span>
 
         </div>
@@ -121,6 +155,31 @@
                 </span>
             </span>
         </div>
+        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__squere">
+            <label for="erbbauzins">Erbbauzins jährlich</label>
+            <input ng-model="vm.zusatzliche.erbbauzins" id="erbbauzins" type="text">
+        </span>
+        <div ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__col">
+            <span class="b-form__radio-label">
+                <label>Grundstückseigentümer</label>
+                <span class="b-form__col b-form__inline">
+                    <span class="b-form__radio">
+                        <input ng-model="vm.zusatzliche.grundstuckseigentumer" value="1" name="vorh12"
+                                id="erbbaurecht" type="radio">
+                        <label for="erbbaurecht">Öffentlich / Kirchlich</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input ng-model="vm.zusatzliche.grundstuckseigentumer" value="0" name="vorh12"
+                                id="erbbaurechtnein" type="radio">
+                        <label for="erbbaurechtnein">Andere</label>
+                    </span>
+                </span>
+            </span>
+        </div>
+        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__squere">
+            <label for="laufzeit">Laufzeit bis</label>
+            <input ng-model="vm.zusatzliche.laufzeit" id="laufzeit" type="text">
+        </span>
     </div>
 
     <div class="b-form__group b-form__group--same-height70">
