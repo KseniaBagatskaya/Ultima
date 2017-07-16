@@ -13,12 +13,12 @@
                                     <span class="b-form__input">
                                         <label for="new_orders">Auftragseingang</label>
                                         <select id="new_orders" ng-model="vm.data.auftragseingang">
-                                            <option value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                            <option value="1">E-Mail</option>
-                                            <option value="2">telefonisch</option>
-                                            <option value="3">per Post</option>
-                                            <option value="4">direkt</option>
-                                            <option value="5">Internet</option>
+                                            <option ng-value="-1">Bitte wählen Sie ...</option>
+                                            <option ng-value="1">E-Mail</option>
+                                            <option ng-value="2">telefonisch</option>
+                                            <option ng-value="3">per Post</option>
+                                            <option ng-value="4">direkt</option>
+                                            <option ng-value="5">Internet</option>
                                         </select>
                                     </span>
                             </div>

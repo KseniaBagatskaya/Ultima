@@ -45,12 +45,10 @@
         }
 
         function submit() {
+            vm.data.antrags = vm.antrags;
             const requestConfig = {
                 url: null,
-                data: {
-                    erstelltam: vm.data.erstelltam,
-                    antrags: vm.antrags,
-                },
+                data: vm.data,
             }
             if ($stateParams.id) {
                 requestConfig.url = url.kreditdaten.update;
