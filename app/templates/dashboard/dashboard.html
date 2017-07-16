@@ -2,16 +2,16 @@
     <div class="container">
         <div class="b-tabs information clearfix">
             <!--<ul class="b-tabs__titles clearfix dashboard_list">-->
-                <!--<li class="b-tabs__titles-item">-->
-                    <!--&lt;!&ndash;ng-class="'b-tabs__titles-item&#45;&#45;current'"&ndash;&gt;-->
-                    <!--&lt;!&ndash;&gt;&ndash;&gt;-->
-                    <!--<span>Zuletzt</span>-->
-                <!--</li>-->
-                <!--<li class="b-tabs__titles-item">-->
-                    <!--&lt;!&ndash;ng-class="'b-tabs__titles-item&#45;&#45;current'"&ndash;&gt;-->
-                    <!--&lt;!&ndash;&gt;&ndash;&gt;-->
-                    <!--<span>Wiedervorlage</span>-->
-                <!--</li>-->
+            <!--<li class="b-tabs__titles-item">-->
+            <!--&lt;!&ndash;ng-class="'b-tabs__titles-item&#45;&#45;current'"&ndash;&gt;-->
+            <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+            <!--<span>Zuletzt</span>-->
+            <!--</li>-->
+            <!--<li class="b-tabs__titles-item">-->
+            <!--&lt;!&ndash;ng-class="'b-tabs__titles-item&#45;&#45;current'"&ndash;&gt;-->
+            <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+            <!--<span>Wiedervorlage</span>-->
+            <!--</li>-->
             <!--</ul>-->
 
 
@@ -29,7 +29,8 @@
                                 <tbody>
                                 <tr ng-repeat="item in vm.users"
                                     ui-sref="app.tabs.antragsteller({id: item.id})">
-                                    <td><img src="content/images/icons/singl_home.png" alt=""></td>
+                                    <td>
+                                        <img src="content/images/icons/singl_home.png" alt=""></td>
                                     <td><a href="">{{item.anstragsteller}}</a></td>
                                     <td>{{item.transactionId}}</td>
                                     <td>{{item.updated}}</td>
@@ -69,7 +70,8 @@
                                     <label for="vermietet">Vermietet</label>
                                 </span>
                                     <span class="b-form__radio">
-                                    <input name="beides" id="beides" type="radio" value="Beides" ng-model="vm.data.genutzt">
+                                    <input name="beides" id="beides" type="radio" value="Beides"
+                                           ng-model="vm.data.genutzt">
                                     <label for="beides">Beides</label>
                                 </span>
                                 </div>
@@ -111,24 +113,29 @@
                                         <input ng-model="vm.data.partner" value="1" id="ja" type="radio">
                                         <label for="ja">ja</label>
                                     </span>
-                                <select id="partners" ng-model="vm.data.partnerId" required ng-if="vm.data.partner=='1'">
-                                    <option ng-value="partner.AdressenId" ng-repeat="partner in vm.partners">{{partner.Nachname+', '+partner.Vorname}}</option>
+                                <select id="partners" ng-model="vm.data.partnerId" required
+                                        ng-if="vm.data.partner=='1'">
+                                    <option ng-if="partner.Nachname!==' '&&partner.Vorname!==' '"
+                                            ng-value="partner.AdressenId"
+                                            ng-repeat="partner in vm.partners">{{partner.Nachname+', '+partner.Vorname}}
+                                    </option>
                                 </select>
                             </div>
                             <div class="b-form__child-item">
 
                                 <div class="b-form__title-btn b-form__title">
                                     <b class="b-form__right-list">
-                                        <button ng-disabled="!newVorgang.$valid && !radiobuttongroup.$valid" type="submit" class="btn btn--light">
+                                        <button ng-disabled="!newVorgang.$valid && !radiobuttongroup.$valid"
+                                                type="submit" class="btn btn--light">
                                             Neuer Vorgang
                                         </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
+            </form>
         </div>
+    </div>
     </div>
 </main>

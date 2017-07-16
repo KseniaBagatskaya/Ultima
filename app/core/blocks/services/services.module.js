@@ -9,6 +9,7 @@
         'model.kreditdaten',
         'model.dokument',
         'model.banks',
+        'model.wiedervorlage'
     ]);
 
 })();

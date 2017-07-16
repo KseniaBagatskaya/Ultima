@@ -204,10 +204,12 @@ textarea {
 
 .b-tabs__big-user::before {
     background: url("../images/icons/big_user.png") no-repeat;
+    background-size: cover;
 }
 
 .b-tabs__home::before {
     background: url("../images/icons/singl_home.png") no-repeat;
+    background-size: cover;
 }
 
 .b-tabs__mail::before {
@@ -216,10 +218,14 @@ textarea {
 
 .b-tabs__home-bank::before {
     background: url("../images/icons/home.png") no-repeat;
+    background-size: cover;
+
 }
 
 .b-tabs__home-doc::before {
     background: url("../images/icons/doc.png") no-repeat;
+    background-size: cover;
+
 }
 
 .b-tabs__custom-item {

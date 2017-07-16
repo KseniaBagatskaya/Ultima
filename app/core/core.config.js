@@ -83,6 +83,15 @@
                 templateUrl: 'templates/wiedervorlage/wiedervorlage.html',
                 controller: 'WiedervorlageController',
                 controllerAs: 'vm',
+                resolve: {
+                    vorgangsmanagement: function (wiedervorlage) {
+                        return wiedervorlage.getData()
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+                    }
+                }
             })
 
             .state('app.tabs.antragsteller', {

@@ -35,6 +35,9 @@
                     dokument: {
                         get_all_documents: 'http://itls-hh.eu/Document/GetAllFiles',
                         file: baseUrl + 'Document/UploadFile',
+                    },
+                    wiedervorlage: {
+                        index: baseUrlNew + 'kredit-daten/index-wiedervolage'
                     }
                 };
 
