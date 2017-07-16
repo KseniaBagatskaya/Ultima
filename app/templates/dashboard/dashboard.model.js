@@ -89,28 +89,11 @@
         }
 
         function getPartners() {
-            return [
-                {
-                    id: 1,
-                    name: 'Michael Tauchert '
-                },
-                {
-                    id: 2,
-                    name: 'Hermann Kahlke'
-                }, {
-                    id: 3,
-                    name: 'Volker Schwarz'
-                }, {
-                    id: 4,
-                    name: 'Arne Nöthling'
-                },
-            ]
-
-            // return http.get(url.dashboard.get_kontaktart)
-            //     .then(function (res) {
-            //         console.log(res, 'res');
-            //         return res;
-            //     });
+            return http.get(url.dashboard.get_partners)
+                .then(function (res) {
+                    console.log(res, 'res');
+                    return res;
+                });
         }
 
     }
