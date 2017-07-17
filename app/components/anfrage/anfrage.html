@@ -60,11 +60,11 @@
                     value="{{$index}}">{{selector}}</option>
         </select>
     </span>
-        <span class="b-form__input">
+        <span class="b-form__input" ng-init="vm.data.fieldOne=vm.convertDateFromString(vm.data.fieldOne)">
         <label for="anfragestatus">Datum Statuswechsel</label>
         <input ng-model="vm.data.fieldOne" id="anfragestatus" type=date>
     </span>
-        <span class="b-form__input">
+        <span class="b-form__input" ng-init="vm.data.fieldTwo=vm.convertDateFromString(vm.data.fieldTwo)">
         <label for="datumanfrage">Datum Anfrage</label>
         <input ng-model="vm.data.fieldTwo" id="datumanfrage" type="date">
     </span>
@@ -75,7 +75,7 @@
             <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
         </select>
     </span>
-        <span class="b-form__input">
+        <span class="b-form__input" ng-init="vm.data.wiedervorlage=vm.convertDateFromString(vm.data.wiedervorlage)">
         <label for="Wiedervorlage:">Wiedervorlage:</label>
         <input ng-model="vm.data.wiedervorlage" id="Wiedervorlage:" type="date">
     </span>
