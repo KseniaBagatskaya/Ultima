@@ -11,33 +11,18 @@
     function KreditdatenController($scope, $rootScope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr, antragsteller) {
         let vm = this;
         vm.isSubmited = false;
-        vm.deleteAntrag = deleteAntrag;
+        vm.deletseAntrag = deleteAntrag;
         vm.convertDateFromString = antragsteller.convertDateFromString;
 
         $rootScope.$on('KreditdatenSubmit', function (event, data) {
             vm.submit(data.nextState)
         });
 
-        // $rootScope.$on('$stateChangeStart', 
-        // function(event, toState, toParams, fromState, fromParams){ 
-        //     if (!vm.isSubmited) {
-        //         event.preventDefault();
-        //         if (confirm('Änderungen speichern?')) {
-        //             vm.submit();
-        //             $state.go(toState);
-        //         } else {
-        //             vm.isSubmited = true;
-        //             $state.go(toState, fromParams);
-        //         }
-        //     }
-        // });
-
         vm.entry = JSON.parse(sessionStorage.getItem('entry'));
 
-
-        if ($stateParams.id && kreditdaten_data.data) {
-            console.log(kreditdaten_data.data)
-            vm.data = kreditdaten_data.data;
+        if ($stateParams.id && kreditdaten_data) {
+            console.log(kreditdaten_data);
+            vm.data = kreditdaten_data.data || {};
             vm.data.auftragseingang = kreditdaten_data.entry.kontaktartId;
             vm.data.wunsch = kreditdaten_data.entry.finanzbedarf;
             vm.antrags = kreditdaten_data.data.antrags || [];
