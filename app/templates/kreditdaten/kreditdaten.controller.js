@@ -12,7 +12,26 @@
         let vm = this;
         vm.isSubmited = false;
         vm.deleteAntrag = deleteAntrag;
+        $rootScope.$on('KreditdatenSubmit', function (event, data) {
+            vm.submit(data.nextState)
+        });
+
+        // $rootScope.$on('$stateChangeStart', 
+        // function(event, toState, toParams, fromState, fromParams){ 
+        //     if (!vm.isSubmited) {
+        //         event.preventDefault();
+        //         if (confirm('Änderungen speichern?')) {
+        //             vm.submit();
+        //             $state.go(toState);
+        //         } else {
+        //             vm.isSubmited = true;
+        //             $state.go(toState, fromParams);
+        //         }
+        //     }
+        // });
+
         vm.entry = JSON.parse(sessionStorage.getItem('entry'));
+
 
         if ($stateParams.id && kreditdaten_data.data) {
             console.log(kreditdaten_data.data)
@@ -21,7 +40,7 @@
             vm.data.wunsch = kreditdaten_data.entry.finanzbedarf;
             vm.antrags = kreditdaten_data.data.antrags || [];
         } else {
-            vm.data={
+            vm.data = {
                 erstelltam: new Date(),
                 datum: new Date(),
                 wunsch: vm.entry.finanzbedarf,
@@ -44,8 +63,7 @@
             vm.antrags.splice(index, 1);
         }
 
-        function submit() {
-            debugger
+        function submit(nextState) {
             vm.data.antrags = vm.antrags;
             const requestConfig = {
                 url: null,
@@ -61,9 +79,12 @@
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
-                        toastr.info('Created successfull');
+                        if (!nextState) {
+                            toastr.info('Saved');
+
+                        }
                     } else {
-                        for(var key in res.msg) {
+                        for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');
                         }
                     }

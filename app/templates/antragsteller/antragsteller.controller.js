@@ -28,6 +28,11 @@
 
         vm.bank_list = bank_list;
 
+        $rootScope.$on('AntragstellerSubmit', function (event, data) {
+            vm.submit(data.nextState)
+        });
+
+
         // $rootScope.$on('$stateChangeStart', 
         // function(event, toState, toParams, fromState, fromParams){ 
         //     if (!vm.isSubmited) {
@@ -79,10 +84,10 @@
         }
 
         function next() {
-            
+
         }
 
-        function submit() {
+        function submit(nextState) {
 
             const requestConfig = {
                 url: null,
@@ -127,8 +132,10 @@
                 .then(function (res) {
                     if (res.status) {
                         vm.isSubmited = true;
-                        toastr.info('Created successfull');
-                        $state.go('app.tabs.antragsteller', {id: res.id});
+                        if (!nextState) {
+                            toastr.info('Created successfull');
+                            $state.go('app.tabs.antragsteller', {id: res.id});
+                        }
                     } else {
                         for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');

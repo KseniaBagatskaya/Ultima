@@ -5,15 +5,16 @@
     angular.module('app')
         .controller('AnfrageController', AnfrageController);
 
-    AnfrageController.$inject = ['$scope', 'banks'];
+    AnfrageController.$inject = ['$scope', 'banks', 'antragsteller'];
 
-    function AnfrageController($scope, banks) {
+    function AnfrageController($scope, banks, antragsteller) {
         let vm = this;
         vm.data = $scope.parent;
         vm.index = $scope.index;
         vm.addDarlehen = addDarlehen;
         vm.deleteDarlehen = deleteDarlehen;
         vm.toggleAnfrage = toggleAnfrage;
+        vm.convertDateFromString = antragsteller.convertDateFromString;
         vm.anfrageIsOpened = false;
         vm.banks = banks.getAllBanks();
         vm.currentDate = new Date();
