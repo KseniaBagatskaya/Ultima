@@ -30,16 +30,21 @@
         //     }
         // });
 
+        vm.entry = JSON.parse(sessionStorage.getItem('entry'));
+
+
         if ($stateParams.id && kreditdaten_data.data) {
             console.log(kreditdaten_data.data)
             vm.data = kreditdaten_data.data;
             vm.data.auftragseingang = kreditdaten_data.entry.kontaktartId;
             vm.data.wunsch = kreditdaten_data.entry.finanzbedarf;
-            vm.data.datum = new Date();
             vm.antrags = kreditdaten_data.data.antrags || [];
         } else {
-            vm.data={
+            vm.data = {
                 erstelltam: new Date(),
+                datum: new Date(),
+                wunsch: vm.entry.finanzbedarf,
+                auftragseingang: vm.entry.kontaktartId,
             };
             vm.antrags = [];
         }
@@ -59,12 +64,10 @@
         }
 
         function submit(nextState) {
+            vm.data.antrags = vm.antrags;
             const requestConfig = {
                 url: null,
-                data: {
-                    erstelltam: vm.data.erstelltam,
-                    antrags: vm.antrags,
-                },
+                data: vm.data,
             }
             if ($stateParams.id) {
                 requestConfig.url = url.kreditdaten.update;
@@ -76,12 +79,12 @@
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
-                        if(!nextState){
+                        if (!nextState) {
                             toastr.info('Saved');
 
                         }
                     } else {
-                        for(var key in res.msg) {
+                        for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');
                         }
                     }

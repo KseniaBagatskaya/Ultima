@@ -14,7 +14,6 @@
             genutzt: 'Eigennutzung',
             partner: 0,
         };
-        debugger;
         vm.submit = submit;
         // vm.werbung = werbung;
         // vm.kontaktar = kontaktar;
