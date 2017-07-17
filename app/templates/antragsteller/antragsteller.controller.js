@@ -103,9 +103,9 @@
                 }
             }
             const preparedData = JSON.parse(sessionStorage.getItem('entry'));
-            if ($stateParams.id) {
+            if ($state.params.id) {
                 requestConfig.url = url.dashboard.update_angrag;
-                requestConfig.data.entryId = $stateParams.id;
+                requestConfig.data.entryId = $state.params.id;
                 requestConfig.data.bank_items_left = vm.bank_items_left;
                 requestConfig.data.bank_items_right = vm.bank_items_right;
             } else {
