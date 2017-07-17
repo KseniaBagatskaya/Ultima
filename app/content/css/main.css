@@ -1251,6 +1251,7 @@ select {
 
 .b-footer__nav-user::before {
     background: url("../images/icons/card.png") no-repeat;
+    background-size: cover;
 }
 
 .b-footer__nav-user::after {

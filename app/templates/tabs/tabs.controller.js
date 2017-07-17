@@ -20,8 +20,20 @@
             (event, toState, toParams, fromState, fromParams) => {
                 vm.current_controller = toState.controller;
                 vm.params_id = toParams.id === '' ? fromParams.id : toParams.id;
+                switch (fromState.controller) {
+                    case 'AntragstellerController':
+                        $rootScope.$emit('AntragstellerSubmit', {nextState: toState.name});
+                        break;
+                        case 'ImmobilieController':
+                        $rootScope.$emit('ImmobilieSubmit', {nextState: toState.name});
+                        break;
+                        case 'KreditdatenController':
+                        $rootScope.$emit('KreditdatenSubmit', {nextState: toState.name});
+                        break;
+                }
                 // vm.params_id = fromParams.id;
-            })
+            });
+
 
     }
 

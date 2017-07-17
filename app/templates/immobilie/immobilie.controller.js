@@ -18,7 +18,9 @@
         vm.addRechte = addRechte;
         vm.submit = submit;
         vm.isSubmited = false;
-
+        $rootScope.$on('ImmobilieSubmit', function (event, data) {
+            vm.submit(data.nextState)
+        });
 
         // $rootScope.$on('$stateChangeStart', 
         // function(event, toState, toParams, fromState, fromParams){ 
@@ -156,7 +158,7 @@
             vm.immobilieObject.Rechte.isOpened = true;
         }
 
-        function submit() {
+        function submit(nextState) {
 
             const requestConfig = {
                 url: null,
@@ -172,7 +174,11 @@
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
-                        toastr.info('Created successfull');
+                        if(!nextState){
+                            toastr.info('Saved');
+
+                        }
+
                     } else {
                         for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');

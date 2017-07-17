@@ -12,7 +12,9 @@
         let vm = this;
         vm.isSubmited = false;
         vm.deleteAntrag = deleteAntrag;
-
+        $rootScope.$on('KreditdatenSubmit', function (event, data) {
+            vm.submit(data.nextState)
+        });
 
         // $rootScope.$on('$stateChangeStart', 
         // function(event, toState, toParams, fromState, fromParams){ 
@@ -56,7 +58,7 @@
             vm.antrags.splice(index, 1);
         }
 
-        function submit() {
+        function submit(nextState) {
             const requestConfig = {
                 url: null,
                 data: {
@@ -74,7 +76,10 @@
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
-                        toastr.info('Created successfull');
+                        if(!nextState){
+                            toastr.info('Saved');
+
+                        }
                     } else {
                         for(var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');
