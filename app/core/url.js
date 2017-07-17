@@ -33,8 +33,9 @@
                         index: baseUrlNew + 'kredit-daten/index',
                     },
                     dokument: {
-                        get_all_documents: 'http://itls-hh.eu/Document/GetAllFiles',
+                        get_all_documents: 'http://itls-hh.eu/Document/GetDocumentsById',
                         file: baseUrl + 'Document/UploadFile',
+                        uploadDoc: baseUrl + 'Document/UploadFile',
                     },
                     wiedervorlage: {
                         index: baseUrlNew + 'kredit-daten/index-wiedervolage'

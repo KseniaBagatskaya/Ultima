@@ -39,15 +39,25 @@
 
         function request(method, url, data) {
 
-
-            let config = {
-                dataType: 'json',
-                method: method,
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json; charset=UTF-8'
-                }
-            };
+            var config = {};
+            // shity code because of dummy request config.....
+            if (url === 'http://itls-hh.eu/Document/UploadFile') {
+                config = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                };
+            } else {
+                config = {
+                    dataType: 'json',
+                    method: method,
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json; charset=UTF-8'
+                    }
+                };
+            }
 
             // data.auth_key = sessionStorage.getItem('user').auth_key;
 
@@ -62,7 +72,7 @@
             const user = JSON.parse(sessionStorage.getItem('user'));
             
             console.log(user)
-            if (user !== null) {
+            if (user !== null && url !== 'http://itls-hh.eu/Document/UploadFile') {
                 config.url = url + '?auth_key=' + user.auth_key;
             }
             else {

@@ -45,6 +45,7 @@
         }
 
         function submit() {
+            debugger
             vm.data.antrags = vm.antrags;
             const requestConfig = {
                 url: null,

@@ -1877,6 +1877,7 @@ input {
     padding: 10px 15px;
     font-size: 15px;
     margin: 20px auto;
+    position: relative;
 }
 
 .document-input {
@@ -2212,4 +2213,15 @@ textarea {
     padding-left: 1px;
     margin-bottom: 2px;
     height: 13px;
+}
+
+.download-button {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    margin: 0;
+}
+
+.download-button img{
+    height: 30px;
 }
