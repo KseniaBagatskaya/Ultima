@@ -5,13 +5,15 @@
     angular.module('app')
         .controller('KreditdatenController', KreditdatenController);
 
-    KreditdatenController.$inject = ['$scope', '$rootScope', 'kreditdaten', '$stateParams', 'url', 'http', 'kreditdaten_data', 'toastr'];
+    KreditdatenController.$inject = ['$scope', '$rootScope', 'kreditdaten', '$stateParams', 'url', 'http', 'kreditdaten_data', 'toastr', 'antragsteller'];
 
 
-    function KreditdatenController($scope, $rootScope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr) {
+    function KreditdatenController($scope, $rootScope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr, antragsteller) {
         let vm = this;
         vm.isSubmited = false;
         vm.deleteAntrag = deleteAntrag;
+        vm.convertDateFromString = antragsteller.convertDateFromString;
+
         $rootScope.$on('KreditdatenSubmit', function (event, data) {
             vm.submit(data.nextState)
         });
