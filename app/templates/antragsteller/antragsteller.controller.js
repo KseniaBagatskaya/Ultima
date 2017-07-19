@@ -90,6 +90,22 @@
                     ],
                 }
             }
+            vm.bank_items_left.map((value, key) => {
+                requestConfig.data.banks.push({
+                    entryId: $stateParams.id,
+                    bank_identify: value.identify,
+                    side: 'L',
+                    data: value,
+                });
+            });
+            vm.bank_items_right.map((value, key) => {
+                requestConfig.data.banks.push({
+                    entryId: $stateParams.id,
+                    bank_identify: value.identify,
+                    side: 'R',
+                    data: value,
+                });
+            });
             const preparedData = JSON.parse(sessionStorage.getItem('entry'));
             if ($state.params.id) {
                 requestConfig.url = url.dashboard.update_angrag;
@@ -99,22 +115,6 @@
             } else {
                 // requestConfig.data.entry = preparedData;
                 requestConfig.url = url.dashboard.create_angrag;
-                vm.bank_items_left.map((value, key) => {
-                    requestConfig.data.banks.push({
-                        entryId: $stateParams.id,
-                        bank_identify: value.identify,
-                        side: 'L',
-                        data: value,
-                    });
-                });
-                vm.bank_items_right.map((value, key) => {
-                    requestConfig.data.banks.push({
-                        entryId: $stateParams.id,
-                        bank_identify: value.identify,
-                        side: 'R',
-                        data: value,
-                    });
-                });
             }
             console.log(requestConfig.data)
             antragsteller.update(requestConfig.data);
