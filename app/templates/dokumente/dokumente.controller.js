@@ -5,20 +5,24 @@
     angular.module('app')
         .controller('DokumenteController', DokumenteController);
 
-    DokumenteController.$inject = ['$scope', '$stateParams', 'documents_data', 'dokument', 'http', 'url'];
+    DokumenteController.$inject = ['$scope', '$state', '$stateParams', 'documents_data', 'dokument', 'http', 'url'];
 
 
-    function DokumenteController($scope, $stateParams, documents_data, dokument, http, url) {
+    function DokumenteController($scope, $state, $stateParams, documents_data, dokument, http, url) {
         var vm = this;
+        vm.id = $stateParams.id;
         vm.documents = documents_data;
         vm.addDocument = addDocument;
         vm.file = null;
 
-        function addDocument() {
-
+        function addDocument(e) {
+            const formData = new FormData();
+            formData.append('Upload', document.getElementById("file-id").files[0]);
+            formData.append('Id', vm.id);
+            console.log(e.target[1].name)
+            dokument.uploadDoc(formData);
         }
 
-        console.log(documents_data);
 
     }
 

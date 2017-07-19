@@ -27,6 +27,20 @@
     <label for="time">Auszahlungszeitpunkt</label>
     <input ng-model="item.auszahlungszeitpunkt" id="time" type="text">
     </span>
+    <div>
+        <span class="b-form__input b-form__input">
+            <span class="text-title">Gesamtprovision EUR:</span>
+                <span class="b-form__input">
+                <input ng-model="item.gesamtprovision_eur" id="total_commission" type="text">
+            </span>
+        </span>
+        <span class="b-form__input b-form__input">
+            <span class="text-title">Provision Berater EUR:</span>
+                    <span class="b-form__input">
+                    <input ng-model="item.provisionBerater_eur" id="commission_consultants" type="text">
+            </span>
+        </span>
+    </div>
     <span class="b-form__input b-buy__option">
     <label for="date">&nbsp;</label>
     <img src="content/images/icons/trash_basket.png"

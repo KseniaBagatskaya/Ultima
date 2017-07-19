@@ -4,9 +4,9 @@
                                 <label for="name">Name</label>
                                 <input id="name" ng-model="vm.data.name" type="text">
                             </span>
-        <span class="b-form__input b-form__child-item">
+        <span class="b-form__input b-form__child-item" ng-init="vm.data.geburtsdatum=vm.convertDateFromString(vm.data.geburtsdatum)">
                                 <label for="birthday2">Geburtsdatum</label>
-                                <input id="birthday2" ng-model="vm.data.geburtsdatum" type="text">
+                                <input id="birthday2" ng-model="vm.data.geburtsdatum" type="date">
                             </span>
         <div class="b-form__child-item">
             <h4>Kindergeld?</h4>

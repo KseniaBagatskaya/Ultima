@@ -23,13 +23,9 @@
         <div class="b-form__block-select">
             <span class="text-title">Bank:</span>
             <span class="b-form__input b-form__input-large">
-    <select id="bank" ng-model="item.bank">
-    <option value="-1" selected="selected">DSL Bank</option>
-    <option value="1">Haus</option>
-    <option value="2">Post</option>
-    <option value="4">Homepage</option>
-    <option value="5">Email</option>
-    </select>
+        <select ng-model="item.bank" id="bank">
+            <option ng-repeat="selector in vm.banks | orderBy: '' track by $index" value="{{$index}}">{{selector}}</option>
+        </select>
     </span>
         </div>
         <div class="block-left">
@@ -137,7 +133,7 @@
 
         </div>
         <div class="block-right">
-    <span class="b-form__input b-form__input-large">
+            <span class="b-form__input b-form__input-large">
     <label for="contract_number">Vertragsnummer:</label>
     <input ng-model="item.vertragsnummer" id="contract_number" type="text">
     </span>
@@ -187,14 +183,14 @@
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
-    <span class="b-form__checkbox">
+                <span class="b-form__checkbox">
     <label for="cash">Barauszahlung</label>
     <input ng-model="item.barauszahlung" name="barauszahlung" id="cash"
            type="checkbox">
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
-    <span class="b-form__input input-remarks">
+                <span class="b-form__input input-remarks">
     <label for="remarks" class="remarks">Bemerkungen:</label>
     <textarea ng-model="item.bemerkungen" id="remarks" rows="8"></textarea>
     </span>

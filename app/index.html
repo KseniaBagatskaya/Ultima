@@ -1,78 +1,87 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Ultima</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="content/css/reset.css">
-  <link rel="stylesheet" href="content/css/main.css">
-  <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ultima</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="content/css/reset.css">
+    <link rel="stylesheet" href="content/css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css"/>
+    <!-- <link rel="stylesheet" href="bower_components/angular-confirm/dist/angular-confirm.min.css"> -->
+
 </head>
 <body>
 
 
-  <div ui-view></div>
+<div ui-view></div>
 
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script src="app.js"></script>
-  <script src="core/core.module.js"></script>
-  <script src="core/core.config.js"></script>
-  <script src="core/request.js"></script>
-  <script src="core/url.js"></script>
-  <script src="core/blocks/directives/directives.module.js"></script>
-  <script src="core/blocks/filters/filters.module.js"></script>
-  <script src="core/blocks/request/request.module.js"></script>
-  <script src="core/blocks/services/services.module.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>-->
+<!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
+<!--<script src="bower_components/angular-confirm/dist/angular-confirm.min.js"></script>-->
 
-
-
-
-  <script src="templates/login/login.controller.js"></script>
-  <script src="templates/dashboard/dashboard.controller.js"></script>
-  <script src="templates/dashboard/dashboard.model.js"></script>
-  <script src="templates/antragsteller/antragsteller.controller.js"></script>
-  <script src="templates/antragsteller/antragsteller.model.js"></script>
-  <script src="templates/immobilie/immobilie.controller.js"></script>
-  <script src="templates/immobilie/immobilie.model.js"></script>
-  <script src="templates/kreditdaten/kreditdaten.controller.js"></script>
-  <script src="templates/kreditdaten/kreditdaten.model.js"></script>
-  <script src="templates/dokumente/dokumente.controller.js"></script>
-  <script src="templates/dokumente/dokumente.model.js"></script>
-  <script src="templates/tabs/tabs.controller.js"></script>
-  <script src="templates/registration/registration.controller.js"></script>
-  <script src="templates/header/header.controller.js"></script>
+<script src="app.js"></script>
+<script src="core/core.module.js"></script>
+<script src="core/core.config.js"></script>
+<script src="core/request.js"></script>
+<script src="core/url.js"></script>
+<script src="core/blocks/directives/directives.module.js"></script>
+<script src="core/blocks/filters/filters.module.js"></script>
+<script src="core/blocks/request/request.module.js"></script>
+<script src="core/blocks/services/services.module.js"></script>
 
 
-
-  <script src="components/antragsteller/antragsteller.directive.js"></script>
-  <script src="components/antragsteller/antragsteller-directive.controller.js"></script>
-  <script src="components/kinder/kinder.directive.js"></script>
-  <script src="components/kinder/kinder.controller.js"></script>
-  <script src="components/basisangaben/basisangaben.directive.js"></script>
-  <script src="components/basisangaben/basisangaben-directive.controller.js"></script>
-  <script src="components/nutzung/nutzung.directive.js"></script>
-  <script src="components/nutzung/nutzung-directive.controller.js"></script>
-  <script src="components/bankverbindung/bankverbindung.directive.js"></script>
-  <script src="components/bankverbindung/bankverbindung.controller.js"></script>
-  <script src="components/weitere-immobilien/weitere-immobilien.directive.js"></script>
-  <script src="components/weitere-immobilien/weitere-immobilien.controller.js"></script>
-  <script src="components/weiteres-darlehen/weiteres-darlehen.directive.js"></script>
-  <script src="components/weiteres-darlehen/weiteres-darlehen.controller.js"></script>
-  <script src="components/antrag/antrag.directive.js"></script>
-  <script src="components/antrag/antrag.controller.js"></script>
-  <script src="components/anfrage/anfrage.directive.js"></script>
-  <script src="components/anfrage/anfrage.controller.js"></script>
-  <script src="components/search/search-directive.controller.js"></script>
-  <script src="components/search/search.directive.js"></script>
+<script src="templates/login/login.controller.js"></script>
+<script src="templates/dashboard/dashboard.controller.js"></script>
+<script src="templates/dashboard/dashboard.model.js"></script>
+<script src="templates/antragsteller/antragsteller.controller.js"></script>
+<script src="templates/antragsteller/antragsteller.model.js"></script>
+<script src="templates/immobilie/immobilie.controller.js"></script>
+<script src="templates/immobilie/immobilie.model.js"></script>
+<script src="templates/kreditdaten/kreditdaten.controller.js"></script>
+<script src="templates/kreditdaten/kreditdaten.model.js"></script>
+<script src="templates/dokumente/dokumente.controller.js"></script>
+<script src="templates/dokumente/dokumente.model.js"></script>
+<script src="templates/tabs/tabs.controller.js"></script>
+<script src="templates/registration/registration.controller.js"></script>
+<script src="templates/header/header.controller.js"></script>
+<script src="templates/wiedervorlage/wiedervorlage.controller.js"></script>
+<script src="templates/wiedervorlage/wiedervorlage.model.js"></script>
+<script src="templates/antragsteller/banks.js"></script>
 
 
+<script src="components/antragsteller/antragsteller.directive.js"></script>
+<script src="components/antragsteller/antragsteller-directive.controller.js"></script>
+<script src="components/kinder/kinder.directive.js"></script>
+<script src="components/kinder/kinder.controller.js"></script>
+<script src="components/basisangaben/basisangaben.directive.js"></script>
+<script src="components/basisangaben/basisangaben-directive.controller.js"></script>
+<script src="components/nutzung/nutzung.directive.js"></script>
+<script src="components/nutzung/nutzung-directive.controller.js"></script>
+<script src="components/bankverbindung/bankverbindung.directive.js"></script>
+<script src="components/bankverbindung/bankverbindung.controller.js"></script>
+<script src="components/weitere-immobilien/weitere-immobilien.directive.js"></script>
+<script src="components/weitere-immobilien/weitere-immobilien.controller.js"></script>
+<script src="components/weiteres-darlehen/weiteres-darlehen.directive.js"></script>
+<script src="components/weiteres-darlehen/weiteres-darlehen.controller.js"></script>
+<script src="components/antrag/antrag.directive.js"></script>
+<script src="components/antrag/antrag.controller.js"></script>
+<script src="components/anfrage/anfrage.directive.js"></script>
+<script src="components/anfrage/anfrage.controller.js"></script>
+<script src="components/search/search-directive.controller.js"></script>
+<script src="components/search/search.directive.js"></script>
+<script src="components/save-factory/save.factory.js"></script>
 
 
 </body>

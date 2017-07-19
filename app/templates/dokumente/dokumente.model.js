@@ -13,15 +13,27 @@
 
         let service = {
             getAllDocs: getAllDocs,
+            uploadDoc: uploadDoc,
         };
         return service;
 
-        function getAllDocs(id) {
-            return http.get(url.dokument.get_all_documents, {id})
+        function getAllDocs(Id) {
+            const data = {
+                Id,
+            };
+            return http.get(url.dokument.get_all_documents, data)
                 .then(function (res) {
                     console.log(res, 'res');
                     return res;
                 });
+        }
+
+        function uploadDoc(data) {
+            return http.post(url.dokument.uploadDoc, data)
+                .then(function (res) {
+                    console.log(res, 'res');
+                    return res;
+                });   
         }
     }
 })();

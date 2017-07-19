@@ -5,24 +5,33 @@
     angular.module('app')
         .controller('KreditdatenController', KreditdatenController);
 
-    KreditdatenController.$inject = ['$scope', 'kreditdaten', '$stateParams', 'url', 'http', 'kreditdaten_data', 'toastr'];
+    KreditdatenController.$inject = ['$scope', '$rootScope', 'kreditdaten', '$stateParams', 'url', 'http', 'kreditdaten_data', 'toastr', 'antragsteller'];
 
 
-    function KreditdatenController($scope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr) {
+    function KreditdatenController($scope, $rootScope, kreditdaten, $stateParams, url, http, kreditdaten_data, toastr, antragsteller) {
         let vm = this;
+        vm.isSubmited = false;
+        vm.deletseAntrag = deleteAntrag;
+        vm.convertDateFromString = antragsteller.convertDateFromString;
 
-        vm.deleteAntrag = deleteAntrag;
+        $rootScope.$on('KreditdatenSubmit', function (event, data) {
+            vm.submit(data.nextState)
+        });
 
-        if ($stateParams.id && kreditdaten_data.data) {
-            console.log(kreditdaten_data.data)
-            vm.data = kreditdaten_data.data;
+        vm.entry = JSON.parse(sessionStorage.getItem('entry'));
+
+        if ($stateParams.id && kreditdaten_data) {
+            console.log(kreditdaten_data);
+            vm.data = kreditdaten_data.data || {};
             vm.data.auftragseingang = kreditdaten_data.entry.kontaktartId;
             vm.data.wunsch = kreditdaten_data.entry.finanzbedarf;
-            vm.data.datum = new Date();
             vm.antrags = kreditdaten_data.data.antrags || [];
         } else {
-            vm.data={
+            vm.data = {
                 erstelltam: new Date(),
+                datum: new Date(),
+                wunsch: vm.entry.finanzbedarf,
+                auftragseingang: vm.entry.kontaktartId,
             };
             vm.antrags = [];
         }
@@ -41,13 +50,11 @@
             vm.antrags.splice(index, 1);
         }
 
-        function submit() {
+        function submit(nextState) {
+            vm.data.antrags = vm.antrags;
             const requestConfig = {
                 url: null,
-                data: {
-                    erstelltam: vm.data.erstelltam,
-                    antrags: vm.antrags,
-                },
+                data: vm.data,
             }
             if ($stateParams.id) {
                 requestConfig.url = url.kreditdaten.update;
@@ -59,14 +66,17 @@
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
-                        toastr.info('Created successfull');
+                        if (!nextState) {
+                            toastr.info('Saved');
+
+                        }
                     } else {
-                        for(var key in res.msg) {
+                        for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');
                         }
                     }
+                    vm.isSubmited = false;
                 });
-            console.log(vm.antrags);
         }
 
     }

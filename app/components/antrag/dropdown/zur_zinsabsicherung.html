@@ -19,13 +19,13 @@
     <span class="b-form__col b-form__inline">
 
     <span class="b-form__radio">
-    <input ng-model="item.verwendungsart" name="free" id="frei" type="radio">
+    <input ng-model="item.verwendungsart" name="free" id="frei" type="radio" value="1">
     <label for="frei">frei besparen</label>
     </span>
 
     <span class="b-form__radio">
     <input ng-model="item.verwendungsart" name="cede" id="abtreten"
-           type="radio">
+           type="radio" value="2">
     <label for="abtreten">abtreten</label>
     </span>
 
@@ -48,12 +48,12 @@
     <span class="b-form__col b-form__inline">
     <span class="b-form__radio">
     <input ng-model="item.abschlussgebuhr" name="immediate_payment"
-           id="sofortzahlung" type="radio">
+           id="sofortzahlung" type="radio" value="1">
     <label for="sofortzahlung">Sofortzahlung</label>
     </span>
     <span class="b-form__radio">
     <input ng-model="item.abschlussgebuhr" name="billing" id="verrechnung"
-           type="radio">
+           type="radio" value="2">
     <label for="verrechnung">Verrechnung</label>
     </span>
     </span>
@@ -70,6 +70,20 @@
     <option value="2">beide Antragsteller</option>
     </select>
     </span>
+    <div>
+        <span class="b-form__input b-form__input">
+            <span class="text-title">Gesamtprovision EUR:</span>
+                <span class="b-form__input">
+                <input ng-model="item.gesamtprovision_eur" id="total_commission" type="text">
+            </span>
+        </span>
+        <span class="b-form__input b-form__input">
+            <span class="text-title">Provision Berater EUR:</span>
+                    <span class="b-form__input">
+                    <input ng-model="item.provisionBerater_eur" id="commission_consultants" type="text">
+            </span>
+        </span>
+    </div>
     </div>
     <span class="b-form__input b-buy__option">
     <label for="date">&nbsp;</label>

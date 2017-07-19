@@ -1,58 +1,83 @@
 <div class="b-form__group anfrage_item" style="margin: 25px auto;">
     <div class="b-form__group-child">
         <span class="b-form__radio">
-    <input ng-model="vm.data.reason" name="test" value="offen" id="offen" type="radio">
-    <label for="offen">offen</label>
+    <label>
+            <input ng-model="vm.data.reason" value="offen" id="offen" type="radio">
+        offen
+    </label>
     </span>
         <span class="b-form__radio">
-    <input ng-model="vm.data.reason" name="test" value="angefragt" id="requested"
-           type="radio">
-    <label for="requested">angefragt</label>
+
+    <label>
+        <input ng-model="vm.data.reason" value="angefragt" id="requested"
+               type="radio">
+        angefragt</label>
     </span>
         <span class="b-form__radio">
-    <input ng-model="vm.data.reason" name="test" value="genehmigt" id="approved"
-           type="radio">
-    <label for="approved">genehmigt</label>
+
+    <label>
+        <input ng-model="vm.data.reason" value="genehmigt" id="approved"
+               type="radio">
+        genehmigt</label>
     </span>
         <span class="b-form__radio">
-    <input ng-model="vm.data.reason" name="test" value="abgelehnt" id="declined"
-           type="radio">
-    <label for="declined">abgelehnt</label>
+    <label>
+        <input ng-model="vm.data.reason" value="abgelehnt" id="declined"
+               type="radio">
+        abgelehnt
+    </label>
     </span>
         <span class="b-form__radio">
-    <input ng-model="vm.data.reason" name="test" value="Storno" id="cancellation"
-           type="radio">
-    <label for="cancellation">Storno</label>
-    </span>
-    </div>
-    <div class="b-form__group-child">
-    <span class="b-form__input">
-        <select ng-model="vm.data.bank_id" id="editor" style="width: 160px;">
-            <option ng-repeat="selector in vm.banks track by $index" value="{{selector.id}}">{{selector.name}}</option>
-        </select>
-    </span>
-    <span class="b-form__input">
-        <label for="anfragestatus">Anfrage Status</label>
-        <input ng-model="vm.data.fieldOne" id="anfragestatus" type="text">
-    </span>
-    <span class="b-form__input">
-        <label for="datumanfrage">Datum Anfrage</label>
-        <input ng-model="vm.data.fieldTwo" id="datumanfrage" type="text">
-    </span>
-    <span class="b-form__input">
-        <label for="ablehnungsground">Ablehnungsgrund</label>
-        <input ng-model="vm.data.fieldThree" id="ablehnungsground" type="text">
+
+    <label>
+        <input ng-model="vm.data.reason" value="eingereicht" id="eingereicht"
+               type="radio">
+        eingereicht</label>
     </span>
 
+        <span class="b-form__radio">
+    <label>
+        <input ng-model="vm.data.reason" value="abgerechnet"
+               type="radio">
+        abgerechnet</label>
+    </span>
+
+        <span class="b-form__radio">
+
+    <label>
+        <input ng-model="vm.data.reason" value="Storno" id="cancellation"
+               type="radio">
+        Storno</label>
+    </span>
+
+    </div>
+
+    <div class="b-form__group-child flexible-row">
     <span class="b-form__input">
-        <label for="selectablehnungsgrund">ablehnungsgrund</label>
+        <label for="bank">Bank</label>
+        <select ng-model="vm.data.bank_id" id="bank" style="width: 160px;">
+            <option ng-repeat="selector in vm.banks | orderBy: '' track by $index"
+                    value="{{$index}}">{{selector}}</option>
+        </select>
+    </span>
+        <span class="b-form__input" ng-init="vm.data.fieldOne=vm.convertDateFromString(vm.data.fieldOne)">
+        <label for="anfragestatus">Datum Statuswechsel</label>
+        <input ng-model="vm.data.fieldOne" id="anfragestatus" type=date>
+    </span>
+        <span class="b-form__input" ng-init="vm.data.fieldTwo=vm.convertDateFromString(vm.data.fieldTwo)">
+        <label for="datumanfrage">Datum Anfrage</label>
+        <input ng-model="vm.data.fieldTwo" id="datumanfrage" type="date">
+    </span>
+
+        <span class="b-form__input">
+        <label for="selectablehnungsgrund" style="padding-bottom: 2px">Ablehnungsgrund</label>
         <select ng-model="vm.data.fieldFour" id="selectablehnungsgrund">
             <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
         </select>
     </span>
-    <span class="b-form__input">
+        <span class="b-form__input" ng-init="vm.data.wiedervorlage=vm.convertDateFromString(vm.data.wiedervorlage)">
         <label for="Wiedervorlage:">Wiedervorlage:</label>
-        <input ng-model="vm.data.wiedervorlage" id="Wiedervorlage:" type="text">
+        <input ng-model="vm.data.wiedervorlage" id="Wiedervorlage:" type="date">
     </span>
     </div>
     <div class="b-form__group-child b-form__group-child-last">

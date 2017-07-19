@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('ImmobilieController', ImmobilieController);
 
-    ImmobilieController.$inject = ['$scope', '$stateParams', 'immobilie', 'url', 'http', 'immobilie_data', 'toastr'];
+    ImmobilieController.$inject = ['$scope', '$state', '$rootScope', '$stateParams', 'immobilie', 'url', 'http', 'immobilie_data', 'toastr'];
 
 
-    function ImmobilieController($scope, $stateParams, immobilie, url, http, immobilie_data, toastr) {
+    function ImmobilieController($scope, $state, $rootScope, $stateParams, immobilie, url, http, immobilie_data, toastr) {
         var vm = this;
         vm.addStellplatze = addStellplatze;
         vm.addGrundbuchdaten = addGrundbuchdaten;
@@ -17,6 +17,11 @@
         vm.deleteStellplatze = deleteStellplatze;
         vm.addRechte = addRechte;
         vm.submit = submit;
+        vm.isSubmited = false;
+        $rootScope.$on('ImmobilieSubmit', function (event, data) {
+            vm.submit(data.nextState)
+        });
+
         if ($stateParams.id && immobilie_data.data) {
             vm.immobilieObject = immobilie_data.data;
         } else {
@@ -139,7 +144,7 @@
             vm.immobilieObject.Rechte.isOpened = true;
         }
 
-        function submit() {
+        function submit(nextState) {
 
             const requestConfig = {
                 url: null,
@@ -155,14 +160,18 @@
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
-                        toastr.info('Created successfull');
+                        if(!nextState){
+                            toastr.info('Saved');
+
+                        }
+
                     } else {
                         for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Submit failed');
                         }
                     }
+                    vm.isSubmited = true;
                 });
-            console.log(vm.immobilieObject);
         }
 
     }

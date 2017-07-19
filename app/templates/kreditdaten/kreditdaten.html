@@ -13,11 +13,12 @@
                                     <span class="b-form__input">
                                         <label for="new_orders">Auftragseingang</label>
                                         <select id="new_orders" ng-model="vm.data.auftragseingang">
-                                            <option ng-value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                            <option ng-value="1">Haus</option>
-                                            <option ng-value="2">Post</option>
-                                            <option ng-value="3">Homepage</option>
-                                            <option ng-value="4">Email</option>
+                                            <option ng-value="-1">Bitte wählen Sie ...</option>
+                                            <option ng-value="1">E-Mail</option>
+                                            <option ng-value="2">telefonisch</option>
+                                            <option ng-value="3">per Post</option>
+                                            <option ng-value="4">direkt</option>
+                                            <option ng-value="5">Internet</option>
                                         </select>
                                     </span>
                             </div>
@@ -27,7 +28,7 @@
                                         <input ng-model="vm.data.wunsch" id="wish" type="text">
                                     </span>
                             </div>
-                            <div class="b-buy__item b-buy__begin">
+                            <div class="b-buy__item b-buy__begin" ng-init="vm.data.datum=vm.convertDateFromString(vm.data.datum)">
                                     <span class="b-form__input">
                                         <label for="date">Datum</label>
                                         <input ng-model="vm.data.datum" id="date" type="date">

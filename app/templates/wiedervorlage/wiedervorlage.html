@@ -1,0 +1,114 @@
+<div class="content-block wiedervorlage">
+
+    <div class="content-block-one">
+        <a>Alle Filter zurücksetzen</a>
+        <!--<div class="top-part">-->
+        <!--<span>Vorgänge auswählen:</span>-->
+        <!--<a href="">Alle</a>-->
+        <!--<a href="">Keine</a>-->
+        <!--</div>-->
+        <!--<div class="sort">-->
+        <!--<label>Sortierung:</label>-->
+        <!--<select>-->
+        <!--<option>Neueste Ereignisse</option>-->
+        <!--</select>-->
+        <!--</div>-->
+        <div style="margin-left: 20px;" class="sort" ng-init="vm.filter.username=-1">
+            <label>Bearbeiter:</label>
+            <select ng-change="vm.getRecortdByFilter()" ng-model="vm.filter.username">
+                <option ng-value="-1">All</option>
+                <option ng-repeat="item in vm.bearbeiters" ng-value="item.username">{{item.username}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="content-block-two">
+        <div class="cbt1">
+            <div class="cbt1-title">
+                <div class="cbt1-title-img"><img src="content/images/icons/arrow.png"></div>
+                <h4>Wiedervorlage, Fälligkeit</h4>
+            </div>
+            <span>
+					<input type="checkbox" id="keine" ng-model="vm.filter.keine" ng-change="vm.getRecortdByFilter()">
+					<label for="keine">keine Wiedervorlage</label>
+				</span>
+            <span>
+					<input type="checkbox" id="uber" ng-model="vm.filter.uber" ng-change="vm.getRecortdByFilter()">
+					<label for="uber">überfällig</label>
+				</span>
+            <span>
+					<input type="checkbox" id="heute" ng-model="vm.filter.heute" ng-change="vm.getRecortdByFilter()">
+					<label for="heute">heute</label>
+				</span>
+            <span>
+					<input type="checkbox" id="morgen" ng-model="vm.filter.morgen" ng-change="vm.getRecortdByFilter()">
+					<label for="morgen">morgen</label>
+				</span>
+            <span>
+					<input type="checkbox" id="tagen" ng-model="vm.filter.tagen" ng-change="vm.getRecortdByFilter()">
+					<label for="tagen">in den nächsten 5 Tagen</label>
+				</span>
+            <span>
+					<input type="checkbox" id="spater" ng-model="vm.filter.spater" ng-change="vm.getRecortdByFilter()">
+					<label for="spater">später</label>
+				</span>
+        </div>
+        <div class="cbt2">
+            <div class="cbt2-middle" style="cursor: pointer" ng-repeat="wiedervolage in vm.wiedervolages" ng-click="vm.openComment()">
+                <div class="cbt2-middle-top">
+                    <input type="checkbox" name="">
+                    <h3>{{wiedervolage.transactionId}}<br>{{wiedervolage.anstragsteller}}</h3>
+                    <span>
+							<img src="content/images/icons/circle.png">
+						</span>
+                </div>
+                <span class="cbt2-img-home" ui-sref="app.tabs.antragsteller({id: wiedervolage.entryId})">
+						<img src="content/images/icons/singl_home.png">
+					</span>
+                <div class="cbt2-middle-bottom">
+                    <img src="content/images/icons/big_user.png" alt="">
+                    <img src="content/images/icons/big_user.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="cbt3" ng-if="vm.commentVisible">
+            <div class="cbt3-title">
+                <h3>Pohl/Pohl</h3>
+                <img src="content/images/icons/mail.png">
+                <p>Eigene Vorgangsummer:</p>
+            </div>
+            <div class="cbt3-big-user">
+                <ul>
+                    <li>
+                        <img src="content/images/icons/big_user.png" alt="">
+                        <div class="big-user-title">
+                            <a href="#">Friedrich, Thorsten</a>
+                            <p>Kundenbetreuer</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="content/images/icons/big_user.png" alt="">
+                        <div class="big-user-title">
+                            <a href="#">Friedrich, Thorsten</a>
+                            <p>Bearbeiter</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="comment">
+                    <img src="content/images/icons/description.png">
+                    <textarea placeholder="Kommentar zum Vorgang hinzufügen"></textarea>
+                </div>
+                <div class="del">
+                    <label>Wiedervorlage zum</label>
+                    <input type="text" name="">
+                    <img src="content/images/icons/trash_basket.png">
+                </div>
+                <div class="alarm">
+                    <textarea placeholder="Wiedervorlage zum Vorgang erfassen"></textarea>
+                </div>
+            </div>
+            <a href="#">Vorgang archivieren</a>
+        </div>
+    </div>
+</div>

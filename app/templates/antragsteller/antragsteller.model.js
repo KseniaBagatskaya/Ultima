@@ -150,16 +150,26 @@
         let service = {
             menu: {left: MENU_LEFT, right: MENU_RIGHT},
             findElementById: _findElementById,
-            getData: getData
+            getData: getData,
+            convertDateFromString: convertDateFromString,
+            update: update,
         };
         return service;
 
 
-        function getData(id) {
+        function getData(Id) {
             let data = {
-                entryId: id
+                Id: Id
             };
             return http.get(url.anstragsteller.index, data)
+                .then(function (res) {
+                    console.log(res, 'res');
+                    return res;
+                });
+        }
+
+        function update(data) {
+            return http.post(url.anstragsteller.update, data)
                 .then(function (res) {
                     console.log(res, 'res');
                     return res;
@@ -185,6 +195,10 @@
                 })
             }
             return result;
+        }
+
+        function convertDateFromString(date) {
+            return new Date(date);
         }
     }
 
