@@ -210,6 +210,10 @@
             vm.wis = [];
         }
 
+        window.onbeforeunload = function(e) {
+            vm.submit();
+        };
+
     }
 
 })();
