@@ -14,10 +14,9 @@
         vm.login = login;
 
         vm.user = {
-            Data: {
-                email: '',
-                password: ''
-            }
+            email: '',
+            password: ''
+
         };
 
         function login() {
