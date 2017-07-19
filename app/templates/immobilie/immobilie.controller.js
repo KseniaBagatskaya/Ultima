@@ -22,19 +22,6 @@
             vm.submit(data.nextState)
         });
 
-        // $rootScope.$on('$stateChangeStart', 
-        // function(event, toState, toParams, fromState, fromParams){ 
-        //     if (!vm.isSubmited) {
-        //         event.preventDefault();
-        //         if (confirm('Änderungen speichern?')) {
-        //             vm.submit();
-        //             $state.go(toState);
-        //         } else {
-        //             vm.isSubmited = true;
-        //             $state.go(toState, fromParams);
-        //         }
-        //     }
-        // });
 
         if ($stateParams.id && immobilie_data.data) {
             vm.immobilieObject = immobilie_data.data;
@@ -174,7 +161,7 @@
                 .then(function (res) {
                     if (res.status) {
                         console.log(res, 'res');
-                        if(!nextState){
+                        if (!nextState) {
                             toastr.info('Saved');
 
                         }

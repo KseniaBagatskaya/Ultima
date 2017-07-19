@@ -7,7 +7,8 @@
                 let baseUrlNew = 'http://svm.biz.ua/api/web/v1/';
                 return {
                     user: {
-                        login: baseUrlNew + 'user/login',
+                        // login: baseUrlNew + 'user/login',
+                        login: baseUrl + 'AccountManage/Authentication',
                         register: baseUrlNew + 'user/registration'
                     },
                     dashboard: {

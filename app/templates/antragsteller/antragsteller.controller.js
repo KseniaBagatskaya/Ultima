@@ -32,23 +32,6 @@
             vm.submit(data.nextState)
         });
 
-
-        // $rootScope.$on('$stateChangeStart', 
-        // function(event, toState, toParams, fromState, fromParams){ 
-        //     if (!vm.isSubmited) {
-        //         event.preventDefault();
-        //         if (confirm('Änderungen speichern?')) {
-        //             vm.submit();
-        //             $state.go(toState);
-        //         } else {
-        //             vm.isSubmited = true;
-        //             $state.go(toState, fromParams);
-        //         }
-        //     } else {
-        //         $state.go(toState, fromParams);
-        //     }
-        // });
-
         if ($stateParams.id) {
             vm.antragsteller1 = antrag_data.antragstellers[0] || {};
             vm.antragsteller2 = antrag_data.antragstellers[1] || {};
@@ -128,6 +111,7 @@
                     });
                 });
             }
+
             http.post(requestConfig.url, requestConfig.data)
                 .then(function (res) {
                     if (res.status) {
