@@ -14,14 +14,14 @@
         vm.login = login;
 
         vm.user = {
-            email: '',
-            password: ''
+            Email: '',
+            Password: '',
         };
 
         function login() {
             http.post(url.user.login, vm.user)
                 .then(function (res) {
-                    if (res.status) {
+                    if (res) {
                         sessionStorage.setItem('user', JSON.stringify(res));
                         $state.go('app.dashboard')
                     } else {

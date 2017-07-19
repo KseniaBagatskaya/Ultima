@@ -6,23 +6,32 @@
         .service('dashboard', dashboard);
 
 
-    dashboard.$inject = ['http', 'url'];
+    dashboard.$inject = ['http', 'url', '$state'];
 
-    function dashboard(http, url) {
+    function dashboard(http, url, $state) {
 
 
         let service = {
             getAllMembers: getAllMembers,
             getWerbung: getWerbung,
             getKontaktart: getKontaktart,
-            getPartners: getPartners
+            getPartners: getPartners,
+            submitVorgang: submitVorgang,
         };
         return service;
+
+        function submitVorgang(data) {
+            return http.post(url.dashboard.submit_vorgang, data)
+                .then(function (res) {
+                    sessionStorage.setItem('entry', JSON.stringify(data));
+                    $state.go('app.tabs.antragsteller', {id: res});
+                    return res;
+                });
+        }
 
         function getAllMembers() {
             return http.get(url.dashboard.get_all_members)
                 .then(function (res) {
-                    console.log(res, 'res');
                     return res;
                 });
         }

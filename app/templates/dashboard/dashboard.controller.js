@@ -5,18 +5,22 @@
     angular.module('app')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$scope', 'users_data', 'url', 'http', '$state','partners'];
+    DashboardController.$inject = ['$scope', 'users_data', 'url', 'http', '$state','partners', 'dashboard'];
 
 
-    function DashboardController($scope, users_data, url, http, $state,  partners) {
+    function DashboardController($scope, users_data, url, http, $state,  partners, dashboard) {
         let vm = this;
         vm.data = {
-            genutzt: 'Eigennutzung',
-            partner: 0,
+            Verwendungszweck: "1",
+            Plz: "",
+            Finanzbedarf: "",
+            Werbung: "0",
+            Kontaktart: "-1",
+            Partnergeschaft: "Ja",
+            Genutzt: "Vermietet",
+            PartnergeschaftList: "",
         };
         vm.submit = submit;
-        // vm.werbung = werbung;
-        // vm.kontaktar = kontaktar;
         vm.partners = partners;
 
 
@@ -28,8 +32,7 @@
         vm.users = users_data;
 
         function submit() {
-            sessionStorage.setItem('entry', JSON.stringify(vm.data));
-            $state.go('app.tabs.antragsteller');
+            dashboard.submitVorgang(vm.data);
         }
 
         vm.werbung = [
@@ -54,15 +57,6 @@
             'Ebay-Kleinanzeigen',
             'alsterhyp',
         ];
-
-        // vm.partnerList = [
-        //     'Bitte wählen Sie ...',
-        //     'Tauchert, Michael',
-        //     'Kahlke', 'Hermann',
-        //     'Schwarz, Volker',
-        //     'Nöthling, Arne',
-        //     'Wilhelm, Friedegunde',
-        // ];
 
     }
 

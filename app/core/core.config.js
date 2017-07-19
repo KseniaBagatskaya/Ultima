@@ -102,9 +102,10 @@
                 resolve: {
                     antrag_data: function (antragsteller, $stateParams) {
                         let id = $stateParams.id;
+                        console.log(id)
                         return antragsteller.getData(id)
                             .then(function (res) {
-                                sessionStorage.setItem('transactionId', `${res.entry.transactionId || 0}`);
+                                sessionStorage.setItem('transactionId', `${res.Id || 0}`);
                                 console.log(res, 'res');
                                 return res;
                             });
