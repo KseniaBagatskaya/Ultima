@@ -71,13 +71,13 @@
 
             const user = JSON.parse(sessionStorage.getItem('user'));
             
-            console.log(user)
-            if (user !== null && url !== 'http://itls-hh.eu/Document/UploadFile') {
-                config.url = url + '?auth_key=' + user.auth_key;
-            }
-            else {
+            // console.log(user)
+            // if (user !== null && url !== 'http://itls-hh.eu/Document/UploadFile') {
+            //     config.url = url + '?auth_key=' + user.auth_key;
+            // }
+            // else {
                 config.url = url;
-            }
+            // }
 
             // $ionicLoading.show({
             //     templateUrl: 'views/lazyload/lazyload.html'

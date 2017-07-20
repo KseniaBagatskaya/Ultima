@@ -1,19 +1,6 @@
 <main class="b-main">
     <div class="container">
         <div class="b-tabs information clearfix">
-            <!--<ul class="b-tabs__titles clearfix dashboard_list">-->
-            <!--<li class="b-tabs__titles-item">-->
-            <!--&lt;!&ndash;ng-class="'b-tabs__titles-item&#45;&#45;current'"&ndash;&gt;-->
-            <!--&lt;!&ndash;&gt;&ndash;&gt;-->
-            <!--<span>Zuletzt</span>-->
-            <!--</li>-->
-            <!--<li class="b-tabs__titles-item">-->
-            <!--&lt;!&ndash;ng-class="'b-tabs__titles-item&#45;&#45;current'"&ndash;&gt;-->
-            <!--&lt;!&ndash;&gt;&ndash;&gt;-->
-            <!--<span>Wiedervorlage</span>-->
-            <!--</li>-->
-            <!--</ul>-->
-
 
             <div class="b-tabs__block-left">
                 <div class="b-form__title-dark b-form__title">Zuletzt bearbeitete Vorgänge</div>
@@ -28,12 +15,12 @@
                             <table>
                                 <tbody>
                                 <tr ng-repeat="item in vm.users"
-                                    ui-sref="app.tabs.antragsteller({id: item.id})">
+                                    ui-sref="app.tabs.antragsteller({id: item.VorgangId})">
                                     <td>
                                         <img src="content/images/icons/singl_home.png" alt=""></td>
                                     <td><a href="">{{item.anstragsteller}}</a></td>
-                                    <td>{{item.transactionId}}</td>
-                                    <td>{{item.updated}}</td>
+                                    <td>{{item.Code}}</td>
+                                    <td>{{item.UpdateDate}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -51,13 +38,13 @@
                         <div class="b-tabs__table-info">
                             <span class="b-form__input">
                                 <label for="usage">Verwendungszweck *</label>
-                                <select id="usage" name="usage" ng-model="vm.data.verwendungszweck" required>
+                                <select id="usage" name="usage" ng-model="vm.data.Verwendungszweck" required>
                                     <option value="1">Ratenkredit</option>
                                     <option value="2">Baufinanzierung</option>
                                 </select>
                             </span>
                             <div class="b-form__child-item">
-                                <div ng-show="vm.data.verwendungszweck === '2'">
+                                <div ng-show="vm.data.Verwendungszweck === '2'">
                                     <h4>Wie wird die lmmobilie genutzt?</h4>
                                     <span class="b-form__radio">
                                     <input name="eigennutzung" id="eigennutzung" type="radio" value="Eigennutzung"
@@ -79,22 +66,22 @@
 
                                 <span class="b-form__input">
                                     <label for="plz">PLZ</label>
-                                    <input id="plz" ng-model="vm.data.plz" type="text">
+                                    <input id="plz" ng-model="vm.data.Plz" required type="text">
                                 </span>
                                 <span class="b-form__input b-form__euro">
                                     <label for="finanzbedarf">Finanzbedarf</label>
-                                    <input ng-model="vm.data.finanzbedarf" id="finanzbedarf" type="text">
+                                    <input ng-model="vm.data.Finanzbedarf" required id="finanzbedarf" type="text" required>
                                 </span>
                             </div>
                             <span class="b-form__input">
                                 <label for="werbung">Werbung *</label>
-                                <select ng-model="vm.data.werbungId" id="werbung" required>
+                                <select ng-model="vm.data.Werbung" id="werbung" required>
                                     <option ng-repeat="selector in vm.werbung track by $index" value="{{$index}}">{{selector}}</option>
                                 </select>
                             </span>
                             <span class="b-form__input">
                                 <label for="property">Kontaktart *</label>
-                                <select id="property" ng-model="vm.data.kontaktartId" required>
+                                <select id="property" ng-model="vm.data.Kontaktart" required>
                                     <option value="-1" selected="selected">Bitte wählen Sie ...</option>
                                     <option value="1">E-Mail</option>
                                     <option value="2">telefonisch</option>
@@ -103,18 +90,18 @@
                                     <option value="5">Internet</option>
                                 </select>
                             </span>
-                            <div class="b-form__child-item" ng-init="vm.data.partner='0'">
+                            <div class="b-form__child-item">
                                 <h4>Partnergeschäft</h4>
                                 <span class="b-form__radio">
-                                        <input ng-model="vm.data.partner" value="0" id="nein" type="radio">
+                                        <input ng-model="vm.data.Partnergeschaft" value="0" id="nein" type="radio">
                                         <label for="nein">nein</label>
                                     </span>
                                 <span class="b-form__radio">
-                                        <input ng-model="vm.data.partner" value="1" id="ja" type="radio">
+                                        <input ng-model="vm.data.Partnergeschaft" value="1" id="ja" type="radio">
                                         <label for="ja">ja</label>
                                     </span>
-                                <select id="partners" ng-model="vm.data.partnerId" required
-                                        ng-if="vm.data.partner=='1'">
+                                <select id="partners" ng-model="vm.data.PartnergeschaftList" required
+                                        ng-if="vm.data.Partnergeschaft==='1'">
                                     <option ng-if="partner.Nachname!==' '&&partner.Vorname!==' '"
                                             ng-value="partner.AdressenId"
                                             ng-repeat="partner in vm.partners">{{partner.Nachname+', '+partner.Vorname}}
@@ -125,7 +112,7 @@
 
                                 <div class="b-form__title-btn b-form__title">
                                     <b class="b-form__right-list">
-                                        <button ng-disabled="!newVorgang.$valid && !radiobuttongroup.$valid"
+                                        <button 
                                                 type="submit" class="btn btn--light">
                                             Neuer Vorgang
                                         </button>

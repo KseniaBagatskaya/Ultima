@@ -90,7 +90,7 @@
             </span>
             <span class="b-form__input b-form__squere" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Beides'">
                 <label for="vermietetegewerbeflache51">Vermietete Gewerbefläche</label>
-                <input ng-model="vm.nutzung.vermietete51" id="vermietetegewerbeflache51" type="text">
+                <input ng-model="vm.nutzung.vermieteteGewerbeflache51" id="vermietetegewerbeflache51" type="text">
             </span>
 
         </div>
@@ -120,18 +120,29 @@
                 </span>
             </span>
         </div>
-        <div class="b-form__half-col b-form__half-col--last" ng-show="vm.nutzung.wie === 'Eigengenutzt' && vm.nutzung.gewerbeflache === '1' && (vm.nutzung.wiegewerbeflache === 'Vermietet' || vm.nutzung.wiegewerbeflache === 'Beides')">
-            <span class="b-form__input b-form__euro">
-                <label for="mieteinnahmen">Mieteinnahmen</label>
-                <input ng-model="vm.nutzung.mieteinnahmen" id="mieteinnahmen" type="text">
-            </span>
+        <div ng-show="vm.nutzung.wie === 'Eigengenutzt' && vm.nutzung.gewerbeflache === '1' && vm.nutzung.wiegewerbeflache === 'Vermietet'">
+            <div class="b-form__half-col b-form__half-col--last" >
+                <span class="b-form__input b-form__euro">
+                    <label for="mieteinnahmen">Mieteinnahmen</label>
+                    <input ng-model="vm.nutzung.mieteinnahmen" id="mieteinnahmen" type="text">
+                </span>
+            </div>
         </div>
-        <div class="b-form__half-col b-form__half-col--last" ng-show="vm.nutzung.wie === 'Eigengenutzt' && vm.nutzung.gewerbeflache === '1' && (vm.nutzung.wiegewerbeflache === 'Vermietet' || vm.nutzung.wiegewerbeflache === 'Beides')">
-            <span ng-show="vm.nutzung.wiegewerbeflache === 'Beides'" class="b-form__input b-form__squere">
-                <label for="vermietetegewerbeflache">Vermietete Gewerbefläche</label>
-                <input ng-model="vm.nutzung.vermietetegewerbeflache" id="vermietetegewerbeflache" type="text">
-            </span>
+        <div ng-show="vm.nutzung.wie === 'Eigengenutzt' && vm.nutzung.gewerbeflache === '1' && vm.nutzung.wiegewerbeflache === 'Besides'">
+            <div class="b-form__half-col b-form__half-col--last" >
+                <span class="b-form__input b-form__euro">
+                    <label for="mieteinnahmen">Mieteinnahmen</label>
+                    <input ng-model="vm.nutzung.mieteinnahmen" id="mieteinnahmen" type="text">
+                </span>
+            </div>
+            <div class="b-form__half-col b-form__half-col--last" >
+                <span class="b-form__input b-form__squere">
+                    <label for="vermietetegewerbeflache">Vermietete Gewerbefläche</label>
+                    <input ng-model="vm.nutzung.vermietetegewerbeflache" id="vermietetegewerbeflache" type="text">
+                </span>
+            </div>
         </div>
+
     </div>
 </div>
 

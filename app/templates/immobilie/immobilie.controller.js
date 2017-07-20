@@ -22,7 +22,6 @@
             vm.submit(data.nextState)
         });
 
-
         if ($stateParams.id && immobilie_data.data) {
             vm.immobilieObject = immobilie_data.data;
         } else {

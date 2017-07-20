@@ -11,8 +11,9 @@
     function AntragstellerController($scope, $rootScope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state) {
         let vm = this;
 
+        window.onbeforeunload = update;
+
         vm.submit = submit;
-        vm.next = next;
         vm.addKinder = addKinder;
         vm.deleteKinder = deleteKinder;
         vm.deleteBankverbindung = deleteBankverbindung;
@@ -33,14 +34,22 @@
         });
 
         if ($stateParams.id) {
+            vm.bank_items_left = [];
+            vm.bank_items_right = [];
             vm.antragsteller1 = antrag_data.antragstellers[0] || {};
             vm.antragsteller2 = antrag_data.antragstellers[1] || {};
-            if (antrag_data.data) {
-                vm.kinders = antrag_data.data.kinders || [];
-                vm.bankverbindungs = antrag_data.data.bankverbindungs || [];
-                vm.wis = antrag_data.data.wis || [];
-                vm.bank_items_left = antrag_data.data.bank_items_left || [];
-                vm.bank_items_right = antrag_data.data.bank_items_right || [];
+            if (antrag_data) {
+                vm.kinders = antrag_data.Kinders || [];
+                vm.bankverbindungs = antrag_data.bankverbindungs || [];
+                vm.wis = antrag_data.wis || [];
+                antrag_data.banks.map(function(value, key) {
+                    if (value.side === 'L') {
+                        vm.bank_items_left.push(value.data);
+                    } else {
+                        vm.bank_items_right.push(value.data);
+                    }
+                });
+                console.log(vm.bank_items_right);
             } else {
                 vm.bank_items_left = [];
                 vm.bank_items_right = [];
@@ -66,10 +75,6 @@
             vm.wis = [];
         }
 
-        function next() {
-
-        }
-
         function submit(nextState) {
 
             const requestConfig = {
@@ -88,11 +93,11 @@
             const preparedData = JSON.parse(sessionStorage.getItem('entry'));
             if ($state.params.id) {
                 requestConfig.url = url.dashboard.update_angrag;
-                requestConfig.data.entryId = $state.params.id;
+                requestConfig.data.entryid = $stateParams.id;
                 requestConfig.data.bank_items_left = vm.bank_items_left;
                 requestConfig.data.bank_items_right = vm.bank_items_right;
             } else {
-                requestConfig.data.entry = preparedData;
+                // requestConfig.data.entry = preparedData;
                 requestConfig.url = url.dashboard.create_angrag;
                 vm.bank_items_left.map((value, key) => {
                     requestConfig.data.banks.push({
@@ -112,20 +117,26 @@
                 });
             }
 
-            http.post(requestConfig.url, requestConfig.data)
-                .then(function (res) {
-                    if (res.status) {
-                        vm.isSubmited = true;
-                        if (!nextState) {
-                            toastr.info('Created successfull');
-                            $state.go('app.tabs.antragsteller', {id: res.id});
-                        }
-                    } else {
-                        for (var key in res.msg) {
-                            toastr.error(res.msg[key][0], 'Submit failed');
-                        }
-                    }
-                });
+            console.log(requestConfig.data)
+            antragsteller.update(requestConfig.data);
+            // http.post(requestConfig.url, requestConfig.data)
+            //     .then(function (res) {
+            //         if (res.status) {
+            //             vm.isSubmited = true;
+            //             if (!nextState) {
+            //                 toastr.info('Created successfull');
+            //                 $state.go('app.tabs.antragsteller', {id: res.id});
+            //             }
+            //         } else {
+            //             for (var key in res.msg) {
+            //                 toastr.error(res.msg[key][0], 'Submit failed');
+            //             }
+            //         }
+            //     });
+        }
+
+        function update(event) {
+            localStorage.setItem('123', JSON.stringify(event));
         }
 
         function addKinder() {
