@@ -18,23 +18,21 @@
             vm.submit(data.nextState)
         });
 
-        vm.entry = JSON.parse(sessionStorage.getItem('entry'));
-
-        if ($stateParams.id && kreditdaten_data) {
-            console.log(kreditdaten_data);
-            vm.data = kreditdaten_data.data || {};
-            vm.data.auftragseingang = kreditdaten_data.entry.kontaktartId;
-            vm.data.wunsch = kreditdaten_data.entry.finanzbedarf;
-            vm.antrags = kreditdaten_data.data.antrags || [];
-        } else {
-            vm.data = {
-                erstelltam: new Date(),
-                datum: new Date(),
-                wunsch: vm.entry.finanzbedarf,
-                auftragseingang: vm.entry.kontaktartId,
-            };
-            vm.antrags = [];
-        }
+        // if ($stateParams.id && kreditdaten_data) {
+        //     console.log(kreditdaten_data);
+        //     vm.data = kreditdaten_data.data || {};
+        //     vm.data.auftragseingang = kreditdaten_data.entry.kontaktartId;
+        //     vm.data.wunsch = kreditdaten_data.entry.finanzbedarf;
+        //     vm.antrags = kreditdaten_data.data.antrags || [];
+        // } else {
+        vm.data = {
+            erstelltam: new Date(),
+            datum: new Date(),
+            wunsch: '',
+            auftragseingang: '',
+        };
+        vm.antrags = [];
+        // }
         vm.addAntrag = addAntrag;
         vm.deleteAntrag = deleteAntrag;
         vm.submit = submit;
