@@ -22,10 +22,13 @@
             vm.submit(data.nextState)
         });
 
+        $scope.$watch("vm.immobilieObject", debounce(submit, 1000), true);
+
         if (immobilie_data) {
             vm.immobilieObject = immobilie_data;
         } else {
             vm.immobilieObject = {
+                entryid: $stateParams.id,
                 wofur: 'Neubau (eigenes Bauvorhaben)',
                 basisangaben: {
                     strabe: '',
@@ -117,7 +120,6 @@
         }
 
         function addStellplatze(item) {
-            console.log(vm.immobilieObject.StellplatzeList)
             item._delete = deleteStellplatze;
             vm.immobilieObject.StellplatzeList.push(item);
         }
@@ -145,18 +147,22 @@
         }
 
         function submit(nextState) {
-
-            const requestConfig = {
-                data: vm.immobilieObject
-            }
-            if ($stateParams.id) {
-                requestConfig.data.entryid = $stateParams.id;
-            }
-            immobilie.update(requestConfig.data);
+            immobilie.update(vm.immobilieObject);
         }
 
-        window.onbeforeunload = function(e) {
-            vm.submit();
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
         };
 
     }
