@@ -11,8 +11,6 @@
     function AntragstellerController($scope, $rootScope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state) {
         let vm = this;
 
-        window.onbeforeunload = update;
-
         vm.submit = submit;
         vm.addKinder = addKinder;
         vm.deleteKinder = deleteKinder;
@@ -30,10 +28,10 @@
         vm.bank_list = bank_list;
 
         $rootScope.$on('AntragstellerSubmit', function (event, data) {
-            vm.submit(data.nextState)
+            vm.submit(data.nextState);
         });
 
-        if ($stateParams.id) {
+        if (antrag_data) {
             vm.bank_items_left = [];
             vm.bank_items_right = [];
             vm.antragsteller1 = antrag_data.antragstellers[0] || {};
@@ -92,7 +90,6 @@
             }
             vm.bank_items_left.map((value, key) => {
                 requestConfig.data.banks.push({
-                    entryId: $stateParams.id,
                     bank_identify: value.identify,
                     side: 'L',
                     data: value,
@@ -100,7 +97,6 @@
             });
             vm.bank_items_right.map((value, key) => {
                 requestConfig.data.banks.push({
-                    entryId: $stateParams.id,
                     bank_identify: value.identify,
                     side: 'R',
                     data: value,
@@ -118,24 +114,6 @@
             }
             console.log(requestConfig.data)
             antragsteller.update(requestConfig.data);
-            // http.post(requestConfig.url, requestConfig.data)
-            //     .then(function (res) {
-            //         if (res.status) {
-            //             vm.isSubmited = true;
-            //             if (!nextState) {
-            //                 toastr.info('Created successfull');
-            //                 $state.go('app.tabs.antragsteller', {id: res.id});
-            //             }
-            //         } else {
-            //             for (var key in res.msg) {
-            //                 toastr.error(res.msg[key][0], 'Submit failed');
-            //             }
-            //         }
-            //     });
-        }
-
-        function update(event) {
-            localStorage.setItem('123', JSON.stringify(event));
         }
 
         function addKinder() {

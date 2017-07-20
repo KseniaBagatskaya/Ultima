@@ -26,8 +26,8 @@
                     },
                     immobilie: {
                         create: baseUrlNew + 'immobilie/create',
-                        update: baseUrlNew + 'immobilie/update',
-                        index: baseUrlNew + 'immobilie/index',
+                        index: baseUrl + 'Immobilie/GetImmobiliesById',
+                        update: baseUrl + 'Immobilie/ImmobiliensUpdate',
                     },
                     kreditdaten: {
                         create: baseUrlNew + 'kredit-daten/create',

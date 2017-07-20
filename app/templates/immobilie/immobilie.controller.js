@@ -22,8 +22,8 @@
             vm.submit(data.nextState)
         });
 
-        if ($stateParams.id && immobilie_data.data) {
-            vm.immobilieObject = immobilie_data.data;
+        if (immobilie_data) {
+            vm.immobilieObject = immobilie_data;
         } else {
             vm.immobilieObject = {
                 wofur: 'Neubau (eigenes Bauvorhaben)',
@@ -71,42 +71,42 @@
             {
                 name: 'Stellplatz',
                 current: 0,
-                id: 'Stellplatz',
+                propId: 'Stellplatz',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Carport',
                 current: 0,
-                id: 'Carport',
+                propId: 'Carport',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Garage',
                 current: 0,
-                id: 'Garage',
+                propId: 'Garage',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Doppelgarage',
                 current: 0,
-                id: 'Doppelgarage',
+                propId: 'Doppelgarage',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Kellergarage',
                 current: 0,
-                id: 'Kellergarage',
+                propId: 'Kellergarage',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Tiefgaragenstellplatz',
                 current: 0,
-                id: 'Tiefgaragenstellplatz',
+                propId: 'Tiefgaragenstellplatz',
                 max: 100,
                 vermietet: 0,
             }
@@ -147,32 +147,17 @@
         function submit(nextState) {
 
             const requestConfig = {
-                url: null,
                 data: vm.immobilieObject
             }
             if ($stateParams.id) {
-                requestConfig.url = url.immobilie.update;
-                requestConfig.data.entryId = $stateParams.id;
-            } else {
-                requestConfig.url = url.immobilie.create;
+                requestConfig.data.entryid = $stateParams.id;
             }
-            http.post(requestConfig.url, requestConfig.data)
-                .then(function (res) {
-                    if (res.status) {
-                        console.log(res, 'res');
-                        if(!nextState){
-                            toastr.info('Saved');
-
-                        }
-
-                    } else {
-                        for (var key in res.msg) {
-                            toastr.error(res.msg[key][0], 'Submit failed');
-                        }
-                    }
-                    vm.isSubmited = true;
-                });
+            immobilie.update(requestConfig.data);
         }
+
+        window.onbeforeunload = function(e) {
+            vm.submit();
+        };
 
     }
 

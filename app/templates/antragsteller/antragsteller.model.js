@@ -168,7 +168,7 @@
                 });
         }
 
-        function update(data) {
+        function update(data) { 
             return http.post(url.anstragsteller.update, data)
                 .then(function (res) {
                     console.log(res, 'res');
