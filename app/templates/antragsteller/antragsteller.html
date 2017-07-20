@@ -13,14 +13,14 @@
                                 <h4 class="b-form__sub-header">Antragsteller 1</h4>
 
                                 <!--antragsteller-->
-                                <antragsteller data-parent="vm.antragsteller1">
+                                <antragsteller data-parent="vm.entryObject.antragstellers[0]">
                                     <!--antragsteller END-->
 
                             </div>
                             <div class="wrap-form">
                                 <h4 class="b-form__sub-header">Antragsteller 2</h4>
                                 <!--antragsteller-->
-                                <antragsteller data-parent="vm.antragsteller2">
+                                <antragsteller data-parent="vm.entryObject.antragstellers[2]">
                                     <!--antragsteller END-->
                             </div>
 
@@ -44,7 +44,7 @@
                                 <div class="btn btn--light" ng-click="vm.clearKinder()">Keine Kinder vorhanden</div>
                             </div>
                         </div>
-                        <kinder ng-repeat="kinder in vm.kinders track by $index" data-parent="kinder"
+                        <kinder ng-repeat="kinder in vm.entryObject.kinders track by $index" data-parent="kinder"
                                 data-index="{{$index}}"></kinder>
                     </div>
                     <!--KINDER END-->
@@ -99,12 +99,14 @@
                         <!--FIELDS OF BANKS START-->
                         <div class="b-form__blocks-separator">
                             <ul class="b-form__block b-form__list banks-left">
-                                <li class="b-form__list-item" ng-repeat="(key,bank) in vm.bank_items_left"
+                                <li class="b-form__list-item" ng-repeat="(key,bank) in vm.entryObject.banks"
+                                    ng-if="bank.side === 'L'"
                                     ng-include="'templates/antragsteller/bank_list/'+bank.identify+'.html'">
                                 </li>
                             </ul>
                             <ul class="b-form__block b-form__list banks-right">
-                                <li class="b-form__list-item" ng-repeat="(key,bank) in vm.bank_items_right"
+                                <li class="b-form__list-item" ng-repeat="(key,bank) in vm.entryObject.banks"
+                                    ng-if="bank.side === 'R'"
                                     ng-include="'templates/antragsteller/bank_list/'+bank.identify+'.html'">
                                 </li>
                             </ul>
@@ -130,7 +132,7 @@
                                 <div class="btn btn--light" ng-click="vm.clearWis()">Keine immobilien vorhanden</div>
                             </div>
                         </div>
-                        <weitere-immobilien ng-repeat="wi in vm.wis track by $index" data-parent="wi"
+                        <weitere-immobilien ng-repeat="wi in vm.entryObject.wis track by $index" data-parent="wi"
                                 data-index="{{$index}}" data-delete="{{vm.deleteWis}}"></weitere-immobilien>
                     </div>
 
@@ -141,7 +143,7 @@
                                 src="content/images/icons/plus.png"
                                 ng-click="vm.addBankverbindung()"
                                 alt="plus_btn"> Bankverbindung</h4>
-                        <bankverbindung ng-repeat="bankverbindung in vm.bankverbindungs track by $index"
+                        <bankverbindung ng-repeat="bankverbindung in vm.entryObject.bankverbindungs track by $index"
                                         data-parent="bankverbindung"
                                         data-index="{{$index}}"></bankverbindung>
                     </div>
@@ -150,7 +152,7 @@
 
                 </div>
             </div>
-            <div class="b-tabs submit-area">
+            <!-- <div class="b-tabs submit-area">
                 <ul class="b-tabs__titles clearfix">
                     <li class="b-tabs__custom-item b-tabs__custom-item--right">
                         <button class="btn btn__dark" ng-click="vm.submit()">
@@ -158,7 +160,7 @@
                         </button>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </form>
 </main>

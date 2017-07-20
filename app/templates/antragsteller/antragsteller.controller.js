@@ -23,7 +23,16 @@
         vm.addWis = addWis;
         vm.clearWis = clearWis;
         vm._deleteBank = deleteItem;
-        vm.isSubmited = false;
+        vm.entryObject = {
+            antragstellers: [
+                {antragsteller1: {}},
+                {antragsteller2: {}},
+            ],
+            banks: [],
+            kinders: [],
+            bankverbindungs: [],
+            wis: [],
+        }
 
         vm.bank_list = bank_list;
 
@@ -31,103 +40,34 @@
             vm.submit(data.nextState);
         });
 
+
+        $scope.$watch("vm.entryObject", debounce(submit, 1000), true);
+
         if (antrag_data) {
-            vm.bank_items_left = [];
-            vm.bank_items_right = [];
-            vm.antragsteller1 = antrag_data.antragstellers[0] || {};
-            vm.antragsteller2 = antrag_data.antragstellers[1] || {};
-            if (antrag_data) {
-                vm.kinders = antrag_data.Kinders || [];
-                vm.bankverbindungs = antrag_data.bankverbindungs || [];
-                vm.wis = antrag_data.wis || [];
-                antrag_data.banks.map(function(value, key) {
-                    if (value.side === 'L') {
-                        vm.bank_items_left.push(value.data);
-                    } else {
-                        vm.bank_items_right.push(value.data);
-                    }
-                });
-                console.log(vm.bank_items_right);
-            } else {
-                vm.bank_items_left = [];
-                vm.bank_items_right = [];
-                vm.kinders = [];
-                vm.bankverbindungs = [];
-                vm.wis = [];
-            }
-
-
-        } else {
-            vm.antragsteller1 = {
-                number: '1',
-                sex: '1',
-            };
-            vm.antragsteller2 = {
-                number: '2',
-                value: '1',
-            };
-            vm.bank_items_left = [];
-            vm.bank_items_right = [];
-            vm.kinders = [];
-            vm.bankverbindungs = [];
-            vm.wis = [];
+            vm.entryObject.entryid = $stateParams.id;
+            vm.entryObject.antragstellers = antrag_data.antragstellers;
+            vm.entryObject.kinders = antrag_data.Kinders || [];
+            vm.entryObject.banks  = antrag_data.banks || [];
+            vm.entryObject.bankverbindungs = antrag_data.bankverbindungs || [];
+            vm.entryObject.wis = antrag_data.wis || [];
         }
 
         function submit(nextState) {
-
-            const requestConfig = {
-                url: null,
-                data: {
-                    kinders: vm.kinders,
-                    bankverbindungs: vm.bankverbindungs,
-                    wis: vm.wis,
-                    banks: [],
-                    antragstellers: [
-                        vm.antragsteller1,
-                        vm.antragsteller2,
-                    ],
-                }
-            }
-            vm.bank_items_left.map((value, key) => {
-                requestConfig.data.banks.push({
-                    bank_identify: value.identify,
-                    side: 'L',
-                    data: value,
-                });
-            });
-            vm.bank_items_right.map((value, key) => {
-                requestConfig.data.banks.push({
-                    bank_identify: value.identify,
-                    side: 'R',
-                    data: value,
-                });
-            });
-            const preparedData = JSON.parse(sessionStorage.getItem('entry'));
-            if ($state.params.id) {
-                requestConfig.url = url.dashboard.update_angrag;
-                requestConfig.data.entryid = $stateParams.id;
-                requestConfig.data.bank_items_left = vm.bank_items_left;
-                requestConfig.data.bank_items_right = vm.bank_items_right;
-            } else {
-                // requestConfig.data.entry = preparedData;
-                requestConfig.url = url.dashboard.create_angrag;
-            }
-            console.log(requestConfig.data)
-            antragsteller.update(requestConfig.data);
+            antragsteller.update(vm.entryObject);
         }
 
         function addKinder() {
-            vm.kinders.push({
+            vm.entryObject.kinders.push({
                 _delete: deleteKinder
             });
         }
 
         function deleteKinder(index) {
-            vm.kinders.splice(index, 1);
+            vm.entryObject.kinders.splice(index, 1);
         }
 
         function clearKinder() {
-            vm.kinders = [];
+            vm.entryObject.kinders = [];
         }
 
         function addItem(item, side) {
@@ -138,23 +78,19 @@
                     _delete: deleteItem,
                     side: side
                 };
-                if (side === 'L') {
-                    vm.bank_items_left.push(tmpItem);
-                } else {
-                    vm.bank_items_right.push(tmpItem);
-                }
+                vm.entryObject.banks.push(tmpItem);
             }
         }
 
         function deleteItem(index, side) {
             if (side === 'L') {
-                let item = antragsteller.findElementById(vm.bank_items_left[index].identify, 'L', vm.bank_list);
+                let item = antragsteller.findElementById(vm.entryObject.banks[index].identify, 'L', vm.bank_list);
                 item.current--;
-                vm.bank_items_left.splice(index, 1)
+                vm.entryObject.banks.splice(index, 1)
             } else {
-                let item = antragsteller.findElementById(vm.bank_items_right[index].identify, 'R', vm.bank_list);
+                let item = antragsteller.findElementById(vm.entryObject.banks[index].identify, 'R', vm.bank_list);
                 item.current--;
-                vm.bank_items_right.splice(index, 1)
+                vm.entryObject.banks.splice(index, 1)
             }
         }
 
@@ -163,33 +99,43 @@
         }
 
         function addBankverbindung() {
-            vm.bankverbindungs.push({
+            vm.entryObject.bankverbindungs.push({
                 _delete: deleteBankverbindung
             });
         }
 
         function deleteBankverbindung(index) {
-            vm.bankverbindungs.splice(index, 1);
+            vm.entryObject.bankverbindungs.splice(index, 1);
         }
 
         function addWis() {
-            vm.wis.push({
+            vm.entryObject.wis.push({
                 darlehens: [],
                 _delete: deleteWis
             });
         }
 
         function deleteWis(index) {
-            console.log(index);
-            vm.wis.splice(index, 1);
+            vm.entryObject.wis.splice(index, 1);
         }
 
         function clearWis() {
-            vm.wis = [];
+            vm.entryObject.wis = [];
         }
 
-        window.onbeforeunload = function(e) {
-            vm.submit();
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
         };
 
     }
