@@ -18,9 +18,6 @@
         vm.addRechte = addRechte;
         vm.submit = submit;
         vm.isSubmited = false;
-        $rootScope.$on('ImmobilieSubmit', function (event, data) {
-            vm.submit(data.nextState)
-        });
 
         $scope.$watch("vm.immobilieObject", debounce(submit, 1000), true);
 
@@ -146,7 +143,7 @@
             vm.immobilieObject.Rechte.isOpened = true;
         }
 
-        function submit(nextState) {
+        function submit() {
             immobilie.update(vm.immobilieObject);
         }
 

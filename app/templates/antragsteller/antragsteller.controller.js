@@ -36,10 +36,6 @@
 
         vm.bank_list = bank_list;
 
-        $rootScope.$on('AntragstellerSubmit', function (event, data) {
-            vm.submit(data.nextState);
-        });
-
 
         $scope.$watch("vm.entryObject", debounce(submit, 1000), true);
 
@@ -52,7 +48,7 @@
             vm.entryObject.wis = antrag_data.wis || [];
         }
 
-        function submit(nextState) {
+        function submit() {
             antragsteller.update(vm.entryObject);
         }
 

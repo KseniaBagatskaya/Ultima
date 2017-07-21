@@ -31,8 +31,8 @@
                     },
                     kreditdaten: {
                         create: baseUrlNew + 'kredit-daten/create',
-                        update: baseUrlNew + 'kredit-daten/update',
-                        index: baseUrlNew + 'kredit-daten/index',
+                        update: baseUrl + 'Kredit/KreditsUpdate',
+                        index: baseUrl + 'Kredit/GetKreditsById',
                     },
                     dokument: {
                         get_all_documents: 'http://itls-hh.eu/Document/GetDocumentsById',
