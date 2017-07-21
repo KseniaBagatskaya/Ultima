@@ -4,7 +4,7 @@
 
         <div class="b-form__block b-banking clearfix">
             <span class="b-form__input">
-                <label for="darl">Wofür soll das Darlehen verwendet werden?</label>
+                <label for="darl" class="darl">Wofür soll das Darlehen verwendet werden?</label>
                 <select ng-model="vm.immobilieObject.wofur" id="darl">
                     <option value="1">Neubau (eigenes Bauvorhaben)</option>
                     <option value="2" selected="selected">Kauf</option>
@@ -57,11 +57,11 @@
             <div class=" b-form__block" ng-show="vm.immobilieObject.Grundbuchdaten.isOpened">
                 <span class="b-form__address clearfix ">
                             <span class="b-form__input b-form__address-short">
-                                <label for="grunduch">Grundbuch von (Ort)</label>
+                                <label for="grunduch" class="grunduch">Grundbuch von (Ort)</label>
                                 <input id="grunduch" ng-model="vm.immobilieObject.Grundbuchdaten.grunduch" type="text">
                             </span>
                             <span class="b-form__input b-form__address-short">
-                                <label for="blatt">Blatt (Band: optional)</label>
+                                <label for="blatt" class="blatt">Blatt (Band: optional)</label>
                                 <input id="blatt" ng-model="vm.immobilieObject.Grundbuchdaten.blatt" type="text">
                             </span>
                         </span>
@@ -91,8 +91,8 @@
                 </style>
                 <div style="background: rgb(255,255,255);padding: 5px 5px;margin: 0 1.5px 0 1px;"
                     ng-repeat="item in vm.immobilieObject.Grundbuchdaten.Flurstuck track by $index">
-                    <span class="b-form__address clearfix ">
-                            <span class="b-form__input short_span b-form__address-short">
+                    <span class="b-form__address address clearfix ">
+                            <span class="b-form__input short_span b-form__address-short  flur">
                                 <label for="flur">Flur</label>
                                 <input ng-model="item.flur" class="short_input" id="flur" type="text">
                             </span>
@@ -100,7 +100,7 @@
                                 <label for="flurstuck">Flurstück</label>
                                 <input ng-model="item.flurstuck" class="short_input" id="flurstuck" type="text">
                             </span>
-                        <span class="b-form__input short_span b-form__address-short">
+                        <span class="b-form__input short_span b-form__address-short anteil">
                                 <label for="anteil">Anteil am Flurstück</label>
                                 <input ng-model="item.anteil" class="short_input" id="anteil" type="text">
                             </span>
@@ -108,11 +108,11 @@
                                 <label for="anteil2"></label>
                                 <input ng-model="item.anteil2" class="short_input" id="anteil2" type="text">
                             </span>
-                        <span class="b-form__input short_span b-form__address-short">
+                        <span class="b-form__input short_span b-form__address-short b-form__squere">
                                 <label for="des_flurs">Größe des Flurstücks</label>
                                 <input ng-model="item.desFlurs" class="short_input" id="des_flurs" type="text">
                             </span>
-                            <span class="b-form__input short_span b-form__address-short">
+                            <span class="b-form__input short_span b-form__address-short trash">
                                 <img src="content/images/icons/trash_basket.png"
                                         class="btn btn__trash btn--light"
                                         style="margin-top: 15px;"

@@ -2,7 +2,7 @@
 <div class="b-form__block">
     <div class="b-form__group">
         <div class="b-form__col">
-            <span class="b-form__input b-form__squere">
+            <span class="b-form__input b-form__squere smaller">
                 <label for="gesamte">gesamte Wohnfläche</label>
                 <input ng-model="vm.nutzung.gesamte" id="gesamte" type="text">
             </span>
@@ -26,15 +26,16 @@
                     </span>
                 </span>
             </span>
-                <span class="b-form__input b-form__euro" ng-show="vm.nutzung.gewerbeflache === 'Vermietet'">
+            <p class="divider"></p>
+                <span class="b-form__input b-form__euro smaller" ng-show="vm.nutzung.gewerbeflache === 'Vermietet'">
                     <label for="mieteinnahmen">Mieteinnahmen</label>
                     <input ng-model="vm.nutzung.gewerbeflachemieteinnahmen" id="mieteinnahmen" type="text">
                 </span>
-                <span class="b-form__input b-form__euro" ng-show="vm.nutzung.gewerbeflache === 'Beides'">
+                <span class="b-form__input b-form__euro smaller" ng-show="vm.nutzung.gewerbeflache === 'Beides'">
                     <label for="mieteinnahmen">Mieteinnahmen</label>
                     <input ng-model="vm.nutzung.gewerbeflachemieteinnahmen" id="mieteinnahmen" type="text">
                 </span>
-                <span class="b-form__input b-form__squere" ng-show="vm.nutzung.gewerbeflache === 'Beides'">
+                <span class="b-form__input b-form__squere smaller" ng-show="vm.nutzung.gewerbeflache === 'Beides'">
                     <label for="vermietetegewerbeflache">Vermietete Wohnfläche</label>
                     <input ng-model="vm.nutzung.gewerbeflachevermietetegewerbeflache" id="vermietetegewerbeflache" type="text">
                 </span>
@@ -54,7 +55,7 @@
                 </span>
             </span>
 
-            <span class="b-form__input b-form__squere" ng-show="vm.nutzung.gewerbeflacheja === '1'">
+            <span class="b-form__input b-form__squere smaller" ng-show="vm.nutzung.gewerbeflacheja === '1'">
                 <label for="Gewerbefläche">Gesamte Gewerbefläche</label>
                 <input ng-model="vm.nutzung.gesamtegewerbeflache" id="Gewerbefläche" type="text">
             </span>
@@ -80,15 +81,15 @@
                 </span>
             </span>
 
-            <span class="b-form__input b-form__euro" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Vermietet'">
+            <span class="b-form__input b-form__euro smaller" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Vermietet'">
                 <label for="mieteinnahmen51">Mieteinnahmen</label>
                 <input ng-model="vm.nutzung.vermietete51" id="mieteinnahmen51" type="text">
             </span>
-            <span class="b-form__input b-form__euro" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Beides'">
+            <span class="b-form__input b-form__euro smaller" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Beides'">
                 <label for="mieteinnahmen51">Mieteinnahmen</label>
                 <input ng-model="vm.nutzung.vermietete51" id="mieteinnahmen51" type="text">
             </span>
-            <span class="b-form__input b-form__squere" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Beides'">
+            <span class="b-form__input b-form__squere smaller" ng-show="vm.nutzung.gewerbeflachegenutzt === 'Beides'">
                 <label for="vermietetegewerbeflache51">Vermietete Gewerbefläche</label>
                 <input ng-model="vm.nutzung.vermieteteGewerbeflache51" id="vermietetegewerbeflache51" type="text">
             </span>
@@ -166,7 +167,7 @@
                 </span>
             </span>
         </div>
-        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__squere">
+        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__squere smaller">
             <label for="erbbauzins">Erbbauzins jährlich</label>
             <input ng-model="vm.zusatzliche.erbbauzins" id="erbbauzins" type="text">
         </span>
@@ -187,12 +188,13 @@
                 </span>
             </span>
         </div>
-        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__squere">
+        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__squere smaller">
             <label for="laufzeit">Laufzeit bis</label>
             <input ng-model="vm.zusatzliche.laufzeit" id="laufzeit" type="text">
         </span>
     </div>
 
+    <p class="divider"></p>
     <div class="b-form__group b-form__group--same-height70">
         <div class="b-form__col">
             <span class="b-form__radio-label">

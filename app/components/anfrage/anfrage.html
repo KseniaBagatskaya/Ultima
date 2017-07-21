@@ -75,10 +75,12 @@
             <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
         </select>
     </span>
-        <span class="b-form__input" ng-init="vm.data.wiedervorlage=vm.convertDateFromString(vm.data.wiedervorlage)">
+        <div class="smaller-date">
+        <span class="b-form__input date" ng-init="vm.data.wiedervorlage=vm.convertDateFromString(vm.data.wiedervorlage)">
         <label for="Wiedervorlage:">Wiedervorlage:</label>
         <input ng-model="vm.data.wiedervorlage" id="Wiedervorlage:" type="date">
     </span>
+        </div>
     </div>
     <div class="b-form__group-child b-form__group-child-last">
         <span class="text-title">Betrag:</span>

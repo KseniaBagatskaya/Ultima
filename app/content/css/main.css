@@ -614,7 +614,7 @@ textarea {
 }
 
 .b-form__half-col {
-    width: 50%;
+    width: 47%;
     box-sizing: border-box;
     float: left;
 }
@@ -2225,4 +2225,68 @@ textarea {
 
 .download-button img{
     height: 30px;
+}
+
+/***** bugs *****/
+
+#darl{
+    width: 20%;
+}
+.darl,
+.grunduch,
+.blatt{
+    margin-top: 10px;
+}
+.smaller input{
+    width: 20%;
+}
+.b-form__squere.smaller::after,
+.b-form__euro.smaller::after{
+    right: 81%;
+}
+.b-form__address-short.b-form__squere::after {
+    right: 20%;
+}
+#beschreibung {
+    width: 200px!important;
+}
+#grund,
+#netto{
+    width: 100%;
+}
+.divider {
+    width: 97%;
+    height: 2px;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.anteil::after {
+    content: "/";
+    font-size: 14px;
+    margin-left: 6px;
+}
+#blatt {
+    width: 50%;
+}
+ .b-form__address-short.flur {
+    margin-right: 0;
+}
+.b-form__address.address .short_span {
+    margin-right:0;
+}
+.b-form__address-short.trash {
+    text-align: right;
+    width: 35%!important;
+}
+.b-form__input.date {
+    width: 34%;
+    margin-right: 0;
+}
+.some-date {
+    width: 18%;
+}
+.smaller-date {
+    width: 31%;
+    display: flex;
+    justify-content: flex-end;
 }
