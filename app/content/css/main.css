@@ -977,7 +977,7 @@ textarea {
     content: '';
     display: block;
     position: absolute;
-    left: 50%;
+    left: 45%;
     top: 10px;
     bottom: 14px;
     width: 2px;
@@ -2230,12 +2230,16 @@ textarea {
 /***** bugs *****/
 
 #darl{
-    width: 20%;
+    width: 70%;
 }
 .darl,
 .grunduch,
 .blatt{
     margin-top: 10px;
+}
+.b-form__block.banking span {
+    width: 30%;
+
 }
 .smaller input{
     width: 20%;
@@ -2289,4 +2293,13 @@ textarea {
     width: 31%;
     display: flex;
     justify-content: flex-end;
+}
+.b-form__list-view--horizontal.horizontal:before {
+    display: none;
+}
+.b-form__list-view .b-form__half-col {
+    width: 50%;
+}
+.third_form .b-form__list-view::before {
+    left: 50%;
 }
