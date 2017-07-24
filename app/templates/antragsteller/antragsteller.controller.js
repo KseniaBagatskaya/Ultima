@@ -25,9 +25,16 @@
         vm._deleteBank = deleteItem;
         vm.entryObject = {
             antragstellers: [
-                {antragsteller1: {}},
-                {antragsteller2: {}},
+                {
+                    number: '1',
+                    sex: '1',
+                },
+                {
+                    number: '2',
+                    value: '1',
+                },
             ],
+            entryid: $stateParams.id,
             banks: [],
             kinders: [],
             bankverbindungs: [],
@@ -42,7 +49,7 @@
         if (antrag_data) {
             vm.entryObject.entryid = $stateParams.id;
             vm.entryObject.antragstellers = antrag_data.antragstellers;
-            vm.entryObject.kinders = antrag_data.Kinders || [];
+            vm.entryObject.kinders = antrag_data.kinders || [];
             vm.entryObject.banks  = antrag_data.banks || [];
             vm.entryObject.bankverbindungs = antrag_data.bankverbindungs || [];
             vm.entryObject.wis = antrag_data.wis || [];

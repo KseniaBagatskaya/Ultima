@@ -214,11 +214,11 @@
                     </span>
                     <span ng-show="vm.zusatzliche.wurde === '1'" class="row b-form__input short_span" style="flex: 0.5;">
                         <label for="modernisierungsjahr">Modernisierungsjahr</label>
-                        <input ng-model="item.modernisierungsjahr" class="short_input" id="modernisierungsjahr" type="text">
+                        <input ng-model="vm.zusatzliche.modernisierungsjahr" class="short_input" id="modernisierungsjahr" type="text">
                     </span>
                     <span ng-show="vm.zusatzliche.wurde === '1'" class="row b-form__input short_span" style="flex: 0.5;">
                         <label for="modernisierungsgrad">Modernisierungsgrad</label>
-                        <select id="modernisierungsgrad" ng-model="item.modernisierungsgrad">
+                        <select id="modernisierungsgrad" ng-model="vm.zusatzliche.modernisierungsgrad">
                             <option value="-1" selected="selected">Bitte wählen Sie ...</option>
                             <option value="1" selected="selected">Hoch</option>
                             <option value="2" selected="selected">Mittel</option>

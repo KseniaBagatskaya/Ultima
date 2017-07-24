@@ -10,6 +10,10 @@
                         login: baseUrl + 'AccountManage/Authentication',
                         register: baseUrlNew + 'user/registration'
                     },
+                    registration: {
+                        index: baseUrl + '/AccountManage/GetAllUsers',
+                        addUser: baseUrl + '/AccountManage/AddUser',
+                    },
                     dashboard: {
                         submit_vorgang: baseUrl + 'dashboard/addVorgang',
                         create_angrag: baseUrlNew + 'antragsteller/create',
@@ -40,7 +44,8 @@
                         uploadDoc: baseUrl + 'Document/UploadFile',
                     },
                     wiedervorlage: {
-                        index: baseUrlNew + 'kredit-daten/index-wiedervolage'
+                        index: baseUrl + 'VorgangsManagement/GetAllUsers',
+                        vorgangs: baseUrl + 'VorgangsManagement/GetVorgangs'
                     }
                 };
 

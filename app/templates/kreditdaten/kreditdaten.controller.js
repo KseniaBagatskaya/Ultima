@@ -17,7 +17,6 @@
         vm.deleteAntrag = deleteAntrag;
         vm.submit = submit;
         vm.data = {
-            entryId: $stateParams.id,
             erstelltam: new Date(),
             datum: new Date(),
             wunsch: '',
@@ -29,6 +28,7 @@
 
         if (kreditdaten_data) {
             vm.data = kreditdaten_data;
+            vm.data.entryId = $stateParams.id;
         }
 
 
@@ -44,6 +44,8 @@
         }
 
         function submit() {
+            vm.data.entryId = $stateParams.id;
+            console.log(vm.data)
             kreditdaten.update(vm.data);
         }
 

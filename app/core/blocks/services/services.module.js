@@ -10,6 +10,7 @@
         'model.dokument',
         'model.banks',
         'model.wiedervorlage',
+        'model.registration',
         'factory.save'
     ]);
 

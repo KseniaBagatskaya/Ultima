@@ -10,6 +10,7 @@
 
     function DashboardController($scope, users_data, url, http, $state,  partners, dashboard) {
         let vm = this;
+        const user = JSON.parse(sessionStorage.getItem('user'));
         vm.data = {
             Verwendungszweck: "1",
             Plz: "",
@@ -19,6 +20,7 @@
             Partnergeschaft: "Ja",
             Genutzt: "Vermietet",
             PartnergeschaftList: "",
+            AuthKey: user.AuthKey
         };
         vm.submit = submit;
         vm.partners = partners;

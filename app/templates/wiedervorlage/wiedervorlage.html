@@ -13,11 +13,11 @@
         <!--<option>Neueste Ereignisse</option>-->
         <!--</select>-->
         <!--</div>-->
-        <div style="margin-left: 20px;" class="sort" ng-init="vm.filter.username=-1">
+        <div style="margin-left: 20px;" class="sort">
             <label>Bearbeiter:</label>
-            <select ng-change="vm.getRecortdByFilter()" ng-model="vm.filter.username">
-                <option ng-value="-1">All</option>
-                <option ng-repeat="item in vm.bearbeiters" ng-value="item.username">{{item.username}}</option>
+            <select ng-change="vm.getRecortdByFilter()" ng-model="vm.filter.user" ng-init="vm.filter.user='All'">
+                <option value="All">All</option>
+                <option ng-repeat="item in vm.users" value="{{item.Benutzername}}">{{item.Benutzername}}</option>
             </select>
         </div>
     </div>
@@ -53,10 +53,10 @@
 				</span>
         </div>
         <div class="cbt2">
-            <div class="cbt2-middle" style="cursor: pointer" ng-repeat="wiedervolage in vm.wiedervolages" ng-click="vm.openComment()">
+            <div class="cbt2-middle" style="cursor: pointer" ng-repeat="wiedervolage in vm.vorgangs track by $index" ng-click="vm.openComment()">
                 <div class="cbt2-middle-top">
                     <input type="checkbox" name="">
-                    <h3>{{wiedervolage.transactionId}}<br>{{wiedervolage.anstragsteller}}</h3>
+                    <h3>{{wiedervolage.Code}}<br>{{wiedervolage.Nachname}} {{wiedervolage.Vorname}}</h3>
                     <span>
 							<img src="content/images/icons/circle.png">
 						</span>

@@ -12,7 +12,6 @@
         vm.data = $scope.parent;
         vm.index = $scope.index;
         vm.convertDateFromString = antragsteller.convertDateFromString;
-        console.log(vm.data);
 
     }
 
