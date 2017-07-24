@@ -35,6 +35,16 @@
                 templateUrl: 'templates/registration/registration.html',
                 controller: 'RegistrationController',
                 controllerAs: 'vm',
+                resolve: {
+                    users_list: function (registration) {
+                        return registration.getAllUsers()
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+
+                    },
+                }
             })
             .state('app.dashboard', {
                 url: "/dashboard",
@@ -84,7 +94,7 @@
                 controller: 'WiedervorlageController',
                 controllerAs: 'vm',
                 resolve: {
-                    vorgangsmanagement: function (wiedervorlage) {
+                    users: function (wiedervorlage) {
                         return wiedervorlage.getData()
                             .then(function (res) {
                                 console.log(res, 'res');

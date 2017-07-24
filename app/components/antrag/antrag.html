@@ -5,7 +5,7 @@
                                 <label for="editor">Bearbeiter</label>
                                 <input ng-model="vm.data.bearbeiter" id="editor" type="text">
                             </span>
-        <span class="b-form__input b-form__input-middle" style="width: 15%;">
+        <span class="b-form__input b-form__input-middle" style="width: 10%;">
                                 <label for="date_created">erstellt am</label>
                                 <input ng-model="vm.data.erstelltam" id="date_created" type="date">
                             </span>
@@ -24,9 +24,11 @@
                                 <input ng-model="vm.data.abgerechnet" value="true" name="abgerechnet" id="billed"
                                        type="checkbox">
                             </span>
-        <span class="b-form__input b-form__input-middle">
-                                <label for="some_date"></label>
-                                <input ng-model="vm.data.field" id="some_date" type="text">
+        <span class="b-form__input b-form__input-middle some-date">
+                                <label for="some_date">Ablehnungsgrund</label>
+                                <select ng-model="vm.data.field" id="some_date" type="text">
+                                    <option></option>
+                                </select>
                             </span>
         <span class="b-form__input b-form__input-short">
                                 <label for="requests">Anfragen</label>
@@ -36,10 +38,10 @@
                                 <label for="cancellation">Storno</label>
                                 <input ng-model="vm.data.storno" name="storno" id="cancellation" type="checkbox">
                             </span>
-        <span class="b-form__input b-form__input-middle" style="width: 15%;"
+        <span class="b-form__input b-form__input-middle " style="width: 10%;"
               ng-init="vm.data.wiedervorlage=vm.convertDateFromString(vm.data.wiedervorlage)">
                                 <label for="wiedervorlage">Wiedervorlage</label>
-                                <input ng-model="vm.data.wiedervorlage" id="wiedervorlage" type="date">
+                                <input ng-model="vm.data.wiedervorlaget" ng-change="vm.changeWiedervorlage($event)" id="wiedervorlage" type="date">
                             </span>
         <span class="b-form__input firstAreaDelete">
                                     <label for="date">&nbsp;</label>

@@ -10,16 +10,25 @@
     function immobilie(http, url, $stateParams) {
 
         let service = {
-            getData: getData
+            getData: getData,
+            update: update,
         };
         return service;
 
 
         function getData(id) {
             let data = {
-                entryId: id
+                Id: id
             };
             return http.get(url.immobilie.index, data)
+                .then(function (res) {
+                    console.log(res, 'res');
+                    return res;
+                });
+        }
+
+        function update(data) {
+            return http.post(url.immobilie.update, data)
                 .then(function (res) {
                     console.log(res, 'res');
                     return res;

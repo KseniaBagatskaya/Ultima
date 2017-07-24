@@ -51,12 +51,12 @@
 
     <div class="first_form clearfix third_tab_item">
         <div class="b-form__block">
-            <antrag ng-repeat="antrag in vm.antrags track by $index" data-parent="antrag"
+            <antrag ng-repeat="antrag in vm.data.antrags track by $index" data-parent="antrag"
                     data-index="{{$index}}"></antrag>
         </div>
     </div>
 
-    <div class="b-tabs">
+    <!-- <div class="b-tabs">
         <ul class="b-tabs__titles clearfix">
             <li class="b-tabs__custom-item b-tabs__custom-item--right">
                 <button class="btn btn__dark" ng-click="vm.submit()">
@@ -64,6 +64,6 @@
                 </button>
             </li>
         </ul>
-    </div>
+    </div> -->
 
 </div>

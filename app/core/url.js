@@ -11,6 +11,10 @@
                         login: baseUrl + 'AccountManage/Authentication',
                         register: baseUrlNew + 'user/registration'
                     },
+                    registration: {
+                        index: baseUrl + '/AccountManage/GetAllUsers',
+                        addUser: baseUrl + '/AccountManage/AddUser',
+                    },
                     dashboard: {
                         submit_vorgang: baseUrl + 'dashboard/addVorgang',
                         create_angrag: baseUrlNew + 'antragsteller/create',
@@ -27,13 +31,13 @@
                     },
                     immobilie: {
                         create: baseUrlNew + 'immobilie/create',
-                        update: baseUrlNew + 'immobilie/update',
-                        index: baseUrlNew + 'immobilie/index',
+                        index: baseUrl + 'Immobilie/GetImmobiliesById',
+                        update: baseUrl + 'Immobilie/ImmobiliensUpdate',
                     },
                     kreditdaten: {
                         create: baseUrlNew + 'kredit-daten/create',
-                        update: baseUrlNew + 'kredit-daten/update',
-                        index: baseUrlNew + 'kredit-daten/index',
+                        update: baseUrl + 'Kredit/KreditsUpdate',
+                        index: baseUrl + 'Kredit/GetKreditsById',
                     },
                     dokument: {
                         get_all_documents: 'http://itls-hh.eu/Document/GetDocumentsById',
@@ -41,7 +45,8 @@
                         uploadDoc: baseUrl + 'Document/UploadFile',
                     },
                     wiedervorlage: {
-                        index: baseUrlNew + 'kredit-daten/index-wiedervolage'
+                        index: baseUrl + 'VorgangsManagement/GetAllUsers',
+                        vorgangs: baseUrl + 'VorgangsManagement/GetVorgangs'
                     }
                 };
 

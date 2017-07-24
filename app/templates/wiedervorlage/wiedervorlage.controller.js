@@ -5,31 +5,41 @@
     angular.module('app')
         .controller('WiedervorlageController', WiedervorlageController);
 
-    WiedervorlageController.$inject = ['$scope', '$stateParams', 'vorgangsmanagement', 'wiedervorlage'];
+    WiedervorlageController.$inject = ['$scope', '$stateParams', 'users', 'wiedervorlage'];
 
 
-    function WiedervorlageController($scope, $stateParams, vorgangsmanagement, wiedervorlage) {
+    function WiedervorlageController($scope, $stateParams, users, wiedervorlage) {
         let vm = this;
-        vm.bearbeiters = vorgangsmanagement.bearbeiters;
-        vm.wiedervolages = vorgangsmanagement.wiedervolages;
         vm.openComment = openComment;
         vm.getRecortdByFilter = getRecortdByFilter;
-        vm.filter = {};
-        vm.commentVisible = false;
-        // function getRecordsById() {
-        //     wiedervorlage.getData({username: vm.filter.username}).then(function (res) {
-        //         vm.wiedervolages = res.wiedervolages;
-        //     });
-        //     console.log();
-        // }
+        vm.commentmain={};
+        vm.vorgangs = [];
+        vm.filter = {
+            user: "All",
+            keine: false,
+            uber: false,
+            heute: false,
+            morgen: false,
+            inden: false,
+            spater: false,
+            // user: false,
+        };
 
-        function openComment() {
+        vm.getRecortdByFilter();
+        vm.commentVisible = false;
+        vm.users = users;
+
+        function openComment(data) {
             vm.commentVisible = true;
+            vm.commentmain=data;
         }
 
         function getRecortdByFilter() {
-            wiedervorlage.getData(vm.filter).then(function (res) {
-                vm.wiedervolages = res.wiedervolages;
+            console.log(vm.filter)
+            wiedervorlage.getVorgangs(vm.filter).then(function (res) {
+                vm.vorgangs = res;
+                console.log(res);
+                console.log('--------')
             });
         }
 
