@@ -2,7 +2,7 @@
     <div class="b-form__title-dark b-form__title">Objektdaten</div>
     <div class="second_form clearfix">
 
-        <div class="b-form__block b-banking clearfix">
+        <div class="b-form__block b-banking banking clearfix">
             <span class="b-form__input">
                 <label for="darl" class="darl">Wofür soll das Darlehen verwendet werden?</label>
                 <select ng-model="vm.immobilieObject.wofur" id="darl">
@@ -28,7 +28,7 @@
         <div class="third_form clearfix">
             <h4 class="b-form__sub-header">Stellplätze: <span>Sind Stellplätze oder Garagen vorhanden?</span>
             </h4>
-            <div class="b-form__list-view b-form__list-view--horizontal clearfix">
+            <div class="b-form__list-view b-form__list-view--horizontal horizontal clearfix">
                 <div class="b-form__list-view-item"
                         ng-repeat="item in vm.menu">
                     <a ng-click="vm.addStellplatze(item)">
