@@ -614,7 +614,7 @@ textarea {
 }
 
 .b-form__half-col {
-    width: 50%;
+    width: 47%;
     box-sizing: border-box;
     float: left;
 }
@@ -977,7 +977,7 @@ textarea {
     content: '';
     display: block;
     position: absolute;
-    left: 50%;
+    left: 45%;
     top: 10px;
     bottom: 14px;
     width: 2px;
@@ -2297,4 +2297,9 @@ textarea {
 .b-form__list-view--horizontal.horizontal:before {
     display: none;
 }
-
+.b-form__list-view .b-form__half-col {
+    width: 50%;
+}
+.third_form .b-form__list-view::before {
+    left: 50%;
+}
