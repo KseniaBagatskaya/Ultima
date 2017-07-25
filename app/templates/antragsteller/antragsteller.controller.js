@@ -53,6 +53,10 @@
             vm.entryObject.banks  = antrag_data.banks || [];
             vm.entryObject.bankverbindungs = antrag_data.bankverbindungs || [];
             vm.entryObject.wis = antrag_data.wis || [];
+            const user = {
+                fname: antrag_data.antragstellers[0].vorname && antrag_data.antragstellers[0].second_name ? `- ${antrag_data.antragstellers[0].second_name} ${antrag_data.antragstellers[0].vorname}` : '',
+            }
+            sessionStorage.setItem('user_credentials', JSON.stringify(user));
         }
 
         function submit() {

@@ -163,17 +163,17 @@
                 templateUrl: 'templates/dokumente/dokumente.html',
                 controller: 'DokumenteController',
                 controllerAs: 'vm',
-                // resolve: {
-                //
-                //     documents_data: function (dokument, $stateParams) {
-                //         const id = $stateParams.id;
-                //         return dokument.getAllDocs(id)
-                //             .then(function (res) {
-                //                 return res;
-                //             });
-                //
-                //     }
-                // }
+                resolve: {
+                
+                    documents_data: function (dokument, $stateParams) {
+                        const id = $stateParams.id;
+                        return dokument.getAllDocs(id)
+                            .then(function (res) {
+                                return res;
+                            });
+                
+                    }
+                }
             })
 
 

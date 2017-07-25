@@ -18,7 +18,7 @@
         vm.addRechte = addRechte;
         vm.submit = submit;
         vm.isSubmited = false;
-
+        vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
         $scope.$watch("vm.immobilieObject", debounce(submit, 1000), true);
 
         if (immobilie_data) {
