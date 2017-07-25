@@ -14,9 +14,9 @@
         vm.toggleAnfrage = toggleAnfrage;
         vm.convertDateFromString = antragsteller.convertDateFromString;
         vm.anfrageIsOpened = false;
-        // vm.banks = banks.getAllBanks();
         vm.banks = JSON.parse($scope.banks);
         vm.currentDate = new Date();
+        vm.match = antragsteller.getAblehnung();
 
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
@@ -32,7 +32,6 @@
             }
         });
 
-        vm.match = antragsteller.getAblehnung();
 
 
     }
