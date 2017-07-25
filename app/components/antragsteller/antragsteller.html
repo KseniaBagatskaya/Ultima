@@ -361,10 +361,94 @@
         </div>
         <div class="b-form__half-col b-form__half-col--first">
                                 <span class="b-form__input">
+                                    <label for="beruf">Beruf</label>
+                                    <input id="beruf" type="text">
+                                </span>
+        </div>
+        <div class="b-form__half-col b-form__half-col--last">
+                                <span class="b-form__input">
+                                    <label for="anzahl">Anzahl der Gehälter pro Jahr</label>
+                                    <select id="anzahl" >
+                                        <option value=""></option>
+                                    </select>
+
+                                </span>
+        </div>
+        <div class="b-form__half-col b-form__half-col--first">
+                                <span class="b-form__input">
                                     <label for="arbeitgeber">Arbeitgeber</label>
                                     <input id="arbeitgeber" type="text"
                                            ng-model="vm.data.arbeitgeber" tabindex="{{(vm.data.number*100)+16}}">
                                 </span>
+        </div>
+
+        <div class="b-form__half-col b-form__half-col--last">
+            <span class="b-form__radio-label">
+                <label>Ist der Arbeitgeber in Deutschland ansässig?</label>
+                <span class="b-form__col b-form__inline">
+                    <span class="b-form__radio">
+                        <input  type="radio">
+                        <label >ja</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input type="radio">
+                        <label>nein</label>
+                    </span>
+                </span>
+            </span>
+        </div>
+
+        <div class="b-form__half-col b-form__half-col--first">
+            <span class="b-form__col b-form__inline">
+            <span class="b-form__input">
+                <label for="beschäftigt">Beschäftigt seit</label>
+                <input type="date" id="beschäftigt">
+            </span>
+            <span>
+                <input type="checkbox" id="probezeit">
+                <label for="probezeit">Probezeit</label>
+            </span>
+        </span>
+        </div>
+
+        <div class="b-form__half-col b-form__half-col--last">
+                        <span class="b-form__radio-label">
+                <label>Beschäftigungsstatus</label>
+                <span class="b-form__col b-form__inline">
+                    <span class="b-form__radio">
+                        <input  type="radio">
+                        <label >unbefristet</label>
+                    </span>
+                    <span class="b-form__radio">
+                        <input type="radio">
+                        <label>befristet</label>
+                    </span>
+                </span>
+            </span>
+        </div>
+        <p class="divider"></p>
+        <div class="situation" ><p>Situation nach Renteneintritt</p></div>
+        <div class="rente-row">
+            <span class="b-form__input short_span b-form__address-short">
+                <label for="rentenbeginn">Rentenbeginn</label>
+                <input type="text" name="rentenbeginn" id="rentenbeginn">
+            </span>
+
+            <span class="b-form__input short_span b-form__euro  b-form__address-short">
+                <label for="rente">Gesetzliche Rente</label>
+                <input type="text" name="renten" id="rente">
+            </span>
+
+            <span class="b-form__input short_span b-form__euro  b-form__address-short">
+                <label for="p_rente">Private Rente</label>
+                <input type="text" name="p_renten" id="p_rente">
+            </span>
+
+            <span class="b-form__input short_span b-form__euro  b-form__address-short">
+                <label for="sonstiges">Sonstiges Einkommen</label>
+                <input type="text" name="sonstiges" id="sonstiges">
+            </span>
+
         </div>
     </div>
 </div>
