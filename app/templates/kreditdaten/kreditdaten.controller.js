@@ -47,7 +47,6 @@
 
         function submit() {
             vm.data.entryId = $stateParams.id;
-            console.log(vm.data)
             kreditdaten.update(vm.data);
         }
 
