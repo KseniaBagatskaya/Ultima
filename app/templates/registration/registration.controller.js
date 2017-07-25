@@ -14,6 +14,7 @@
         vm.newUser = {
             Email: '',
             Password: '',
+            Benutzername: '',
             PrimaryRole: 0,
         }
         vm.users = users_list || [];
