@@ -6,8 +6,8 @@
 
         .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['$scope', '$state'];
-    function HeaderController($scope, $state) {
+    HeaderController.$inject = ['$scope', '$state', 'users_data'];
+    function HeaderController($scope, $state, users_data) {
 
         let vm = this;
         vm.logout = logout;
@@ -16,6 +16,7 @@
             toggleModal: _toggleModal,
             suggestions: [],
         }
+        vm.users_data = users_data;
 
         function logout() {
             sessionStorage.removeItem('user');
@@ -23,7 +24,6 @@
         }
 
         function _toggleModal() {
-            console.log(vm.modal.isOpened)
             vm.modal.isOpened = !vm.modal.isOpened;
         }
 

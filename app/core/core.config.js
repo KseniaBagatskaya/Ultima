@@ -17,6 +17,16 @@
                 templateUrl: 'templates/header/header.html',
                 controller: 'HeaderController',
                 controllerAs: 'vm',
+                resolve: {
+                    users_data: function (dashboard) {
+                        return dashboard.getAllMembers()
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+
+                    },
+                }
             })
             .state('app.tabs', {
                 abstract: true,
