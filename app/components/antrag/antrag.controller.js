@@ -12,11 +12,12 @@
 
         vm.data = $scope.parent;
         vm.data.erstelltam = new Date();
+        vm.user = JSON.parse(sessionStorage.getItem('user'));
+        vm.data.bearbeiter = vm.user.Benutzername;
         vm.convertDateFromString = antragsteller.convertDateFromString;
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
         vm.changeWiedervorlage = changeWiedervorlage;
-        // vm.banks = banks.getAllBanks();
         vm.banks = JSON.parse($scope.banks);
         vm.addAnfrage = addAnfrage;
         vm.deleteAnfrage = deleteAnfrage;
