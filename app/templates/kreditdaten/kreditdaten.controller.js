@@ -17,11 +17,11 @@
         vm.deleteAntrag = deleteAntrag;
         vm.submit = submit;
         vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
+        vm.entryVorgang = JSON.parse(sessionStorage.getItem('entrie_vorgang')) || {};
         vm.data = {
-            erstelltam: new Date(),
             datum: new Date(),
-            wunsch: '',
-            auftragseingang: '',
+            wunsch: vm.entryVorgang.Finanzbedarf || '',
+            auftragseingang: vm.entryVorgang.Kontaktart || '',
             antrags: [],
         };
 

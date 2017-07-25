@@ -36,6 +36,7 @@
 
         function submit() {
             dashboard.submitVorgang(vm.data);
+            sessionStorage.setItem('entrie_vorgang', JSON.stringify(vm.data));
         }
 
         function vornameClicked(code, id) {
