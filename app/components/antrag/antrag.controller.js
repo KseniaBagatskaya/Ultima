@@ -22,6 +22,7 @@
         vm.deleteAnfrage = deleteAnfrage;
         vm.toggleAnfrage = toggleAnfrage;
         vm.addFinanzierungsbausteine = addFinanzierungsbausteine;
+        vm.match = antragsteller.getAblehnung();
 
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {

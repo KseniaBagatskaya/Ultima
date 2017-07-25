@@ -24,12 +24,12 @@
                                 <input ng-model="vm.data.abgerechnet" value="true" name="abgerechnet" id="billed"
                                        type="checkbox">
                             </span>
-            <span class="b-form__input b-form__input-middle some-date">
-                                <label for="some_date">Ablehnungsgrund</label>
-                                <select ng-model="vm.data.field" id="some_date" type="text">
-                                    <option></option>
-                                </select>
-                            </span>
+            <span class="b-form__input">
+        <label for="selectablehnungsgrund" style="padding-bottom: 2px">Ablehnungsgrund</label>
+        <select ng-model="vm.data.field" id="selectablehnungsgrund">
+            <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
+        </select>
+    </span>
             <span class="b-form__input b-form__input-short">
                                 <label for="requests">Anfragen</label>
                                 <input ng-model="vm.data.anfragen" id="requests" type="text">

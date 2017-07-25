@@ -15,6 +15,8 @@
         vm.addFlurstuck = addFlurstuck;
         vm.deleteFlurstuck = deleteFlurstuck;
         vm.deleteStellplatze = deleteStellplatze;
+        vm.addDarlehen = addDarlehen;
+        vm.deleteDarlehen = deleteDarlehen;
         vm.addRechte = addRechte;
         vm.submit = submit;
         vm.isSubmited = false;
@@ -63,7 +65,8 @@
                     betrag: '',
                     beschreibung: '',
                     anmerkungen: '',
-                }
+                },
+                darlehens: [],
             }
         }
 
@@ -143,6 +146,15 @@
             vm.immobilieObject.Rechte.isOpened = true;
         }
 
+        function deleteDarlehen(index) {
+            vm.immobilieObject.darlehens.splice(index, 1);
+        }
+
+        function addDarlehen() {
+            vm.immobilieObject.darlehens.push({
+                _delete: deleteDarlehen
+            });
+        }
 
         function submit() {
             immobilie.update(vm.immobilieObject);
