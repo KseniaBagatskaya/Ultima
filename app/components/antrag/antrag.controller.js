@@ -17,12 +17,10 @@
         vm.anfrageIsOpened = false;
         vm.changeWiedervorlage = changeWiedervorlage;
         vm.banks = banks.getAllBanks();
-        // vm.data.anfrages = [];
         vm.addAnfrage = addAnfrage;
         vm.deleteAnfrage = deleteAnfrage;
         vm.toggleAnfrage = toggleAnfrage;
         vm.addFinanzierungsbausteine = addFinanzierungsbausteine;
-        // vm.data.finanzierungsbausteines = [];
 
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
@@ -31,9 +29,6 @@
                 vm.anfrageIsOpened = true;
             }
         }
-
-
-        console.log(vm.data)
 
         function addAnfrage() {
             if (typeof vm.data.anfrages === 'undefined') {
