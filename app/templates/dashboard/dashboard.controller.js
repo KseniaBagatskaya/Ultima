@@ -38,8 +38,6 @@
             dashboard.submitVorgang(vm.data);
         }
 
-        alert('hello world deployed from git')
-
         function vornameClicked(code, id) {
             console.log(code)
             sessionStorage.setItem('transactionId', code);
