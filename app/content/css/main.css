@@ -2287,7 +2287,7 @@ textarea {
     margin-right: 0;
 }
 .some-date {
-    width: 18%;
+    width: 12%;
 }
 .smaller-date {
     width: 31%;
@@ -2302,4 +2302,22 @@ textarea {
 }
 .third_form .b-form__list-view::before {
     left: 50%;
+}
+.antrag-container .antrag-first .b-form__input{
+    margin-right: 3px;
+}
+.antrag-container .antrag-first span:nth-of-type(1),
+.antrag-container .antrag-first span:nth-of-type(3){
+    width: 12%;
+}
+.b-form__input.comments {
+    padding-bottom: 0;
+    vertical-align: top;
+}
+.some-date select{
+    padding: 0;
+    height: 20px;
+}
+.antrag-container .antrag-first span:nth-of-type(7) input{
+    padding: 0;
 }
