@@ -1622,6 +1622,7 @@ button:hover {
 
 .dropdown:hover .dropdown-content {
     display: block;
+    padding: 10px;
 }
 
 /*dropIn*/
@@ -2320,4 +2321,34 @@ textarea {
 }
 .antrag-container .antrag-first span:nth-of-type(7) input{
     padding: 0;
+}
+.antrag-container .antrag-first span:nth-of-type(7){
+    margin-right: 6px;
+}
+#anzahl {
+    width: 30%;
+}
+#beschäftigt {
+    width: 80%;
+}
+.situation {
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.rente-row .short_span {
+    margin-right: 15px;
+}
+.block-right .b-remarks{
+    margin-left: 4px;
+}
+.block-right .braus {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0;
+    padding-right: 2px;
+}
+#cash {
+    padding: 0;
+    margin: 0 140px 5px 0;
 }
