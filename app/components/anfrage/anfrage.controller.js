@@ -11,8 +11,6 @@
         let vm = this;
         vm.data = $scope.parent;
         vm.index = $scope.index;
-        vm.addDarlehen = addDarlehen;
-        vm.deleteDarlehen = deleteDarlehen;
         vm.toggleAnfrage = toggleAnfrage;
         vm.convertDateFromString = antragsteller.convertDateFromString;
         vm.anfrageIsOpened = false;
@@ -32,21 +30,6 @@
                 vm.data.fieldOne = vm.currentDate;
             }
         });
-
-        function setCurrentDate() {
-
-        }
-
-
-        function addDarlehen() {
-            vm.data.darlehens.push({
-                _delete: deleteDarlehen
-            });
-        }
-
-        function deleteDarlehen(index) {
-            vm.data.darlehens.splice(index, 1);
-        }
 
         vm.match = [
             'nicht abgelehnt',
