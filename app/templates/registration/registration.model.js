@@ -11,7 +11,8 @@
 
         let service = {
             getAllUsers: getAllUsers,
-            addUser: addUser
+            addUser: addUser,
+            getUsers: getUsers
         };
         return service;
 
@@ -24,12 +25,12 @@
                 });
         }
 
+        function getUsers() {
+            return http.get(url.registration.index);
+        }
+
         function addUser(data) {
-            return http.post(url.registration.addUser, data)
-                .then(function (res) {
-                    console.log(res, 'res');
-                    return res;
-                });
+            return http.post(url.registration.addUser, data);
         }
 
 

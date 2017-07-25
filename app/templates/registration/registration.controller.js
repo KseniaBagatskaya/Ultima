@@ -21,7 +21,11 @@
 
 
         function register() {
-            registration.addUser(vm.newUser);
+            registration.addUser(vm.newUser)
+                .then(() => {
+                    registration.getUsers()
+                        .then(res => vm.users = res);
+                });
         }
     }
 
