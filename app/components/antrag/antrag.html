@@ -25,7 +25,7 @@
                                        type="checkbox">
                             </span>
 
-            <span class="b-form__input">
+            <span class="b-form__input ablehnungsgrund">
         <label for="selectablehnungsgrund" style="padding-bottom: 2px">Ablehnungsgrund</label>
         <select ng-model="vm.data.field" id="selectablehnungsgrund">
             <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
@@ -49,11 +49,7 @@
                             </span>
             <span class=" b-form__input comments">
             <label for="comments">Kommentar</label>
-<<<<<<< HEAD
-        <textarea name="comments" id="comments"></textarea>
-=======
         <textarea name="comments" id="comments" ng-model="vm.data.comment"></textarea>
->>>>>>> 760e8d688e00b64900597f0a3700436558debda9
     </span>
 
             <span class="b-form__input firstAreaDelete">

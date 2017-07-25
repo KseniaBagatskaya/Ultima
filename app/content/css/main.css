@@ -2287,7 +2287,7 @@ textarea {
     width: 34%;
     margin-right: 0;
 }
-.some-date {
+.b-form__input.ablehnungsgrund {
     width: 12%;
 }
 .smaller-date {
@@ -2315,13 +2315,13 @@ textarea {
     padding-bottom: 0;
     vertical-align: top;
 }
-.some-date select{
+.b-form__input.ablehnungsgrund select{
     padding: 0;
     height: 20px;
 }
 .antrag-container .antrag-first span:nth-of-type(7) input{
     padding: 0;
-<<<<<<< HEAD
+/*<<<<<<< HEAD*/
 }
 .antrag-container .antrag-first span:nth-of-type(7){
     margin-right: 6px;
@@ -2352,6 +2352,14 @@ textarea {
 #cash {
     padding: 0;
     margin: 0 140px 5px 0;
-=======
->>>>>>> 760e8d688e00b64900597f0a3700436558debda9
+/*=======*/
+/*>>>>>>> 760e8d688e00b64900597f0a3700436558debda9*/
+}
+.gr-erfassen .darlehen-list .b-form__euro::after{
+    right: 25px;
+}
+.gr-erfassen .darlehen-list .delete{
+    width: 85px!important;
+    margin: 0;
+    text-align: right;
 }
