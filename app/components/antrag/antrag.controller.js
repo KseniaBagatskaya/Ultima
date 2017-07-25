@@ -12,18 +12,18 @@
 
         vm.data = $scope.parent;
         vm.data.erstelltam = new Date();
+        vm.user = JSON.parse(sessionStorage.getItem('user'));
+        vm.data.bearbeiter = vm.user.Benutzername;
         vm.convertDateFromString = antragsteller.convertDateFromString;
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
         vm.changeWiedervorlage = changeWiedervorlage;
-        // vm.banks = banks.getAllBanks();
-        vm.banks = $scope.banks;
+        vm.banks = JSON.parse($scope.banks);
         vm.addAnfrage = addAnfrage;
         vm.deleteAnfrage = deleteAnfrage;
         vm.toggleAnfrage = toggleAnfrage;
         vm.addFinanzierungsbausteine = addFinanzierungsbausteine;
         vm.match = antragsteller.getAblehnung();
-
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
                 vm.anfrageIsOpened = false;

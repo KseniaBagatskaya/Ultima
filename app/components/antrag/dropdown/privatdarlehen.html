@@ -24,7 +24,7 @@
             <span class="text-title">Bank:</span>
             <span class="b-form__input b-form__input-large">
         <select ng-model="item.bank" id="bank">
-            <option ng-repeat="selector in vm.banks | orderBy: '' track by $index" value="{{$index}}">{{selector}}</option>
+            <option ng-repeat="selector in vm.banks | orderBy: '' track by $index" value="{{selector.BankanschriftId}}">{{selector.Name}}</option>
         </select>
     </span>
         </div>
