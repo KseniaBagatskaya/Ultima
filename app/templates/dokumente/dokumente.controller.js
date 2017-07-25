@@ -14,6 +14,7 @@
         vm.documents = documents_data;
         vm.addDocument = addDocument;
         vm.file = null;
+        vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
 
         function addDocument(e) {
             const formData = new FormData();

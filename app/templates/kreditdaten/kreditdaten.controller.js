@@ -16,6 +16,7 @@
         vm.addAntrag = addAntrag;
         vm.deleteAntrag = deleteAntrag;
         vm.submit = submit;
+        vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
         vm.data = {
             erstelltam: new Date(),
             datum: new Date(),

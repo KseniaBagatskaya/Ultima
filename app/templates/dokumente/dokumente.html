@@ -2,7 +2,9 @@
     <div class="container">
         <div class="b-tabs">
             <div class="b-tabs__container">
-                <form class="document-input" ng-submit="vm.addDocument($event)" name="uploadForm">
+                <div class="b-form__title-dark b-form__title">Dokumente {{vm.userCredentials.fname}}</div>
+                <form class="document-input" action="http://itls-hh.eu/Document/UploadFile" name="uploadForm" enctype="multipart/form-data" method="post">
+                    <input type="text" name="Id" ng-value="vm.id" style="visibility: hidden; display: none;">
                     <button class="add-document-button" type="submit">Dokumente hinzufügen</button>
                     <input required ng-model="vm.file" id="file-id" type="file" name="Upload">
                 </form>
