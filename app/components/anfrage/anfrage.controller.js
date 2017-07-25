@@ -16,7 +16,8 @@
         vm.toggleAnfrage = toggleAnfrage;
         vm.convertDateFromString = antragsteller.convertDateFromString;
         vm.anfrageIsOpened = false;
-        vm.banks = banks.getAllBanks();
+        // vm.banks = banks.getAllBanks();
+        vm.banks = JSON.parse($scope.banks);
         vm.currentDate = new Date();
 
         function toggleAnfrage() {

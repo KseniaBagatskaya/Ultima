@@ -11,7 +11,8 @@
 
         let service = {
             getData: getData,
-            update: update
+            update: update,
+            getAllBanks: getAllBanks
         };
         return service;
 
@@ -35,7 +36,13 @@
                 });
         }
 
-
+        function getAllBanks() {
+            return http.get(url.banks.list)
+                .then(function (res) {
+                    console.log(res, 'res');
+                    return res;
+                });
+        }
     }
 
 

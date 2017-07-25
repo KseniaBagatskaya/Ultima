@@ -16,7 +16,8 @@
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
         vm.changeWiedervorlage = changeWiedervorlage;
-        vm.banks = banks.getAllBanks();
+        // vm.banks = banks.getAllBanks();
+        vm.banks = $scope.banks;
         vm.addAnfrage = addAnfrage;
         vm.deleteAnfrage = deleteAnfrage;
         vm.toggleAnfrage = toggleAnfrage;

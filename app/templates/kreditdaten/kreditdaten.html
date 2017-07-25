@@ -28,7 +28,8 @@
                                         <input ng-model="vm.data.wunsch" id="wish" type="text">
                                     </span>
                             </div>
-                            <div class="b-buy__item b-buy__begin" ng-init="vm.data.datum=vm.convertDateFromString(vm.data.datum)">
+                            <div class="b-buy__item b-buy__begin"
+                                 ng-init="vm.data.datum=vm.convertDateFromString(vm.data.datum)">
                                     <span class="b-form__input">
                                         <label for="date">Datum</label>
                                         <input ng-model="vm.data.datum" id="date" type="date">
@@ -43,7 +44,8 @@
                     </li>
                 </ul>
             </div>
-            <button class="btn btn--light mr-10" style="margin-bottom: 10px;" id="antrag" ng-click="vm.addAntrag()">Neuer
+            <button class="btn btn--light mr-10" style="margin-bottom: 10px;" id="antrag" ng-click="vm.addAntrag()">
+                Neuer
                 Antrag
             </button>
         </div>
@@ -52,7 +54,7 @@
     <div class="first_form clearfix third_tab_item">
         <div class="b-form__block">
             <antrag ng-repeat="antrag in vm.data.antrags track by $index" data-parent="antrag"
-                    data-index="{{$index}}"></antrag>
+                    data-index="{{$index}}" data-banks="{{vm.banks}}"></antrag>
         </div>
     </div>
 

@@ -64,7 +64,7 @@
             <button class="btn btn--light mr-10" ng-click="vm.addAnfrage()">Neue Anfrage</button>
             <!--ANFRAGE START-->
             <anfrage ng-repeat="anfrage in vm.data.anfrages track by $index" data-parent="anfrage"
-                     data-index="{{$index}}"></anfrage>
+                     data-index="{{$index}}" data-banks="{{vm.banks}}"></anfrage>
             <!--ANFRAGE END-->
             <div class="b-form__title-dark b-form__title iterate_header" style="margin: 25px 0;">
                 <span>Finanzierungswunsch</span>

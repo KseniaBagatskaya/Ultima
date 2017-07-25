@@ -11,7 +11,8 @@
             restrict: 'E',
             scope: {
                 parent: '=',
-                index: '@'
+                index: '@',
+                banks: '@'
             },
             templateUrl: 'components/antrag/antrag.html',
             controller: 'AntragController',

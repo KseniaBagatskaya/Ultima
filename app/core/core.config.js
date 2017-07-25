@@ -156,7 +156,6 @@
                 controller: 'KreditdatenController',
                 controllerAs: 'vm',
                 resolve: {
-
                     kreditdaten_data: function (kreditdaten, $stateParams) {
                         let id = $stateParams.id;
                         return kreditdaten.getData(id)
@@ -165,6 +164,13 @@
                                 return res;
                             });
                     },
+                    allBanks:function (kreditdaten) {
+                        return kreditdaten.getAllBanks()
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+                    }
                 }
             })
             .state('app.tabs.dokumente', {

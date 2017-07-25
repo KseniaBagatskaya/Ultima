@@ -7,7 +7,6 @@
                 let baseUrlNew = 'http://svm.biz.ua/api/web/v1/';
                 return {
                     user: {
-
                         login: baseUrl + 'AccountManage/Authentication',
                         register: baseUrlNew + 'user/registration'
                     },
@@ -47,6 +46,9 @@
                     wiedervorlage: {
                         index: baseUrl + 'VorgangsManagement/GetAllUsers',
                         vorgangs: baseUrl + 'VorgangsManagement/GetVorgangs'
+                    },
+                    banks: {
+                        list: baseUrl + 'VorgangsManagement/GetAllBankanschrifts'
                     }
                 };
 
