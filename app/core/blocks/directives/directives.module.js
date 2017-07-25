@@ -11,7 +11,8 @@
         'directive.weiteres-darlehen',
         'directive.antrag',
         'directive.anfrage',
-        'directive.search'
+        'directive.search',
+        'directive.wiedervolage-comment'
     ]);
 
 })();

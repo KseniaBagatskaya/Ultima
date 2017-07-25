@@ -53,7 +53,7 @@
 				</span>
         </div>
         <div class="cbt2">
-            <div class="cbt2-middle" style="cursor: pointer" ng-repeat="wiedervolage in vm.vorgangs track by $index" ng-click="vm.openComment()">
+            <div class="cbt2-middle" style="cursor: pointer" ng-repeat="wiedervolage in vm.vorgangs track by $index" ng-click="vm.openComment(wiedervolage)">
                 <div class="cbt2-middle-top">
                     <input type="checkbox" name="">
                     <h3>{{wiedervolage.Code}}<br>{{wiedervolage.Nachname}} {{wiedervolage.Vorname}}</h3>
@@ -70,45 +70,6 @@
                 </div>
             </div>
         </div>
-        <div class="cbt3" ng-if="vm.commentVisible">
-            <div class="cbt3-title">
-                <h3>Pohl/Pohl</h3>
-                <img src="content/images/icons/mail.png">
-                <p>Eigene Vorgangsummer:</p>
-            </div>
-            <div class="cbt3-big-user">
-                <ul>
-                    <li>
-                        <img src="content/images/icons/big_user.png" alt="">
-                        <div class="big-user-title">
-                            <a href="#">Friedrich, Thorsten</a>
-                            <p>Kundenbetreuer</p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="content/images/icons/big_user.png" alt="">
-                        <div class="big-user-title">
-                            <a href="#">Friedrich, Thorsten</a>
-                            <p>Bearbeiter</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <div class="comment">
-                    <img src="content/images/icons/description.png">
-                    <textarea placeholder="Kommentar zum Vorgang hinzufügen"></textarea>
-                </div>
-                <div class="del">
-                    <label>Wiedervorlage zum</label>
-                    <input type="text" name="">
-                    <img src="content/images/icons/trash_basket.png">
-                </div>
-                <div class="alarm">
-                    <textarea placeholder="Wiedervorlage zum Vorgang erfassen"></textarea>
-                </div>
-            </div>
-            <a href="#">Vorgang archivieren</a>
-        </div>
+        <wiedervolage-comment ng-if="vm.commentVisible" parent="vm.commentmain"></wiedervolage-comment>
     </div>
 </div>

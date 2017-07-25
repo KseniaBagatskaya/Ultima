@@ -25,7 +25,7 @@
                         sessionStorage.setItem('user', JSON.stringify(res));
                         $state.go('app.dashboard')
                     } else {
-                        for(var key in res.msg) {
+                        for (var key in res.msg) {
                             toastr.error(res.msg[key][0], 'Login failed');
                         }
                     }

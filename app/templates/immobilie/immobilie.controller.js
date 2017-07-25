@@ -143,6 +143,7 @@
             vm.immobilieObject.Rechte.isOpened = true;
         }
 
+
         function submit() {
             immobilie.update(vm.immobilieObject);
         }

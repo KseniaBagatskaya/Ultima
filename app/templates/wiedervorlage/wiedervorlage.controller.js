@@ -12,6 +12,7 @@
         let vm = this;
         vm.openComment = openComment;
         vm.getRecortdByFilter = getRecortdByFilter;
+        vm.commentmain={};
         vm.vorgangs = [];
         vm.filter = {
             user: "All",
@@ -21,15 +22,16 @@
             morgen: false,
             inden: false,
             spater: false,
-            user: false,
+            // user: false,
         };
 
         vm.getRecortdByFilter();
         vm.commentVisible = false;
         vm.users = users;
 
-        function openComment() {
+        function openComment(data) {
             vm.commentVisible = true;
+            vm.commentmain=data;
         }
 
         function getRecortdByFilter() {
