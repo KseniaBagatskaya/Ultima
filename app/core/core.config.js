@@ -125,8 +125,7 @@
                         console.log(id)
                         return antragsteller.getData(id)
                             .then(function (res) {
-                                sessionStorage.setItem('transactionId', `${res.Id || 0}`);
-                                console.log(res, 'res');
+                                // sessionStorage.setItem('transactionId', `${res.Code || 0}`);
                                 return res;
                             });
                     },

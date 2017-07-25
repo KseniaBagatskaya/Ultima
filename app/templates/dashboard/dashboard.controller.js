@@ -11,6 +11,7 @@
     function DashboardController($scope, users_data, url, http, $state,  partners, dashboard) {
         let vm = this;
         const user = JSON.parse(sessionStorage.getItem('user'));
+        vm.vornameClicked = vornameClicked;
         vm.data = {
             Verwendungszweck: "1",
             Plz: "",
@@ -35,6 +36,12 @@
 
         function submit() {
             dashboard.submitVorgang(vm.data);
+        }
+
+        function vornameClicked(code, id) {
+            console.log(code)
+            sessionStorage.setItem('transactionId', code);
+            $state.go('app.tabs.antragsteller', {id: id});
         }
 
         vm.werbung = [
