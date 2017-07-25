@@ -22,6 +22,7 @@
         vm.addAnfrage = addAnfrage;
         vm.deleteAnfrage = deleteAnfrage;
         vm.toggleAnfrage = toggleAnfrage;
+        vm.confertStringTodate = confertStringTodate;
         vm.addFinanzierungsbausteine = addFinanzierungsbausteine;
         vm.match = antragsteller.getAblehnung();
         function toggleAnfrage() {
@@ -45,8 +46,12 @@
             return date;
         }
 
+        function confertStringTodate(date) {
+            return new Date(parseInt(date));
+        }
+
         function changeWiedervorlage() {
-            vm.data.wiedervorlage = + new Date(vm.data.wiedervorlaget);
+            vm.data.wiedervorlage = +new Date(vm.data.wiedervorlaget);
         }
 
         function deleteAnfrage(index) {
