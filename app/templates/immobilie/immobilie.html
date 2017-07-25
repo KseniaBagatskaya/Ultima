@@ -1,5 +1,5 @@
 <div class="b-tabs__container">
-    <div class="b-form__title-dark b-form__title">Objektdaten</div>
+    <div class="b-form__title-dark b-form__title">Objektdaten {{vm.userCredentials.fname}}</div>
     <div class="second_form clearfix">
 
         <div class="b-form__block b-banking banking clearfix">
@@ -18,10 +18,10 @@
 
         <div class="first_form clearfix">
             <div class="wrap-form">
-                <basisangaben data-parent="vm.immobilieObject.basisangaben" />
+                <basisangaben data-parent="vm.immobilieObject.basisangaben"/>
             </div>
             <div class="wrap-form">
-                <nutzung data-nutzung="vm.immobilieObject.nutzung" data-zusatzliche="vm.immobilieObject.zusatzliche" />
+                <nutzung data-nutzung="vm.immobilieObject.nutzung" data-zusatzliche="vm.immobilieObject.zusatzliche"/>
             </div>
         </div>
 
@@ -30,18 +30,19 @@
             </h4>
             <div class="b-form__list-view b-form__list-view--horizontal horizontal clearfix">
                 <div class="b-form__list-view-item"
-                        ng-repeat="item in vm.menu">
+                     ng-repeat="item in vm.menu">
                     <a ng-click="vm.addStellplatze(item)">
                         <img class="btn btn__plus btn--light"
-                                src="content/images/icons/plus.png"
-                                alt="plus_btn">
+                             src="content/images/icons/plus.png"
+                             alt="plus_btn">
                         {{item.name}}
                     </a>
                 </div>
             </div>
 
             <div class="b-form__block" ng-repeat="item in vm.immobilieObject.StellplatzeList track by $index">
-                <div class="b-form__group b-buy" ng-include="'templates/immobilie/stellplatze/'+item.id+'.html'"></div>
+                <div class="b-form__group b-buy"
+                     ng-include="'templates/immobilie/stellplatze/'+item.propId+'.html'"></div>
             </div>
         </div>
 
@@ -50,10 +51,10 @@
             <h4 class="b-form__sub-header">Grundbuchangaben:</h4>
             <h4 class="b-form__sub-header bankverbindung">
                 <img class="btn btn__plus btn--light"
-                        src="content/images/icons/plus.png"
-                        ng-click="vm.addGrundbuchdaten()"
-                        ng-hide="vm.immobilieObject.Grundbuchdaten.isOpened"
-                        alt="plus_btn"> Grundbuchdaten erfassen</h4>
+                     src="content/images/icons/plus.png"
+                     ng-click="vm.addGrundbuchdaten()"
+                     ng-hide="vm.immobilieObject.Grundbuchdaten.isOpened"
+                     alt="plus_btn"> Grundbuchdaten erfassen</h4>
             <div class=" b-form__block" ng-show="vm.immobilieObject.Grundbuchdaten.isOpened">
                 <span class="b-form__address clearfix ">
                             <span class="b-form__input b-form__address-short">
@@ -72,9 +73,9 @@
                     <div class="b-form__list-view-item">
                         <a>
                             <img class="btn btn__plus btn--light"
-                                    src="content/images/icons/plus.png"
-                                    alt="plus_btn"
-                                    ng-click="vm.addFlurstuck()">
+                                 src="content/images/icons/plus.png"
+                                 alt="plus_btn"
+                                 ng-click="vm.addFlurstuck()">
                             Weiteres Flurstück erfassen
                         </a>
                     </div>
@@ -90,7 +91,7 @@
                     }
                 </style>
                 <div style="background: rgb(255,255,255);padding: 5px 5px;margin: 0 1.5px 0 1px;"
-                    ng-repeat="item in vm.immobilieObject.Grundbuchdaten.Flurstuck track by $index">
+                     ng-repeat="item in vm.immobilieObject.Grundbuchdaten.Flurstuck track by $index">
                     <span class="b-form__address address clearfix ">
                             <span class="b-form__input short_span b-form__address-short  flur">
                                 <label for="flur">Flur</label>
@@ -114,29 +115,32 @@
                             </span>
                             <span class="b-form__input short_span b-form__address-short trash">
                                 <img src="content/images/icons/trash_basket.png"
-                                        class="btn btn__trash btn--light"
-                                        style="margin-top: 15px;"
-                                        ng-click="vm.deleteFlurstuck($index)">
+                                     class="btn btn__trash btn--light"
+                                     style="margin-top: 15px;"
+                                     ng-click="vm.deleteFlurstuck($index)">
                             </span>
                         </span>
                 </div>
                 <h4 class="b-form__sub-header">
                     <img class="btn btn__plus btn--light"
-                        src="content/images/icons/plus.png"
-                        ng-click="vm.addRechte()"
-                        ng-hide="vm.immobilieObject.Rechte.isOpened"
-                        alt="plus_btn">
+                         src="content/images/icons/plus.png"
+                         ng-click="vm.addRechte()"
+                         ng-hide="vm.immobilieObject.Rechte.isOpened"
+                         alt="plus_btn">
                     Rechte in Abteilung II vorhanden?
                 </h4>
-                <div ng-show="vm.immobilieObject.Rechte.isOpened" style="background: rgb(255,255,255);padding: 5px 5px;margin: 0 1.5px 0 1px;">
+                <div ng-show="vm.immobilieObject.Rechte.isOpened"
+                     style="background: rgb(255,255,255);padding: 5px 5px;margin: 0 1.5px 0 1px;">
                     <span class="b-form__address clearfix ">
                             <span class="b-form__input short_span b-form__address-short">
                                 <label for="betrag">Betrag (wertmindernd)</label>
-                                <input ng-model="vm.immobilieObject.Rechte.betrag" class="short_input" id="betrag" type="text">
+                                <input ng-model="vm.immobilieObject.Rechte.betrag" class="short_input" id="betrag"
+                                       type="text">
                             </span>
                             <span class="b-form__input short_span b-form__address-short">
                                 <label for="beschreibung">Beschreibung</label>
-                                <input ng-model="vm.immobilieObject.Rechte.beschreibung" class="short_input" id="beschreibung" type="text">
+                                <input ng-model="vm.immobilieObject.Rechte.beschreibung" class="short_input"
+                                       id="beschreibung" type="text">
                             </span>
                         </span>
                 </div>
@@ -146,20 +150,28 @@
                                 <textarea ng-model="vm.immobilieObject.Rechte.anmerkungen" id="anmerkungen"></textarea>
                             </span>
                         </span>
+                <div class="b-form__list-view b-form__list-view--horizontal clearfix">
+                    <h4 class="b-form__sub-header">
+                        Darlehen:<span>Sind Rechte in Abteilung III im Grundbuch vorhanden?</span></h4>
+
+                    <div class="b-form__list-view-item">
+                        <a>
+                            <img class="btn btn__plus btn--light"
+                                 src="content/images/icons/plus.png"
+                                 alt="plus_btn"
+                                 ng-click="vm.addDarlehen()">
+                            Weiteres Darlehen erfassen
+                        </a>
+                    </div>
+
+                </div>
+
+                <weitere-darlehen></weitere-darlehen>
+
             </div>
 
 
         </div>
 
-    </div>
-
-    <div class="b-tabs">
-        <ul class="b-tabs__titles clearfix">
-            <li class="b-tabs__custom-item b-tabs__custom-item--right">
-                <button class="btn btn__dark" ng-click="vm.submit()">
-                    Submit
-                </button>
-            </li>
-        </ul>
     </div>
 </div>

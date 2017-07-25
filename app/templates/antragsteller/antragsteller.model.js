@@ -153,6 +153,7 @@
             getData: getData,
             convertDateFromString: convertDateFromString,
             update: update,
+            getAblehnung: getAblehnung
         };
         return service;
 
@@ -198,7 +199,35 @@
         }
 
         function convertDateFromString(date) {
-            return new Date(date);
+            if (date !== null) {
+                return new Date(date);
+            } else {
+                return new Date();
+            }
+        }
+
+        function getAblehnung() {
+            return [
+                'nicht abgelehnt',
+                'neg. Schufa',
+                'Scoring',
+                'ausgelastet',
+                'zu kurz beschäftigt',
+                'zu geringes Einkommen',
+                'keine Angaben',
+                'neg. Schweiz',
+                'neg. AGR',
+                'frischer Kredit',
+                'Antragssumme zu hoch',
+                'Unterschrift Ehepartner',
+                'schleppende Zw',
+                'Kunde-Rücktritt Widerruf',
+                'Spielsucht',
+                'Langzeitkrank',
+                'neg. Kontoführung',
+                'Kredit Rechtsabteilung',
+                'negative VC',
+            ];
         }
     }
 

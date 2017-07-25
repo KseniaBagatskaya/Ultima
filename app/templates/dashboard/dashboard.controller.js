@@ -10,6 +10,8 @@
 
     function DashboardController($scope, users_data, url, http, $state,  partners, dashboard) {
         let vm = this;
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        vm.vornameClicked = vornameClicked;
         vm.data = {
             Verwendungszweck: "1",
             Plz: "",
@@ -19,6 +21,7 @@
             Partnergeschaft: "Ja",
             Genutzt: "Vermietet",
             PartnergeschaftList: "",
+            AuthKey: user.AuthKey
         };
         vm.submit = submit;
         vm.partners = partners;
@@ -33,6 +36,13 @@
 
         function submit() {
             dashboard.submitVorgang(vm.data);
+            sessionStorage.setItem('entrie_vorgang', JSON.stringify(vm.data));
+        }
+
+        function vornameClicked(code, id) {
+            console.log(code)
+            sessionStorage.setItem('transactionId', code);
+            $state.go('app.tabs.antragsteller', {id: id});
         }
 
         vm.werbung = [

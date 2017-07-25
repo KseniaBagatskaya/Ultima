@@ -6,30 +6,22 @@
 
         .controller('RegistrationController', RegistrationController);
 
-    RegistrationController.$inject = ['$scope', 'http', 'url'];
-    function RegistrationController($scope, http, url) {
+    RegistrationController.$inject = ['$scope', 'http', 'url', 'users_list', 'registration'];
+    function RegistrationController($scope, http, url, users_list, registration) {
 
         let vm = this;
         vm.register = register;
         vm.newUser = {
-            username: '',
-            email: '',
-            password: '',
+            Email: '',
+            Password: '',
+            Benutzername: '',
+            PrimaryRole: 0,
         }
+        vm.users = users_list || [];
 
 
         function register() {
-            http.post(url.user.register, vm.newUser)
-                .then(function (res) {
-                    console.log(res, 'res');
-                    if (res.status) {
-                        toastr.info('New user created');
-                    } else {
-                        for(var key in res.msg) {
-                            toastr.error(res.msg[key][0], 'Registration failed');
-                        }
-                    }
-                });
+            registration.addUser(vm.newUser);
         }
     }
 

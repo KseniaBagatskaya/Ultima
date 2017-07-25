@@ -53,8 +53,8 @@
                     dataType: 'json',
                     method: method,
                     headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json; charset=UTF-8'
+                        // 'Accept': 'application/json',
+                        'Content-Type': 'application/json'
                     }
                 };
             }

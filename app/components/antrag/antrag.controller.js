@@ -10,20 +10,19 @@
     function AntragController($scope, banks, antragsteller) {
         let vm = this;
 
-        const user = JSON.parse(sessionStorage.getItem('user'));
         vm.data = $scope.parent;
-        vm.data.bearbeiter = user.username;
         vm.data.erstelltam = new Date();
         vm.convertDateFromString = antragsteller.convertDateFromString;
         vm.index = $scope.index;
         vm.anfrageIsOpened = false;
-        vm.banks = banks.getAllBanks();
-        // vm.data.anfrages = [];
+        vm.changeWiedervorlage = changeWiedervorlage;
+        // vm.banks = banks.getAllBanks();
+        vm.banks = $scope.banks;
         vm.addAnfrage = addAnfrage;
         vm.deleteAnfrage = deleteAnfrage;
         vm.toggleAnfrage = toggleAnfrage;
         vm.addFinanzierungsbausteine = addFinanzierungsbausteine;
-        // vm.data.finanzierungsbausteines = [];
+        vm.match = antragsteller.getAblehnung();
 
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
@@ -33,9 +32,6 @@
             }
         }
 
-
-        console.log(vm.data)
-
         function addAnfrage() {
             if (typeof vm.data.anfrages === 'undefined') {
                 vm.data.anfrages = [];
@@ -43,6 +39,14 @@
             vm.data.anfrages.push({
                 _delete: deleteAnfrage
             });
+        }
+
+        function convertDateFromString(date) {
+            return date;
+        }
+
+        function changeWiedervorlage() {
+            vm.data.wiedervorlage = + new Date(vm.data.wiedervorlaget);
         }
 
         function deleteAnfrage(index) {

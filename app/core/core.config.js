@@ -17,6 +17,16 @@
                 templateUrl: 'templates/header/header.html',
                 controller: 'HeaderController',
                 controllerAs: 'vm',
+                resolve: {
+                    users_data: function (dashboard) {
+                        return dashboard.getAllMembers()
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+
+                    },
+                }
             })
             .state('app.tabs', {
                 abstract: true,
@@ -35,6 +45,16 @@
                 templateUrl: 'templates/registration/registration.html',
                 controller: 'RegistrationController',
                 controllerAs: 'vm',
+                resolve: {
+                    users_list: function (registration) {
+                        return registration.getAllUsers()
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+
+                    },
+                }
             })
             .state('app.dashboard', {
                 url: "/dashboard",
@@ -84,7 +104,7 @@
                 controller: 'WiedervorlageController',
                 controllerAs: 'vm',
                 resolve: {
-                    vorgangsmanagement: function (wiedervorlage) {
+                    users: function (wiedervorlage) {
                         return wiedervorlage.getData()
                             .then(function (res) {
                                 console.log(res, 'res');
@@ -105,8 +125,7 @@
                         console.log(id)
                         return antragsteller.getData(id)
                             .then(function (res) {
-                                sessionStorage.setItem('transactionId', `${res.Id || 0}`);
-                                console.log(res, 'res');
+                                // sessionStorage.setItem('transactionId', `${res.Code || 0}`);
                                 return res;
                             });
                     },
@@ -137,7 +156,6 @@
                 controller: 'KreditdatenController',
                 controllerAs: 'vm',
                 resolve: {
-
                     kreditdaten_data: function (kreditdaten, $stateParams) {
                         let id = $stateParams.id;
                         return kreditdaten.getData(id)
@@ -146,6 +164,13 @@
                                 return res;
                             });
                     },
+                    allBanks:function (kreditdaten) {
+                        return kreditdaten.getAllBanks()
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+                    }
                 }
             })
             .state('app.tabs.dokumente', {
@@ -153,17 +178,17 @@
                 templateUrl: 'templates/dokumente/dokumente.html',
                 controller: 'DokumenteController',
                 controllerAs: 'vm',
-                // resolve: {
-                //
-                //     documents_data: function (dokument, $stateParams) {
-                //         const id = $stateParams.id;
-                //         return dokument.getAllDocs(id)
-                //             .then(function (res) {
-                //                 return res;
-                //             });
-                //
-                //     }
-                // }
+                resolve: {
+                
+                    documents_data: function (dokument, $stateParams) {
+                        const id = $stateParams.id;
+                        return dokument.getAllDocs(id)
+                            .then(function (res) {
+                                return res;
+                            });
+                
+                    }
+                }
             })
 
 

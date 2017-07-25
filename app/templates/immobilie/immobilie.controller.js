@@ -15,17 +15,19 @@
         vm.addFlurstuck = addFlurstuck;
         vm.deleteFlurstuck = deleteFlurstuck;
         vm.deleteStellplatze = deleteStellplatze;
+        vm.addDarlehen = addDarlehen;
+        vm.deleteDarlehen = deleteDarlehen;
         vm.addRechte = addRechte;
         vm.submit = submit;
         vm.isSubmited = false;
-        $rootScope.$on('ImmobilieSubmit', function (event, data) {
-            vm.submit(data.nextState)
-        });
+        vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
+        $scope.$watch("vm.immobilieObject", debounce(submit, 1000), true);
 
-        if ($stateParams.id && immobilie_data.data) {
-            vm.immobilieObject = immobilie_data.data;
+        if (immobilie_data) {
+            vm.immobilieObject = immobilie_data;
         } else {
             vm.immobilieObject = {
+                entryid: $stateParams.id,
                 wofur: 'Neubau (eigenes Bauvorhaben)',
                 basisangaben: {
                     strabe: '',
@@ -63,7 +65,8 @@
                     betrag: '',
                     beschreibung: '',
                     anmerkungen: '',
-                }
+                },
+                darlehens: [],
             }
         }
 
@@ -71,42 +74,42 @@
             {
                 name: 'Stellplatz',
                 current: 0,
-                id: 'Stellplatz',
+                propId: 'Stellplatz',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Carport',
                 current: 0,
-                id: 'Carport',
+                propId: 'Carport',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Garage',
                 current: 0,
-                id: 'Garage',
+                propId: 'Garage',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Doppelgarage',
                 current: 0,
-                id: 'Doppelgarage',
+                propId: 'Doppelgarage',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Kellergarage',
                 current: 0,
-                id: 'Kellergarage',
+                propId: 'Kellergarage',
                 max: 100,
                 vermietet: 0,
             },
             {
                 name: 'Tiefgaragenstellplatz',
                 current: 0,
-                id: 'Tiefgaragenstellplatz',
+                propId: 'Tiefgaragenstellplatz',
                 max: 100,
                 vermietet: 0,
             }
@@ -117,7 +120,6 @@
         }
 
         function addStellplatze(item) {
-            console.log(vm.immobilieObject.StellplatzeList)
             item._delete = deleteStellplatze;
             vm.immobilieObject.StellplatzeList.push(item);
         }
@@ -144,35 +146,34 @@
             vm.immobilieObject.Rechte.isOpened = true;
         }
 
-        function submit(nextState) {
-
-            const requestConfig = {
-                url: null,
-                data: vm.immobilieObject
-            }
-            if ($stateParams.id) {
-                requestConfig.url = url.immobilie.update;
-                requestConfig.data.entryId = $stateParams.id;
-            } else {
-                requestConfig.url = url.immobilie.create;
-            }
-            http.post(requestConfig.url, requestConfig.data)
-                .then(function (res) {
-                    if (res.status) {
-                        console.log(res, 'res');
-                        if(!nextState){
-                            toastr.info('Saved');
-
-                        }
-
-                    } else {
-                        for (var key in res.msg) {
-                            toastr.error(res.msg[key][0], 'Submit failed');
-                        }
-                    }
-                    vm.isSubmited = true;
-                });
+        function deleteDarlehen(index) {
+            vm.immobilieObject.darlehens.splice(index, 1);
         }
+
+        function addDarlehen() {
+            vm.immobilieObject.darlehens.push({
+                _delete: deleteDarlehen
+            });
+        }
+
+        function submit() {
+            immobilie.update(vm.immobilieObject);
+        }
+
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        };
 
     }
 

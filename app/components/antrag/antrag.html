@@ -24,12 +24,14 @@
                                 <input ng-model="vm.data.abgerechnet" value="true" name="abgerechnet" id="billed"
                                        type="checkbox">
                             </span>
-            <span class="b-form__input b-form__input-middle some-date">
-                                <label for="some_date">Ablehnungsgrund</label>
-                                <select ng-model="vm.data.field" id="some_date" type="text">
-                                    <option></option>
-                                </select>
-                            </span>
+
+            <span class="b-form__input">
+        <label for="selectablehnungsgrund" style="padding-bottom: 2px">Ablehnungsgrund</label>
+        <select ng-model="vm.data.field" id="selectablehnungsgrund">
+            <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
+        </select>
+    </span>
+
             <span class="b-form__input b-form__input-short">
                                 <label for="requests">Anfragen</label>
                                 <input ng-model="vm.data.anfragen" id="requests" type="text">
@@ -42,11 +44,16 @@
             <span class="b-form__input b-form__input-middle " style="width: 10%;"
                   ng-init="vm.data.wiedervorlage=vm.convertDateFromString(vm.data.wiedervorlage)">
                                 <label for="wiedervorlage">Wiedervorlage</label>
-                                <input ng-model="vm.data.wiedervorlage" id="wiedervorlage" type="date">
+                                <input ng-model="vm.data.wiedervorlaget" ng-change="vm.changeWiedervorlage($event)"
+                                       id="wiedervorlage" type="date">
                             </span>
             <span class=" b-form__input comments">
             <label for="comments">Kommentar</label>
+<<<<<<< HEAD
         <textarea name="comments" id="comments"></textarea>
+=======
+        <textarea name="comments" id="comments" ng-model="vm.data.comment"></textarea>
+>>>>>>> 760e8d688e00b64900597f0a3700436558debda9
     </span>
 
             <span class="b-form__input firstAreaDelete">
@@ -63,7 +70,7 @@
             <button class="btn btn--light mr-10" ng-click="vm.addAnfrage()">Neue Anfrage</button>
             <!--ANFRAGE START-->
             <anfrage ng-repeat="anfrage in vm.data.anfrages track by $index" data-parent="anfrage"
-                     data-index="{{$index}}"></anfrage>
+                     data-index="{{$index}}" data-banks="{{vm.banks}}"></anfrage>
             <!--ANFRAGE END-->
             <div class="b-form__title-dark b-form__title iterate_header" style="margin: 25px 0;">
                 <span>Finanzierungswunsch</span>

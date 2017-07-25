@@ -7,7 +7,7 @@
                 <form action="" method="get">
                     <div class="b-form__search">
                         <img src="content/images/icons/search.png" alt="search">
-                        <input type="text" ng-model="searchText" placeholder="Vorgänge suchen (Name, Vorgangsnummer, Telefonnummer, E-Mail, Anschrift ...)">
+                        <input type="text" ng-model="searchText" placeholder="Vorgänge suchen (Name, Vorgangsnummer, Telefonnummer...)">
                     </div>
                 </form>
                 <div class="b-form__results">
@@ -16,33 +16,17 @@
                         <tr>
                             <th class="first">Vorgangsnummer</th>
                             <th>Name Antragsteller</th>
-                            <th>Anschrift Immobilie</th>
-                            <th>Kundenbetreuer</th>
-                            <th>Bearbeiter</th>
-                            <th>Letztes Ereignis</th>
+                            <th>Telefon</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="item in vm.modal.suggestions | filter:searchText">
+                        <tr ng-repeat="item in $parent.vm.users_data | filter:searchText" ng-click="vm.toggle()" ui-sref="app.tabs.antragsteller({id: item.VorgangId})">
                             <td class="column-number-op first">
                                 <img src="content/images/icons/singl_home.png" alt="">
-                                <span class="number-op">{{item.id}}</span>
+                                <span class="number-op">{{item.Code}}</span>
                             </td>
-                            <td><p>{{item.nameW}}</p><p>{{item.nameH}}</p></td>
+                            <td><p>{{item.Vorname}}</p></td>
                             <td>{{item.addres}}</td>
-                            <td class="manager">
-                                <img src="content/images/icons/user.png" alt="">
-                                <p>{{item.manager}}</p>
-                                <p>Ultima GmbH</p>
-                            </td>
-                            <td class="manager">
-                                <img src="content/images/icons/user.png" alt="">
-                                <div>
-                                    <p>{{item.addres}}</p>
-                                    <p class="company">Ultima GmbH</p>
-                                </div>
-                            </td>
-                            <td>{{item.event}}</td>
                         </tr>
                         </tbody>
                     </table>

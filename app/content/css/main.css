@@ -326,7 +326,7 @@ textarea {
 }
 
 .b-tabs__table-info img {
-    width: 30%;
+    width: 28px;
 }
 
 .b-tabs__text {
@@ -2321,6 +2321,7 @@ textarea {
 }
 .antrag-container .antrag-first span:nth-of-type(7) input{
     padding: 0;
+<<<<<<< HEAD
 }
 .antrag-container .antrag-first span:nth-of-type(7){
     margin-right: 6px;
@@ -2351,4 +2352,6 @@ textarea {
 #cash {
     padding: 0;
     margin: 0 140px 5px 0;
+=======
+>>>>>>> 760e8d688e00b64900597f0a3700436558debda9
 }

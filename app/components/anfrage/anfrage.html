@@ -57,7 +57,7 @@
         <label for="bank">Bank</label>
         <select ng-model="vm.data.bank_id" id="bank" style="width: 160px;">
             <option ng-repeat="selector in vm.banks | orderBy: '' track by $index"
-                    value="{{$index}}">{{selector}}</option>
+                    value="{{selector.BankanschriftId}}">{{selector.Name}}</option>
         </select>
     </span>
         <span class="b-form__input" ng-init="vm.data.fieldOne=vm.convertDateFromString(vm.data.fieldOne)">
