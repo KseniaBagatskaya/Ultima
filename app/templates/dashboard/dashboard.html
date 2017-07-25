@@ -15,7 +15,7 @@
                             <table>
                                 <tbody>
                                 <tr ng-repeat="item in vm.users"
-                                    ui-sref="app.tabs.antragsteller({id: item.VorgangId})">
+                                    ng-click="vm.vornameClicked(item.Code, item.VorgangId)">
                                     <td>
                                         <img src="content/images/icons/singl_home.png" alt=""></td>
                                     <td><a href="">{{item.Vorname}}</a></td>

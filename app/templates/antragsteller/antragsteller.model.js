@@ -198,7 +198,11 @@
         }
 
         function convertDateFromString(date) {
-            return new Date(date);
+            if(date!==null){
+                return new Date(date);
+            }else{
+                return new Date();
+            }
         }
     }
 

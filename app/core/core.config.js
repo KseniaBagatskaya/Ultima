@@ -17,6 +17,16 @@
                 templateUrl: 'templates/header/header.html',
                 controller: 'HeaderController',
                 controllerAs: 'vm',
+                resolve: {
+                    users_data: function (dashboard) {
+                        return dashboard.getAllMembers()
+                            .then(function (res) {
+                                console.log(res, 'res');
+                                return res;
+                            });
+
+                    },
+                }
             })
             .state('app.tabs', {
                 abstract: true,
@@ -115,8 +125,7 @@
                         console.log(id)
                         return antragsteller.getData(id)
                             .then(function (res) {
-                                sessionStorage.setItem('transactionId', `${res.Id || 0}`);
-                                console.log(res, 'res');
+                                // sessionStorage.setItem('transactionId', `${res.Code || 0}`);
                                 return res;
                             });
                     },

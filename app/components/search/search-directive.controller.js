@@ -11,6 +11,11 @@
     function SearchDirectiveController($scope) {
         let vm = this;
         vm.modal = $scope.parent;
+        vm.toggle = toggle;
+
+        function toggle() {
+            vm.modal.isOpened = false;
+        }
     }
 
 })();

@@ -15,12 +15,12 @@
         vm.addDocument = addDocument;
         vm.file = null;
         vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
+        vm.redirectUrl = location.href;
 
         function addDocument(e) {
             const formData = new FormData();
             formData.append('Upload', document.getElementById("file-id").files[0]);
             formData.append('Id', vm.id);
-            console.log(e.target[1].name)
             dokument.uploadDoc(formData);
         }
 

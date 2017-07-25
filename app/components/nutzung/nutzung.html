@@ -3,7 +3,7 @@
     <div class="b-form__group">
         <div class="b-form__col">
             <span class="b-form__input b-form__squere smaller">
-                <label for="gesamte">gesamte Wohnfläche</label>
+                <label for="gesamte">Gesamte Wohnfläche</label>
                 <input ng-model="vm.nutzung.gesamte" id="gesamte" type="text">
             </span>
             <span class="b-form__radio-label">
@@ -167,7 +167,7 @@
                 </span>
             </span>
         </div>
-        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__squere smaller">
+        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__euro smaller">
             <label for="erbbauzins">Erbbauzins jährlich</label>
             <input ng-model="vm.zusatzliche.erbbauzins" id="erbbauzins" type="text">
         </span>
@@ -188,7 +188,7 @@
                 </span>
             </span>
         </div>
-        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input b-form__squere smaller">
+        <span ng-show="vm.zusatzliche.erbbaurecht === '1'" class="b-form__input smaller">
             <label for="laufzeit">Laufzeit bis</label>
             <input ng-model="vm.zusatzliche.laufzeit" id="laufzeit" type="text">
         </span>
