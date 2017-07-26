@@ -2363,3 +2363,13 @@ textarea {
     margin: 0;
     text-align: right;
 }
+
+.tooltip {
+    position: absolute;
+    border: 1px solid #fff;
+    background: rgba(0, 0, 0, 0.73);
+    width: 150px;
+    height: 55px;
+    z-index: 9999;
+    padding: 10px;
+}

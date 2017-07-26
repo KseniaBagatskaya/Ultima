@@ -46,12 +46,18 @@
                                 <input ng-model="vm.data.wiedervorlaget" ng-change="vm.changeWiedervorlage($event)"
                                        id="wiedervorlage" type="date">
                             </span>
-            <span class=" b-form__input comments">
-            <label for="comments">Kommentar</label>
-        <textarea name="comments" id="comments" ng-model="vm.data.comment"></textarea>
-    </span>
 
             <span class="b-form__input firstAreaDelete">
+                                    <label for="date">&nbsp;</label>
+                                            <img src="content/images/icons/plus.png"
+                                                 class="btn btn__trash btn--light"
+                                                 ng-click="vm.toggleTooltip()">
+                                                 <div ng-show="vm.isTooltipOpened" class="tooltip">
+                                                    <label for="comments">Kommentar</label>
+                                                    <textarea name="comments" id="comments" ng-model="vm.data.comment" ng-blur="vm.toggleTooltip()"></textarea>
+                                                 </div>
+            </span>
+            <span style="margin-left: 25px;" class="b-form__input firstAreaDelete">
                                     <label for="date">&nbsp;</label>
                                             <img src="content/images/icons/trash_basket.png"
                                                  class="btn btn__trash btn--light"

@@ -24,13 +24,19 @@
         vm.toggleAnfrage = toggleAnfrage;
         vm.confertStringTodate = confertStringTodate;
         vm.addFinanzierungsbausteine = addFinanzierungsbausteine;
+        vm.toggleTooltip = toggleTooltip;
         vm.match = antragsteller.getAblehnung();
+        vm.isTooltipOpened = false;
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
                 vm.anfrageIsOpened = false;
             } else {
                 vm.anfrageIsOpened = true;
             }
+        }
+
+        function toggleTooltip() {
+            vm.isTooltipOpened = !vm.isTooltipOpened;
         }
 
         function addAnfrage() {
