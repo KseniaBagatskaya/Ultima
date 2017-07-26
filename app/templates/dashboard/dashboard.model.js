@@ -20,6 +20,7 @@
         };
         return service;
 
+
         function submitVorgang(data) {
             return http.post(url.dashboard.submit_vorgang, data)
                 .then(function (res) {
@@ -30,7 +31,9 @@
         }
 
         function getAllMembers() {
-            return http.get(url.dashboard.get_all_members)
+            const user = JSON.parse(sessionStorage.getItem('user'));
+
+            return http.get(url.dashboard.get_all_members,{AuthKey:user.AuthKey})
                 .then(function (res) {
                     return res;
                 });
