@@ -87,14 +87,14 @@
             vm.data.finanzierungsbausteines.forEach(function (item) {
                 total += parseFloat(item.gesamtprovision_eur)
             });
-            return total;
+            return isNaN(total)?0:total;
         }
         function getTotalOfBeraterrovision() {
             let total = 0;
             vm.data.finanzierungsbausteines.forEach(function (item) {
                 total += parseFloat(item.provisionBerater_eur)
             });
-            return total;
+            return isNaN(total)?0:total;
         }
 
     }
