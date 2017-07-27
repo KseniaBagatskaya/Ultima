@@ -42,7 +42,7 @@
                 </span>
             <span class="b-form__input" ng-init="vm.data.date_birthd=vm.convertDateFromString(vm.data.date_birthd)">
                     <label for="date_birthd">Geburtsdatum</label>
-                    <input id="date_birthd" type="date" ng-model="vm.data.date_birthd"
+                    <input id="date_birthd" type="text" placeholder="dd.mm.yyyy" ng-model="vm.data.date_birthd"
                            tabindex="{{(vm.data.number*100)+6}}">
                 </span>
         </div>
@@ -57,7 +57,7 @@
                     <input id="email" type="text" ng-model="vm.data.email" tabindex="{{(vm.data.number*100)+5}}">
                 </span>
             <span class="b-form__input">
-                    <label for="comment">weitere Kontaktmöglichkeiten</label>
+                    <label for="comment">Weitere Kontaktmöglichkeiten</label>
                     <textarea id="comment" ng-model="vm.data.comment" tabindex="{{(vm.data.number*100)+6}}"></textarea>
                 </span>
         </div>
@@ -362,13 +362,13 @@
         <div class="b-form__half-col b-form__half-col--first">
                                 <span class="b-form__input">
                                     <label for="beruf">Beruf</label>
-                                    <input id="beruf" type="text">
+                                    <input id="beruf" type="text" ng-model="vm.data.beruf">
                                 </span>
         </div>
         <div class="b-form__half-col b-form__half-col--last">
                                 <span class="b-form__input">
                                     <label for="anzahl">Anzahl der Gehälter pro Jahr</label>
-                                    <select id="anzahl" >
+                                    <select id="anzahl" ng-model="vm.data.anzahl">
                                         <option value=""></option>
                                     </select>
 
@@ -387,11 +387,11 @@
                 <label>Ist der Arbeitgeber in Deutschland ansässig?</label>
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
-                        <input  type="radio">
+                        <input ng-model="vm.data.arbeitgeberansassig" value="1" type="radio">
                         <label >ja</label>
                     </span>
                     <span class="b-form__radio">
-                        <input type="radio">
+                        <input ng-model="vm.data.arbeitgeberansassig" value="0" type="radio">
                         <label>nein</label>
                     </span>
                 </span>
@@ -402,10 +402,10 @@
             <span class="b-form__col b-form__inline">
             <span class="b-form__input">
                 <label for="beschäftigt">Beschäftigt seit</label>
-                <input type="date" id="beschäftigt">
+                <input ng-model="vm.data.beschaftigtseit" type="text" placeholder="dd.mm.yyyy" id="beschäftigt">
             </span>
             <span>
-                <input type="checkbox" id="probezeit">
+                <input ng-model="vm.data.probezeit" type="checkbox" id="probezeit">
                 <label for="probezeit">Probezeit</label>
             </span>
         </span>
@@ -416,11 +416,11 @@
                 <label>Beschäftigungsstatus</label>
                 <span class="b-form__col b-form__inline">
                     <span class="b-form__radio">
-                        <input  type="radio">
+                        <input ng-model="vm.data.beschaftigungsstatus" value="1" type="radio">
                         <label >unbefristet</label>
                     </span>
                     <span class="b-form__radio">
-                        <input type="radio">
+                        <input ng-model="vm.data.beschaftigungsstatus" value="0" type="radio">
                         <label>befristet</label>
                     </span>
                 </span>
@@ -431,22 +431,22 @@
         <div class="rente-row">
             <span class="b-form__input short_span b-form__address-short">
                 <label for="rentenbeginn">Rentenbeginn</label>
-                <input type="text" name="rentenbeginn" id="rentenbeginn">
+                <input ng-model="vm.data.rentenbeginn" type="text" name="rentenbeginn" id="rentenbeginn">
             </span>
 
             <span class="b-form__input short_span b-form__euro  b-form__address-short">
                 <label for="rente">Gesetzliche Rente</label>
-                <input type="text" name="renten" id="rente">
+                <input ng-model="vm.data.gesetzlicherente" type="text" name="renten" id="rente">
             </span>
 
             <span class="b-form__input short_span b-form__euro  b-form__address-short">
                 <label for="p_rente">Private Rente</label>
-                <input type="text" name="p_renten" id="p_rente">
+                <input ng-model="vm.data.privaterente" type="text" name="p_renten" id="p_rente">
             </span>
 
             <span class="b-form__input short_span b-form__euro  b-form__address-short">
                 <label for="sonstiges">Sonstiges Einkommen</label>
-                <input type="text" name="sonstiges" id="sonstiges">
+                <input ng-model="vm.data.sonstigeseinkommen" type="text" name="sonstiges" id="sonstiges">
             </span>
 
         </div>

@@ -532,6 +532,10 @@ textarea {
     margin-right: 10px;
 }
 
+.b-form__child-item_normal {
+    margin-right: 0;
+}
+
 .b-form__child-item .b-form__radio {
     display: inline-block;
 }
@@ -2352,8 +2356,6 @@ textarea {
 #cash {
     padding: 0;
     margin: 0 140px 5px 0;
-/*=======*/
-/*>>>>>>> 760e8d688e00b64900597f0a3700436558debda9*/
 }
 .gr-erfassen .darlehen-list .b-form__euro::after{
     right: 25px;

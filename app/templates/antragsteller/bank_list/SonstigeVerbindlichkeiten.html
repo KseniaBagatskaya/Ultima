@@ -19,7 +19,7 @@
 
                                         <img src="content/images/icons/trash_basket.png"
                                              class="btn btn__trash btn--light"
-                                             ng-click="$parent.vm._deleteBanknk($parent.key,$parent.bank.side)">
+                                             ng-click="$parent.vm._deleteBank($parent.key,$parent.bank.side)">
                                     </span>
     </div>
     <div class="b-buy__item b-buy__name"></div>
@@ -29,7 +29,7 @@
                                         <input id="Aktuelle" type="text" ng-model="$parent.bank.aktuelle_restschuld">
                                     </span>
     </div>
-    <div class="b-buy__item b-buy__begin">
+    <div class="b-buy__item b-buy__begin" style="margin-top: 15px;">
                                     <span class="b-form__input">
                                         <label for="Laufzeitende">Laufzeitende</label>
                                         <input id="Laufzeitende" type="text" ng-model="$parent.bank.laufzeitende">
