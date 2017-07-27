@@ -1,7 +1,7 @@
 <!--Variables Darlehen-->
 <div class="b-form__block b-form__fields clearfix">
     <span class="b-request__title">Variables Darlehen</span>
-    <span class="b-form__input b-form__euro b-form__input-middle">
+    <span class="b-form__input b-form__euro b-form__input-middle  variables">
     <label for="loan_amount">Darlehensbetrag</label>
     <input ng-model="item.darlehensbetrag" id="loan_amount" type="text">
     </span>
@@ -27,7 +27,13 @@
     <label for="time">Auszahlungszeitpunkt</label>
     <input ng-model="item.auszahlungszeitpunkt" id="time" type="text">
     </span>
-    <div>
+    <span class="b-form__input b-buy__option">
+    <label for="date">&nbsp;</label>
+    <img src="content/images/icons/trash_basket.png"
+         class="btn btn__trash btn--light"
+         ng-click="item._delete($index)">
+    </span>
+    <div class="eur-block">
         <span class="b-form__input b-form__input">
             <span class="text-title">Gesamtprovision EUR:</span>
                 <span class="b-form__input">
@@ -41,11 +47,6 @@
             </span>
         </span>
     </div>
-    <span class="b-form__input b-buy__option">
-    <label for="date">&nbsp;</label>
-    <img src="content/images/icons/trash_basket.png"
-         class="btn btn__trash btn--light"
-         ng-click="item._delete($index)">
-    </span>
+
 </div>
 <!--end-->

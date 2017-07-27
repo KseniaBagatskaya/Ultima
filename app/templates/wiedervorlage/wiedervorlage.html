@@ -55,13 +55,14 @@
             <div class="cbt2-middle" style="cursor: pointer" ng-repeat="wiedervolage in vm.vorgangs track by $index" ng-click="vm.openComment(wiedervolage)">
                 <div class="cbt2-middle-top">
                     <input type="checkbox" name="">
-                    <h3>{{wiedervolage.Code}}<br>{{wiedervolage.Nachname}} {{wiedervolage.Vorname}}</h3>
+                    <h3>{{wiedervolage.Code}}<br>{{wiedervolage.Antragsteller1}} / {{wiedervolage.Antragsteller2}}</h3>
                     <span>
 							<img src="content/images/icons/circle.png">
 						</span>
                 </div>
                 <span class="cbt2-img-home" ui-sref="app.tabs.antragsteller({id: wiedervolage.entryId})">
-						<img src="content/images/icons/singl_home.png">
+                    <span><img src="content/images/icons/singl_home.png"></span>
+                    <span>{{wiedervolage.Login}}</span>
 					</span>
                 <div class="cbt2-middle-bottom">
                     <img src="content/images/icons/big_user.png" alt="">

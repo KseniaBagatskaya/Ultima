@@ -70,6 +70,11 @@
     </span>
 
         <span class="b-form__input">
+                                <label for="betrag-eur">Betrag EUR</label>
+                                <input id="betrag-eur" type="text">
+                            </span>
+
+        <span class="b-form__input">
         <label for="selectablehnungsgrund" style="padding-bottom: 2px">Ablehnungsgrund</label>
         <select ng-model="vm.data.fieldFour" id="selectablehnungsgrund">
             <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
@@ -82,10 +87,10 @@
     </span>
         </div>
      </div>
-    <div class="b-form__group-child b-form__group-child-last">
-        <span class="text-title">Betrag:</span>
-        <span class="sum">{{item.betrag}} EUR</span>
-    </div>
+    <!--<div class="b-form__group-child b-form__group-child-last">-->
+        <!--<span class="text-title">Betrag:</span>-->
+        <!--<span class="sum">{{item.betrag}} EUR</span>-->
+    <!--</div>-->
     <div class="b-buy__item b-buy__options delete-area">
     <span class="b-form__input">
     <img src="content/images/icons/trash_basket.png"

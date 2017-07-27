@@ -1948,7 +1948,7 @@ input {
 .arrow {
     height: 30px;
     width: 30px;
-    margin-left: -10px;
+    margin-left: -9px;
     margin-top: -10px;
     transition: 0.3s ease-in all;
     cursor: pointer;
@@ -2113,9 +2113,15 @@ input[type=date] {
     width: 90%;
 }
 
+.cbt2-img-home {
+    display: flex;
+    align-items: center;
+}
+
 .cbt2-img-home img {
     margin-left: 40px;
     width: 20px;
+    margin-right: 5px;
 }
 
 .cbt2-middle-bottom {
@@ -2202,6 +2208,7 @@ input[type=date] {
 textarea {
     font-family: arial, sans-serif;
 }
+
 .b-form__group-child.flexible-row {
     display: flex;
     align-items: flex-end;
@@ -2224,146 +2231,177 @@ textarea {
     margin: 0;
 }
 
-.download-button img{
+.download-button img {
     height: 30px;
 }
 
 /***** bugs *****/
 
-#darl{
+#darl {
     width: 70%;
 }
+
 .darl,
 .grunduch,
-.blatt{
+.blatt {
     margin-top: 10px;
 }
+
 .b-form__block.banking span {
     width: 30%;
 
 }
-.smaller input{
+
+.smaller input {
     width: 20%;
 }
+
 .b-form__squere.smaller::after,
-.b-form__euro.smaller::after{
+.b-form__euro.smaller::after {
     right: 81%;
 }
+
 .b-form__address-short.b-form__squere::after {
     right: 20%;
 }
+
 #beschreibung {
-    width: 200px!important;
+    width: 200px !important;
 }
+
 #grund,
-#netto{
+#netto {
     width: 100%;
 }
+
 .divider {
     width: 97%;
     height: 2px;
     background: #fff;
     margin-bottom: 10px;
 }
+
 .anteil::after {
     content: "/";
     font-size: 14px;
     margin-left: 6px;
 }
+
 #blatt {
     width: 50%;
 }
- .b-form__address-short.flur {
+
+.b-form__address-short.flur {
     margin-right: 0;
 }
+
 .b-form__address.address .short_span {
-    margin-right:0;
+    margin-right: 0;
 }
+
 .b-form__address-short.trash {
     text-align: right;
-    width: 35%!important;
+    width: 35% !important;
 }
+
 .b-form__input.date {
-    width: 34%;
+    width: 50%;
     margin-right: 0;
 }
+
 .smaller-date {
     width: 31%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
+
 .b-form__list-view--horizontal.horizontal:before {
     display: none;
 }
+
 .b-form__list-view .b-form__half-col {
     width: 50%;
 }
+
 .third_form .b-form__list-view::before {
     left: 50%;
 }
-.antrag-first .firstAreaDelete label{
+
+.antrag-first .firstAreaDelete label {
     margin-bottom: 4px;
 }
 
 .antrag-container .antrag-first span:nth-of-type(1),
-.antrag-container .antrag-first span:nth-of-type(3){
+.antrag-container .antrag-first span:nth-of-type(3) {
     width: 12%;
 }
+
 .b-form__input.comments {
     padding-bottom: 0;
     vertical-align: top;
     width: 100px;
     display: none;
 }
-.b-form__input.ablehnungsgrund select{
+
+.b-form__input.ablehnungsgrund select {
     padding: 0;
     height: 20px;
 }
-.antrag-container .antrag-first span:nth-of-type(7) input{
+
+.antrag-container .antrag-first span:nth-of-type(7) input {
     padding: 0;
-/*<<<<<<< HEAD*/
+    /*<<<<<<< HEAD*/
 }
-.antrag-container .antrag-first span:nth-of-type(9){
+
+.antrag-container .antrag-first span:nth-of-type(9) {
     margin-left: 30px;
 }
+
 #anzahl {
     width: 30%;
 }
+
 #beschäftigt {
     width: 80%;
 }
+
 .situation {
     font-weight: bold;
     width: 100%;
     margin-bottom: 10px;
 }
+
 .rente-row .short_span {
     margin-right: 15px;
 }
-.block-right .b-remarks{
+
+.block-right .b-remarks {
     margin-left: 4px;
 }
+
 .block-right .braus {
     display: flex;
     justify-content: space-between;
     margin-right: 0;
     padding-right: 2px;
 }
+
 #cash {
     padding: 0;
     margin: 0 140px 5px 0;
-/*=======*/
-/*>>>>>>> 760e8d688e00b64900597f0a3700436558debda9*/
-}
-.gr-erfassen .darlehen-list .b-form__euro::after{
-    right: 25px;
-}
-.gr-erfassen .darlehen-list .delete{
-    width: 85px!important;
-    margin: 0;
-    text-align: right;
+    /*=======*/
+    /*>>>>>>> 760e8d688e00b64900597f0a3700436558debda9*/
 }
 
+.gr-erfassen .darlehen-list .b-form__euro::after {
+    right: 25px;
+}
+
+.gr-erfassen .darlehen-list .delete {
+    width: 85px !important;
+    margin: 10px 0 0 0;
+    text-align: right;
+}
 
 .tooltip {
     position: absolute;
@@ -2374,10 +2412,35 @@ textarea {
     z-index: 9999;
     padding: 10px;
 }
+
+.darlehen-list span {
+    margin-top: 10px;
+}
+
 .no-float .b-form__input:last-child {
     vertical-align: bottom;
 }
-.no-float .b-form__input:last-child button{
-    height: 20px!important;
+
+.no-float .b-form__input:last-child button {
+    height: 20px !important;
     padding: 2px 8px;
+}
+
+.anfrage_item span img {
+    margin-top: 46px;
+}
+
+.eur-block {
+    width: 99%;
+    display: flex;
+    margin-right: 0;
+    justify-content: flex-end;
+}
+
+.del-row {
+    margin-top: 13px;
+}
+
+.variables {
+    margin-left: -11px;
 }
