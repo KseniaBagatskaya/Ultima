@@ -9,22 +9,22 @@
                     Persönliche Daten
                 </div>
                 <div>
-                    <form class="new-user">
+                    <form class="new-user" ng-submit="vm.register()" name="registrationForm">
                         <div class="b-banking__item b-banking__blz no-float">
                             <span class="b-form__input">
                                 <label for="email">E-Mail-Adresse</label>
-                                <input id="email" type="text" ng-model="vm.newUser.Email">
+                                <input required id="email" type="email" ng-model="vm.newUser.Email">
                             </span>
                             <span class="b-form__input">
                                 <label for="email">Benutzername</label>
-                                <input id="email" type="text" ng-model="vm.newUser.Benutzername">
+                                <input required id="email" type="text" ng-model="vm.newUser.Benutzername">
                             </span>
                             <span class="b-form__input">
                                 <label for="password">Kennwort</label>
-                                <input id="password" type="password" ng-model="vm.newUser.Password">
+                                <input required id="password" type="password" ng-model="vm.newUser.Password">
                             </span>
                             <span class="b-form__input">
-                            <button ng-click="vm.register()" type="submit">Benutzer anlegen</button>
+                            <button type="submit">Benutzer anlegen</button>
                             </span>
                         </div>
                     </form>
