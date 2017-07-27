@@ -18,7 +18,7 @@
     <label for="date">&nbsp;</label>
     <img src="content/images/icons/trash_basket.png"
          class="btn btn__trash btn--light"
-         ng-click="item._delete($index)">
+         ng-click="$parent.vm.deleteFinanzierungsbausteine($index)">
     </span>
     </div>
     <div class="b-form__block b-form__group-child big-bank-area clearfix">
@@ -58,8 +58,7 @@
     <input ng-model="item.vermittlungscourtage" id="commission" type="text">
     </span>
             </div>
-            <div class="b-form__wrap-box clearfix"
-                 ng-init="item.vermittlungscourtage_eur = $parent.getPercent(item.darlehensbetra,item.vermittlungscourtage)">
+            <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Vermittlungscourtage</span>
                 <span class="b-form__input">
     <input ng-model="item.vermittlungscourtage_eur" id="commission_eur" type="text">

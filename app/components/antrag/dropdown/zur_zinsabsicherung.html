@@ -7,7 +7,7 @@
     <span class="b-form__input">
     <label for="tarif">Tarif</label>
     <div class="dropdown">
-    <button ng-click="vm.toggleTarifDropdown()" class="dropbtn">{{vm.getLabel({group1: item.group1, group2: item.group2,group3: item.group3, group4: item.group4})}} &#9660;</button>
+    <button ng-click="vm.toggleTarifDropdown()" class="dropbtn">{{$parent.vm.getLabel({group1: item.group1, group2: item.group2,group3: item.group3, group4: item.group4})}} &#9660;</button>
 
         <!--TARIF INCLUDE-->
     <div ng-include="'components/antrag/dropdown/zur_zins/tarif.html'"></div>
@@ -76,7 +76,7 @@
     <span class="b-form__input b-buy__option">
     <label for="date">&nbsp;</label>
     <img src="content/images/icons/trash_basket.png" class="btn btn__trash btn--light"
-         ng-click="item._delete($index)">
+         ng-click="$parent.vm.deleteFinanzierungsbausteine($index)">
     </span>
     <div class="eur-block bausparvertrag">
         <span class="b-form__input b-form__input">
