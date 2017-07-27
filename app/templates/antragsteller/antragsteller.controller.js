@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('AntragstellerController', AntragstellerController);
 
-    AntragstellerController.$inject = ['$scope', '$rootScope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data', '$state'];
+    AntragstellerController.$inject = ['$scope', '$rootScope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data', '$state', '$timeout'];
 
 
-    function AntragstellerController($scope, $rootScope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state) {
+    function AntragstellerController($scope, $rootScope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state, $timeout) {
         let vm = this;
 
         vm.submit = submit;
@@ -74,12 +74,7 @@
         }
 
         function deleteKinder(index) {
-            vm.entryObject.kinders = vm.entryObject.kinders.filter(function(item) {
-                return item.KinderId !== index;
-            });
-            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
-                $scope.$apply();
-            }
+            vm.entryObject.kinders.splice(index, 1);
         }
 
         function clearKinder() {
