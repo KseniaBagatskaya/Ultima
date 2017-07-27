@@ -17,7 +17,6 @@
             controller: 'KinderController',
             controllerAs: 'vm',
             link: function (scope, elem, attrs) {
-                console.log(scope);
             }
         };
     }

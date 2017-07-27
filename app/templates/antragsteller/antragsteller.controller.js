@@ -5,10 +5,10 @@
     angular.module('app')
         .controller('AntragstellerController', AntragstellerController);
 
-    AntragstellerController.$inject = ['$scope', '$rootScope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data', '$state'];
+    AntragstellerController.$inject = ['$scope', '$rootScope', '$stateParams', 'antragsteller', 'bank_list', 'http', 'url', 'toastr', 'antrag_data', '$state', '$timeout'];
 
 
-    function AntragstellerController($scope, $rootScope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state) {
+    function AntragstellerController($scope, $rootScope, $stateParams, antragsteller, bank_list, http, url, toastr, antrag_data, $state, $timeout) {
         let vm = this;
 
         vm.submit = submit;
@@ -65,7 +65,11 @@
 
         function addKinder() {
             vm.entryObject.kinders.push({
-                _delete: deleteKinder
+                name: '',
+                geburtsdatum: '',
+                kindergeld: '0',
+                unterhaltseinnahmen: '0',
+                betrag: '',
             });
         }
 
