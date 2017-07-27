@@ -20,6 +20,7 @@
         vm.changeWiedervorlage = changeWiedervorlage;
         vm.banks = JSON.parse($scope.banks);
         vm.addAnfrage = addAnfrage;
+        vm.getLabel = getLabel;
         vm.deleteAnfrage = deleteAnfrage;
         vm.toggleAnfrage = toggleAnfrage;
         vm.confertStringTodate = confertStringTodate;
@@ -28,6 +29,7 @@
         vm.getTotalOfGesamtprovision = getTotalOfGesamtprovision;
         vm.getTotalOfBeraterrovision = getTotalOfBeraterrovision;
         vm.match = antragsteller.getAblehnung();
+        vm.deleteFinanzierungsbausteine = deleteFinanzierungsbausteine;
         vm.isTooltipOpened = false;
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
@@ -52,6 +54,22 @@
 
         function convertDateFromString(date) {
             return date;
+        }
+
+        function getLabel(object) {
+            var selected = 0;
+            var selectedName = 'automatish';
+            for (const group in object) {
+                if (object[group]) {
+                    selected++;
+                    selectedName=object[group];
+                }
+            }
+            if (selected > 1) {
+                return 'mehre';
+            } else {
+                return selectedName;
+            }
         }
 
         function confertStringTodate(date) {
