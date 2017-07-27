@@ -510,7 +510,7 @@ textarea {
     padding: 10px 4px;
     box-sizing: border-box;
     position: relative;
-    margin: 0 -4px 4px;
+    margin: 0 -4px 20px; /*was 4 left*/
 }
 
 .b-form__group--same-height {
@@ -1949,11 +1949,12 @@ input {
     height: 30px;
     width: 30px;
     margin-left: -9px;
-    margin-top: -10px;
+    position: absolute;
+    margin-top: -40px;
     transition: 0.3s ease-in all;
     cursor: pointer;
     outline: none;
-    transform: rotate(-90deg)
+    transform: rotate(-90deg);
 }
 
 .arrow.show {
