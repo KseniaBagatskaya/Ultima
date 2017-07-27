@@ -1948,7 +1948,7 @@ input {
 .arrow {
     height: 30px;
     width: 30px;
-    margin-left: -10px;
+    margin-left: -9px;
     margin-top: -10px;
     transition: 0.3s ease-in all;
     cursor: pointer;
@@ -2112,11 +2112,16 @@ input[type=date] {
     margin: 0 20px;
     width: 90%;
 }
-
+.cbt2-img-home {
+    display: flex;
+    align-items: center;
+}
 .cbt2-img-home img {
     margin-left: 40px;
     width: 20px;
+    margin-right: 5px;
 }
+
 
 .cbt2-middle-bottom {
     text-align: right;
@@ -2284,13 +2289,13 @@ textarea {
     width: 35%!important;
 }
 .b-form__input.date {
-    width: 34%;
+    width: 50%;
     margin-right: 0;
 }
 .smaller-date {
     width: 31%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 .b-form__list-view--horizontal.horizontal:before {
     display: none;
@@ -2360,8 +2365,11 @@ textarea {
 }
 .gr-erfassen .darlehen-list .delete{
     width: 85px!important;
-    margin: 0;
+    margin: 10px 0 0 0;
     text-align: right;
+}
+.darlehen-list span {
+    margin-top: 10px;
 }
 .no-float .b-form__input:last-child {
     vertical-align: bottom;
@@ -2369,4 +2377,19 @@ textarea {
 .no-float .b-form__input:last-child button{
     height: 20px!important;
     padding: 2px 8px;
+}
+.anfrage_item span img {
+    margin-top: 46px;
+}
+.eur-block{
+    width: 99%;
+    display: flex;
+    margin-right: 0;
+    justify-content: flex-end;
+}
+.del-row {
+    margin-top: 13px;
+}
+.variables {
+    margin-left: -11px;
 }
