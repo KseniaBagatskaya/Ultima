@@ -147,11 +147,11 @@
         }
 
         function deleteDarlehen(index) {
-            vm.immobilieObject.darlehens.splice(index, 1);
+            vm.immobilieObject.Grundbuchdaten.darlehens.splice(index, 1);
         }
 
         function addDarlehen() {
-            vm.immobilieObject.darlehens.push({
+            vm.immobilieObject.Grundbuchdaten.darlehens.push({
                 _delete: deleteDarlehen
             });
         }
