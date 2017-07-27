@@ -25,6 +25,8 @@
         vm.confertStringTodate = confertStringTodate;
         vm.addFinanzierungsbausteine = addFinanzierungsbausteine;
         vm.toggleTooltip = toggleTooltip;
+        vm.getTotalOfGesamtprovision = getTotalOfGesamtprovision;
+        vm.getTotalOfBeraterrovision = getTotalOfBeraterrovision;
         vm.match = antragsteller.getAblehnung();
         vm.isTooltipOpened = false;
         function toggleAnfrage() {
@@ -78,6 +80,21 @@
 
         function deleteFinanzierungsbausteine(index) {
             vm.data.finanzierungsbausteines.splice(index, 1);
+        }
+
+        function getTotalOfGesamtprovision() {
+            let total = 0;
+            vm.data.finanzierungsbausteines.forEach(function (item) {
+                total += parseFloat(item.gesamtprovision_eur)
+            });
+            return total;
+        }
+        function getTotalOfBeraterrovision() {
+            let total = 0;
+            vm.data.finanzierungsbausteines.forEach(function (item) {
+                total += parseFloat(item.provisionBerater_eur)
+            });
+            return total;
         }
 
     }
