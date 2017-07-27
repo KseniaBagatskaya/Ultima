@@ -2435,10 +2435,19 @@ textarea {
 .eur-block {
     width: 99%;
     display: flex;
-    margin-right: 0;
+    margin-right: 0!important;
     justify-content: flex-end;
 }
+<<<<<<< HEAD
 
+=======
+.eur-block input,
+#betrag-eur,
+#total_commission,
+#commission_consultants{
+    text-align: right;
+}
+>>>>>>> markup
 .del-row {
     margin-top: 13px;
 }
@@ -2450,3 +2459,7 @@ textarea {
     display: flex;
     justify-content: flex-end;
 }
+.bausparvertrag {
+    width: 66%;
+}
+
