@@ -2393,3 +2393,7 @@ textarea {
 .variables {
     margin-left: -11px;
 }
+.eur-list {
+    display: flex;
+    justify-content: flex-end;
+}
