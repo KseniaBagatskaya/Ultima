@@ -5,8 +5,10 @@
             <p>Privatdarlehen</p>
         </div>
         <span class="b-form__input b-form__euro b-form__input-middle">
-    <label for="loan_amount">Darlehensbetrag</label>
-    <input ng-model="item.darlehensbetrag" id="loan_amount" type="text">
+    <label for="loan_amount">Darlehensbetrag
+    </label>
+                <input ng-model="item.darlehensbetrag" type="text">
+
     </span>
         <span class="b-form__input b-form__months b-form__input-middle">
     <label for="running_time">Laufzeit</label>
@@ -32,20 +34,20 @@
             <div class="b-form__wrap-box clearfix">
                 <div class="b-form__group-text">
                     <span class="text-title">Kreditbetrag:</span>
-                    <span class="text-title">EUR</span>
+                    <!--<span class="text-title"> EUR</span>-->
                 </div>
                 <span class="b-form__input">
-    <input ng-model="item.kreditbetrag" id="loan_amount" type="text">
+    <input ng-model="item.darlehensbetrag" id="loan_amount" type="text" disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Restchuldversicherung</span>
                 <span class="b-form__checkbox">
-    <label for="eur">EUR</label>
-    <input ng-model="item.restchuldversicherung.eur" name="eur" id="eur"
-           type="checkbox">
+    <!--<label for="eur">EUR</label>-->
+                    <!--<input ng-model="item.restchuldversicherung.eur" name="eur" id="eur"-->
+                    <!--type="checkbox">-->
     </span>
-                <span class="text-title">AU</span>
+                <!--<span class="text-title">AU</span>-->
                 <span class="b-form__input">
     <input ng-model="item.restchuldversicherung.au" id="insurance" type="text">
     </span>
@@ -57,15 +59,15 @@
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
-                <span class="text-title">Vermittlungscourtage EUR</span>
+                <span class="text-title">Vermittlungscourtage</span>
                 <span class="b-form__input">
-    <input ng-model="item.vermittlungscourtage_eur" id="commission_eur" type="text">
+                    <input   id="commission_eur" type="text" ng-value="item.darlehensbetrag*item.vermittlungscourtage/100" disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Antragssumme:</span>
                 <span class="b-form__input">
-    <input ng-model="item.antragssumme" id="sum" type="text">
+    <input  id="sum" type="text" ng-value="(item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au)" disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
@@ -76,28 +78,28 @@
             </div>
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Zinsbelastung</span>
-                <span class="text-title">EUR</span>
+                <!--<span class="text-title">EUR</span>-->
                 <span class="b-form__input">
-    <input ng-model="item.zinsbelastung" id="interest_charges" type="text">
+     <input  id="interest_charges" type="text" ng-value="((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))*item.kreditgebuhren/100" disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Gesamtkreditbetrag</span>
-                <span class="text-title">EUR</span>
+                <!--<span class="text-title">EUR</span>-->
                 <span class="b-form__input">
-    <input ng-model="item.gesamtkreditbetrag" id="total_sum" type="text">
+    <input  id="total_sum" type="text" ng-value="((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))+(((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))*item.kreditgebuhren/100)" disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Laufzeit in Monaten</span>
                 <span class="b-form__input">
-    <input ng-model="item.laufzeitInMonaten" id="duration" type="text">
+    <input ng-model="item.laufzeit" id="duration" type="text">
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Erste Rate EUR</span>
                 <span class="b-form__input">
-    <input ng-model="item.ersteRate_eur" id="first_rate" type="text">
+    <input  id="first_rate" type="text" ng-value="$parent.vm.round((((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))+(((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))*item.kreditgebuhren/100))/item.laufzeit)" disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
@@ -109,13 +111,13 @@
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Monatliche Rate:</span>
                 <span class="b-form__input">
-    <input ng-model="item.monatlicheRate" id="monthly_rate" type="text">
+    <input  id="monthly_rate" type="text" ng-value="$parent.vm.round((((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))+(((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))*item.kreditgebuhren/100))/item.laufzeit)" disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Letzte Rate</span>
                 <span class="b-form__input">
-    <input ng-model="item.letzteRate" id="last_rate" type="text">
+    <input  id="last_rate" type="text" ng-value="(((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))+(((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))*item.kreditgebuhren/100))-$parent.vm.round(((((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))+(((item.darlehensbetrag*item.vermittlungscourtage/100)+(1*item.darlehensbetrag)+(1*item.restchuldversicherung.au))*item.kreditgebuhren/100))/item.laufzeit))*((1*item.laufzeit)-1)"disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">

@@ -28,8 +28,10 @@
         vm.toggleTooltip = toggleTooltip;
         vm.getTotalOfGesamtprovision = getTotalOfGesamtprovision;
         vm.getTotalOfBeraterrovision = getTotalOfBeraterrovision;
+        vm.getPercent = getPercent;
         vm.match = antragsteller.getAblehnung();
         vm.deleteFinanzierungsbausteine = deleteFinanzierungsbausteine;
+        vm.round = round;
         vm.isTooltipOpened = false;
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
@@ -62,7 +64,7 @@
             for (const group in object) {
                 if (object[group]) {
                     selected++;
-                    selectedName=object[group];
+                    selectedName = object[group];
                 }
             }
             if (selected > 1) {
@@ -92,7 +94,7 @@
                 id: id,
                 name: name || '',
                 description: description || '',
-                _delete: deleteFinanzierungsbausteine
+                _delete: deleteFinanzierungsbausteine,
             });
         }
 
@@ -100,19 +102,36 @@
             vm.data.finanzierungsbausteines.splice(index, 1);
         }
 
+        function round(arg) {
+            return Math.round(arg);
+        }
+
         function getTotalOfGesamtprovision() {
             let total = 0;
             vm.data.finanzierungsbausteines.forEach(function (item) {
-                total += parseFloat(item.gesamtprovision_eur)
+                if (item.hasOwnProperty('gesamtprovision_eur')) {
+                    if (item.gesamtprovision_eur) {
+                        total += parseFloat(item.gesamtprovision_eur)
+                    }
+                }
             });
-            return isNaN(total)?0:total;
+            return total
         }
+
         function getTotalOfBeraterrovision() {
             let total = 0;
             vm.data.finanzierungsbausteines.forEach(function (item) {
-                total += parseFloat(item.provisionBerater_eur)
+                if (item.hasOwnProperty('provisionBerater_eur')) {
+                    if (item.provisionBerater_eur) {
+                        total += parseFloat(item.provisionBerater_eur)
+                    }
+                }
             });
-            return isNaN(total)?0:total;
+            return total
+        }
+
+        function getPercent(num, percent) {
+            return parseFloat(num) * parseFloat(percent) / 100;
         }
 
     }

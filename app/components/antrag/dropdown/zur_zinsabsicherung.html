@@ -58,25 +58,24 @@
     </span>
     </span>
     </span>
-        <span class="b-form__input b-form__euro b-form__input-middle">
+
+    </div>
+    <span class="b-form__input b-buy__option">
+     <label for="date">&nbsp;</label>
+     <img src="content/images/icons/trash_basket.png" class="btn btn__trash btn--light"
+          ng-click="$parent.vm.deleteFinanzierungsbausteine($index)">
+    </span>
+    <span class="b-form__input b-form__euro b-form__input-middle">
     <label for="loan_amount">Darlehensbetrag</label>
     <input ng-model="item.darlehensbetrag" id="loan_amount" type="text">
     </span>
-        <span class="b-form__input small-select">
+    <span class="b-form__input small-select">
     <label for="building_savings">Vertragspartner</label>
     <select id="building_savings" ng-model="item.vertragspartner">
     <option value="-1" selected="selected">Antragsteller 1</option>
     <option value="1">Antragsteller 2</option>
     <option value="2">beide Antragsteller</option>
     </select>
-    </span>
-
-    </div>
-
-    <span class="b-form__input b-buy__option">
-    <label for="date">&nbsp;</label>
-    <img src="content/images/icons/trash_basket.png" class="btn btn__trash btn--light"
-         ng-click="$parent.vm.deleteFinanzierungsbausteine($index)">
     </span>
     <div class="eur-block bausparvertrag">
         <span class="b-form__input b-form__input">
@@ -93,4 +92,7 @@
         </span>
     </div>
 </div>
+
+
+
 <!--end-->
