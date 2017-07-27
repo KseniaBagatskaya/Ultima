@@ -2291,9 +2291,6 @@ textarea {
     width: 34%;
     margin-right: 0;
 }
-.b-form__input.ablehnungsgrund {
-    width: 12%;
-}
 .smaller-date {
     width: 31%;
     display: flex;
@@ -2308,9 +2305,10 @@ textarea {
 .third_form .b-form__list-view::before {
     left: 50%;
 }
-.antrag-container .antrag-first .b-form__input{
-    margin-right: 3px;
+.antrag-first .firstAreaDelete label{
+    margin-bottom: 4px;
 }
+
 .antrag-container .antrag-first span:nth-of-type(1),
 .antrag-container .antrag-first span:nth-of-type(3){
     width: 12%;
@@ -2318,6 +2316,8 @@ textarea {
 .b-form__input.comments {
     padding-bottom: 0;
     vertical-align: top;
+    width: 100px;
+    display: none;
 }
 .b-form__input.ablehnungsgrund select{
     padding: 0;
@@ -2327,8 +2327,8 @@ textarea {
     padding: 0;
 /*<<<<<<< HEAD*/
 }
-.antrag-container .antrag-first span:nth-of-type(7){
-    margin-right: 6px;
+.antrag-container .antrag-first span:nth-of-type(9){
+    margin-left: 30px;
 }
 #anzahl {
     width: 30%;
@@ -2366,6 +2366,7 @@ textarea {
     text-align: right;
 }
 
+
 .tooltip {
     position: absolute;
     border: 1px solid #fff;
@@ -2374,4 +2375,11 @@ textarea {
     height: 55px;
     z-index: 9999;
     padding: 10px;
+}
+.no-float .b-form__input:last-child {
+    vertical-align: bottom;
+}
+.no-float .b-form__input:last-child button{
+    height: 20px!important;
+    padding: 2px 8px;
 }
