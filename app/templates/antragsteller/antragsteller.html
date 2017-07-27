@@ -44,8 +44,7 @@
                                 <div class="btn btn--light" ng-click="vm.clearKinder()">Keine Kinder vorhanden</div>
                             </div>
                         </div>
-                        <kinder ng-repeat="kinder in vm.entryObject.kinders track by $index" data-parent="kinder"
-                                data-index="{{$index}}"></kinder>
+                        <kinder ng-repeat="kinder in vm.entryObject.kinders track by $index" data-parent="kinder"></kinder>
                     </div>
                     <!--KINDER END-->
 

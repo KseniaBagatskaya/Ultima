@@ -65,12 +65,21 @@
 
         function addKinder() {
             vm.entryObject.kinders.push({
-                _delete: deleteKinder
+                name: '',
+                geburtsdatum: '',
+                kindergeld: '0',
+                unterhaltseinnahmen: '0',
+                betrag: '',
             });
         }
 
         function deleteKinder(index) {
-            vm.entryObject.kinders.splice(index, 1);
+            vm.entryObject.kinders = vm.entryObject.kinders.filter(function(item) {
+                return item.KinderId !== index;
+            });
+            if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                $scope.$apply();
+            }
         }
 
         function clearKinder() {
