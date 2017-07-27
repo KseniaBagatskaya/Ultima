@@ -27,6 +27,7 @@
         vm.toggleTooltip = toggleTooltip;
         vm.getTotalOfGesamtprovision = getTotalOfGesamtprovision;
         vm.getTotalOfBeraterrovision = getTotalOfBeraterrovision;
+        vm.getPercent = getPercent;
         vm.match = antragsteller.getAblehnung();
         vm.isTooltipOpened = false;
         function toggleAnfrage() {
@@ -74,7 +75,8 @@
                 id: id,
                 name: name || '',
                 description: description || '',
-                _delete: deleteFinanzierungsbausteine
+                _delete: deleteFinanzierungsbausteine,
+                getPercent: vm.getPercent
             });
         }
 
@@ -87,14 +89,19 @@
             vm.data.finanzierungsbausteines.forEach(function (item) {
                 total += parseFloat(item.gesamtprovision_eur)
             });
-            return isNaN(total)?0:total;
+            return isNaN(total) ? 0 : total;
         }
+
         function getTotalOfBeraterrovision() {
             let total = 0;
             vm.data.finanzierungsbausteines.forEach(function (item) {
                 total += parseFloat(item.provisionBerater_eur)
             });
-            return isNaN(total)?0:total;
+            return isNaN(total) ? 0 : total;
+        }
+
+        function getPercent(num, percent) {
+            return parseFloat(num) * parseFloat(percent) / 100;
         }
 
     }

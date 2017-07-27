@@ -5,8 +5,10 @@
             <p>Privatdarlehen</p>
         </div>
         <span class="b-form__input b-form__euro b-form__input-middle">
-    <label for="loan_amount">Darlehensbetrag</label>
-    <input ng-model="item.darlehensbetrag" id="loan_amount" type="text">
+    <label for="loan_amount">Darlehensbetrag
+    </label>
+                <input ng-model="item.darlehensbetrag" type="text">
+
     </span>
         <span class="b-form__input b-form__months b-form__input-middle">
     <label for="running_time">Laufzeit</label>
@@ -32,20 +34,20 @@
             <div class="b-form__wrap-box clearfix">
                 <div class="b-form__group-text">
                     <span class="text-title">Kreditbetrag:</span>
-                    <span class="text-title">EUR</span>
+                    <!--<span class="text-title"> EUR</span>-->
                 </div>
                 <span class="b-form__input">
-    <input ng-model="item.kreditbetrag" id="loan_amount" type="text">
+    <input ng-model="item.darlehensbetrag" id="loan_amount" type="text" disabled>
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Restchuldversicherung</span>
                 <span class="b-form__checkbox">
-    <label for="eur">EUR</label>
-    <input ng-model="item.restchuldversicherung.eur" name="eur" id="eur"
-           type="checkbox">
+    <!--<label for="eur">EUR</label>-->
+                    <!--<input ng-model="item.restchuldversicherung.eur" name="eur" id="eur"-->
+                    <!--type="checkbox">-->
     </span>
-                <span class="text-title">AU</span>
+                <!--<span class="text-title">AU</span>-->
                 <span class="b-form__input">
     <input ng-model="item.restchuldversicherung.au" id="insurance" type="text">
     </span>
@@ -56,8 +58,9 @@
     <input ng-model="item.vermittlungscourtage" id="commission" type="text">
     </span>
             </div>
-            <div class="b-form__wrap-box clearfix">
-                <span class="text-title">Vermittlungscourtage EUR</span>
+            <div class="b-form__wrap-box clearfix"
+                 ng-init="item.vermittlungscourtage_eur = $parent.getPercent(item.darlehensbetra,item.vermittlungscourtage)">
+                <span class="text-title">Vermittlungscourtage</span>
                 <span class="b-form__input">
     <input ng-model="item.vermittlungscourtage_eur" id="commission_eur" type="text">
     </span>
@@ -65,7 +68,7 @@
             <div class="b-form__wrap-box clearfix">
                 <span class="text-title">Antragssumme:</span>
                 <span class="b-form__input">
-    <input ng-model="item.antragssumme" id="sum" type="text">
+    <input  id="sum" type="text" ng-value="item.vermittlungscourtage_eur+item.darlehensbetra+item.vermittlungscourtage_eur">
     </span>
             </div>
             <div class="b-form__wrap-box clearfix">
