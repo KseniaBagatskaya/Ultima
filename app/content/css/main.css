@@ -2406,4 +2406,7 @@ textarea {
 .bausparvertrag {
     width: 66%;
 }
+.priv input{
+    text-align: right;
+}
 
