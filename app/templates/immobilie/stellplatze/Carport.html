@@ -6,11 +6,11 @@
         <label for="first_name">Vermietet?</label>
         <span class="b-form__col b-form__inline">
             <span class="b-form__radio">
-                <input ng-model="item.carport['prop' + $index]" value="1" id="carportja{{$index}}" type="radio">
+                <input ng-model="$parent.item.carport.prop1" value="1" id="carportja{{$index}}" type="radio">
                 <label for="carportja{{$index}}">ja</label>
             </span>
             <span class="b-form__radio">
-                <input ng-model="item.carport['prop' + $index]" value="0" id="carportnein{{$index}}" type="radio">
+                <input ng-model="$parent.item.carport.prop1" value="0" id="carportnein{{$index}}" type="radio">
                 <label for="carportnein{{$index}}">nein</label>
             </span>
         </span>
@@ -18,7 +18,7 @@
 </div>
 <div class="b-buy__item b-buy__begin"></div>
 <div class="b-buy__item b-buy__options">
-            <span class="b-form__input">
+            <span class="b-form__input" style="margin-right: 15px;">
             <label for="first_name">&nbsp;</label>
             <img src="content/images/icons/trash_basket.png"
                     class="btn btn__trash btn--light"

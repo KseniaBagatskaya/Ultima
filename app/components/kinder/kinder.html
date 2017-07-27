@@ -6,7 +6,7 @@
                             </span>
         <span class="b-form__input b-form__child-item" ng-init="vm.data.geburtsdatum=vm.convertDateFromString(vm.data.geburtsdatum)">
                                 <label for="birthday2">Geburtsdatum</label>
-                                <input id="birthday2" ng-model="vm.data.geburtsdatum" type="date">
+                                <input id="birthday2" ng-model="vm.data.geburtsdatum" placeholder="dd.mm.yyyy" type="text">
                             </span>
         <div class="b-form__child-item">
             <h4>Kindergeld?</h4>
@@ -36,7 +36,7 @@
                             </span>
 
 
-        <div class="b-buy__item b-buy__options">
+        <div class="b-buy__item b-buy__options" style="margin-right: 10px;">
                                 <span class="b-form__input">
                                     <img src="content/images/icons/trash_basket.png"
                                          class="btn btn__trash btn--light"
