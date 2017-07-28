@@ -2357,8 +2357,6 @@ textarea {
 #cash {
     padding: 0;
     margin: 0 140px 5px 0;
-/*=======*/
-/*>>>>>>> 760e8d688e00b64900597f0a3700436558debda9*/
 }
 .gr-erfassen .darlehen-list .b-form__euro::after{
     right: 25px;
@@ -2410,3 +2408,12 @@ textarea {
     text-align: right;
 }
 
+.tooltip {
+    position: absolute;
+    border: 1px solid #fff;
+    background: rgba(0, 0, 0, 0.73);
+    width: 150px;
+    height: 55px;
+    z-index: 9999;
+    padding: 10px;
+}
