@@ -55,7 +55,8 @@
                                                  ng-click="vm.toggleTooltip()">
                                                  <div ng-show="vm.isTooltipOpened" class="tooltip">
                                                     <label for="comments">Kommentar</label>
-                                                    <textarea name="comments" id="comments" ng-model="vm.data.comment" ng-blur="vm.toggleTooltip()"></textarea>
+                                                    <textarea name="comments" id="comments" ng-model="vm.data.comment"
+                                                              ng-blur="vm.toggleTooltip()"></textarea>
                                                  </div>
             </span>
             <span style="margin-left: 25px;" class="b-form__input firstAreaDelete">
@@ -68,14 +69,14 @@
 
         <div>
             <div class="eur-list">
-            <div class="b-form__group-child b-form__group-child-last">
-                <span class="text-title">Gesamtprovision:</span>
-                <span class="sum">{{vm.getTotalOfGesamtprovision()}} EUR</span>
-            </div>
-            <div class="b-form__group-child b-form__group-child-last">
-                <span class="text-title">Provision Berater:</span>
-                <span class="sum">{{vm.getTotalOfBeraterrovision()}} EUR</span>
-            </div>
+                <div class="b-form__group-child b-form__group-child-last">
+                    <span class="text-title">Gesamtprovision:</span>
+                    <span class="sum">{{vm.getTotalOfGesamtprovision()}} EUR</span>
+                </div>
+                <div class="b-form__group-child b-form__group-child-last">
+                    <span class="text-title">Provision Berater:</span>
+                    <span class="sum">{{vm.getTotalOfBeraterrovision()}} EUR</span>
+                </div>
             </div>
             <img class="arrow" ng-class="vm.anfrageIsOpened ? 'show' : ''" ng-click="vm.toggleAnfrage()"
                  src="content/images/icons/arrow.png" alt="">
@@ -405,7 +406,6 @@
 
             </div>
         </div> <!--anfrage block -->
-
 
 
     </div>
