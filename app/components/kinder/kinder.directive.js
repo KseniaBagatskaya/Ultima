@@ -11,6 +11,7 @@
             restrict: 'E',
             scope: {
                 parent: '=',
+                array: '=',
                 index: '@'
             },
             templateUrl: 'components/kinder/kinder.html',
