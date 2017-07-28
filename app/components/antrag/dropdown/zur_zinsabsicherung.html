@@ -32,15 +32,16 @@
     </span>
     </span>
         <span class="b-form__input small-select">
-    <label for="building_savings">Bausparwunsch anpassen (optional)</label>
-    <select  ng-model="item.bausparwunschAnpassen">
-    <option value="-1" selected="selected">Automatischer Vorschlag</option>
-    <option value="1">Bausparsumme in €</option>
-    <option value="2">Bausparsumme in % des Darlehensbetrag</option>
-    <option value="3">Sparrate in €</option>
-    <option value="4">Sparrate in ‰ der Bausparsumme</option>
-    <option value="5">Tilgungsrate in €</option>
-    <option value="6">Zuteilungszeitpunkt</option>
+    <label ng-init="item.bausparwunschAnpassen==null?item.bausparwunschAnpassen=0:item.bausparwunschAnpassen"
+           for="building_savings">Bausparwunsch anpassen (optional)</label>
+    <select ng-model="item.bausparwunschAnpassen">
+    <option ng-value="0">Automatischer Vorschlag</option>
+    <option ng-value="1">Bausparsumme in €</option>
+    <option ng-value="2">Bausparsumme in % des Darlehensbetrag</option>
+    <option ng-value="3">Sparrate in €</option>
+    <option ng-value="4">Sparrate in ‰ der Bausparsumme</option>
+    <option ng-value="5">Tilgungsrate in €</option>
+    <option ng-value="6">Zuteilungszeitpunkt</option>
     </select>
     </span>
         <span class="b-form__radio-label">
@@ -92,7 +93,6 @@
         </span>
     </div>
 </div>
-
 
 
 <!--end-->
