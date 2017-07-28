@@ -9,25 +9,20 @@
 
     function WeitereImmobilienController($scope) {
         let vm = this;
-        vm.data = $scope.parent;
-        vm.index = $scope.index;
+        vm.array = $scope.array;
         vm.addDarlehen = addDarlehen;
-        vm.deleteDarlehen = deleteDarlehen;
-        console.log(vm.data);
+        vm.deleteWis = deleteWis;
 
 
-        function addDarlehen() {
-            if (!vm.data.darlehens) {
-                vm.data.darlehens = [];
+        function addDarlehen(immobilien) {
+            if (!immobilien.darlehens) {
+                immobilien.darlehens = [];
             }
-            vm.data.darlehens.push({
-                _delete: deleteDarlehen
-            });
+            immobilien.darlehens.push({});
         }
 
-        function deleteDarlehen(index) {
-            vm.data.darlehens.splice(index, 1);
-
+        function deleteWis(index) {
+            vm.array.splice(index, 1);
         }
 
 

@@ -1,42 +1,44 @@
-<span class="b-form__address darlehen-list clearfix ">
-                                    <span class="b-form__input short_span b-form__address-short">
-                                        <label for="darlehensart">Darlehensart</label>
-                                        <select ng-model="vm.data.darlehensart" class="short_input" id="darlehensart">
-                                            <option value="-1" selected="selected">Bitte wählen Sie ...</option>
-                                            <option value="1" selected="selected">Immobiliendarlehen</option>
-                                            <option value="2" selected="selected">Bauspardarlehen</option>
-                                            <option value="3" selected="selected">Förderdarlehen</option>
-                                            <option value="4" selected="selected">Sonstiges Darlehen</option>
-                                        </select>
-                                    </span>
-                                    <span class="b-form__input b-form__euro short_span b-form__address-short ">
-                                        <label for="grundschuld">Grundschuld</label>
-                                        <input ng-model="vm.data.grundschuld" class="short_input b-form__euro" id="grundschuld"
-                                               type="text">
-                                    </span>
-                                <span class="b-form__input short_span b-form__euro  b-form__address-short">
-                                        <label for="rate">Rate</label>
-                                        <input ng-model="vm.data.rate" class="short_input b-form__euro" id="rate" type="text">
-                                    </span>
-                                <span class="b-form__input short_span b-form__euro  b-form__address-short">
-                                        <label for="aktuelle_restschuld">Aktuelle Restschuld</label>
-                                        <input ng-model="vm.data.aktuelle_restschuld" class="short_input  b-form__euro"
-                                               id="aktuelle_restschuld" type="text">
-                                    </span>
-                                <span class="b-form__input short_span b-form__address-short">
-                                        <label for="zinsbindung_bis">Zinsbindung bis</label>
-                                        <input ng-model="vm.data.zinsbindung_bis" class="short_input"
-                                               id="zinsbindung_bis" type="text">
-                                    </span>
-                                    <span class="b-form__input short_span b-form__address-short">
-                                        <label for="laufzeit_bis">Laufzeit bis</label>
-                                        <input ng-model="vm.data.laufzeit_bis" class="short_input" id="laufzeit_bis"
-                                               type="text">
-                                    </span>
-                                    <span class="b-form__input short_span b-form__address-short delete">
-                                        <img src="content/images/icons/trash_basket.png"
-                                             class="btn btn__trash btn--light"
-                                             style="margin-top: 15px;"
-                                             ng-click="$parent.vm.deleteDarlehen($index)">
-                                    </span>
-                                </span>
+<div style="background: rgb(255,255,255);padding: 5px 5px;margin: 0 1.5px 0 1px;" ng-repeat="darlehen in vm.array track by $index">
+    <span class="b-form__address darlehen-list clearfix ">
+        <span class="b-form__input short_span b-form__address-short">
+            <label for="darlehensart">Darlehensart</label>
+            <select ng-model="darlehen.darlehensart" class="short_input" id="darlehensart">
+                <option value="-1" selected="selected">Bitte wählen Sie ...</option>
+                <option value="1" selected="selected">Immobiliendarlehen</option>
+                <option value="2" selected="selected">Bauspardarlehen</option>
+                <option value="3" selected="selected">Förderdarlehen</option>
+                <option value="4" selected="selected">Sonstiges Darlehen</option>
+            </select>
+        </span>
+        <span class="b-form__input b-form__euro short_span b-form__address-short ">
+            <label for="grundschuld">Grundschuld</label>
+            <input ng-model="darlehen.grundschuld" class="short_input b-form__euro" id="grundschuld"
+                    type="text">
+        </span>
+    <span class="b-form__input short_span b-form__euro  b-form__address-short">
+            <label for="rate">Rate</label>
+            <input ng-model="darlehen.rate" class="short_input b-form__euro" id="rate" type="text">
+        </span>
+    <span class="b-form__input short_span b-form__euro  b-form__address-short">
+            <label for="aktuelle_restschuld">Aktuelle Restschuld</label>
+            <input ng-model="darlehen.aktuelle_restschuld" class="short_input  b-form__euro"
+                    id="aktuelle_restschuld" type="text">
+        </span>
+    <span class="b-form__input short_span b-form__address-short">
+            <label for="zinsbindung_bis">Zinsbindung bis</label>
+            <input ng-model="darlehen.zinsbindung_bis" class="short_input"
+                    id="zinsbindung_bis" type="text">
+        </span>
+        <span class="b-form__input short_span b-form__address-short">
+            <label for="laufzeit_bis">Laufzeit bis</label>
+            <input ng-model="darlehen.laufzeit_bis" class="short_input" id="laufzeit_bis"
+                    type="text">
+        </span>
+        <span class="b-form__input short_span b-form__address-short delete">
+            <img src="content/images/icons/trash_basket.png"
+                    class="btn btn__trash btn--light"
+                    style="margin-top: 15px;"
+                    ng-click="vm.deleteDarlehen($index)">
+        </span>
+    </span>
+</div>

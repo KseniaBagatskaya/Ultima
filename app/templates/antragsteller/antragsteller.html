@@ -131,8 +131,7 @@
                                 <div class="btn btn--light" ng-click="vm.clearWis()">Keine immobilien vorhanden</div>
                             </div>
                         </div>
-                        <weitere-immobilien ng-repeat="wi in vm.entryObject.wis track by $index" data-parent="wi"
-                                data-index="{{$index}}" data-delete="{{vm.deleteWis}}"></weitere-immobilien>
+                        <weitere-immobilien data-array="vm.entryObject.wis"></weitere-immobilien>
                     </div>
 
                     <!--Bankverbindung START-->
@@ -142,9 +141,8 @@
                                 src="content/images/icons/plus.png"
                                 ng-click="vm.addBankverbindung()"
                                 alt="plus_btn"> Bankverbindung</h4>
-                        <bankverbindung ng-repeat="bankverbindung in vm.entryObject.bankverbindungs track by $index"
-                                        data-parent="bankverbindung"
-                                        data-index="{{$index}}"></bankverbindung>
+                        <bankverbindung data-array="vm.entryObject.bankverbindungs">
+                        </bankverbindung>
                     </div>
                     <!--Bankverbindung END-->
 

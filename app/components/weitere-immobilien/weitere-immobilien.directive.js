@@ -10,7 +10,7 @@
         return {
             restrict: 'E',
             scope: {
-                parent: '=',
+                array: '=',
                 index: '@'
             },
             templateUrl: 'components/weitere-immobilien/weitere-immobilien.html',

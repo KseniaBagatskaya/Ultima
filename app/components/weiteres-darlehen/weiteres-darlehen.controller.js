@@ -10,9 +10,13 @@
     function WeitereDarlehenController($scope) {
         let vm = this;
         vm.data = $scope.parent;
-        console.log($scope);
+        vm.array = $scope.array;
         vm.delete = $scope.delete;
-        vm.index = $scope.index;
+        vm.deleteDarlehen = deleteDarlehen;
+
+        function deleteDarlehen(index) {
+            vm.array.splice(index, 1);
+        }
     }
 
 })();

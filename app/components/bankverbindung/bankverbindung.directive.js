@@ -10,8 +10,7 @@
         return {
             restrict: 'E',
             scope: {
-                parent: '=',
-                index: '@'
+                array: '='
             },
             templateUrl: 'components/bankverbindung/bankverbindung.html',
             controller: 'BankverbindungController',

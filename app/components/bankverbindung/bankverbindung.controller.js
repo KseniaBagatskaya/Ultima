@@ -10,8 +10,13 @@
     function BankverbindungController($scope) {
         let vm = this;
         vm.data = $scope.parent;
-        vm.index = $scope.index;
-        console.log(vm.data);
+        vm.array = $scope.array;
+        vm.deleteBankverbindung = deleteBankverbindung;
+
+        function deleteBankverbindung(index) {
+            vm.array.splice(index, 1);
+        }
+
 
     }
 
