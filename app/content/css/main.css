@@ -2411,6 +2411,10 @@ textarea {
     align-items: flex-end;
     width: 31px;
 }
+.b-form__input.tarif {
+    vertical-align: top;
+    padding-right: 8px;
+}
 
 .tooltip {
     position: absolute;
