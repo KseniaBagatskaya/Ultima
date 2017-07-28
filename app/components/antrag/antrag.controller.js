@@ -120,13 +120,15 @@
 
         function getTotalOfBeraterrovision() {
             let total = 0;
-            vm.data.finanzierungsbausteines.forEach(function (item) {
-                if (item.hasOwnProperty('provisionBerater_eur')) {
-                    if (item.provisionBerater_eur) {
-                        total += parseFloat(item.provisionBerater_eur)
+            if(typeof vm.data.finanzierungsbausteines !=='undefined'){
+                vm.data.finanzierungsbausteines.forEach(function (item) {
+                    if (item.hasOwnProperty('provisionBerater_eur')) {
+                        if (item.provisionBerater_eur) {
+                            total += parseFloat(item.provisionBerater_eur)
+                        }
                     }
-                }
-            });
+                });
+            }
             return total
         }
 
