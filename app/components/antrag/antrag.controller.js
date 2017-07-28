@@ -11,11 +11,12 @@
         let vm = this;
 
         vm.data = $scope.parent;
+        vm.array = $scope.array;
+        vm.deleteAntrag = deleteAntrag;
         vm.data.erstelltam = new Date();
         vm.user = JSON.parse(sessionStorage.getItem('user'));
         vm.data.bearbeiter = vm.user.Benutzername;
         vm.convertDateFromString = antragsteller.convertDateFromString;
-        vm.index = $scope.index;
         vm.anfrageIsOpened = false;
         vm.changeWiedervorlage = changeWiedervorlage;
         vm.banks = JSON.parse($scope.banks);
@@ -28,12 +29,12 @@
         vm.toggleTooltip = toggleTooltip;
         vm.getTotalOfGesamtprovision = getTotalOfGesamtprovision;
         vm.getTotalOfBeraterrovision = getTotalOfBeraterrovision;
-        // vm.getPercent = getPercent;
         vm.match = antragsteller.getAblehnung();
         vm.deleteFinanzierungsbausteine = deleteFinanzierungsbausteine;
         vm.round = round;
         vm.privatDarlehen = privatDarlehen;
         vm.isTooltipOpened = false;
+
         function toggleAnfrage() {
             if (vm.anfrageIsOpened) {
                 vm.anfrageIsOpened = false;
@@ -101,6 +102,12 @@
 
         function deleteFinanzierungsbausteine(index) {
             vm.data.finanzierungsbausteines.splice(index, 1);
+        }
+
+        function deleteAntrag(index) {
+            vm.array = vm.array.filter((item, iteration) => {
+                return index !== iteration;
+            });
         }
 
         function round(arg) {
