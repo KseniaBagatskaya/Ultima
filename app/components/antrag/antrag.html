@@ -41,7 +41,7 @@
                                 <input ng-model="vm.data.storno" name="storno" id="cancellation" type="checkbox">
                             </span>
 
-            <span class="b-form__input b-form__input-middle " style="width: 12%;"
+            <span class="b-form__input b-form__input-middle " style="width: 12%; margin-right: 3px;"
                   ng-init="vm.data.wiedervorlaget=vm.confertStringTodate(vm.data.wiedervorlage)">
                                 <label for="wiedervorlage">Wiedervorlage</label>
                                 <input ng-model="vm.data.wiedervorlaget" ng-change="vm.changeWiedervorlage($event)"
@@ -50,7 +50,7 @@
 
             <span class="b-form__input firstAreaDelete">
                                     <label for="date">&nbsp;</label>
-                                            <img src="content/images/icons/plus.png"
+                                            <img src="content/images/icons/description.png"
                                                  class="btn btn__trash btn--light"
                                                  ng-click="vm.toggleTooltip()">
                                                  <div ng-show="vm.isTooltipOpened" class="tooltip">

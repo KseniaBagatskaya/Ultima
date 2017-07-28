@@ -91,7 +91,19 @@
         <!--<span class="text-title">Betrag:</span>-->
         <!--<span class="sum">{{item.betrag}} EUR</span>-->
     <!--</div>-->
-    <div class="b-buy__item b-buy__options delete-area">
+
+    <div class="b-buy__item b-buy__options delete-area comments-button">
+                    <span class="b-form__input">
+                                    <label for="date">&nbsp;</label>
+        <img src="content/images/icons/description.png"
+             class="btn btn__trash btn--light"
+             ng-click="vm.toggleTooltip()">
+        <div ng-show="vm.isTooltipOpened" class="tooltip">
+            <label for="comments">Kommentar</label>
+            <textarea name="comments" id="comments" ng-model="vm.data.comment" ng-blur="vm.toggleTooltip()"></textarea>
+        </div>
+        </span>
+
     <span class="b-form__input">
     <img src="content/images/icons/trash_basket.png"
          class="btn btn__trash btn--light"

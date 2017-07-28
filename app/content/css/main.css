@@ -2290,13 +2290,12 @@ textarea {
     width: 35%!important;
 }
 .b-form__input.date {
-    width: 50%;
+    width: 100%;
     margin-right: 0;
 }
 .smaller-date {
-    width: 31%;
-    display: flex;
-    justify-content: center;
+    width: 12%;
+    margin-left: 25px;
 }
 .b-form__list-view--horizontal.horizontal:before {
     display: none;
@@ -2308,7 +2307,7 @@ textarea {
     left: 50%;
 }
 .antrag-first .firstAreaDelete label{
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 
 .antrag-container .antrag-first span:nth-of-type(1),
@@ -2327,7 +2326,6 @@ textarea {
 }
 .antrag-container .antrag-first span:nth-of-type(7) input{
     padding: 0;
-/*<<<<<<< HEAD*/
 }
 .antrag-container .antrag-first span:nth-of-type(9){
     margin-left: 30px;
@@ -2358,8 +2356,6 @@ textarea {
 #cash {
     padding: 0;
     margin: 0 140px 5px 0;
-/*=======*/
-/*>>>>>>> 760e8d688e00b64900597f0a3700436558debda9*/
 }
 .gr-erfassen .darlehen-list .b-form__euro::after{
     right: 25px;
@@ -2380,7 +2376,7 @@ textarea {
     padding: 2px 8px;
 }
 .anfrage_item span img {
-    margin-top: 46px;
+    margin-top: 34px;
 }
 .eur-block{
     width: 99%;
@@ -2409,5 +2405,10 @@ textarea {
 }
 .priv input{
     text-align: right;
+}
+.delete-area.comments-button {
+    display: flex;
+    align-items: flex-end;
+    width: 31px;
 }
 
