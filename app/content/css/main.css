@@ -2415,4 +2415,7 @@ textarea {
     vertical-align: top;
     padding-right: 8px;
 }
-
+.right-column {
+    display: inline-block;
+    width: 10%;
+}
