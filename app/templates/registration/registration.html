@@ -32,8 +32,10 @@
                     <hr>
                     <div class="users-container">
                         <div class="user" ng-repeat="user in vm.users track by $index">
+                            <div class="right-column">
                             <span class="username">{{user.Benutzername}}</span>
-                            <span class="username">{{user.Email}}</span>
+                            </div>
+                            <span class="username ">{{user.Email}}</span>
                             <!-- <span class="password-label">Initiales Passwort</span>
                             <input type="text">
                             <button class="delete-button">x</button>

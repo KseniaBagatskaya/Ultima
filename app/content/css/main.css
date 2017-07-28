@@ -2425,3 +2425,8 @@ textarea {
     z-index: 9999;
     padding: 10px;
 }
+
+.right-column {
+    display: inline-block;
+    width: 10%;
+}
