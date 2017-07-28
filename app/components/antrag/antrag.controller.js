@@ -60,7 +60,7 @@
 
         function getLabel(object) {
             var selected = 0;
-            var selectedName = 'automatish';
+            var selectedName = 'automatisch';
             for (const group in object) {
                 if (object[group]) {
                     selected++;
@@ -68,7 +68,7 @@
                 }
             }
             if (selected > 1) {
-                return 'mehre';
+                return 'mehrere';
             } else {
                 return selectedName;
             }
