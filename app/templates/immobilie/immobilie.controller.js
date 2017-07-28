@@ -139,7 +139,9 @@
         }
 
         function deleteFlurstuck(index) {
-            vm.immobilieObject.Grundbuchdaten.Flurstuck.splice(index, 1);
+            vm.immobilieObject.Grundbuchdaten.Flurstuck = vm.immobilieObject.Grundbuchdaten.Flurstuck.filter((item, iteration) => {
+                return index !== iteration;
+            })
         }
 
         function addRechte() {
