@@ -10,7 +10,6 @@
         return {
             restrict: 'E',
             scope: {
-                parent: '=',
                 array: '=',
                 index: '@'
             },

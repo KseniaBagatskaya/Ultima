@@ -120,8 +120,8 @@
         }
 
         function addStellplatze(item) {
-            item._delete = deleteStellplatze;
-            vm.immobilieObject.StellplatzeList.push(item);
+            var tempItem = Object.assign({}, item);
+            vm.immobilieObject.StellplatzeList.push(tempItem);
         }
 
         function addGrundbuchdaten() {

@@ -10,15 +10,12 @@
         return {
             restrict: 'E',
             scope: {
-                parent: '=',
-                index: '@'
+                array: '='
             },
             templateUrl: 'components/weiteres-darlehen/weiteres-darlehen.html',
             controller: 'WeitereDarlehenController',
             controllerAs: 'vm',
-            link: function (scope, elem, attrs) {
-                console.log(scope);
-            }
+            link: function (scope, elem, attrs) {}
         };
     }
 })();
