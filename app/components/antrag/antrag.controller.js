@@ -85,7 +85,9 @@
         }
 
         function deleteAnfrage(index) {
-            vm.data.anfrages.splice(index, 1);
+            vm.data.anfrages = vm.data.anfrages.filter((item) => {
+                return index !== item.Id;
+            });
         }
 
         function addFinanzierungsbausteine(id, name, description) {
@@ -105,9 +107,10 @@
         }
 
         function deleteAntrag(index) {
-            vm.array = vm.array.filter((item, iteration) => {
+            const tempArray = vm.array.filter((item, iteration) => {
                 return index !== iteration;
             });
+            vm.array = new Array(tempArray);
         }
 
         function round(arg) {

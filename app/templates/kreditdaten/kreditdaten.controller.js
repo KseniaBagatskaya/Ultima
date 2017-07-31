@@ -43,7 +43,7 @@
 
         function deleteAntrag(index) {
             vm.data.antrags = vm.data.antrags.filter((item, iteration) => {
-                return index !== iteration;
+                return index !== item.Id;
             });
         }
 

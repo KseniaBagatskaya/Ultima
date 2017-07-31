@@ -63,7 +63,7 @@
                                     <label for="date">&nbsp;</label>
                                             <img src="content/images/icons/trash_basket.png"
                                                  class="btn btn__trash btn--light"
-                                                 ng-click="$parent.vm.deleteAntrag($parent.$index)">
+                                                 ng-click="$parent.vm.deleteAntrag($parent.antrag.Id)">
                                 </span>
         </div>
 
@@ -84,7 +84,7 @@
         <div ng-if="vm.anfrageIsOpened" class="b-form__block-select">
             <button class="btn btn--light mr-10" ng-click="vm.addAnfrage()">Neue Anfrage</button>
             <!--ANFRAGE START-->
-            <anfrage ng-repeat="anfrage in vm.data.anfrages track by $index" data-parent="anfrage"
+            <anfrage ng-repeat="anfrage in vm.data.anfrages track by anfrage.Id" data-parent="anfrage"
                      data-index="{{$index}}" data-banks="{{vm.banks}}"></anfrage>
             <!--ANFRAGE END-->
             <div class="b-form__title-dark b-form__title iterate_header" style="margin: 25px 0;">
