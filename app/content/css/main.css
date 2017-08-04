@@ -2425,3 +2425,48 @@ textarea {
     z-index: 9999;
     padding: 10px;
 }
+
+/**new style**/
+
+.editor-block {
+    display: flex;
+}
+.editor-menu {
+    width: 20%;
+}
+.editor-menu ul {
+    border: 1px solid #dedede;
+    width: 80%;
+    padding: 0;
+    margin: 0;
+}
+.editor-menu ul:last-child {
+    border-bottom: none;
+}
+.editor-menu li {
+    list-style-type: none;
+    padding: 20px 30px;
+    text-align: center;
+    border-bottom: 1px solid #dedede;
+}
+.editor-menu a{
+    font-size: 12px;
+}
+.editor-content {
+    width: 80%;
+}
+.editor-content button {
+    padding: 2px 8px ;
+    font-size: 12px;
+}
+
+.editor-content .b-form__title-btn{
+    display: flex;
+    justify-content: space-around;
+    border: none;
+    background: none;
+}
+.editor-screen {
+    min-height: 300px;
+}
+

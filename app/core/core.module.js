@@ -5,6 +5,7 @@
         'ui.router',
         'toastr',
         '720kb.tooltips',
+        'textAngular'
 
     ]);
 

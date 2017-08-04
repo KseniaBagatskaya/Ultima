@@ -113,6 +113,21 @@
                     }
                 }
             })
+            .state('app.briefvorlagen', {
+                url: "/briefvorlagen",
+                templateUrl: 'templates/briefvorlagen/briefvorlagen.html',
+                controller: 'BriefvorlagenController',
+                controllerAs: 'vm',
+                // resolve: {
+                //     users: function (wiedervorlage) {
+                //         return wiedervorlage.getData()
+                //             .then(function (res) {
+                //                 console.log(res, 'res');
+                //                 return res;
+                //             });
+                //     }
+                // }
+            })
 
             .state('app.tabs.antragsteller', {
                 url: "/antragsteller/:id",
