@@ -16,8 +16,8 @@
         vm.vorgangs = [];
         vm.filter = {
             user: "All",
-            keine: false,
             uber: false,
+            keine: false,
             heute: false,
             morgen: false,
             inden: false,

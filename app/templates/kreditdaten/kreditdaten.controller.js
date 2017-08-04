@@ -42,7 +42,9 @@
         }
 
         function deleteAntrag(index) {
-            vm.data.antrags.splice(index, 1);
+            vm.data.antrags = vm.data.antrags.filter((item, iteration) => {
+                return index !== item.Id;
+            });
         }
 
         function submit() {

@@ -2426,7 +2426,7 @@ textarea {
     padding: 10px;
 }
 
-/**new style**/
+/**new styles**/
 
 .editor-block {
     display: flex;
@@ -2470,3 +2470,7 @@ textarea {
     min-height: 300px;
 }
 
+.right-column {
+    display: inline-block;
+    width: 10%;
+}

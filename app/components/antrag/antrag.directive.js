@@ -11,6 +11,7 @@
             restrict: 'E',
             scope: {
                 parent: '=',
+                array: '=',
                 index: '@',
                 banks: '@'
             },
