@@ -4,7 +4,7 @@
     angular.module('app.core', [
         'ui.router',
         'toastr',
-        '720kb.tooltips',
+        // '720kb.tooltips',
         'textAngular'
 
     ]);

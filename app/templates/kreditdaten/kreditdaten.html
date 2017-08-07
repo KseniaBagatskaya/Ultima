@@ -53,8 +53,8 @@
 
     <div class="first_form clearfix third_tab_item">
         <div class="b-form__block">
-            <antrag ng-repeat="antrag in vm.data.antrags track by antrag.Id" data-parent="antrag" data-array="vm.data.antrags"
-                    data-index="{{$index}}" data-banks="{{vm.banks}}"></antrag>
+            <antrag ng-repeat="antrag in vm.data.antrags" data-parent="antrag" data-array="vm.data.antrags"
+                    data-banks="{{vm.banks}}"></antrag>
         </div>
     </div>
 </div>

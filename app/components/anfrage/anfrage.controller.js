@@ -10,7 +10,7 @@
     function AnfrageController($scope, banks, antragsteller) {
         let vm = this;
         vm.data = $scope.parent;
-        vm.index = $scope.index;
+        // vm.index = $scope.index;
         vm.toggleAnfrage = toggleAnfrage;
         vm.convertDateFromString = antragsteller.convertDateFromString;
         vm.anfrageIsOpened = false;

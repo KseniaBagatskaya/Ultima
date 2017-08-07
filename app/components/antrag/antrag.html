@@ -34,7 +34,7 @@
 
             <span class="b-form__input b-form__input-short">
                                 <label for="requests">Anfragen</label>
-                                <input ng-model="vm.data.anfragen" id="requests" type="text">
+                                <input ng-model="vm.data.anfragen" ng-value="vm.data.anfrages.length" id="requests" type="text">
                             </span>
             <span class="b-form__checkbox">
                                 <label for="cancellation">Storno</label>
@@ -84,8 +84,8 @@
         <div ng-if="vm.anfrageIsOpened" class="b-form__block-select">
             <button class="btn btn--light mr-10" ng-click="vm.addAnfrage()">Neue Anfrage</button>
             <!--ANFRAGE START-->
-            <anfrage ng-repeat="anfrage in vm.data.anfrages track by anfrage.Id" data-parent="anfrage"
-                     data-index="{{$index}}" data-banks="{{vm.banks}}"></anfrage>
+            <anfrage ng-repeat="anfrage in vm.data.anfrages" data-parent="anfrage"
+                     data-banks="{{vm.banks}}"></anfrage>
             <!--ANFRAGE END-->
             <div class="b-form__title-dark b-form__title iterate_header" style="margin: 25px 0;">
                 <span>Finanzierungswunsch</span>

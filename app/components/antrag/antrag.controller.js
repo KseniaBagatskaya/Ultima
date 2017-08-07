@@ -117,6 +117,8 @@
             return Math.round(arg);
         }
 
+        console.log(vm.data)
+
         function getTotalOfGesamtprovision() {
             let total = 0;
             vm.data.finanzierungsbausteines.forEach(function (item) {
