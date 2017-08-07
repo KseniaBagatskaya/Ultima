@@ -10,7 +10,12 @@
 
     function BriefvorlagenController($scope) {
         let vm = this;
+        vm.save = save;
 
+
+        function save() {
+
+        }
 
     }
 

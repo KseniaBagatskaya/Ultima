@@ -419,7 +419,8 @@ textarea {
 }
 
 .b-form__title-dark {
-    background: url("../images/icons/form_title.png") repeat-x;
+    background-color: rgb(6, 73, 133);
+    /*background: url("../images/icons/form_title.png") repeat-x;*/
     box-shadow: 0 1px 2px -1px #666;
     border: 1px solid #849ebd;
     color: #fff;
@@ -2430,6 +2431,7 @@ textarea {
 
 .editor-block {
     display: flex;
+    margin-top: 20px;
 }
 .editor-menu {
     width: 20%;
