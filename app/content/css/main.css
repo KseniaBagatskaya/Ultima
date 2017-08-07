@@ -2442,6 +2442,7 @@ textarea {
     height: 55px;
     z-index: 9999;
     padding: 10px;
+    opacity: 1;
 }
 
 /**new styles**/
