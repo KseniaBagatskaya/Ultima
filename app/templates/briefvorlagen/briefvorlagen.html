@@ -1,19 +1,19 @@
 <div class="container editor-block">
     <div class="editor-menu">
         <ul class="b-form__block">
-            <li><a href="#">Neue Briefvorlage</a></li>
-            <li><a href="#">Letter 2</a></li>
-            <li><a href="#">Letter 3</a></li>
-            <li><a href="#">Letter 4</a></li>
-            <li><a href="#">Letter 5</a></li>
+            <li ng-click="vm.newTemplate()"><a>Neue Briefvorlage</a></li>
+            <li ng-repeat="template in vm.templates" ng-click="vm.onTemplateClick(template)"><a>{{template.Name}}</a></li>
         </ul>
     </div>
     <div class="editor-content">
         <div class=" b-form__block editor-screen">
-            <text-angular ng-model="vm.editor.Content"></text-angular>
+            <text-angular ng-model="vm.htmlContent">
+                {{vm.htmlContent}}
+            </text-angular>
         </div>
+        <div id="editor"></div>
         <div class="b-form__title-btn b-form__title">
-            <!--<button  type="submit">Brief senden</button>-->
+            <button ng-if="vm.id" ng-click="vm.pdfDownload()">Laden Sie die Vorlage</button>
             <button type="submit" ng-click="vm.save()">Speichern unter</button>
         </div>
     </div>

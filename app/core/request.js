@@ -73,7 +73,7 @@
             
             // console.log(user)
             // if (user !== null && url !== 'http://itls-hh.eu/Document/UploadFile') {
-            //     config.url = url + '?auth_key=' + user.auth_key;
+            //     config.url = url + '?auth_key=' + user.AuthKey;
             // }
             // else {
                 config.url = url;

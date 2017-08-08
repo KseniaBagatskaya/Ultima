@@ -11,12 +11,21 @@
 
         let service = {
             getData: getData,
+            updateData: updateData,
         };
         return service;
 
 
         function getData() {
-            return http.get(url.briefvorlagen.getList, data)
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            return http.get(url.briefvorlagen.getList, { AuthKey: user.AuthKey })
+                .then(function (res) {
+                    return res;
+                });
+        }
+
+        function updateData(data) {
+            return http.post(url.briefvorlagen.updateTemplate, data)
                 .then(function (res) {
                     return res;
                 });

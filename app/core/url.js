@@ -51,7 +51,8 @@
                         list: baseUrl + 'VorgangsManagement/GetAllBankanschrifts'
                     },
                     briefvorlagen: {
-                        getList: baseUrl + 'Briefvorlagen/GetBriefvorlagenByAuthKey'
+                        getList: baseUrl + 'Briefvorlagen/GetBriefvorlagenByAuthKey',
+                        updateTemplate: baseUrl + 'Briefvorlagen/BriefvorlagenUpdate',
                     }
                 };
 
