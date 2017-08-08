@@ -46,6 +46,7 @@
         }
 
         vm.werbung = [
+            'ultima.de',
             'Pamela Wilson Agentur',
             'Bertelsmann',
             'VPS',
@@ -60,7 +61,6 @@
             'Heider Anzeigenblatt',
             'Immoservice',
             'Wochenblatt',
-            'ultima.de',
             'kredit-aktuell.de',
             'Einkauf-Aktuell',
             'Ultima Immobilienfinanzierung',

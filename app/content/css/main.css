@@ -1445,6 +1445,7 @@ button:hover {
 
 #antrag {
     margin-top: 10px;
+    bottom: 70px;
 }
 
 .firstAreaDelete {
@@ -2050,6 +2051,7 @@ select.ng-invalid-required.ng-touched {
 input[type=date] {
     font-size: 12px;
     font-family: arial, sans-serif;
+    width: 120px;
 }
 
 .content-block {
@@ -2313,7 +2315,7 @@ textarea {
 }
 .smaller-date {
     width: 12%;
-    margin-left: 25px;
+    margin-left: 5px;
 }
 .b-form__list-view--horizontal.horizontal:before {
     display: none;
@@ -2407,6 +2409,7 @@ textarea {
 #total_commission,
 #commission_consultants{
     text-align: right;
+    width: 100px;
 }
 .del-row {
     margin-top: 13px;
