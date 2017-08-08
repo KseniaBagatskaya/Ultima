@@ -55,7 +55,7 @@
     <div class="b-form__group-child flexible-row">
     <span class="b-form__input">
         <label for="bank">Bank</label>
-        <select ng-model="vm.data.bank_id" id="bank" style="width: 160px;">
+        <select ng-model="vm.data.bank_id" id="bank" style="width: 260px; height: 20px;">
             <option ng-repeat="selector in vm.banks | orderBy: '' track by $index"
                     value="{{selector.BankanschriftId}}">{{selector.Name}}</option>
         </select>
@@ -76,7 +76,7 @@
 
         <span class="b-form__input">
         <label for="selectablehnungsgrund" style="padding-bottom: 2px">Ablehnungsgrund</label>
-        <select ng-model="vm.data.fieldFour" id="selectablehnungsgrund">
+        <select ng-model="vm.data.fieldFour" id="selectablehnungsgrund" style="height: 20px;">
             <option ng-repeat="selector in vm.match track by $index" value="{{$index}}">{{selector}}</option>
         </select>
     </span>

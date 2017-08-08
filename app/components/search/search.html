@@ -22,7 +22,7 @@
                         <tbody>
                         <tr ng-repeat="item in $parent.vm.users_data | filter:searchText" ng-click="vm.toggle()" ui-sref="app.tabs.antragsteller({id: item.VorgangId})">
                             <td class="column-number-op first">
-                                <img src="content/images/icons/singl_home.png" alt="">
+                                <img src="content/images/icons/big_user.png" alt="">
                                 <span class="number-op">{{item.Code}}</span>
                             </td>
                             <td><p>{{item.Vorname}}</p></td>

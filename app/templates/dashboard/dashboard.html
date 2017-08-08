@@ -5,10 +5,10 @@
             <div class="b-tabs__block-left">
                 <div class="b-form__title-dark b-form__title">Zuletzt bearbeitete Vorgänge</div>
                 <div class="b-form__block">
-                    <span class="b-form__checkbox">
+                    <!-- <span class="b-form__checkbox">
                         <input name="notify" id="notify" type="checkbox">
                         <label for="notify">friedrich@ultima.de per E-mail über neue Ereignisse benachrichtigen</label>
-                    </span>
+                    </span> -->
 
                     <div class="b-tabs__table-info">
                         <div class="block-table">
@@ -64,10 +64,7 @@
                                 </div>
 
 
-                                <span class="b-form__input">
-                                    <label for="plz">PLZ</label>
-                                    <input id="plz" ng-model="vm.data.Plz" required type="text">
-                                </span>
+                                <!--1-->
                                 <span class="b-form__input b-form__euro">
                                     <label for="finanzbedarf">Finanzbedarf</label>
                                     <input ng-model="vm.data.Finanzbedarf" required id="finanzbedarf" type="text" required>
@@ -75,7 +72,7 @@
                             </div>
                             <span class="b-form__input">
                                 <label for="werbung">Werbung *</label>
-                                <select ng-model="vm.data.Werbung" id="werbung" required>
+                                <select ng-model="vm.data.Werbung" id="werbung" required >
                                     <option ng-repeat="selector in vm.werbung track by $index" value="{{$index}}">{{selector}}</option>
                                 </select>
                             </span>
