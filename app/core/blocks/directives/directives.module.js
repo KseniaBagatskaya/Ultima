@@ -12,7 +12,8 @@
         'directive.antrag',
         'directive.anfrage',
         'directive.search',
-        'directive.wiedervolage-comment'
+        'directive.wiedervolage-comment',
+        'directive.format'
     ]);
 
 })();

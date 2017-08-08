@@ -118,15 +118,15 @@
                 templateUrl: 'templates/briefvorlagen/briefvorlagen.html',
                 controller: 'BriefvorlagenController',
                 controllerAs: 'vm',
-                // resolve: {
-                //     users: function (wiedervorlage) {
-                //         return wiedervorlage.getData()
-                //             .then(function (res) {
-                //                 console.log(res, 'res');
-                //                 return res;
-                //             });
-                //     }
-                // }
+                resolve: {
+                    templates: function (briefvorlagen) {
+                        return briefvorlagen.getData()
+                            .then(function (res) {
+                                console.log(res);
+                                return res;
+                            });
+                    }
+                }
             })
 
             .state('app.tabs.antragsteller', {
@@ -140,7 +140,6 @@
                         console.log(id)
                         return antragsteller.getData(id)
                             .then(function (res) {
-                                // sessionStorage.setItem('transactionId', `${res.Code || 0}`);
                                 return res;
                             });
                     },
