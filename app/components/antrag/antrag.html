@@ -157,8 +157,8 @@
                 </div>
                 <div class="b-form__loans">
                     <label for="credit_sum">Noch benötigte Darlehen: </label>
-                    <span class="b-form__euro">
-                    <input id="credit_sum" type="text" ng-model="vm.data.credit_sum">
+                    <span ng-class="vm.data.credit_sum.length > 0 ? 'b-form__euro' : ''">
+                    <input id="credit_sum" type="text" ng-model="vm.data.credit_sum" format>
                     </span>
                 </div>
             </div>
