@@ -12,7 +12,8 @@
             restchuldversicherung: 0,
             vermittlungscourtage_percent: 0,
             vermittlungscourtage: function () {
-                return this.darlehensbetrag * this.vermittlungscourtage_percent / 100;
+                result = this.darlehensbetrag * this.vermittlungscourtage_percent / 100;
+                return isNaN(result) ? 0 : result;
             },
             antragssumme: function () {
                 let result = (1 * this.darlehensbetrag) + (1 * this.restchuldversicherung) + (1 * this.vermittlungscourtage());
@@ -26,7 +27,7 @@
 
             },
             gesamtkreditbetrag: function () {
-                result = this.antragssumme() + this.zinsbelastung();
+                result = Math.round(this.antragssumme() + this.zinsbelastung());
                 return isNaN(result) ? 0 : result;
 
             },

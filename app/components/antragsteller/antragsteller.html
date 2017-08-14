@@ -65,7 +65,7 @@
 
     <!--ADDRESS PART START-->
 
-    <div class="b-form__group b-form__group--same-height">
+    <div class="b-form__group b-form__group--same-height" style="margin-bottom: 0;">
 
         <!--SHOW ADDRESS BUTTON-->
         <!--<span ng-hide="vm.show_address" class="b-form__input">
@@ -76,7 +76,7 @@
 
 
         <div
-                class="b-form__group b-form__group--same-height" style="border-bottom: none;">
+                class="b-form__group b-form__group--same-height" style="border-bottom: none; margin-bottom: 0;">
             <div class="b-form__half-col b-form__half-col--first">
                                     <span class="b-form__address clearfix">
                                         <span class="b-form__input b-form__address-long">
@@ -98,30 +98,8 @@
                                                tabindex="{{(vm.data.number*100)+11}}">
 
                                     </span>
-            </div>
-
-            <div class="b-form__half-col b-form__half-col--last">
-                                    <span class="b-form__address clearfix">
-                                        <span class="b-form__input b-form__address-short">
-                                            <label for="plz">PLZ</label>
-                                            <input id="plz" type="text" ng-model="vm.data.plz"
-                                                   tabindex="{{(vm.data.number*100)+9}}">
-                                        </span>
-                                        <span class="b-form__input b-form__address-long">
-                                            <label for="ort">Ort</label>
-                                            <input id="ort" type="text" ng-model="vm.data.ort"
-                                                   tabindex="{{(vm.data.number*100)+10}}">
-                                        </span>
-                                    </span>
-            </div>
-
-        </div>
-    </div>
-    <!--ADDRESS PART END-->
-
-
-    <div class="b-form__group">
-        <div class="b-form__half-col b-form__half-col--first">
+                                    <div class="b-form__group" style="margin-bottom: 0;">
+        <div class="b-form__half-col b-form__half-col--first" style="width: 100%; padding-top:60px">
             <span class="b-form__input">
                                     <label for="famili">Familienstand</label>
                                     <select id="famili" class="gwt-ListBox" ng-model="vm.data.famili"
@@ -333,6 +311,37 @@
                                 </span>
         </div>
     </div>
+            </div>
+
+            <div class="b-form__half-col b-form__half-col--last">
+                                    <span class="b-form__address clearfix">
+                                        <span class="b-form__input b-form__address-short">
+                                            <label for="plz">PLZ</label>
+                                            <input id="plz" type="text" ng-model="vm.data.plz"
+                                                   tabindex="{{(vm.data.number*100)+9}}">
+                                        </span>
+                                        <span class="b-form__input b-form__address-long">
+                                            <label for="ort">Ort</label>
+                                            <input id="ort" type="text" ng-model="vm.data.ort"
+                                                   tabindex="{{(vm.data.number*100)+10}}">
+                                        </span>
+                                    </span>
+                                    <span class="b-form__kommentar">
+                                        <span class="b-form__input b-form__kommentar">
+                                            <label for="kommentar">Kommentar</label>
+                                            <textarea id="kommentar" type="text" ng-model="vm.data.komment" tabindex="{{(vm.data.number*100)+12}}" 
+                                            class="ng-pristine ng-valid ng-touched ng-untouched ng-empty" style="height: 180px;"></textarea>
+                                        </span>
+                                    </span>
+
+            </div>
+
+        </div>
+    </div>
+    <!--ADDRESS PART END-->
+
+
+    
 
 
     <div class="b-form__group" style="display: flex;flex-wrap: wrap">
