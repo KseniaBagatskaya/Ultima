@@ -41,7 +41,7 @@
                                 <input ng-model="vm.data.storno" name="storno" id="cancellation" type="checkbox">
                             </span>
 
-            <span class="b-form__input b-form__input-middle " style="width: 12%; margin-right: 3px;"
+            <span class="b-form__input b-form__input-middle " style="width: 12%; margin-right: 10px;"
                   ng-init="vm.data.wiedervorlaget=vm.confertStringTodate(vm.data.wiedervorlage)">
                                 <label for="wiedervorlage">Wiedervorlage</label>
                                 <input ng-model="vm.data.wiedervorlaget" ng-change="vm.changeWiedervorlage($event)"
@@ -157,8 +157,8 @@
                 </div>
                 <div class="b-form__loans">
                     <label for="credit_sum">Noch benötigte Darlehen: </label>
-                    <span class="b-form__euro">
-                    <input id="credit_sum" type="text" ng-model="vm.data.credit_sum">
+                    <span ng-class="vm.data.credit_sum.length > 0 ? 'b-form__euro' : ''">
+                    <input id="credit_sum" type="text" ng-model="vm.data.credit_sum" format>
                     </span>
                 </div>
             </div>

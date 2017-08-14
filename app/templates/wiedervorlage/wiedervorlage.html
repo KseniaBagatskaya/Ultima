@@ -55,7 +55,7 @@
             <div class="cbt2-middle" style="cursor: pointer" ng-repeat="wiedervolage in vm.vorgangs track by $index" ng-click="vm.openComment(wiedervolage)">
                 <div class="cbt2-middle-top">
                     <input type="checkbox" name="">
-                    <h3>{{wiedervolage.Code}}<br>{{wiedervolage.Antragsteller1}} / {{wiedervolage.Antragsteller2}}</h3>
+                    <h3>{{wiedervolage.Code}}<br>{{wiedervolage.Antragsteller1}} <span ng-if="wiedervolage.Antragsteller2">/</span> {{wiedervolage.Antragsteller2}}</h3>
                     <span>
 							<img src="content/images/icons/circle.png">
 						</span>
