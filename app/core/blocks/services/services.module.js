@@ -11,8 +11,9 @@
         'model.banks',
         'model.wiedervorlage',
         'model.registration',
+        'model.briefvorlagen',
         'factory.save',
-        'factory.antrag'
+        'factory.antrag',
     ]);
 
 })();

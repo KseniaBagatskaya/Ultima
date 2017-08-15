@@ -19,6 +19,7 @@
         vm.banks = allBanks;
         vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
         vm.entryVorgang = JSON.parse(sessionStorage.getItem('entrie_vorgang')) || {};
+        vm.transactionId = sessionStorage.getItem('transactionId');
         vm.data = {
             datum: new Date(),
             wunsch: vm.entryVorgang.Finanzbedarf || '',

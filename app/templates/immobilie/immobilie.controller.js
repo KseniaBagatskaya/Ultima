@@ -22,6 +22,7 @@
         vm.isSubmited = false;
         vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
         $scope.$watch("vm.immobilieObject", debounce(submit, 1000), true);
+        vm.transactionId = sessionStorage.getItem('transactionId');
 
         if (immobilie_data) {
             vm.immobilieObject = immobilie_data;

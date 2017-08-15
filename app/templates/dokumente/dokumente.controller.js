@@ -15,6 +15,7 @@
         vm.addDocument = addDocument;
         vm.file = null;
         vm.userCredentials = JSON.parse(sessionStorage.getItem('user_credentials'));
+        vm.transactionId = sessionStorage.getItem('transactionId');
         vm.redirectUrl = location.href;
 
         function addDocument(e) {
