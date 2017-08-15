@@ -86,6 +86,13 @@
                 current: 0,
                 identify: 'SonstigeEinnahmen',
                 items: []
+            },
+            {
+                name: 'Mieteinnahmen',
+                max: 1,
+                current: 0,
+                identify: 'Mieteinnahmen',
+                items: []
             }
         ];
         const MENU_RIGHT = [
