@@ -553,6 +553,10 @@ textarea {
     margin-right: 10px;
 }
 
+.b-form__child-item > span > label {
+    font-weight: normal;
+}
+
 .b-form__child-item .b-form__radio {
     display: inline-block;
 }
@@ -665,6 +669,10 @@ textarea {
 
 .b-form__inline > span {
     display: inline-block;
+}
+
+.b-form__inline > span > label {
+    font-weight: normal;
 }
 
 .b-form__vert .b-form__radio {
