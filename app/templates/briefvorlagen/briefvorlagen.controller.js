@@ -11,10 +11,15 @@
     function BriefvorlagenController($scope) {
         let vm = this;
         vm.save = save;
+        vm.remove = remove;
 
 
         function save() {
 
+        }
+
+        function remove(){
+            
         }
 
     }
