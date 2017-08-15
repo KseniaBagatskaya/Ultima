@@ -16,13 +16,13 @@
                 return isNaN(result) ? 0 : result;
             },
             antragssumme: function () {
-                let result = (1 * this.darlehensbetrag) + (1 * this.restchuldversicherung) + (1 * this.vermittlungscourtage());
+                let result = Math.round((1 * this.darlehensbetrag) + (1 * this.restchuldversicherung) + (1 * this.vermittlungscourtage()));
                 return isNaN(result) ? 0 : result;
 
             },
             kreditgebuhren_nominalzins: 0,
             zinsbelastung: function () {
-                result = this.antragssumme() * this.kreditgebuhren_nominalzins / 100;
+                result = Math.round(this.antragssumme() * this.kreditgebuhren_nominalzins / 100);
                 return isNaN(result) ? 0 : result;
 
             },
