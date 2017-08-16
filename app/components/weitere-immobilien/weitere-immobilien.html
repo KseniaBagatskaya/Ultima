@@ -54,6 +54,20 @@
                                 <input name="beides" id="beides" type="radio" value="Beides" ng-model="immobilien.genutzt">
                                 <label for="beides">Beides</label>
                             </span>
+                            <span class="b-form__child-item__input-check" ng-if="immobilien.genutzt !== 'Eigennutzung'">
+                                <span class="b-form__input b-form__euro">
+                                    <label for="Mieteinnahmen">Mieteinnahmen</label>
+                                    <input id="Mieteinnahmen" type="text" ng-model="$parent.bank.mieteinnahmen" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                </span>
+                                <span class="b-form__input">
+                                    <label for="seit_wann">Seit wann</label>
+                                    <input type="date" id="seit_wann" ng-model="$parent.bank.seit_wann" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                </span>
+                                <span class="b-form__input b-form__address-long b-form__address-long-m2" ng-if="immobilien.genutzt === 'Beides'">
+                                    <label for="vermietete_wohnfläche">Vermietete Wohnfläche</label>
+                                    <input id="vermietete_wohnfläche" type="text" ng-model="$parent.bank.vermieteteWohnfläche" class="ng-pristine ng-untouched ng-valid ng-empty">
+                                </span>
+                            </span>
     </div>
     <h4 class="b-form__sub-header">
         Darlehen:<span>Sind Rechte in Abteilung III im Grundbuch vorhanden?</span></h4>
