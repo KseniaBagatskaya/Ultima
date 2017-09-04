@@ -14,6 +14,7 @@
         vm.toggle = toggle;
 
         function toggle() {
+            var elem = angular.element('body').css('overflow', 'scroll');
             vm.modal.isOpened = false;
         }
     }

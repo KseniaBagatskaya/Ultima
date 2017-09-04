@@ -69,6 +69,22 @@
 
         <div>
             <div class="eur-list">
+
+               
+                            <div class="b-buy__item b-buy__begin"
+                                 ng-init="vm.data.datum=vm.convertDateFromString(vm.data.datum)">
+                                    <span class="b-form__input">
+                                        <label for="date">Datum</label>
+                                        <input ng-model="vm.data.datum" id="date" type="date">
+                                    </span>
+                            </div>
+                            <div class="b-buy__item b-buy__bet">
+                                    <span class="b-form__input b-form__euro">
+                                        <label for="wish">Wunsch</label>
+                                        <input ng-model="vm.data.wunsch" id="wish" type="text">
+                                    </span>
+                            </div>
+
                 <div class="b-form__group-child b-form__group-child-last">
                     <span class="text-title">Gesamtprovision:</span>
                     <span class="sum">{{vm.getTotalOfGesamtprovision()}} EUR</span>

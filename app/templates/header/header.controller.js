@@ -24,6 +24,7 @@
         }
 
         function _toggleModal() {
+          var elem = angular.element('body').css('overflow', 'hidden');
             vm.modal.isOpened = !vm.modal.isOpened;
         }
 

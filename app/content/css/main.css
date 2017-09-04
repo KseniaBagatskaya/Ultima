@@ -881,7 +881,7 @@ textarea {
 .b-form__group-child span {
     display: inline-block;
     margin-right: 20px;
-    color: #8e8e8e;
+    color: #000000;
     font-size: 11px;
 }
 
@@ -1113,7 +1113,8 @@ textarea {
 }
 
 .b-buy__bet {
-    width: calc(35% - 27px);
+    width: calc(25% - 27px);
+    float: right;
 }
 
 .b-buy__bet-info {
@@ -1124,7 +1125,8 @@ textarea {
 }
 
 .b-buy__begin {
-    width: calc(35% - 27px);
+    width: calc(25% - 27px);
+    float: right;
 }
 
 .b-buy__options {
@@ -1530,9 +1532,11 @@ button:hover {
     /* A centered div above the overlay with a box shadow. */
     z-index: 10000;
     position: absolute;
+    height: 100%;
     width: 80%; /* Default */
     top: 50%;
     left: 50%;
+    overflow-y: scroll;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
